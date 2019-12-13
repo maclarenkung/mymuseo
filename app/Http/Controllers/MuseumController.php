@@ -47,7 +47,8 @@ class MuseumController extends Controller
      */
     public function show(Museum $museum)
     {
-        //
+        $museum->floors;
+        return $museum;
     }
 
     /**

@@ -38,22 +38,22 @@ export default {
           icon: "exhibition.svg",
           name: "Museum",
           route: "admin.museums"
-        },
-        {
-          icon: "exhibition.svg",
-          name: "Floor",
-          route: "admin.floors"
-        },
-        {
-          icon: "exhibition.svg",
-          name: "Room",
-          route: "admin.room"
-        },
-        {
-          icon: "exhibition.svg",
-          name: "Item",
-          route: "admin.item"
         }
+        // {
+        //   icon: "exhibition.svg",
+        //   name: "Floor",
+        //   route: "admin.floors"
+        // },
+        // {
+        //   icon: "exhibition.svg",
+        //   name: "Room",
+        //   route: "admin.room"
+        // },
+        // {
+        //   icon: "exhibition.svg",
+        //   name: "Item",
+        //   route: "admin.item"
+        // }
       ];
     }
   }

@@ -13,10 +13,7 @@ class FloorController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index(Request $request)
-    {
-        $floors = Floor::whereMuseumId($request->museum_id)->get();
-        return $floors;
-    }
+    { }
 
     /**
      * Show the form for creating a new resource.
@@ -47,7 +44,8 @@ class FloorController extends Controller
      */
     public function show(Floor $floor)
     {
-        //
+        $floor->rooms;
+        return $floor;
     }
 
     /**

@@ -1,7 +1,12 @@
 <template>
   <div>
     <div v-for="item in museums" :key="item.id">
-      {{ item.name }} <button @click="del(item.id)">del</button>
+      <router-link
+        :to="{ name: 'admin.museums.show', params: { id: item.id } }"
+      >
+        {{ item.name }}
+        <!-- <button @click="del(item.id)">del</button> -->
+      </router-link>
     </div>
     <div></div>
   </div>

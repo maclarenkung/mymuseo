@@ -10,4 +10,8 @@ class Room extends Model
     {
         return $this->belongsTo('App\Floor');
     }
+    public function items()
+    {
+        return $this->hasMany('App\Item');
+    }
 }

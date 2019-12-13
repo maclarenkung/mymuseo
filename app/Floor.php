@@ -10,4 +10,9 @@ class Floor extends Model
     {
         return $this->belongsTo('App\Museum');
     }
+
+    public function rooms()
+    {
+        return $this->hasMany('App\Room');
+    }
 }

@@ -26,10 +26,8 @@ class ItemController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
-        //
-    }
+    public function create(Request $request)
+    { }
 
     /**
      * Store a newly created resource in storage.
@@ -39,7 +37,8 @@ class ItemController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $item = Item::create($request->all());
+        return $item;
     }
 
     /**
@@ -50,7 +49,7 @@ class ItemController extends Controller
      */
     public function show(Item $item)
     {
-        //
+        return $item;
     }
 
     /**

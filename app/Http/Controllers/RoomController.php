@@ -46,7 +46,8 @@ class RoomController extends Controller
      */
     public function show(Room $room)
     {
-        //
+        $room->items;
+        return $room;
     }
 
     /**

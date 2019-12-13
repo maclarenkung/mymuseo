@@ -6,11 +6,13 @@ import App from '~/components/App';
 
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
+import Mixins from './mixins';
 
 import '~/plugins';
 import '~/components';
 
 Vue.use(ElementUI)
+Vue.mixin(Mixins)
 
 Vue.config.productionTip = false
 
