@@ -72,7 +72,8 @@ class ItemController extends Controller
      */
     public function update(Request $request, Item $item)
     {
-        //
+        $item->update($request->all());
+        return $item;
     }
 
     /**
@@ -83,6 +84,7 @@ class ItemController extends Controller
      */
     public function destroy(Item $item)
     {
-        //
+        $item->delete();
+        return 'delete success';
     }
 }

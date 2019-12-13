@@ -8,7 +8,7 @@
       </div>
     </div>
 
-    <form @submit.prevent="save" @keydown="form.onKeydown($event)">
+    <form @submit.prevent="submitForm" @keydown="form.onKeydown($event)">
       <!-- Name -->
       <div class="form-group row">
         <label class="col-md-3 col-form-label text-md-right">item_name</label>
@@ -28,13 +28,14 @@
       <div class="form-group row">
         <label class="col-md-3 col-form-label text-md-right">description</label>
         <div class="col-md-7">
-          <input
+          <textarea
             v-model="form.description"
             :class="{ 'is-invalid': form.errors.has('description') }"
             class="form-control"
             type="text"
             name="description"
-          />
+          >
+          </textarea>
           <has-error :form="form" field="description" />
         </div>
       </div>
@@ -43,7 +44,7 @@
         <div class="col-md-7 offset-md-3 d-flex">
           <!-- Submit Button -->
           <v-button :loading="form.busy">
-            save
+            {{ id ? "update" : "save" }}
           </v-button>
         </div>
       </div>
@@ -53,6 +54,7 @@
 
 <script>
 import Form from "vform";
+import { mapActions, mapGetters } from "vuex";
 
 export default {
   data: () => ({
@@ -67,11 +69,24 @@ export default {
   computed: {
     room_id() {
       return parseInt(this.$route.query.room_id);
+    },
+    ...mapGetters({
+      show: "item/show"
+    }),
+    id() {
+      return parseInt(this.$route.params.id);
     }
   },
   methods: {
     setImg(e) {
       this.image = e.target.files[0];
+    },
+    submitForm() {
+      if (this.id) {
+        this.update();
+      } else {
+        this.save();
+      }
     },
     async save() {
       this.form.image_url = await this.upImg({
@@ -88,6 +103,33 @@ export default {
           params: { id: this.room_id }
         });
       }
+    },
+    async update() {
+      if (this.image) {
+        this.form.image_url = await this.upImg({
+          image: this.image,
+          path: "items"
+        });
+      }
+      const { data } = await this.form.put(`/api/items/${this.id}`);
+
+      if (data) {
+        this.$router.push({
+          name: "admin.item.show",
+          params: { id: this.show.id }
+        });
+      }
+    },
+    ...mapActions({
+      fetch: "item/show"
+    })
+  },
+  async created() {
+    if (this.id) {
+      await this.fetch(this.id);
+      this.form.keys().forEach(key => {
+        this.form[key] = this.show[key];
+      });
     }
   }
 };
