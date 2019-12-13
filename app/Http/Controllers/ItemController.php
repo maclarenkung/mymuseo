@@ -14,7 +14,11 @@ class ItemController extends Controller
      */
     public function index()
     {
-        //
+        $items = Item::get();
+        foreach ($items as $item) {
+            $item->room->floor->museum;
+        }
+        return $items;
     }
 
     /**

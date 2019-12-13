@@ -14,7 +14,8 @@ class MuseumController extends Controller
      */
     public function index()
     {
-        //
+        $museums = Museum::get();
+        return  $museums;
     }
 
     /**
@@ -80,6 +81,7 @@ class MuseumController extends Controller
      */
     public function destroy(Museum $museum)
     {
-        //
+        $museum->delete();
+        return 'delete';
     }
 }

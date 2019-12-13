@@ -22,6 +22,11 @@ Route::group(['middleware' => 'auth:api'], function () {
 
     Route::patch('settings/profile', 'Settings\ProfileController@update');
     Route::patch('settings/password', 'Settings\PasswordController@update');
+
+    Route::resource('museums', 'MuseumController');
+    Route::resource('floors', 'FloorController');
+
+    Route::resource('items', 'ItemController');
 });
 
 Route::group(['middleware' => 'guest:api'], function () {

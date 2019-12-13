@@ -79,7 +79,5 @@ class MuseumLangController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy(MuseumLang $museumLang)
-    {
-        //
-    }
+    { }
 }
