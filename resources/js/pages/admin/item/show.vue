@@ -1,19 +1,14 @@
 <template>
   <div v-if="show" class="container">
-    <img :src="show.qrcode_url" alt="" />
+    <img :src="show.qrcode_url" alt />
     <hr />
-    <router-link
-      :to="{
+    <router-link :to="{
         name: 'admin.item.edit',
         params: { id: show.id }
-      }"
-      ><button class="btn btn-warning">
-        edit
-      </button>
+      }">
+      <button class="btn btn-warning">edit</button>
     </router-link>
-    <button class="btn btn-danger" @click="deletex(show.id)">
-      delete
-    </button>
+    <button class="btn btn-danger" @click="deletex(show.id)">delete</button>
     <hr />
     <ItemShow :item="show" />
   </div>

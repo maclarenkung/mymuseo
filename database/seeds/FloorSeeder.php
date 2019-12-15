@@ -13,11 +13,25 @@ class FloorSeeder extends Seeder
     {
         DB::table('floors')->insert([
             [
-                "name" => "muse",
+                "name" => "1P",
+                "museum_id" => 1,
+                "image_url" => "https://picsum.photos/200/300",
+                "description" => "Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim mollitia aut magni adipisci, ratione repellat accusamus nisi est aliquid dicta possimus quidem et quibusdam consectetur tempora vero hic maxime fuga?",
+            ],
+            [
+                "name" => "2P",
+                "museum_id" => 1,
+                "image_url" => "https://picsum.photos/200/300",
+                "description" => "Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim mollitia aut magni adipisci, ratione repellat accusamus nisi est aliquid dicta possimus quidem et quibusdam consectetur tempora vero hic maxime fuga?",
+            ],
+            [
+                "name" => "3P",
                 "museum_id" => 1,
                 "image_url" => "https://picsum.photos/200/300",
                 "description" => "Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim mollitia aut magni adipisci, ratione repellat accusamus nisi est aliquid dicta possimus quidem et quibusdam consectetur tempora vero hic maxime fuga?",
             ]
+
+
         ]);
     }
 }
