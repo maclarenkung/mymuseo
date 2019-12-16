@@ -109,7 +109,13 @@ export default {
       await this.$store.dispatch("auth/fetchUser");
 
       // Redirect home.
-      this.$router.push({ name: "admin.museums" });
+      if (this.user.role == 1) {
+        this.$router.push({ name: "admin.museums" });
+      } else if (this.user.role == 2) {
+        this.$router.push({ name: "customer.museums" });
+      } else {
+        this.$router.push({ name: "home" });
+      }
     }
   }
 };
