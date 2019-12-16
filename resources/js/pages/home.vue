@@ -11,16 +11,22 @@
           <MuseumCard :museum="museum" />
         </div>
       </div>
+
+      <hr />
+      <ScanQr />
     </card>
   </div>
 </template>
 
 <script>
 import MuseumCard from "~/components/Museum/Card";
+import ScanQr from "~/components/ScanQr";
+
 export default {
   middleware: "auth",
   components: {
-    MuseumCard
+    MuseumCard,
+    ScanQr
   },
   data() {
     return {

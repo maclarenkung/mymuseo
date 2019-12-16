@@ -31,6 +31,8 @@
 
 <script>
 export default {
+  middleware: "admin",
+
   computed: {
     tabs() {
       return [
