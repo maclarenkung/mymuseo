@@ -1,11 +1,18 @@
 <template>
   <div v-if="show" class="container">
     <img :src="show.qrcode_url" alt />
+    <br />
+    <a :href="`/item/${show.id}`" target="_blank" class="btn btn-primary"
+      >Open</a
+    >
+
     <hr />
-    <router-link :to="{
+    <router-link
+      :to="{
         name: 'admin.item.edit',
         params: { id: show.id }
-      }">
+      }"
+    >
       <button class="btn btn-warning">edit</button>
     </router-link>
     <button class="btn btn-danger" @click="deletex(show.id)">delete</button>

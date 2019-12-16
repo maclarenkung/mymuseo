@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Museum;
+use App\MuseumUser;
 use Illuminate\Http\Request;
 
-class MuseumController extends Controller
+class MuseumUserController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,12 +14,7 @@ class MuseumController extends Controller
      */
     public function index()
     {
-        $museums = Museum::get();
-
-        foreach ($museums as $museum) {
-            $museum->sound;
-        }
-        return  $museums;
+        //
     }
 
     /**
@@ -46,22 +41,21 @@ class MuseumController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Museum  $museum
+     * @param  \App\MuseumUser  $museumUser
      * @return \Illuminate\Http\Response
      */
-    public function show(Museum $museum)
+    public function show(MuseumUser $museumUser)
     {
-        $museum->floors;
-        return $museum;
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Museum  $museum
+     * @param  \App\MuseumUser  $museumUser
      * @return \Illuminate\Http\Response
      */
-    public function edit(Museum $museum)
+    public function edit(MuseumUser $museumUser)
     {
         //
     }
@@ -70,10 +64,10 @@ class MuseumController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Museum  $museum
+     * @param  \App\MuseumUser  $museumUser
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Museum $museum)
+    public function update(Request $request, MuseumUser $museumUser)
     {
         //
     }
@@ -81,12 +75,11 @@ class MuseumController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Museum  $museum
+     * @param  \App\MuseumUser  $museumUser
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Museum $museum)
+    public function destroy(MuseumUser $museumUser)
     {
-        $museum->delete();
-        return 'delete';
+        //
     }
 }

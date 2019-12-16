@@ -21,6 +21,6 @@ class Item extends Model
 
     public function sound()
     {
-        return $this->hasOne('App\SoundLang', 'relation_id', 'id');
+        return $this->hasOne('App\SoundLang', 'relation_id', 'id')->whereModel('App\Item');
     }
 }

@@ -24,7 +24,7 @@ class UserSeeder extends Seeder
                 "name" => "customer",
                 "email" => "customer@mymuse.com",
                 "password" => bcrypt('123456'),
-                "role" => 0,
+                "role" => 2,
             ],
         ]);
     }
