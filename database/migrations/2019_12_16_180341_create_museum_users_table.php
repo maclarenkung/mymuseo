@@ -14,9 +14,20 @@ class CreateMuseumUsersTable extends Migration
     public function up()
     {
         Schema::create('museum_users', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->bigInteger('user_id');
-            $table->bigInteger('museum_id');
+            // $table->bigIncrements('id');
+            $table->primary(['user_id', 'museum_id']);
+            $table->bigInteger('user_id')->unsigned();
+
+            $table->foreign('user_id')
+                ->references('id')
+                ->on('users')
+                ->onDelete('cascade');
+            $table->bigInteger('museum_id')->unsigned();
+
+            $table->foreign('museum_id')
+                ->references('id')
+                ->on('museums')
+                ->onDelete('cascade');
             $table->timestamps();
         });
     }

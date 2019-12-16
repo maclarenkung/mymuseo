@@ -31,7 +31,7 @@
 
 <script>
 export default {
-  middleware: "admin",
+  middleware: "auth",
 
   computed: {
     tabs() {
@@ -39,7 +39,7 @@ export default {
         {
           icon: "exhibition.svg",
           name: "Museum",
-          route: "admin.museums"
+          route: "customer.museums"
         }
         // {
         //   icon: "exhibition.svg",

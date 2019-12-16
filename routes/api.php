@@ -27,6 +27,8 @@ Route::group(['middleware' => 'auth:api'], function () {
     Route::resource('floors', 'FloorController');
     Route::resource('rooms', 'RoomController');
     Route::resource('items', 'ItemController');
+
+    Route::resource('customer/museums', 'CustomerMuseumController');
 });
 
 Route::group(['middleware' => 'guest:api'], function () {

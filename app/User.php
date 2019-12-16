@@ -56,7 +56,7 @@ class User extends Authenticatable implements JWTSubject //, MustVerifyEmail
      */
     public function getPhotoUrlAttribute()
     {
-        return 'https://www.gravatar.com/avatar/'.md5(strtolower($this->email)).'.jpg?s=200&d=mm';
+        return 'https://www.gravatar.com/avatar/' . md5(strtolower($this->email)) . '.jpg?s=200&d=mm';
     }
 
     /**
@@ -96,6 +96,11 @@ class User extends Authenticatable implements JWTSubject //, MustVerifyEmail
     public function getJWTIdentifier()
     {
         return $this->getKey();
+    }
+
+    public function museums()
+    {
+        return $this->belongsToMany('App\Museum', 'museum_users', 'user_id', 'museum_id');
     }
 
     /**
