@@ -15,4 +15,13 @@ class UploadController extends Controller
         $request->image->move(public_path('uploads/images/' . $request->path), $imageName);
         return $set;
     }
+    public function uploadFile(Request $request)
+    {
+        $file = $request->file;
+        $filename = time() . $file->getClientOriginalName();
+        $path = '/uploads/files';
+        $file->move(public_path($path), $filename);
+        $set = '/uploads/files/' . $filename;
+        return $set;
+    }
 }

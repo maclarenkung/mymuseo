@@ -44,3 +44,4 @@ Route::group(['middleware' => 'guest:api'], function () {
 });
 
 Route::post('uploadImage', 'UploadController@uploadImage');
+Route::post('uploadFile', 'UploadController@uploadFile');

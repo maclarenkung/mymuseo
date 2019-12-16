@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Item;
+use App\SoundLang;
+
 use Illuminate\Http\Request;
 
 class ItemController extends Controller
@@ -37,7 +39,14 @@ class ItemController extends Controller
      */
     public function store(Request $request)
     {
+
         $item = Item::create($request->all());
+        $soundLang = SoundLang::create([
+            "model" =>  "App\Item",
+            "relation_id" => $item->id,
+            "lang_id" => 1,
+            "file_url" => $request->file_url
+        ]);
         return $item;
     }
 
@@ -49,6 +58,7 @@ class ItemController extends Controller
      */
     public function show(Item $item)
     {
+        $item->sound;
         return $item;
     }
 

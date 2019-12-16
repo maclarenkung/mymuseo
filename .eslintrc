@@ -1,15 +1,8 @@
-{
-  "root": true,
-  "parserOptions": {
-    "parser": "babel-eslint",
-    "ecmaVersion": 2017,
-    "sourceType": "module"
-  },
-  "extends": [
-    "plugin:vue/recommended",
-    "standard"
-  ],
-  "rules": {
-    "vue/max-attributes-per-line": "off"
-  }
-}
+module.exports = {
+    "root": true,
+    "extends": [
+        "plugin:vue/essential",
+        "plugin:prettier/recommended",
+        "eslint:recommended"
+    ]
+})

@@ -3,8 +3,16 @@
     <div class="form-group row">
       <label class="col-md-3 col-form-label text-md-right">รูปภาพ</label>
       <div class="col-md-7">
-        <input @change="setImg" class="form-control" type="file" name="image" />
+        <input class="form-control" type="file" name="image" @change="setImg" />
         <has-error :form="form" field="image" />
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label class="col-md-3 col-form-label text-md-right">เสียง</label>
+      <div class="col-md-7">
+        <input class="form-control" type="file" name="image" @change="setFile" />
+        <has-error :form="form" field="file" />
       </div>
     </div>
 
@@ -34,8 +42,7 @@
             class="form-control"
             type="text"
             name="description"
-          >
-          </textarea>
+          />
           <has-error :form="form" field="description" />
         </div>
       </div>
@@ -43,9 +50,7 @@
       <div class="form-group row">
         <div class="col-md-7 offset-md-3 d-flex">
           <!-- Submit Button -->
-          <v-button :loading="form.busy">
-            {{ id ? "update" : "save" }}
-          </v-button>
+          <v-button :loading="form.busy">{{ id ? "update" : "save" }}</v-button>
         </div>
       </div>
     </form>
@@ -62,9 +67,11 @@ export default {
       room_id: "",
       name: "",
       description: "",
-      image_url: ""
+      image_url: "",
+      file_url: ""
     }),
-    image: ""
+    image: "",
+    file: ""
   }),
   computed: {
     room_id() {
@@ -81,6 +88,9 @@ export default {
     setImg(e) {
       this.image = e.target.files[0];
     },
+    setFile(e) {
+      this.file = e.target.files[0];
+    },
     submitForm() {
       if (this.id) {
         this.update();
@@ -93,6 +103,12 @@ export default {
         image: this.image,
         path: "items"
       });
+
+      this.form.file_url = await this.uploadFile({
+        file: this.file,
+        path: "items"
+      });
+
       this.form.room_id = this.room_id;
 
       const { data } = await this.form.post("/api/items");

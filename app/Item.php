@@ -18,4 +18,9 @@ class Item extends Model
     {
         return 'https://api.qrserver.com/v1/create-qr-code/?data=' . request()->root() . '/item/' . $this->id;
     }
+
+    public function sound()
+    {
+        return $this->hasOne('App\SoundLang', 'relation_id', 'id');
+    }
 }
