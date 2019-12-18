@@ -28,7 +28,7 @@
       <div class="row">
         <div class="col-md-10 offset-2">
           <transition name="fade" mode="out-in">
-            <div class="card p-3">Museum</div>
+            <div class="card p-3" style="color:#305A9A">Museum</div>
           </transition>
         </div>
       </div>
@@ -54,9 +54,15 @@
                   <a href="#">Trashed</a>
                   <hr />
                   <h5>Status</h5>
-                  <p>Active</p>
-                  <p>Payment</p>
-                  <p>Expired</p>
+                  <h5 class="a">
+                    <li>Active</li>
+                  </h5>
+                  <h5 class="b">
+                    <li>Payment</li>
+                  </h5>
+                  <h5 class="c">
+                    <li>Expired</li>
+                  </h5>
                 </div>
               </div>
 
@@ -148,6 +154,15 @@ export default {
 
 
 <style lang="scss">
+.a {
+  color: #2dcd7a;
+}
+.b {
+  color: #ffc107;
+}
+.c {
+  color: #ed5f5f;
+}
 #sidebar1 {
   background-color: #9cc3ff;
 }

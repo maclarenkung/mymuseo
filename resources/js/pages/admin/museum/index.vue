@@ -30,7 +30,9 @@
         <td>
           <div v-for="item in museums" :key="item.id">
             <router-link :to="{ name: 'admin.museums.show', params: { id: item.id } }">
-              <p class="btn btn-light">Active</p>
+              <h6 class="btn btn-light actives">
+                <li>Active</li>
+              </h6>
               <!-- <button @click="del(item.id)">del</button> -->
             </router-link>
           </div>
@@ -61,4 +63,11 @@ export default {
 };
 </script>
 
-<style></style>
+<style lang="scss">
+.actives {
+  color: #2dcd7a;
+}
+th {
+  color: #305a9a;
+}
+</style>
