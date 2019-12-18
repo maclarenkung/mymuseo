@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
-    <div class="w3-sidebar w3-bar-block" style="width:15%" id="sidebar1">
+    <div class="w3-sidebar w3-bar-block" style="width:10%" id="sidebar1">
       <h3 class="w3-bar-item" style="color:white;">Manage</h3>
       <ul class="nav flex-column nav-pills" id="ab">
         <li v-for="tab in tabs" :key="tab.route" class="nav-item">
@@ -24,21 +24,54 @@
         </li>
       </ul>
     </div>
-
     <div class="w3-container">
       <div class="row">
-        <div class="col-md-9 offset-3">
+        <div class="col-md-10 offset-2">
+          <transition name="fade" mode="out-in">
+            <div class="card p-3">Museum</div>
+          </transition>
+        </div>
+      </div>
+    </div>
+    <div class="w3-container mt-3">
+      <div class="row">
+        <div class="col-md-10 offset-2">
           <transition name="fade" mode="out-in">
             <div class="card p-3">
-              <router-view />
+              <div class="w3-sidebar" style="width:8%; height:auto!important">
+                <h5 class="w3-bar-item">
+                  <button id="createbtn">Create Museum</button>
+                </h5>
+                <div class="mt-4">
+                  <h5 class>All</h5>
+                  <input type="checkbox" name="vehicle1" value="Bike" class="mb-3" /> Active
+                  <br />
+                  <input type="checkbox" name="vehicle2" value="Car" class="mb-3" /> Expired
+                  <br />
+                  <input type="checkbox" name="vehicle3" value="Boat" class="mb-3" /> Payment
+                  <br />
+                  <hr />
+                  <a href="#">Trashed</a>
+                  <hr />
+                  <h5>Status</h5>
+                  <p>Active</p>
+                  <p>Payment</p>
+                  <p>Expired</p>
+                </div>
+              </div>
+
+              <!-- Page Content -->
+              <div style="margin-left:20%">
+                <router-view />
+              </div>
             </div>
           </transition>
         </div>
       </div>
     </div>
-    <div class="row">
-      <div class="col-md-3">
-        <!-- <card title="Manage" class="settings-card">
+    <!-- <div class="row">
+    <div class="col-md-3">-->
+    <!-- <card title="Manage" class="settings-card">
           <ul class="nav flex-column nav-pills">
             <li v-for="tab in tabs" :key="tab.route" class="nav-item">
               <router-link :to="{ name: tab.route }" class="nav-link" active-class="active">
@@ -59,25 +92,25 @@
               </router-link>
             </li>
           </ul>
-        </card>-->
-      </div>
+    </card>-->
+    <!-- </div> -->
 
-      <!-- <div class="col-md-9">
+    <!-- <div class="col-md-9">
         <transition name="fade" mode="out-in">
           <div class="card p-3">
             <router-view />
           </div>
         </transition>
-      </div>-->
-      <!-- <div class="col-md-9 offset-3">
+    </div>-->
+    <!-- <div class="col-md-9 offset-3">
         <transition name="fade" mode="out-in">
           <div class="card p-3">
             <router-view />
           </div>
         </transition>
-      </div>-->
-    </div>
+    </div>-->
   </div>
+  <!-- </div> -->
 </template>
 
 <script>
@@ -126,6 +159,12 @@ export default {
   min-width: 80px;
   max-width: 80px;
   text-align: center;
+}
+#createbtn {
+  border-radius: 99px;
+  border-color: #305a9a;
+  height: 40px;
+  color: #305a9a;
 }
 
 /* Toggling the sidebar header content, hide the big heading [h3] and showing the small heading [strong] and vice versa*/

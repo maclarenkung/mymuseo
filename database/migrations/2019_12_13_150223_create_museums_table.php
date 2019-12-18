@@ -22,6 +22,10 @@ class CreateMuseumsTable extends Migration
             $table->string('website_url');
             $table->string('image_url');
             $table->text('description');
+            $table->string('facebook');
+            $table->string('instagram');
+            $table->string('language');
+            $table->string('expried_date');
             $table->timestamps();
         });
     }
