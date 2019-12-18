@@ -3,10 +3,7 @@
     <img src="https://picsum.photos/536/354" class="card-img-top" alt="..." />
     <div class="card-body">
       <h5 class="card-title">{{ museum.name }}</h5>
-      <p class="card-text">
-        {{ museum.des }}
-      </p>
-      <a href="#" class="btn btn-primary">Go somewhere</a>
+      <p class="card-text">{{ museum.des }}</p>
     </div>
   </div>
 </template>

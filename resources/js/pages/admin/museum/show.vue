@@ -2,11 +2,9 @@
   <div>
     <h2>{{ show.name }}</h2>
     <hr />
-    <a :href="show.address_url" target="_blank" rel="noopener noreferrer"
-      >Google Map</a
-    >
+    <a :href="show.address_url" target="_blank" rel="noopener noreferrer">Google Map</a>
 
-    <div class="card p-3">
+    <!-- <div class="card p-3">
       <h6>Floor</h6>
       <div v-for="floor in show.floors" :key="floor.id">
         <router-link
@@ -15,7 +13,7 @@
           {{ floor.name }}
         </router-link>
       </div>
-    </div>
+    </div>-->
   </div>
 </template>
 

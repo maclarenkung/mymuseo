@@ -3,11 +3,7 @@
     <card :title="$t('home')">
       {{ $t("you_are_logged_in") }}
       <div class="row">
-        <div
-          v-for="(museum, index) in museums"
-          :key="index"
-          class="col-md-4 mt-2"
-        >
+        <div v-for="(museum, index) in museums" :key="index" class="col-md-4 mt-2">
           <MuseumCard :museum="museum" />
         </div>
       </div>

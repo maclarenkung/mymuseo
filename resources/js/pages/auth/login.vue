@@ -1,72 +1,72 @@
 <template>
   <div class="row">
-    <div class="col-lg-8 m-auto">
-      <card :title="$t('login')">
-        <form @submit.prevent="login" @keydown="form.onKeydown($event)">
-          <!-- Email -->
-          <div class="form-group row">
-            <label class="col-md-3 col-form-label text-md-right">{{
-              $t("email")
-            }}</label>
-            <div class="col-md-7">
-              <input
-                v-model="form.email"
-                :class="{ 'is-invalid': form.errors.has('email') }"
-                class="form-control"
-                type="email"
-                name="email"
-              />
-              <has-error :form="form" field="email" />
+    <div class="col-lg-10 m-auto">
+      <div class="row">
+        <div class="col-8" id="frame-login">
+          <h1>WELCOME TO MINDMUSE</h1>
+          <button class="button1">SIGN UP</button>
+        </div>
+        <div class="col-4" id="frame-login2">
+          <h1>LOGIN</h1>
+
+          <form @submit.prevent="login" @keydown="form.onKeydown($event)">
+            <!-- Email -->
+            <div class="form-group row">
+              <div class="col-md-8 offset-md-2 d-flex">
+                <input
+                  placeholder="Email"
+                  id="input"
+                  v-model="form.email"
+                  :class="{ 'is-invalid': form.errors.has('email') }"
+                  class="form-control"
+                  type="email"
+                  name="email"
+                />
+                <has-error :form="form" field="email" />
+              </div>
             </div>
-          </div>
 
-          <!-- Password -->
-          <div class="form-group row">
-            <label class="col-md-3 col-form-label text-md-right">{{
-              $t("password")
-            }}</label>
-            <div class="col-md-7">
-              <input
-                v-model="form.password"
-                :class="{ 'is-invalid': form.errors.has('password') }"
-                class="form-control"
-                type="password"
-                name="password"
-              />
-              <has-error :form="form" field="password" />
+            <!-- Password -->
+            <div class="form-group row">
+              <div class="col-md-8 offset-md-2 d-flex">
+                <input
+                  id="input"
+                  placeholder="Password"
+                  v-model="form.password"
+                  :class="{ 'is-invalid': form.errors.has('password') }"
+                  class="form-control"
+                  type="password"
+                  name="password"
+                />
+                <has-error :form="form" field="password" />
+              </div>
             </div>
-          </div>
 
-          <!-- Remember Me -->
-          <div class="form-group row">
-            <div class="col-md-3" />
-            <div class="col-md-7 d-flex">
-              <checkbox v-model="remember" name="remember">
-                {{ $t("remember_me") }}
-              </checkbox>
+            <!-- Remember Me -->
+            <!-- <div class="form-group row">
+              <div class="col-md-3" />
+              <div class="col-md-7 d-flex">
+                <checkbox v-model="remember" name="remember">{{ $t("remember_me") }}</checkbox>
 
-              <router-link
-                :to="{ name: 'password.request' }"
-                class="small ml-auto my-auto"
-              >
-                {{ $t("forgot_password") }}
-              </router-link>
+                <router-link
+                  :to="{ name: 'password.request' }"
+                  class="small ml-auto my-auto"
+                >{{ $t("forgot_password") }}</router-link>
+              </div>
+            </div>-->
+
+            <div class="form-group row">
+              <div class="col-md-8 offset-md-2 d-flex">
+                <!-- Submit Button -->
+                <v-button :loading="form.busy" id="input2">{{ $t("login") }}</v-button>
+
+                <!-- GitHub Login Button -->
+                <login-with-github />
+              </div>
             </div>
-          </div>
-
-          <div class="form-group row">
-            <div class="col-md-7 offset-md-3 d-flex">
-              <!-- Submit Button -->
-              <v-button :loading="form.busy">
-                {{ $t("login") }}
-              </v-button>
-
-              <!-- GitHub Login Button -->
-              <login-with-github />
-            </div>
-          </div>
-        </form>
-      </card>
+          </form>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -120,3 +120,51 @@ export default {
   }
 };
 </script>
+<style lang="scss" >
+#frame-login {
+  height: 750;
+  background-color: #9cc3ff;
+}
+#frame-login2 {
+  height: 750px;
+  background-color: white;
+}
+#frame-login h1 {
+  margin-left: 10%;
+  bottom: 40%;
+  position: absolute;
+  color: white;
+}
+#frame-login button {
+  width: 120px;
+  margin-left: 10%;
+  bottom: 10%;
+  position: absolute;
+  color: white;
+}
+.button1 {
+  border-radius: 99px;
+  border-color: white;
+  background-color: #9cc3ff;
+}
+#frame-login2 h1 {
+  text-align: center;
+  margin-top: 50%;
+  color: black;
+  margin-bottom: 40px;
+}
+#input {
+  border-radius: 99px;
+  margin-bottom: 10px;
+  // background-image: url(https://image.flaticon.com/icons/png/512/481/481659.png);
+  background-position: 0 50%;
+  background-repeat: no-repeat;
+  text-indent: 30px;
+}
+#input2 {
+  background-color: #305a9a;
+  border-radius: 99px;
+  width: 100%;
+}
+</style>
+
