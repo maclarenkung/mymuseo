@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
     <div class="w3-sidebar w3-bar-block" style id="sidebar1">
       <h3 class="w3-bar-item" style="color:white;">Manage</h3>
@@ -10,15 +10,15 @@
             {{ tab.name }}
           </router-link>
         </li>
-        <li v-for="tab in tabs" :key="tab.route" class="nav-item">
-          <router-link :to="{ name: tab.route }" class="nav-link">
-            <img :src="'/icon/' + tab.icon" alt width="24" />
+        <li class="nav-item">
+          <router-link to="{ name: admin.user }" class="nav-link">
+            <img :src="'/icon/user.png'" alt width="24" />
             User
           </router-link>
         </li>
-        <li v-for="tab in tabs" :key="tab.route" class="nav-item">
-          <router-link :to="{ name: tab.route }" class="nav-link">
-            <img :src="'/icon/' + tab.icon" alt width="24" />
+        <li class="nav-item">
+          <router-link to="{ name: admin.user.log }" class="nav-link">
+            <img :src="'/icon/info.png'" alt width="24" />
             User Log
           </router-link>
         </li>
@@ -34,50 +34,54 @@
       </div>
     </div>
     <div class="col-md-10 offset-2">
-      <div class="w3 mt-3">
-        <div class="row">
-          <div class="col-md-2" style="padding-right: 0px!important;">
-            <div class="card p-3">
-              <button id="createbtn">Create Museum</button>
-
-              <div class="mt-4">
-                <h5 class>All</h5>
-                <input type="checkbox" name="vehicle1" value="Bike" class="mb-3" /> Active
-                <br />
-                <input type="checkbox" name="vehicle2" value="Car" class="mb-3" /> Expired
-                <br />
-                <input type="checkbox" name="vehicle3" value="Boat" class="mb-3" /> Payment
-                <br />
-                <hr />
-                <a href="#">Trashed</a>
-                <hr />
-
-                <h5>Status</h5>
-                <h5 class="a">
-                  <li>Active</li>
-                </h5>
-                <h5 class="b">
-                  <li>Payment</li>
-                </h5>
-                <h5 class="c">
-                  <li>Expired</li>
-                </h5>
-              </div>
-            </div>
-          </div>
-          <!-- <div class="w3-sidebar col-md-4" style=" height:auto!important">
-            <h5 class="w3-bar-item">
-
-          </div>-->
-          <div class="col-md-10" style="padding-left: 0px!important;">
-            <transition name="fade" mode="out-in">
+      <div class="card">
+        <div class="w3 mt-3">
+          <div class="row">
+            <div class="col-md-2" style="padding-right: 0px!important;">
               <div class="card p-3">
-                <!-- Page Content -->
-                <div>
-                  <router-view />
+                <button id="createbtn">Create Museum</button>
+
+                <div class="mt-4">
+                  <h5 class>All</h5>
+                  <input type="checkbox" name="vehicle1" value="Bike" class="mb-3" /> Active
+                  <br />
+                  <input type="checkbox" name="vehicle2" value="Car" class="mb-3" /> Expired
+                  <br />
+                  <input type="checkbox" name="vehicle3" value="Boat" class="mb-3" /> Payment
+                  <br />
+                  <hr />
+                  <a href="#">Trashed</a>
+                  <hr />
+
+                  <h5>Status</h5>
+                  <h5 class="a">
+                    <li>Active</li>
+                  </h5>
+                  <h5 class="b">
+                    <li>Payment</li>
+                  </h5>
+                  <h5 class="c">
+                    <li>Expired</li>
+                  </h5>
                 </div>
               </div>
-            </transition>
+            </div>
+            <!-- <div class="w3-sidebar col-md-4" style=" height:auto!important">
+            <h5 class="w3-bar-item">
+
+            </div>-->
+            <div class="col-md-10" style="padding-left: 0px!important;">
+              <div class>
+                <transition name="fade" mode="out-in">
+                  <div class="card p-3 ml-1" style="overflow-y:scroll;" :style="`height:750px`">
+                    <!-- Page Content -->
+                    <div>
+                      <router-view />
+                    </div>
+                  </div>
+                </transition>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -135,7 +139,7 @@ export default {
     tabs() {
       return [
         {
-          icon: "exhibition.svg",
+          icon: "exhibition-w.png",
           name: "Museum",
           route: "admin.museums"
         }
@@ -172,7 +176,8 @@ export default {
   color: #ed5f5f;
 }
 #sidebar1 {
-  background-color: #9cc3ff;
+  background-color: #1a69e4;
+  color: #fff;
 }
 #ab {
   margin-left: 35px;

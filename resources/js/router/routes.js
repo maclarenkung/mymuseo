@@ -6,9 +6,9 @@ function page(path) {
 }
 
 export default [
-  { path: "/", name: "welcome", component: page("welcome.vue") },
+  // { path: "/", name: "welcome", component: page("welcome.vue") },
 
-  { path: "/login", name: "login", component: page("auth/login.vue") },
+  { path: "/", name: "login", component: page("auth/login.vue") },
   { path: "/register", name: "register", component: page("auth/register.vue") },
   {
     path: "/password/reset",

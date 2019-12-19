@@ -1,8 +1,8 @@
 <template>
   <div class="main-layout">
-    <navbar />
+    <navbar v-if="user" />
 
-    <div class="mt-4">
+    <div>
       <child />
     </div>
   </div>
@@ -19,3 +19,28 @@ export default {
   }
 };
 </script>
+
+<style lang="scss">
+.mm-table {
+  .label {
+    color: #305a9a;
+    min-width: 200px;
+    padding: 10px 0;
+    padding-right: 20px;
+  }
+  .text {
+    color: #424242;
+  }
+  .btnlang {
+    border: none;
+    border-radius: 5px;
+    outline: none;
+    // padding: 10px 16px;
+    // background-color: #c9def7;
+    cursor: pointer;
+  }
+  .btnlang img {
+    width: 38px;
+  }
+}
+</style>

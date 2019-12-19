@@ -1,49 +1,49 @@
 <template>
   <div class="row">
-    <div class="col-lg-10 m-auto">
-      <div class="row">
-        <div class="col-8" id="frame-login">
-          <h1>WELCOME TO MINDMUSE</h1>
-          <button class="button1">SIGN UP</button>
+    <div class="col col-12 col-md-8" id="frame-login">
+      <h1>WELCOME TO MINDMUSE</h1>
+      <router-link to="/register" class="btn">
+        <button class="button1">SIGN UP</button>
+      </router-link>
+    </div>
+    <div class="col col-12 col-md-4" id="frame-login2">
+      <h1>LOGIN</h1>
+
+      <form @submit.prevent="login" @keydown="form.onKeydown($event)">
+        <!-- Email -->
+        <div class="form-group row">
+          <div class="col-md-8 offset-md-2 d-flex">
+            <input
+              placeholder="Email"
+              id="input"
+              v-model="form.email"
+              :class="{ 'is-invalid': form.errors.has('email') }"
+              class="form-control"
+              type="email"
+              name="email"
+            />
+            <has-error :form="form" field="email" />
+          </div>
         </div>
-        <div class="col-4" id="frame-login2">
-          <h1>LOGIN</h1>
 
-          <form @submit.prevent="login" @keydown="form.onKeydown($event)">
-            <!-- Email -->
-            <div class="form-group row">
-              <div class="col-md-8 offset-md-2 d-flex">
-                <input
-                  placeholder="Email"
-                  id="input"
-                  v-model="form.email"
-                  :class="{ 'is-invalid': form.errors.has('email') }"
-                  class="form-control"
-                  type="email"
-                  name="email"
-                />
-                <has-error :form="form" field="email" />
-              </div>
-            </div>
+        <!-- Password -->
+        <div class="form-group row">
+          <div class="col-md-8 offset-md-2 d-flex">
+            <input
+              id="input"
+              placeholder="Password"
+              v-model="form.password"
+              :class="{ 'is-invalid': form.errors.has('password') }"
+              class="form-control"
+              type="password"
+              name="password"
+            />
+            <has-error :form="form" field="password" />
+          </div>
+        </div>
 
-            <!-- Password -->
-            <div class="form-group row">
-              <div class="col-md-8 offset-md-2 d-flex">
-                <input
-                  id="input"
-                  placeholder="Password"
-                  v-model="form.password"
-                  :class="{ 'is-invalid': form.errors.has('password') }"
-                  class="form-control"
-                  type="password"
-                  name="password"
-                />
-                <has-error :form="form" field="password" />
-              </div>
-            </div>
-
-            <!-- Remember Me -->
-            <!-- <div class="form-group row">
+        <!-- Remember Me -->
+        <!-- <div class="form-group row">
               <div class="col-md-3" />
               <div class="col-md-7 d-flex">
                 <checkbox v-model="remember" name="remember">{{ $t("remember_me") }}</checkbox>
@@ -53,20 +53,18 @@
                   class="small ml-auto my-auto"
                 >{{ $t("forgot_password") }}</router-link>
               </div>
-            </div>-->
+        </div>-->
 
-            <div class="form-group row">
-              <div class="col-md-8 offset-md-2 d-flex">
-                <!-- Submit Button -->
-                <v-button :loading="form.busy" id="input2">{{ $t("login") }}</v-button>
+        <div class="form-group row">
+          <div class="col-md-8 offset-md-2 d-flex">
+            <!-- Submit Button -->
+            <v-button :loading="form.busy" id="input2">{{ $t("login") }}</v-button>
 
-                <!-- GitHub Login Button -->
-                <login-with-github />
-              </div>
-            </div>
-          </form>
+            <!-- GitHub Login Button -->
+            <login-with-github />
+          </div>
         </div>
-      </div>
+      </form>
     </div>
   </div>
 </template>
@@ -120,10 +118,10 @@ export default {
   }
 };
 </script>
-<style lang="scss" >
+<style lang="scss" scoped>
 #frame-login {
-  height: 750;
-  background-color: #9cc3ff;
+  height: 750px;
+  background-color: #1a69e4;
 }
 #frame-login2 {
   height: 750px;
@@ -145,11 +143,11 @@ export default {
 .button1 {
   border-radius: 99px;
   border-color: white;
-  background-color: #9cc3ff;
+  background-color: #1a69e4;
 }
 #frame-login2 h1 {
   text-align: center;
-  margin-top: 50%;
+  margin-top: 20%;
   color: black;
   margin-bottom: 40px;
 }
