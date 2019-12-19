@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
-    <div class="w3-sidebar w3-bar-block" style="width:10%" id="sidebar1">
+    <div class="w3-sidebar w3-bar-block" style id="sidebar1">
       <h3 class="w3-bar-item" style="color:white;">Manage</h3>
       <ul class="nav flex-column nav-pills" id="ab">
         <li v-for="tab in tabs" :key="tab.route" class="nav-item">
@@ -33,48 +33,56 @@
         </div>
       </div>
     </div>
-    <div class="w3-container mt-3">
-      <div class="row">
-        <div class="col-md-10 offset-2">
-          <transition name="fade" mode="out-in">
+    <div class="col-md-10 offset-2">
+      <div class="w3 mt-3">
+        <div class="row">
+          <div class="col-md-2" style="padding-right: 0px!important;">
             <div class="card p-3">
-              <div class="w3-sidebar" style="width:8%; height:auto!important">
-                <h5 class="w3-bar-item">
-                  <button id="createbtn">Create Museum</button>
-                </h5>
-                <div class="mt-4">
-                  <h5 class>All</h5>
-                  <input type="checkbox" name="vehicle1" value="Bike" class="mb-3" /> Active
-                  <br />
-                  <input type="checkbox" name="vehicle2" value="Car" class="mb-3" /> Expired
-                  <br />
-                  <input type="checkbox" name="vehicle3" value="Boat" class="mb-3" /> Payment
-                  <br />
-                  <hr />
-                  <a href="#">Trashed</a>
-                  <hr />
-                  <h5>Status</h5>
-                  <h5 class="a">
-                    <li>Active</li>
-                  </h5>
-                  <h5 class="b">
-                    <li>Payment</li>
-                  </h5>
-                  <h5 class="c">
-                    <li>Expired</li>
-                  </h5>
-                </div>
-              </div>
+              <button id="createbtn">Create Museum</button>
 
-              <!-- Page Content -->
-              <div style="margin-left:20%">
-                <router-view />
+              <div class="mt-4">
+                <h5 class>All</h5>
+                <input type="checkbox" name="vehicle1" value="Bike" class="mb-3" /> Active
+                <br />
+                <input type="checkbox" name="vehicle2" value="Car" class="mb-3" /> Expired
+                <br />
+                <input type="checkbox" name="vehicle3" value="Boat" class="mb-3" /> Payment
+                <br />
+                <hr />
+                <a href="#">Trashed</a>
+                <hr />
+
+                <h5>Status</h5>
+                <h5 class="a">
+                  <li>Active</li>
+                </h5>
+                <h5 class="b">
+                  <li>Payment</li>
+                </h5>
+                <h5 class="c">
+                  <li>Expired</li>
+                </h5>
               </div>
             </div>
-          </transition>
+          </div>
+          <!-- <div class="w3-sidebar col-md-4" style=" height:auto!important">
+            <h5 class="w3-bar-item">
+
+          </div>-->
+          <div class="col-md-10" style="padding-left: 0px!important;">
+            <transition name="fade" mode="out-in">
+              <div class="card p-3">
+                <!-- Page Content -->
+                <div>
+                  <router-view />
+                </div>
+              </div>
+            </transition>
+          </div>
         </div>
       </div>
     </div>
+
     <!-- <div class="row">
     <div class="col-md-3">-->
     <!-- <card title="Manage" class="settings-card">
@@ -180,6 +188,7 @@ export default {
   border-color: #305a9a;
   height: 40px;
   color: #305a9a;
+  font-size: 10px;
 }
 
 /* Toggling the sidebar header content, hide the big heading [h3] and showing the small heading [strong] and vice versa*/

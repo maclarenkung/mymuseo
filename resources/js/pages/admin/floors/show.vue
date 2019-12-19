@@ -4,11 +4,8 @@
     <hr />
 
     <div class="card p-3">
-      <h6>Room</h6>
       <div v-for="room in show.rooms" :key="room.id">
-        <router-link :to="{ name: 'admin.room.show', params: { id: room.id } }">
-          {{ room.name }}
-        </router-link>
+        <router-link :to="{ name: 'admin.room.show', params: { id: room.id } }">{{ room.name }}</router-link>
       </div>
     </div>
   </div>
