@@ -5,16 +5,24 @@
         <img src="https://sv1.picz.in.th/images/2019/12/18/i6x4A9.png" class="Path-61" />
       </div>
       <div class="Path-53">
-        <div class="lang">
-          <button class>
-            <img src="https://sv1.picz.in.th/images/2019/12/19/iniVWR.png" class="Image-22" />
-          </button>
-          <button class="btnlang">
-            <img src="https://sv1.picz.in.th/images/2019/12/19/inirxz.png" class="Image-22" />
-          </button>
-          <button class="btnlang">
-            <img src="https://sv1.picz.in.th/images/2019/12/19/inipeZ.png" class="Image-22" />
-          </button>
+        <div class="col-12" style="margin: auto;">
+          <div class="row">
+            <div class="col-4"></div>
+            <div class="col-4">
+              <div class="row">
+                <div>
+                  <img src="https://sv1.picz.in.th/images/2019/12/19/iniVWR.png" class="Image-22" />
+                </div>
+                <div style="margin-left: 13px;">
+                  <img src="https://sv1.picz.in.th/images/2019/12/19/inirxz.png" class="Image-22" />
+                </div>
+                <div style="margin-left: 13px;">
+                  <img src="https://sv1.picz.in.th/images/2019/12/19/inipeZ.png" class="Image-22" />
+                </div>
+              </div>
+            </div>
+            <div class="col-4"></div>
+          </div>
         </div>
         <div class="col-12 justify-content-md-center">
           <div class="col-3 justify-content-md-center" style="margin: auto;">
@@ -381,37 +389,6 @@ export default {
     padding-left: 0px;
     padding-right: 0px;
   }
-}
-#logo-mobile {
-  text-align: center;
-}
-.box {
-  height: 800px;
-  background-color: #c9def7;
-}
-.btnlang {
-  border: none;
-  border-radius: 5px;
-  outline: none;
-  // padding: 10px 16px;
-  margin-top: 40px;
-  background-color: #c9def7;
-  cursor: pointer;
-}
-.btnlang img {
-  width: 38px;
-}
-.active,
-.btn:hover {
-  background-color: #305a9a;
-  color: white;
-}
-.sound .img {
-  background-color: #305a9a;
-  border: none;
-  border-radius: 99px;
-  outline: none;
-  padding: 10px 16px;
 }
 
 .col-12 {
