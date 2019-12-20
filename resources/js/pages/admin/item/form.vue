@@ -1,39 +1,65 @@
 <template>
   <div>
-    <div class="form-group row">
-      <label class="col-md-3 col-form-label text-md-right">รูปภาพ</label>
-      <div class="col-md-7">
-        <input class="form-control" type="file" name="image" @change="setImg" />
-        <has-error :form="form" field="image" />
-      </div>
+    <div class="clearfix">
+      <router-link to="/admin/room/1" class="float-left">
+        <img src="/icon/left-arrow.png" width="40" style="margin-top:rem(10);" />
+      </router-link>
+      <h1 class="float-left ml-4">Create Item</h1>
     </div>
-
-    <div class="form-group row">
-      <label class="col-md-3 col-form-label text-md-right">เสียง</label>
-      <div class="col-md-7">
-        <input class="form-control" type="file" name="image" @change="setFile" />
-        <has-error :form="form" field="file" />
-      </div>
-    </div>
-
     <form @submit.prevent="submitForm" @keydown="form.onKeydown($event)">
       <!-- Name -->
-      <div class="form-group row">
-        <label class="col-md-3 col-form-label text-md-right">item_name</label>
-        <div class="col-md-7">
-          <input
-            v-model="form.name"
-            :class="{ 'is-invalid': form.errors.has('name') }"
-            class="form-control"
-            type="text"
-            name="name"
-          />
-          <has-error :form="form" field="name" />
+      <div class="row">
+        <div class="form-group col-md-6">
+          <label class>Title</label>
+          <div class>
+            <input
+              v-model="form.name"
+              :class="{ 'is-invalid': form.errors.has('name') }"
+              class="form-control"
+              type="text"
+              name="name"
+            />
+            <has-error :form="form" field="name" />
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="form-group col-md-6">
+          <label class>Description</label>
+          <div class>
+            <textarea
+              v-model="form.description"
+              :class="{ 'is-invalid': form.errors.has('description') }"
+              class="form-control"
+              type="text"
+              name="description"
+            />
+            <has-error :form="form" field="description" />
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="form-group col-md-3">
+          <label class>Image</label>
+          <div class>
+            <input class="form-control" type="file" name="image" @change="setImg" />
+            <has-error :form="form" field="image" />
+          </div>
+        </div>
+
+        <div class="form-group col-md-3">
+          <label>Audio</label>
+          <div class>
+            <input class="form-control" type="file" name="image" @change="setFile" />
+            <has-error :form="form" field="file" />
+          </div>
         </div>
       </div>
 
       <!-- description -->
-      <div class="form-group row">
+      <!-- <div class="form-group row">
         <label class="col-md-3 col-form-label text-md-right">description</label>
         <div class="col-md-7">
           <textarea
@@ -45,10 +71,10 @@
           />
           <has-error :form="form" field="description" />
         </div>
-      </div>
+      </div>-->
 
       <div class="form-group row">
-        <div class="col-md-7 offset-md-3 d-flex">
+        <div class="col-md-7 offset-md-5 d-flex">
           <!-- Submit Button -->
           <v-button :loading="form.busy">{{ id ? "update" : "save" }}</v-button>
         </div>
@@ -151,4 +177,15 @@ export default {
 };
 </script>
 
-<style></style>
+<style scoped>
+input,
+textarea {
+  border-color: #305a9a;
+}
+textarea {
+  min-height: 350px;
+}
+label {
+  color: #305a9a;
+}
+</style>

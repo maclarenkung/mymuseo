@@ -3,6 +3,9 @@
     <div>
       <input type="text" style="display:block; width:100%" placeholder="Search Museum" />
     </div>
+    <hr />
+    <button id="createbtn" style="width:200px;">Create</button>
+    <hr />
     <table style="width:100%" class="mt-3">
       <tr>
         <th>Name</th>

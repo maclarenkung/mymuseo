@@ -39,7 +39,7 @@
           <div class="row">
             <div class="col-md-2" style="padding-right: 0px!important;">
               <div class="card p-3">
-                <button id="createbtn">Create Museum</button>
+                <!-- <button id="createbtn">Create {{create.name}}</button> -->
 
                 <div class="mt-4">
                   <h5 class>All</h5>

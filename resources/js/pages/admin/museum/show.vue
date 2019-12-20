@@ -7,12 +7,14 @@
     <div class="card p-3" style="border:none;">
       <div class="clearfix">
         <router-link to="/admin/museums" class="float-left">
-          <img src="/icon/left-arrow.png" width="40" style="margin-top:10px;" />
+          <img src="/icon/left-arrow.png" width="40" style="margin-top:rem(10);" />
         </router-link>
         <h1 class="float-left ml-4">{{ show.name }}</h1>
       </div>
       <hr />
       <div>
+        <button id="createbtn" style="width:200px;">Create</button>
+        <hr />
         <div class="row">
           <div class="col-md-8">
             <table class="mm-table">
@@ -108,7 +110,7 @@
           <td>
             <div v-for="floor in show.floors" :key="floor.id">
               <router-link :to="{ name: 'admin.floors.show', params: { id: floor.id } }">
-                <p>15 - 12 - 62</p>
+                <p>{{ show.created_at}}</p>
               </router-link>
             </div>
           </td>

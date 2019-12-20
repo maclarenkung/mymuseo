@@ -5,7 +5,11 @@ export default {
     return {
       scrolled: false,
       windowWidth: 0,
-      windowHeight: 0
+      windowHeight: 0,
+      create: {
+        name: "",
+        to: ""
+      }
     };
   },
   computed: {

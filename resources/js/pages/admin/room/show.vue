@@ -4,28 +4,43 @@
     <hr />
 
     <div class="card p-3">
-      <h6>Item</h6>
-      {{ windowWidth }}
+      <h4>Item</h4>
       <router-link
         :to="{
           name: 'admin.item.create',
           query: { room_id: show.id }
         }"
-        ><button class="btn btn-success">
-          create
-        </button>
+      >
+        <button id="createbtn" style="width:200px;">Create</button>
       </router-link>
-      <div v-for="item in show.items" :key="item.id">
-        <router-link
-          :to="{
+
+      <hr />
+      <table>
+        <thead class="mm-thead">
+          <tr>
+            <td style="width:70%;">Name</td>
+            <td>Action</td>
+            <td>Create At</td>
+          </tr>
+        </thead>
+        <tbody class="mm-tbody">
+          <tr v-for="item in show.items" :key="item.id">
+            <td>
+              <router-link
+                :to="{
             name: 'admin.item.show',
             params: { id: item.id },
             query: { room_id: show.id }
           }"
-        >
-          {{ item.name }}
-        </router-link>
-      </div>
+              >{{ item.name }}</router-link>
+            </td>
+            <td>
+              <el-button type="warning" round>Edit</el-button>
+            </td>
+            <td>15/11/62</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
 </template>
