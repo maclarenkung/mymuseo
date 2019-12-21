@@ -30,6 +30,13 @@ export default {
   color: #305a9a;
   border-radius: 20px;
 }
+.btn-mm-i {
+  padding: 5px 20px;
+  border: #305a9a 1px solid;
+  color: #fff;
+  background: #305a9a;
+  border-radius: 20px;
+}
 .round-mm {
   width: 40px;
   height: 40px;

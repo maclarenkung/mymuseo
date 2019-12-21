@@ -75,6 +75,11 @@ export default [
         component: page("admin/pay/howto.vue")
       },
       {
+        path: "payment",
+        name: "admin.pay",
+        component: page("admin/pay/confirm.vue")
+      },
+      {
         path: "museums",
         name: "admin.museums",
         component: page("admin/museum/index.vue")

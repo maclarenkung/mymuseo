@@ -79,7 +79,7 @@
           <b>Social Management</b>
         </li>
         <li class="nav-item">
-          <router-link to="{ name: admin.user.log }" class="nav-link">
+          <router-link to="#" class="nav-link">
             <img :src="'/icon/foo.svg'" alt width="24" />
             Footer
           </router-link>
@@ -95,7 +95,7 @@
             <img :src="'/icon/pay.png'" alt width="24" />
             How to pay
           </router-link>
-          <router-link to="{ name: admin.user.log }" class="nav-link">
+          <router-link to="/admin/payment" class="nav-link">
             <img :src="'/icon/check.png'" alt width="24" />
             Confirm
           </router-link>
