@@ -60,6 +60,21 @@ export default [
         component: page("admin/muse/index.vue")
       },
       {
+        path: "user",
+        name: "admin.user",
+        component: page("admin/user/index.vue")
+      },
+      {
+        path: "user/log",
+        name: "admin.user.log",
+        component: page("admin/user/log.vue")
+      },
+      {
+        path: "howtopay",
+        name: "admin.pay.howto",
+        component: page("admin/pay/howto.vue")
+      },
+      {
         path: "museums",
         name: "admin.museums",
         component: page("admin/museum/index.vue")

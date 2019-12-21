@@ -11,13 +11,13 @@
           </router-link>
         </li>
         <li class="nav-item">
-          <router-link to="{ name: admin.user }" class="nav-link">
+          <router-link to="/admin/user" class="nav-link">
             <img :src="'/icon/user.png'" alt width="24" />
             User
           </router-link>
         </li>
         <li class="nav-item">
-          <router-link to="{ name: admin.user.log }" class="nav-link">
+          <router-link to="/admin/user/log" class="nav-link">
             <img :src="'/icon/info.png'" alt width="24" />
             User Log
           </router-link>
@@ -61,13 +61,13 @@
           <b>User</b>
         </li>
         <li class="nav-item">
-          <router-link to="{ name: admin.user.log }" class="nav-link">
+          <router-link to="/admin/user" class="nav-link">
             <img :src="'/icon/user.png'" alt width="24" />
             User
           </router-link>
         </li>
         <li class="nav-item">
-          <router-link to="{ name: admin.user.log }" class="nav-link">
+          <router-link to="/admin/user/log" class="nav-link">
             <img :src="'/icon/info.png'" alt width="24" />
             User Log
           </router-link>
@@ -91,7 +91,7 @@
           <b>Payment</b>
         </li>
         <li class="nav-item">
-          <router-link to="{ name: admin.user.log }" class="nav-link">
+          <router-link to="/admin/howtopay" class="nav-link">
             <img :src="'/icon/pay.png'" alt width="24" />
             How to pay
           </router-link>
