@@ -55,6 +55,11 @@ export default [
     component: page("admin/index.vue"),
     children: [
       {
+        path: "customer",
+        name: "admin.muse.dashboard",
+        component: page("admin/muse/index.vue")
+      },
+      {
         path: "museums",
         name: "admin.museums",
         component: page("admin/museum/index.vue")

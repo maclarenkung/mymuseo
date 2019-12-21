@@ -76,7 +76,12 @@
       <div class="form-group row">
         <div class="col-md-7 offset-md-5 d-flex">
           <!-- Submit Button -->
-          <v-button :loading="form.busy">{{ id ? "update" : "save" }}</v-button>
+          <v-button
+            :loading="form.busy"
+            id="createbtn"
+            style="width:130px;"
+            class="text-white colorr"
+          >{{ id ? "update" : "save" }}</v-button>
         </div>
       </div>
     </form>
@@ -178,6 +183,9 @@ export default {
 </script>
 
 <style scoped>
+.colorr {
+  background: #305a9a;
+}
 input,
 textarea {
   border-color: #305a9a;

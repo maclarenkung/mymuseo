@@ -92,7 +92,7 @@
         </tr>
         <tr>
           <td>
-            <div v-for="floor in show.floors" :key="floor.id">
+            <div v-for="floor in show.floors" :key="floor.id" style="padding:10px;">
               <router-link :to="{ name: 'admin.floors.show', params: { id: floor.id } }">
                 <p>{{ floor.name }}</p>
               </router-link>
@@ -100,15 +100,16 @@
           </td>
           <td></td>
           <td>
-            <div v-for="floor in show.floors" :key="floor.id">
+            <div v-for="floor in show.floors" :key="floor.id" style="padding:10px;">
               <router-link :to="{ name: 'admin.floors.show', params: { id: floor.id } }">
-                <p class="btn btn-warning">Edit</p>
+                <!-- <p class="btn btn-warning">Edit</p> -->
+                <el-button type="warning" round>Edit</el-button>
               </router-link>
             </div>
           </td>
 
           <td>
-            <div v-for="floor in show.floors" :key="floor.id">
+            <div v-for="floor in show.floors" :key="floor.id" style="padding:10px;">
               <router-link :to="{ name: 'admin.floors.show', params: { id: floor.id } }">
                 <p>{{ show.created_at}}</p>
               </router-link>

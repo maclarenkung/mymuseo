@@ -2,8 +2,8 @@
   <div class>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
     <div class="w3-sidebar w3-bar-block" style id="sidebar1">
-      <h3 class="w3-bar-item" style="color:white;">Manage</h3>
-      <ul class="nav flex-column nav-pills" id="ab">
+      <h3 class="w3-bar-item" style="color:white;" v-if="user.role == 1">Manage</h3>
+      <ul class="nav flex-column nav-pills pt-2" id="ab" v-if="user.role == 1">
         <li v-for="tab in tabs" :key="tab.route" class="nav-item">
           <router-link :to="{ name: tab.route }" class="nav-link" active-class="active">
             <img :src="'/icon/' + tab.icon" alt width="24" />
@@ -20,6 +20,84 @@
           <router-link to="{ name: admin.user.log }" class="nav-link">
             <img :src="'/icon/info.png'" alt width="24" />
             User Log
+          </router-link>
+        </li>
+      </ul>
+
+      <ul class="nav flex-column nav-pills" id="ab" v-if="user.role == 2">
+        <li>
+          <b>Museum</b>
+        </li>
+
+        <li class="nav-item">
+          <router-link :to="{ name: 'admin.muse.dashboard' }" class="nav-link">
+            <img :src="'/icon/Home.png'" alt width="24" />
+            Home
+          </router-link>
+        </li>
+        <li class="nav-item">
+          <router-link to="{ name: admin.muse.dashboard }" class="nav-link">
+            <img :src="'/icon/stairs.png'" alt width="24" />
+            Floor
+          </router-link>
+        </li>
+
+        <li class="nav-item">
+          <router-link to="{ name: admin.muse.dashboard }" class="nav-link">
+            <img :src="'/icon/door.png'" alt width="24" />
+            Room
+          </router-link>
+        </li>
+
+        <li class="nav-item">
+          <router-link to="{ name: admin.muse.dashboard }" class="nav-link">
+            <img :src="'/icon/to-do.png'" alt width="24" />
+            Item
+          </router-link>
+        </li>
+        <hr />
+
+        <li>
+          <b>User</b>
+        </li>
+        <li class="nav-item">
+          <router-link to="{ name: admin.user.log }" class="nav-link">
+            <img :src="'/icon/user.png'" alt width="24" />
+            User
+          </router-link>
+        </li>
+        <li class="nav-item">
+          <router-link to="{ name: admin.user.log }" class="nav-link">
+            <img :src="'/icon/info.png'" alt width="24" />
+            User Log
+          </router-link>
+        </li>
+
+        <hr />
+
+        <li>
+          <b>Social Management</b>
+        </li>
+        <li class="nav-item">
+          <router-link to="{ name: admin.user.log }" class="nav-link">
+            <img :src="'/icon/foo.svg'" alt width="24" />
+            Footer
+          </router-link>
+        </li>
+
+        <hr />
+
+        <li>
+          <b>Payment</b>
+        </li>
+        <li class="nav-item">
+          <router-link to="{ name: admin.user.log }" class="nav-link">
+            <img :src="'/icon/pay.png'" alt width="24" />
+            How to pay
+          </router-link>
+          <router-link to="{ name: admin.user.log }" class="nav-link">
+            <img :src="'/icon/check.png'" alt width="24" />
+            Confirm
           </router-link>
         </li>
       </ul>
@@ -133,7 +211,7 @@
 
 <script>
 export default {
-  middleware: "admin",
+  middleware: "auth",
 
   computed: {
     tabs() {
@@ -180,7 +258,13 @@ export default {
   color: #fff;
 }
 #ab {
-  margin-left: 35px;
+  li {
+    margin-left: 15px;
+    margin-top: 10px;
+    a {
+      margin-left: 25px;
+    }
+  }
 }
 #sidebar.active {
   border-radius: 20px;

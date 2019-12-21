@@ -21,6 +21,18 @@ export default {
 </script>
 
 <style lang="scss">
+.btn-mm {
+  padding: 5px 20px;
+  border: #305a9a 1px solid;
+  color: #305a9a;
+  border-radius: 20px;
+}
+.text-mm {
+  color: #305a9a;
+}
+.bg-mm {
+  background-color: #305a9a;
+}
 img {
   object-fit: cover;
 }
@@ -62,7 +74,6 @@ img {
 .mm-tbody {
   tr {
     margin: 10px 0;
-    display: block;
   }
   tr:hover {
     background: #4f95ff;
