@@ -67,5 +67,15 @@
 export default {};
 </script>
 
-<style>
+<style scoped>
+input,
+textarea {
+  border-color: #305a9a;
+}
+textarea {
+  min-height: 350px;
+}
+label {
+  color: #305a9a;
+}
 </style>
