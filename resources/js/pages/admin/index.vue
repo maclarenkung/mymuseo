@@ -36,21 +36,21 @@
           </router-link>
         </li>
         <li class="nav-item">
-          <router-link to="{ name: admin.muse.dashboard }" class="nav-link">
+          <router-link to="/admin/museums/1" class="nav-link">
             <img :src="'/icon/stairs.png'" alt width="24" />
             Floor
           </router-link>
         </li>
 
         <li class="nav-item">
-          <router-link to="{ name: admin.muse.dashboard }" class="nav-link">
+          <router-link to="/admin/floors/1" class="nav-link">
             <img :src="'/icon/door.png'" alt width="24" />
             Room
           </router-link>
         </li>
 
         <li class="nav-item">
-          <router-link to="{ name: admin.muse.dashboard }" class="nav-link">
+          <router-link to="/admin/room/1" class="nav-link">
             <img :src="'/icon/to-do.png'" alt width="24" />
             Item
           </router-link>
