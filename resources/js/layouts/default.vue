@@ -21,11 +21,21 @@ export default {
 </script>
 
 <style lang="scss">
+.actives {
+  color: #2dcd7a;
+}
 .btn-mm {
   padding: 5px 20px;
   border: #305a9a 1px solid;
   color: #305a9a;
   border-radius: 20px;
+}
+.round-mm {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #305a9a;
+  color: #fff;
 }
 .text-mm {
   color: #305a9a;

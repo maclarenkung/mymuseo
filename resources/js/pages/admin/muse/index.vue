@@ -6,6 +6,9 @@
         <div class="card p-3 text-left text-mm">
           <div class="clearfix">
             <h3 class="float-left">Your Package: Small</h3>
+            <h6 class="btn btn-light actives float-left ml-2">
+              <li>Active</li>
+            </h6>
             <button class="btn-mm float-right">upgrade</button>
           </div>
           <div>
@@ -34,8 +37,57 @@
             </table>
           </div>
         </div>
+        <div class="row mt-4">
+          <div class="col col-md-2">
+            <div class="card" style="padding-top:100px;">
+              <div class="card-body text-left pl-4">
+                <button class="btn round-mm">V</button>
+                <h6>500</h6>
+                <span>Visit today</span>
+              </div>
+            </div>
+          </div>
+          <div class="col col-md-2">
+            <div class="card" style="padding-top:100px;">
+              <div class="card-body text-left pl-4">
+                <button class="btn round-mm">I</button>
+                <h6>60</h6>
+                <span>items / 100</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="col col-md-2">
+            <div class="card" style="padding-top:100px;">
+              <div class="card-body text-left pl-4">
+                <button class="btn round-mm">S</button>
+                <h6>Saturday</h6>
+                <span>Most People (300)</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="col col-md-2">
+            <div class="card" style="padding-top:100px;">
+              <div class="card-body text-left pl-4">
+                <button class="btn round-mm">ห</button>
+                <h6>ห้องรับแขก</h6>
+                <span>Most Visit (300)</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="col col-md-2">
+            <div class="card" style="padding-top:100px;">
+              <div class="card-body text-left pl-4">
+                <button class="btn round-mm">ป</button>
+                <h6>เปียโน</h6>
+                <span>Most Scan (489)</span>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-      <div></div>
     </div>
   </div>
 </template>
