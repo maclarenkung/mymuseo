@@ -110,7 +110,7 @@ export default {
       if (this.user.role == 1) {
         this.$router.push({ name: "admin.museums" });
       } else if (this.user.role == 2) {
-        this.$router.push({ name: "customer.museums" });
+        this.$router.push({ name: "admin.muse.dashboard" });
       } else {
         this.$router.push({ name: "home" });
       }
