@@ -1,70 +1,76 @@
 <template>
-  <div class="row">
-    <div class="col col-12 col-md-8" id="frame-login">
-      <h1>WELCOME TO MINDMUSE</h1>
-      <router-link to="/register" class="btn">
-        <button class="button1">SIGN UP</button>
-      </router-link>
-    </div>
-    <div class="col col-12 col-md-4" id="frame-login2">
-      <h1>LOGIN</h1>
-
-      <form @submit.prevent="login" @keydown="form.onKeydown($event)">
-        <!-- Email -->
-        <div class="form-group row">
-          <div class="col-md-8 offset-md-2 d-flex">
-            <input
-              placeholder="Email"
-              id="input"
-              v-model="form.email"
-              :class="{ 'is-invalid': form.errors.has('email') }"
-              class="form-control"
-              type="email"
-              name="email"
-            />
-            <has-error :form="form" field="email" />
-          </div>
-        </div>
-
-        <!-- Password -->
-        <div class="form-group row">
-          <div class="col-md-8 offset-md-2 d-flex">
-            <input
-              id="input"
-              placeholder="Password"
-              v-model="form.password"
-              :class="{ 'is-invalid': form.errors.has('password') }"
-              class="form-control"
-              type="password"
-              name="password"
-            />
-            <has-error :form="form" field="password" />
-          </div>
-        </div>
-
-        <!-- Remember Me -->
-        <!-- <div class="form-group row">
-              <div class="col-md-3" />
-              <div class="col-md-7 d-flex">
-                <checkbox v-model="remember" name="remember">{{ $t("remember_me") }}</checkbox>
-
-                <router-link
-                  :to="{ name: 'password.request' }"
-                  class="small ml-auto my-auto"
-                >{{ $t("forgot_password") }}</router-link>
+  <div class="row login">
+    <div class="container">
+      <div class="col-12">
+        <div class="row">
+          <div class="col-7">
+            <div class="col-5" style="margin-top: 350px; color:white;">
+              <div class="head">
+                <h1 style="font-size: 60px">
+                  MINDMUSE
+                  <hr class="mindmuse" />
+                </h1>
+                <h5>เราคือนักพัฒนาและจัดการ</h5>
+                <h3>" ข้อมูลพิพิธภัณฑ์ "</h3>
               </div>
-        </div>-->
+            </div>
+          </div>
+          <div class="col-5">
+            <div class="form-login">
+              <div class="content">
+                <i class="icon">icon</i>
+                <h1>LOGIN</h1>
+                <i>Don’t have account ?</i>
+                <router-link to="/register" class="btn">
+                  <a>
+                    <span>Sign Up</span>
+                  </a>
+                </router-link>
+                <hr style="height:1px; border-color:#1EC1B5; background-color:#1EC1B5" />
+                <form @submit.prevent="login" @keydown="form.onKeydown($event)">
+                  <!-- Email -->
+                  <div class="form-group">
+                    <input
+                      placeholder="Email"
+                      id="input"
+                      v-model="form.email"
+                      :class="{ 'is-invalid': form.errors.has('email') }"
+                      class="form-control"
+                      type="email"
+                      name="email"
+                      width="100%"
+                    />
+                    <has-error :form="form" field="email" />
+                  </div>
 
-        <div class="form-group row">
-          <div class="col-md-8 offset-md-2 d-flex">
-            <!-- Submit Button -->
-            <v-button :loading="form.busy" id="input2">{{ $t("login") }}</v-button>
+                  <!-- Password -->
+                  <div class="form-group">
+                    <input
+                      id="input"
+                      placeholder="Password"
+                      v-model="form.password"
+                      :class="{ 'is-invalid': form.errors.has('password') }"
+                      class="form-control"
+                      type="password"
+                      name="password"
+                      width="100%"
+                    />
+                    <has-error :form="form" field="password" />
+                  </div>
 
-            <!-- GitHub Login Button -->
-            <login-with-github />
+                  <div class="form-group mt-5">
+                    <!-- Submit Button -->
+                    <v-button :loading="form.busy" id="input2">{{ $t("LOGIN") }}</v-button>
+
+                    <!-- GitHub Login Button -->
+                    <login-with-github />
+                  </div>
+                </form>
+              </div>
+            </div>
           </div>
         </div>
-      </form>
+      </div>
     </div>
   </div>
 </template>
@@ -119,6 +125,10 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
+.login {
+  background-image: url(https://sv1.picz.in.th/images/2020/01/06/RN9kyq.png);
+  height: 1080px;
+}
 #frame-login {
   height: 750px;
   background-color: #1a69e4;
@@ -152,7 +162,7 @@ export default {
   margin-bottom: 40px;
 }
 #input {
-  border-radius: 99px;
+  border-radius: 10px;
   margin-bottom: 10px;
   // background-image: url(https://image.flaticon.com/icons/png/512/481/481659.png);
   background-position: 0 50%;
@@ -160,9 +170,21 @@ export default {
   text-indent: 30px;
 }
 #input2 {
-  background-color: #305a9a;
-  border-radius: 99px;
+  background-color: #ff6464;
+  border-radius: 10px;
   width: 100%;
+  border-color: #ffffff;
+}
+.form-login {
+  margin-top: 120px;
+  background-color: white;
+  padding: 150px 100px 40px 100px;
+
+  border-radius: 30px;
+}
+.mindmuse {
+  height: 1px;
+  background-color: #ffcc57;
 }
 </style>
 
