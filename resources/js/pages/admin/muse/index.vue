@@ -152,7 +152,7 @@
                 <td>Unlimited</td>
               </tr>
               <tr>
-                <td>Image/ item</td>
+                <td>Image/ item</td>g
                 <td>6</td>
               </tr>
               <tr>
