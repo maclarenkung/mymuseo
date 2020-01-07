@@ -17,18 +17,12 @@
         <span class="navbar-toggler-icon" />
       </button>
 
-      <div id="navbarToggler" class="collapse navbar-collapse" style="flex-grow: 0;">
+      <div id="navbarToggler" class="collapse navbar-collapse">
         <ul class="navbar-nav">
           <!-- <locale-dropdown /> -->
-          <li class="nav-item">
-            <a class="nav-link" href="#">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">About</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Service</a>
-          </li>
+          <!-- <li class="nav-item">
+            <a class="nav-link" href="#">Link</a>
+          </li>-->
         </ul>
 
         <ul class="navbar-nav ml-auto">
