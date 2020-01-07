@@ -5,6 +5,23 @@
     <div>
       <child />
     </div>
+    <footer>
+      <hr style="background-color: #3E7A63" />
+      <div class="container ">
+        <div class="row">
+          <div class="col-6">
+            <img
+              src="https://sv1.picz.in.th/images/2020/01/08/RhJSDt.png"
+              alt=""
+              class="logo logo-mind"
+            />
+          </div>
+          <div class="col-6 text-right">
+            <h5 class="look">2020 MindMuse. All Right Reserved.</h5>
+          </div>
+        </div>
+      </div>
+    </footer>
   </div>
 </template>
 
@@ -21,6 +38,9 @@ export default {
 </script>
 
 <style lang="scss">
+body {
+  font-family: "Mitr", sans-serif;
+}
 .actives {
   color: #2dcd7a;
 }
@@ -99,5 +119,17 @@ img {
   a:hover {
     color: #fff;
   }
+}
+footer {
+  height: 110px;
+  // margin-top: 100px;
+}
+.logo {
+  margin-top: 10px;
+  width: 40%;
+}
+.look {
+  margin-top: 25px;
+  color: #3e7a63;
 }
 </style>

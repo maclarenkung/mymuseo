@@ -1,7 +1,138 @@
 <template>
   <div class>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
-    <div class="w3-sidebar w3-bar-block" style id="sidebar1">
+    <div class="sidenav">
+      <h3 style="color: white; margin-top:100px" class="text-center">
+        MINDMUSE
+      </h3>
+
+      <h5 style="color:white;" class="text-center">Welcome</h5>
+
+      <div class="manage">
+        <div class="w3-sidebar w3-bar-block">
+          <h5
+            class="w3-bar-item text-center"
+            style="color:white!important;"
+            v-if="user.role == 1"
+          >
+            Museum Management
+          </h5>
+          <ul
+            class="nav flex-column nav-pills pt-2"
+            id="ab"
+            v-if="user.role == 1"
+          >
+            <li v-for="tab in tabs" :key="tab.route" class="nav-item">
+              <router-link :to="{ name: tab.route }" class="nav-link">
+                <img :src="'/icon/' + tab.icon" alt width="24" />
+                {{ tab.name }}
+              </router-link>
+            </li>
+            <li class="nav-item">
+              <router-link to="/admin/user" class="nav-link">
+                <img :src="'/icon/user.png'" alt width="24" />
+                User
+              </router-link>
+            </li>
+            <li class="nav-item">
+              <router-link to="/admin/user/log" class="nav-link">
+                <img :src="'/icon/info.png'" alt width="24" />
+                User Log
+              </router-link>
+            </li>
+          </ul>
+
+          <ul class="nav flex-column nav-pills" id="ab" v-if="user.role == 2">
+            <li>
+              <b>Museum</b>
+            </li>
+
+            <li class="nav-item">
+              <router-link
+                :to="{ name: 'admin.muse.dashboard' }"
+                class="nav-link"
+              >
+                <img :src="'/icon/Home.png'" alt width="24" />
+                Home
+              </router-link>
+            </li>
+            <li class="nav-item">
+              <router-link to="/admin/museums/1" class="nav-link">
+                <img :src="'/icon/stairs.png'" alt width="24" />
+                Floor
+              </router-link>
+            </li>
+
+            <li class="nav-item">
+              <router-link to="/admin/floors/1" class="nav-link">
+                <img :src="'/icon/door.png'" alt width="24" />
+                Room
+              </router-link>
+            </li>
+
+            <li class="nav-item">
+              <router-link to="/admin/room/1" class="nav-link">
+                <img :src="'/icon/to-do.png'" alt width="24" />
+                Item
+              </router-link>
+            </li>
+            <hr />
+
+            <li>
+              <b>User</b>
+            </li>
+            <li class="nav-item">
+              <router-link to="/admin/user" class="nav-link">
+                <img :src="'/icon/user.png'" alt width="24" />
+                User
+              </router-link>
+            </li>
+            <li class="nav-item">
+              <router-link to="/admin/user/log" class="nav-link">
+                <img :src="'/icon/info.png'" alt width="24" />
+                User Log
+              </router-link>
+            </li>
+
+            <hr />
+
+            <li>
+              <b>Social Management</b>
+            </li>
+            <li class="nav-item">
+              <router-link to="#" class="nav-link">
+                <img :src="'/icon/foo.svg'" alt width="24" />
+                Footer
+              </router-link>
+            </li>
+
+            <hr />
+
+            <li>
+              <b>Payment</b>
+            </li>
+            <li class="nav-item">
+              <router-link to="/admin/howtopay" class="nav-link">
+                <img :src="'/icon/pay.png'" alt width="24" />
+                How to pay
+              </router-link>
+              <router-link to="/admin/payment" class="nav-link">
+                <img :src="'/icon/check.png'" alt width="24" />
+                Confirm
+              </router-link>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="museum">
+        <p></p>
+      </div>
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#clients">Clients</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <!-- <div class="w3-sidebar w3-bar-block" style id="sidebar1">
       <h3 class="w3-bar-item" style="color:white;" v-if="user.role == 1">Manage</h3>
       <ul class="nav flex-column nav-pills pt-2" id="ab" v-if="user.role == 1">
         <li v-for="tab in tabs" :key="tab.route" class="nav-item">
@@ -101,7 +232,7 @@
           </router-link>
         </li>
       </ul>
-    </div>
+    </div> -->
     <div class="w3-container">
       <div class="row">
         <div class="col-md-10 offset-2">
@@ -121,11 +252,29 @@
 
                 <div class="mt-4">
                   <h5 class>All</h5>
-                  <input type="checkbox" name="vehicle1" value="Bike" class="mb-3" /> Active
+                  <input
+                    type="checkbox"
+                    name="vehicle1"
+                    value="Bike"
+                    class="mb-3"
+                  />
+                  Active
                   <br />
-                  <input type="checkbox" name="vehicle2" value="Car" class="mb-3" /> Expired
+                  <input
+                    type="checkbox"
+                    name="vehicle2"
+                    value="Car"
+                    class="mb-3"
+                  />
+                  Expired
                   <br />
-                  <input type="checkbox" name="vehicle3" value="Boat" class="mb-3" /> Payment
+                  <input
+                    type="checkbox"
+                    name="vehicle3"
+                    value="Boat"
+                    class="mb-3"
+                  />
+                  Payment
                   <br />
                   <hr />
                   <a href="#">Trashed</a>
@@ -151,7 +300,11 @@
             <div class="col-md-10" style="padding-left: 0px!important;">
               <div class>
                 <transition name="fade" mode="out-in">
-                  <div class="card p-3 ml-1" style="overflow-y:scroll;" :style="`height:750px`">
+                  <div
+                    class="card p-3 ml-1"
+                    style="overflow-y:scroll;"
+                    :style="`height:750px`"
+                  >
                     <!-- Page Content -->
                     <div>
                       <router-view />
@@ -242,8 +395,13 @@ export default {
 };
 </script>
 
-
 <style lang="scss">
+.logo-mind {
+  display: none;
+}
+body {
+  font-family: "Mitr", sans-serif !important;
+}
 .a {
   color: #2dcd7a;
 }
@@ -253,16 +411,18 @@ export default {
 .c {
   color: #ed5f5f;
 }
-#sidebar1 {
-  background-color: #1a69e4;
-  color: #fff;
+
+.nav-pills .nav-link.active {
+  background-color: #ffcc57;
+  opacity: 33%;
 }
 #ab {
   li {
     margin-left: 15px;
     margin-top: 10px;
     a {
-      margin-left: 25px;
+      padding-left: 60px;
+      margin-left: -16px;
     }
   }
 }
@@ -281,15 +441,15 @@ export default {
 }
 
 /* Toggling the sidebar header content, hide the big heading [h3] and showing the small heading [strong] and vice versa*/
-#sidebar .sidebar-header strong {
-  display: none;
-}
-#sidebar.active .sidebar-header h3 {
-  display: none;
-}
-#sidebar.active .sidebar-header strong {
-  display: block;
-}
+// #sidebar .sidebar-header strong {
+//   display: none;
+// }
+// #sidebar.active .sidebar-header h3 {
+//   display: none;
+// }
+// #sidebar.active .sidebar-header strong {
+//   display: block;
+// }
 
 #sidebar ul li a {
   text-align: left;
@@ -382,5 +542,34 @@ export default {
     -ms-transform: translateX(50%);
     transform: translateX(50%);
   }
+}
+.sidenav {
+  height: 100%;
+  width: 250px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #3e7a63;
+  overflow-x: hidden;
+  padding-top: 20px;
+  border-radius: 0px 100px 0px 0px;
+}
+
+.sidenav a {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 20px;
+  color: white;
+  display: block;
+}
+
+.sidenav a:hover {
+  color: white;
+}
+.w3-sidebar {
+  background-color: #3e7a63 !important;
+  width: 250px !important;
+  color: white !important;
 }
 </style>

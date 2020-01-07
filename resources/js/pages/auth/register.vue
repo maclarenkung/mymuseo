@@ -18,16 +18,21 @@
           <div class="col-5">
             <div class="form-login">
               <div class="content">
-                <i class="icon">icon</i>
-                <h1>REGISTER</h1>
-                <i>Already an have account ?</i>
+                <i class="icon flaticon-add-user"></i>
+                <h1 style="color: #3631c4;">REGISTER</h1>
+                <i style="color:#C5C5CB">Already an have account ?</i>
                 <router-link to="/">
                   <a>
                     <span>SIGN IN</span>
                   </a>
                 </router-link>
-                <hr style="height:1px; border-color:#1EC1B5; background-color:#1EC1B5" />
-                <form @submit.prevent="register" @keydown="form.onKeydown($event)">
+                <hr
+                  style="height:1px; border-color:#1EC1B5; background-color:#1EC1B5"
+                />
+                <form
+                  @submit.prevent="register"
+                  @keydown="form.onKeydown($event)"
+                >
                   <!-- Name -->
                   <div class="form-group">
                     <input
@@ -80,8 +85,8 @@
                       id="input"
                       v-model="form.password_confirmation"
                       :class="{
-                  'is-invalid': form.errors.has('password_confirmation')
-                }"
+                        'is-invalid': form.errors.has('password_confirmation')
+                      }"
                       class="form-control"
                       type="password"
                       name="password_confirmation"
@@ -92,7 +97,9 @@
 
                   <div class="form-group">
                     <!-- Submit Button -->
-                    <v-button :loading="form.busy" id="input2">{{ $t("register") }}</v-button>
+                    <v-button :loading="form.busy" id="input2">{{
+                      $t("register")
+                    }}</v-button>
 
                     <!-- GitHub Register Button -->
                     <login-with-github />
@@ -226,5 +233,9 @@ export default {
 .mindmuse {
   height: 1px;
   background-color: #ffcc57;
+}
+.icon {
+  font-size: 60px !important;
+  color: #3631c4;
 }
 </style>

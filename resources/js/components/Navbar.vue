@@ -1,9 +1,17 @@
 <template>
-  <nav class="navbar navbar-expand-lg navbar-light bg-white">
+  <nav class="navbar navbar-expand-lg bg-white">
     <div class="container">
-      <router-link :to="{ name: user ? 'home' : 'welcome' }" class="navbar-brand">
+      <router-link
+        :to="{ name: user ? 'home' : 'welcome' }"
+        class="navbar-brand"
+      >
         <!-- <img src="https://sv1.picz.in.th/images/2019/12/18/i6x4A9.png" />  -->
-        <h2>MINDMUSE</h2>
+        <img
+          src="https://sv1.picz.in.th/images/2020/01/08/RhJSDt.png"
+          alt=""
+          width="30%"
+          class="logo-mind"
+        />
       </router-link>
 
       <button
@@ -17,17 +25,21 @@
         <span class="navbar-toggler-icon" />
       </button>
 
-      <div id="navbarToggler" class="collapse navbar-collapse" style="flex-grow: 0;">
+      <div
+        id="navbarToggler"
+        class="collapse navbar-collapse"
+        style="flex-grow: 0; ;"
+      >
         <ul class="navbar-nav">
           <!-- <locale-dropdown /> -->
           <li class="nav-item">
-            <a class="nav-link" href="#">Home</a>
+            <a class="nav-link" href="#" style="color:#3E7A63">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">About</a>
+            <a class="nav-link" href="#" style="color:#3E7A63">About</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Service</a>
+            <a class="nav-link" href="#" style="color:#3E7A63">Service</a>
           </li>
         </ul>
 
@@ -42,19 +54,25 @@
               aria-haspopup="true"
               aria-expanded="false"
             >
-              <img :src="user.photo_url" class="rounded-circle profile-photo mr-1" />
+              <img
+                :src="user.photo_url"
+                class="rounded-circle profile-photo mr-1"
+              />
               {{ user.name }}
             </a>
             <div class="dropdown-menu">
-              <router-link :to="{ name: 'settings.profile' }" class="dropdown-item pl-3">
+              <router-link
+                :to="{ name: 'settings.profile' }"
+                class="dropdown-item pl-3"
+              >
                 <fa icon="cog" fixed-width />
-                {{ $t('settings') }}
+                {{ $t("settings") }}
               </router-link>
 
               <div class="dropdown-divider" />
               <a href="#" class="dropdown-item pl-3" @click.prevent="logout">
                 <fa icon="sign-out-alt" fixed-width />
-                {{ $t('logout') }}
+                {{ $t("logout") }}
               </a>
             </div>
           </li>
@@ -65,14 +83,16 @@
                 :to="{ name: 'login' }"
                 class="nav-link"
                 active-class="active"
-              >{{ $t('login') }}</router-link>
+                >{{ $t("login") }}</router-link
+              >
             </li>
             <li class="nav-item">
               <router-link
                 :to="{ name: 'register' }"
                 class="nav-link"
                 active-class="active"
-              >{{ $t('register') }}</router-link>
+                >{{ $t("register") }}</router-link
+              >
             </li>
           </template>
         </ul>

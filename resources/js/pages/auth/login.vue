@@ -18,20 +18,21 @@
           <div class="col-5">
             <div class="form-login">
               <div class="content">
-                <i class="icon">icon</i>
-                <h1>LOGIN</h1>
-                <i>Don’t have account ?</i>
-                <router-link to="/register" class="btn">
-                  <a>
-                    <span>Sign Up</span>
-                  </a>
-                </router-link>
-                <hr style="height:1px; border-color:#1EC1B5; background-color:#1EC1B5" />
+                <i class="icon flaticon-login"></i>
+                <h1 style="color: #3631c4;">LOGIN</h1>
+
+                <span style="color:#C5C5CB">Don’t have account ? </span>
+
+                <router-link to="/register"><span>Sign Up</span></router-link>
+
+                <hr
+                  style="height:1px; border-color:#1EC1B5; background-color:#1EC1B5"
+                />
                 <form @submit.prevent="login" @keydown="form.onKeydown($event)">
                   <!-- Email -->
                   <div class="form-group">
                     <input
-                      placeholder="Email"
+                      placeholder=" Email"
                       id="input"
                       v-model="form.email"
                       :class="{ 'is-invalid': form.errors.has('email') }"
@@ -60,7 +61,9 @@
 
                   <div class="form-group mt-5">
                     <!-- Submit Button -->
-                    <v-button :loading="form.busy" id="input2">{{ $t("LOGIN") }}</v-button>
+                    <v-button :loading="form.busy" id="input2">{{
+                      $t("LOGIN")
+                    }}</v-button>
 
                     <!-- GitHub Login Button -->
                     <login-with-github />
@@ -186,5 +189,8 @@ export default {
   height: 1px;
   background-color: #ffcc57;
 }
+.icon {
+  font-size: 60px !important;
+  color: #3631c4;
+}
 </style>
-
