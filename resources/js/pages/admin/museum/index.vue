@@ -1,7 +1,11 @@
 <template>
   <div>
     <div>
-      <input type="text" style="display:block; width:100%" placeholder="Search Museum" />
+      <input
+        type="text"
+        style="display:block; width:100%"
+        placeholder="Search Museum"
+      />
     </div>
     <hr />
     <button id="createbtn" style="width:200px;">Create</button>
@@ -15,7 +19,9 @@
       <tr>
         <td>
           <div v-for="item in museums" :key="item.id">
-            <router-link :to="{ name: 'admin.museums.show', params: { id: item.id } }">
+            <router-link
+              :to="{ name: 'admin.museums.show', params: { id: item.id } }"
+            >
               <p>{{ item.name }}</p>
               <!-- <button @click="del(item.id)">del</button> -->
             </router-link>
@@ -23,16 +29,30 @@
         </td>
         <td>
           <div v-for="item in museums" :key="item.id">
-            <router-link :to="{ name: 'admin.museums.show', params: { id: item.id } }">
-              <p class="btn btn-warning" style="border-radius: 99px;color:white;">Edit</p>
-              <p class="btn btn-secondary" style="border-radius: 99px;color:white;">Setting</p>
+            <router-link
+              :to="{ name: 'admin.museums.show', params: { id: item.id } }"
+            >
+              <p
+                class="btn btn-warning"
+                style="border-radius: 99px;color:white;"
+              >
+                Edit
+              </p>
+              <p
+                class="btn btn-secondary"
+                style="border-radius: 99px;color:white;"
+              >
+                Setting
+              </p>
               <!-- <button @click="del(item.id)">del</button> -->
             </router-link>
           </div>
         </td>
         <td>
           <div v-for="item in museums" :key="item.id">
-            <router-link :to="{ name: 'admin.museums.show', params: { id: item.id } }">
+            <router-link
+              :to="{ name: 'admin.museums.show', params: { id: item.id } }"
+            >
               <h6 class="btn btn-light actives">
                 <li>Active</li>
               </h6>
@@ -42,6 +62,7 @@
         </td>
       </tr>
     </table>
+
     <div></div>
   </div>
 </template>

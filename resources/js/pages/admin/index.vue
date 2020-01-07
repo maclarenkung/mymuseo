@@ -132,233 +132,38 @@
       <a href="#clients">Clients</a>
       <a href="#contact">Contact</a>
     </div>
-    <!-- <div class="w3-sidebar w3-bar-block" style id="sidebar1">
-      <h3 class="w3-bar-item" style="color:white;" v-if="user.role == 1">Manage</h3>
-      <ul class="nav flex-column nav-pills pt-2" id="ab" v-if="user.role == 1">
-        <li v-for="tab in tabs" :key="tab.route" class="nav-item">
-          <router-link :to="{ name: tab.route }" class="nav-link" active-class="active">
-            <img :src="'/icon/' + tab.icon" alt width="24" />
-            {{ tab.name }}
-          </router-link>
-        </li>
-        <li class="nav-item">
-          <router-link to="/admin/user" class="nav-link">
-            <img :src="'/icon/user.png'" alt width="24" />
-            User
-          </router-link>
-        </li>
-        <li class="nav-item">
-          <router-link to="/admin/user/log" class="nav-link">
-            <img :src="'/icon/info.png'" alt width="24" />
-            User Log
-          </router-link>
-        </li>
-      </ul>
 
-      <ul class="nav flex-column nav-pills" id="ab" v-if="user.role == 2">
-        <li>
-          <b>Museum</b>
-        </li>
-
-        <li class="nav-item">
-          <router-link :to="{ name: 'admin.muse.dashboard' }" class="nav-link">
-            <img :src="'/icon/Home.png'" alt width="24" />
-            Home
-          </router-link>
-        </li>
-        <li class="nav-item">
-          <router-link to="/admin/museums/1" class="nav-link">
-            <img :src="'/icon/stairs.png'" alt width="24" />
-            Floor
-          </router-link>
-        </li>
-
-        <li class="nav-item">
-          <router-link to="/admin/floors/1" class="nav-link">
-            <img :src="'/icon/door.png'" alt width="24" />
-            Room
-          </router-link>
-        </li>
-
-        <li class="nav-item">
-          <router-link to="/admin/room/1" class="nav-link">
-            <img :src="'/icon/to-do.png'" alt width="24" />
-            Item
-          </router-link>
-        </li>
-        <hr />
-
-        <li>
-          <b>User</b>
-        </li>
-        <li class="nav-item">
-          <router-link to="/admin/user" class="nav-link">
-            <img :src="'/icon/user.png'" alt width="24" />
-            User
-          </router-link>
-        </li>
-        <li class="nav-item">
-          <router-link to="/admin/user/log" class="nav-link">
-            <img :src="'/icon/info.png'" alt width="24" />
-            User Log
-          </router-link>
-        </li>
-
-        <hr />
-
-        <li>
-          <b>Social Management</b>
-        </li>
-        <li class="nav-item">
-          <router-link to="#" class="nav-link">
-            <img :src="'/icon/foo.svg'" alt width="24" />
-            Footer
-          </router-link>
-        </li>
-
-        <hr />
-
-        <li>
-          <b>Payment</b>
-        </li>
-        <li class="nav-item">
-          <router-link to="/admin/howtopay" class="nav-link">
-            <img :src="'/icon/pay.png'" alt width="24" />
-            How to pay
-          </router-link>
-          <router-link to="/admin/payment" class="nav-link">
-            <img :src="'/icon/check.png'" alt width="24" />
-            Confirm
-          </router-link>
-        </li>
-      </ul>
-    </div> -->
-    <div class="w3-container">
-      <div class="row">
-        <div class="col-md-10 offset-2">
-          <transition name="fade" mode="out-in">
-            <div class="card p-3" style="color:#305A9A">Museum</div>
-          </transition>
+    <div class="content">
+      <div class="col-md-10 offset-2">
+        <div class="container mt-5" style="background-color:#F9F9F9">
+          <router-view />
         </div>
       </div>
     </div>
-    <div class="col-md-10 offset-2">
+    <!-- <div class="col-md-10 offset-2">
       <div class="card">
         <div class="w3 mt-3">
-          <div class="row">
-            <div class="col-md-2" style="padding-right: 0px!important;">
-              <div class="card p-3">
-                <!-- <button id="createbtn">Create {{create.name}}</button> -->
+          <div class="row"></div>
 
-                <div class="mt-4">
-                  <h5 class>All</h5>
-                  <input
-                    type="checkbox"
-                    name="vehicle1"
-                    value="Bike"
-                    class="mb-3"
-                  />
-                  Active
-                  <br />
-                  <input
-                    type="checkbox"
-                    name="vehicle2"
-                    value="Car"
-                    class="mb-3"
-                  />
-                  Expired
-                  <br />
-                  <input
-                    type="checkbox"
-                    name="vehicle3"
-                    value="Boat"
-                    class="mb-3"
-                  />
-                  Payment
-                  <br />
-                  <hr />
-                  <a href="#">Trashed</a>
-                  <hr />
+          <div class="col-md-12" style="padding-left: 0px!important;">
+            <div class>
+              <transition name="fade" mode="out-in">
+                <div
+                  class="card p-3 ml-1"
+                  style="overflow-y:scroll;"
+                  :style="`height:750px`"
+                >
 
-                  <h5>Status</h5>
-                  <h5 class="a">
-                    <li>Active</li>
-                  </h5>
-                  <h5 class="b">
-                    <li>Payment</li>
-                  </h5>
-                  <h5 class="c">
-                    <li>Expired</li>
-                  </h5>
+                  <div></div>
                 </div>
-              </div>
-            </div>
-            <!-- <div class="w3-sidebar col-md-4" style=" height:auto!important">
-            <h5 class="w3-bar-item">
-
-            </div>-->
-            <div class="col-md-10" style="padding-left: 0px!important;">
-              <div class>
-                <transition name="fade" mode="out-in">
-                  <div
-                    class="card p-3 ml-1"
-                    style="overflow-y:scroll;"
-                    :style="`height:750px`"
-                  >
-                    <!-- Page Content -->
-                    <div>
-                      <router-view />
-                    </div>
-                  </div>
-                </transition>
-              </div>
+              </transition>
             </div>
           </div>
         </div>
       </div>
-    </div>
-
-    <!-- <div class="row">
-    <div class="col-md-3">-->
-    <!-- <card title="Manage" class="settings-card">
-          <ul class="nav flex-column nav-pills">
-            <li v-for="tab in tabs" :key="tab.route" class="nav-item">
-              <router-link :to="{ name: tab.route }" class="nav-link" active-class="active">
-                <img :src="'/icon/' + tab.icon" alt width="24" />
-                {{ tab.name }}
-              </router-link>
-            </li>
-            <li v-for="tab in tabs" :key="tab.route" class="nav-item">
-              <router-link :to="{ name: tab.route }" class="nav-link">
-                <img :src="'/icon/' + tab.icon" alt width="24" />
-                User
-              </router-link>
-            </li>
-            <li v-for="tab in tabs" :key="tab.route" class="nav-item">
-              <router-link :to="{ name: tab.route }" class="nav-link">
-                <img :src="'/icon/' + tab.icon" alt width="24" />
-                User Log
-              </router-link>
-            </li>
-          </ul>
-    </card>-->
-    <!-- </div> -->
-
-    <!-- <div class="col-md-9">
-        <transition name="fade" mode="out-in">
-          <div class="card p-3">
-            <router-view />
-          </div>
-        </transition>
-    </div>-->
-    <!-- <div class="col-md-9 offset-3">
-        <transition name="fade" mode="out-in">
-          <div class="card p-3">
-            <router-view />
-          </div>
-        </transition>
-    </div>-->
+    </div> -->
   </div>
+
   <!-- </div> -->
 </template>
 
