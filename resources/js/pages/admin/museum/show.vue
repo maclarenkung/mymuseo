@@ -3,20 +3,57 @@
     <!-- <h2>{{ show.name }}</h2> -->
     <!-- <hr /> -->
     <!-- <a :href="show.address_url" target="_blank" rel="noopener noreferrer">Google Map</a> -->
+    <div class="col-12">
+      <div class="dropdown text-center" style="color:#4A4A4A">
+        <button
+          class="btn  dropdown-toggle text-center"
+          type="button"
+          id="dropdownMenuButton"
+          data-toggle="dropdown"
+          aria-haspopup="true"
+          aria-expanded="false"
+          style="font-size:30px; color:#4A4A4A"
+        >
+          พิพิธภัณฑ์ ชาวบางกอก
+        </button>
+        <button class="setting">
+          <i class="flaticon-wheel"></i>
+          setting
+        </button>
+        <p>(Bangkok Museum)</p>
+        <div
+          class="dropdown-menu text-center"
+          aria-labelledby="dropdownMenuButton"
+        >
+          <a class="dropdown-item text-center" href="#" style="font-size:25px;">
+            <i class="flaticon-add"></i> เพิ่มพิพิธภัณฑ์</a
+          >
+        </div>
+      </div>
+    </div>
+    <div class="col-12">
+      <span class="head-muse">{{ show.name }}</span>
 
-    <div class="card p-3" style="border:none;">
-      <div class="clearfix">
+      <span class="head-muse" style="color:#3641FB"> / Floor</span>
+    </div>
+    <br />
+    <div class="col-12">
+      <div class="card  table-flo">
+        <!-- <div class="clearfix">
         <router-link to="/admin/museums" class="float-left">
-          <img src="/icon/left-arrow.png" width="40" style="margin-top:rem(10);" />
+          <img
+            src="/icon/left-arrow.png"
+            width="40"
+            style="margin-top:rem(10);"
+          />
         </router-link>
-        <h1 class="float-left ml-4">{{ show.name }}</h1>
       </div>
       <hr />
       <div>
         <button id="createbtn" style="width:200px;">Create</button>
-        <hr />
-        <div class="row">
-          <div class="col-md-8">
+        <hr /> -->
+        <!-- <div class="row"> -->
+        <!-- <div class="col-md-8">
             <table class="mm-table">
               <tbody>
                 <tr>
@@ -67,56 +104,64 @@
                 </tr>
               </tbody>
             </table>
-          </div>
-          <div class="col-md-4">
+          </div> -->
+        <!-- <div class="col-md-4">
             <img :src="show.image_url" class="w-50" />
-          </div>
-          <div class="col-12 mt-2 clearfix">
+          </div> -->
+        <!-- <div class="col-12 mt-2 clearfix">
             <div class="float-right">
               <el-button type="danger" round>Reject</el-button>
               <el-button type="success" round>Approve</el-button>
             </div>
-          </div>
+          </div> -->
+        <!-- </div> -->
+        <!-- </div> -->
+        <table>
+          <thead class="mm-thead">
+            <tr>
+              <td style="width:60%;">Name</td>
+              <td class="text-center" style="width: 10%">Action</td>
+              <td class="text-center">Create At</td>
+            </tr>
+          </thead>
+          <tbody class="mm-tbody ">
+            <tr v-for="floor in show.floors" :key="floor.id">
+              <td>
+                <router-link
+                  :to="{
+                    name: 'admin.floors.show',
+                    params: { id: floor.id }
+                  }"
+                >
+                  <p>{{ floor.name }}</p>
+                </router-link>
+              </td>
+              <td class="text-center">
+                <el-button type="warning" round>Edit</el-button>
+              </td>
+              <td class="text-center">
+                <router-link
+                  :to="{
+                    name: 'admin.floors.show',
+                    params: { id: floor.id }
+                  }"
+                >
+                  <!-- <p class="btn btn-warning">Edit</p> -->
+                  {{ floor.created_at }}
+                </router-link>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <div
+          class="col-12 text-center"
+          style="margin-top:70px; margin-bottom:40px;"
+        >
+          <button class="add-floor">
+            <i class="flaticon-add"></i> ADD FLOOR
+          </button>
         </div>
       </div>
-
-      <hr />
-
-      <table style="width:100%">
-        <tr>
-          <th>Name</th>
-          <th style="color:white">created at</th>
-          <th>Action</th>
-
-          <th>Created at</th>
-        </tr>
-        <tr>
-          <td>
-            <div v-for="floor in show.floors" :key="floor.id" style="padding:10px;">
-              <router-link :to="{ name: 'admin.floors.show', params: { id: floor.id } }">
-                <p>{{ floor.name }}</p>
-              </router-link>
-            </div>
-          </td>
-          <td></td>
-          <td>
-            <div v-for="floor in show.floors" :key="floor.id" style="padding:10px;">
-              <router-link :to="{ name: 'admin.floors.show', params: { id: floor.id } }">
-                <!-- <p class="btn btn-warning">Edit</p> -->
-                <el-button type="warning" round>Edit</el-button>
-              </router-link>
-            </div>
-          </td>
-
-          <td>
-            <div v-for="floor in show.floors" :key="floor.id" style="padding:10px;">
-              <router-link :to="{ name: 'admin.floors.show', params: { id: floor.id } }">
-                <p>{{ show.created_at}}</p>
-              </router-link>
-            </div>
-          </td>
-        </tr>
-      </table>
     </div>
   </div>
 </template>
@@ -143,5 +188,27 @@ export default {
   }
 };
 </script>
-
-
+<style>
+.head-muse {
+  font-size: 25px;
+}
+.table-flo {
+  border: none;
+  border-radius: 20px;
+  padding: 20px 50px;
+}
+.setting {
+  right: 0;
+  position: absolute;
+  background-color: #3631c4;
+  color: whitesmoke;
+  padding: 10px 15px;
+  border-radius: 10px;
+}
+.add-floor {
+  background-color: #ff6e6e;
+  color: whitesmoke;
+  padding: 10px 15px;
+  border-radius: 10px;
+}
+</style>

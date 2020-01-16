@@ -33,7 +33,7 @@
         <ul class="navbar-nav">
           <!-- <locale-dropdown /> -->
           <li class="nav-item">
-            <a class="nav-link" href="#" style="color:#3E7A63">Home</a>
+            <a class="nav-link" href="/" style="color:#3E7A63">Home</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#" style="color:#3E7A63">About</a>

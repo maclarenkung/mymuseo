@@ -100,7 +100,7 @@ img {
   }
 }
 .mm-thead {
-  color: #305a9a;
+  color: #3e7a63;
   margin-bottom: 20px;
   font-weight: bold;
 }
@@ -113,7 +113,7 @@ img {
     margin: 10px 0;
   }
   tr:hover {
-    background: #4f95ff;
+    background: #3e7a63;
     color: #fff;
   }
   a:hover {

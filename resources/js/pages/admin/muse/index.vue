@@ -13,6 +13,10 @@
         >
           พิพิธภัณฑ์ ชาวบางกอก
         </button>
+        <button class="setting">
+          <i class="flaticon-wheel"></i>
+          setting
+        </button>
         <p>(Bangkok Museum)</p>
         <div
           class="dropdown-menu text-center"
@@ -26,17 +30,23 @@
     </div>
 
     <div class="col-12">
-      <div class="container mt-5" style="    background-color: white;">
+      <div class="container mt-5 dashh">
         <div class="row">
           <div class="col-6">
-            <h2>Your package : Small</h2>
-            <h3>Package : 1mounth</h3>
+            <span style="font-size: 35px; color:#4A4A4A">Your package :</span>
+            <span style="color: #3e7a63; font-size:35px;">Small</span>
+            <br />
+            <br />
+            <span style="color: #4A4A4A; font-size:24px;">Package : </span>
+            <span style="color: #3e7a63; font-size:24px;">1mounth</span>
           </div>
           <div class="col-6 text-right">
             <div class="row">
               <div class="col-8">
-                <h1>Expired date</h1>
-                <h3>15 - 01 - 63</h3>
+                <p style="color: #4A4A4A; font-size:24px;">Expired date</p>
+                <span style="color: #FF6464; font-size:35px;"
+                  >15 - 01 - 63</span
+                >
               </div>
               <div class="col-4" style="margin-top:30px">
                 <button class="upgrade">upgrade</button>
@@ -44,16 +54,19 @@
             </div>
           </div>
         </div>
-        <hr class="dash-b" />
+        <hr class="dash-b" style="border-color: #1FE2D4;" />
         <div class="row">
           <div class="col-4">
             <div class="row">
               <div class="col-6 text-right">
-                <i class="flaticon-edit-button" style="font-size: 50px"></i>
+                <i
+                  class="flaticon-edit-button"
+                  style="font-size: 50px; color: #3e7a63"
+                ></i>
               </div>
               <div class="col-6">
-                <h4>Content</h4>
-                <h5>100 items</h5>
+                <h4 class="h8">Content</h4>
+                <p style="color: #3e7a63;">100 items</p>
                 <!-- <i class="vl"></i> -->
               </div>
             </div>
@@ -61,11 +74,14 @@
           <div class="col-4 ">
             <div class="row">
               <div class="col-6 text-right">
-                <i class="flaticon-qr-code" style="font-size: 50px"></i>
+                <i
+                  class="flaticon-qr-code"
+                  style="font-size: 50px; color: #3e7a63;"
+                ></i>
               </div>
               <div class="col-6">
-                <h4>Qr-code</h4>
-                <h5>Unlimited</h5>
+                <h4 class="h8">Qr-code</h4>
+                <p style="color: #3e7a63;">Unlimited</p>
                 <!-- <i class="vl"></i> -->
               </div>
             </div>
@@ -73,11 +89,14 @@
           <div class="col-4">
             <div class="row">
               <div class="col-6 text-right">
-                <i class="flaticon-photo" style="font-size: 50px"></i>
+                <i
+                  class="flaticon-photo"
+                  style="font-size: 50px; color: #3e7a63;"
+                ></i>
               </div>
               <div class="col-6">
-                <h4>Item</h4>
-                <h5>60 / 100 items</h5>
+                <h4 class="h8">Item</h4>
+                <p style="color: #3e7a63;">60 / 100 items</p>
                 <!-- <i class="vl"></i> -->
               </div>
             </div>
@@ -93,8 +112,8 @@
               <i class="flaticon-user "></i>
             </div>
 
-            <p>500</p>
-            <p>Visit today</p>
+            <p class="mt-4 h7">500</p>
+            <span class="h8">Visit today</span>
           </div>
         </div>
         <div class="col-4 ">
@@ -103,8 +122,8 @@
               <i class="flaticon-team "></i>
             </div>
 
-            <p>500</p>
-            <p>Visit today</p>
+            <p class="mt-4 h7">Saturday</p>
+            <span class="h8">Most People (300)</span>
           </div>
         </div>
         <div class="col-4 ">
@@ -113,17 +132,17 @@
               <i class="flaticon-qr-code "></i>
             </div>
 
-            <p>500</p>
-            <p>Visit today</p>
+            <p class="mt-4 h7">เปียโน</p>
+            <span class="h8">Most Scan (489)</span>
           </div>
         </div>
-        <div class="col-4 ">
+        <div class="col-4 mt-5">
           <div class="col-12 tab">
             <div class="icon-4 text-center">
               <i class="flaticon-witness"></i>
             </div>
-            <p>500</p>
-            <p>Visit today</p>
+            <p class="mt-4 h7">ห้องรับแขก</p>
+            <span class="h8">Most Visit (300)</span>
           </div>
         </div>
       </div>
@@ -227,6 +246,10 @@ export default {};
 <style>
 .tab {
   background-color: white;
+  padding: 20px 20px;
+  border-radius: 20px;
+  box-shadow: 3px 5px 5px;
+  color: #7070707a;
 }
 .upgrade {
   height: 50px;
@@ -275,5 +298,27 @@ export default {};
   color: white;
   border-style: none;
   font-size: 30px;
+}
+.dashh {
+  padding: 50px 40px;
+  background-color: white;
+  border-radius: 30px;
+  box-shadow: 3px 5px 5px;
+  color: #7070707a;
+}
+.h7 {
+  color: #4a4a4a;
+  font-size: 25px;
+}
+.h8 {
+  color: #4a4a4a;
+}
+.setting {
+  right: 0;
+  position: absolute;
+  background-color: #3631c4;
+  color: whitesmoke;
+  padding: 10px 15px;
+  border-radius: 10px;
 }
 </style>
