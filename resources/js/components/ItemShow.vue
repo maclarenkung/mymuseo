@@ -1,11 +1,11 @@
 <template>
   <div>
-    <div class="col-12">
+    <div class="col-12" style="background-color: white;">
       <div class="Rectangle-1">
-        <img src="https://sv1.picz.in.th/images/2019/12/18/i6x4A9.png" class="Path-61" />
+        <h4 class="pt-5" style="color:white;">พิพิธภัณฑ์ บ้านบางกอก</h4>
       </div>
       <div class="Path-53">
-        <div class="col-12" style="margin: auto;">
+        <!-- <div class="col-12" style="margin: auto;">
           <div class="row">
             <div class="col-4"></div>
             <div class="col-4">
@@ -23,23 +23,23 @@
             </div>
             <div class="col-4"></div>
           </div>
-        </div>
+        </div>-->
         <div class="col-12 justify-content-md-center">
-          <div class="col-3 justify-content-md-center" style="margin: auto;">
-            <div class="speaker">
+          <!-- <div class="col-3 justify-content-md-center" style="margin: auto;"> -->
+          <!-- <div class="speaker">
               <div class="Rectangle-6">
                 <img
                   src="https://sv1.picz.in.th/images/2019/12/19/inRp02.png"
                   style="width:30px;margin-top: 24px;"
                 />
               </div>
-            </div>
-          </div>
-          <div class="text-1" style="margin: 10px auto;">
+          </div>-->
+          <!-- </div> -->
+          <!-- <div class="text-1" style="margin: 10px auto;">
             <p>กดปุ่มเพื่อฟังเสียง</p>
-          </div>
+          </div>-->
 
-          <div class="col-12">
+          <div class="col-12 mt-4">
             <div class="Image-42 col-10" style="width: 100%;margin: auto;">
               <img src="https://sv1.picz.in.th/images/2019/12/21/iHeynR.jpg" />
             </div>
@@ -59,11 +59,31 @@
               </div>
             </div>
           </div>
+          <div class="col-12 mt-4">
+            <div class="col-4 offset-4">
+              <div class="row">
+                <h4>TH</h4>
+                <div class="pl-1 pr-1 vl">
+                  <h4>|</h4>
+                </div>
+                <h4>ENG</h4>
+                <div class="pl-1 pr-1 vl">
+                  <h4>|</h4>
+                </div>
+                <h4>CN</h4>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 text-center mt-5">
+            <div class="col-4 offset-4">
+              <i class="flaticon-speaker dot"></i>
+            </div>
+          </div>
 
           <br />
           <div class="col-12">
             <div
-              class="col-10"
+              class="col-10 mt-3"
               style="background-color: thistle;width: auto;height: 263px;
       border-radius: 11px;
       box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.16);
@@ -71,19 +91,7 @@
             >
               <div>
                 <p
-                  style="font-family: Kanit;
-  font-size: 20px;
-  font-weight: bold;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: 1.5;
-  letter-spacing: normal;
-  text-align: center;
-  color: #000000;
-  padding-top: 13px;"
-                >พิพิธภัณฑ์ ชาวบางกอก</p>
-                <hr />
-                <p
+                  class="pt-4"
                   style="font-family: Kanit;
   font-size: 17px;
   font-weight: 600;
@@ -94,6 +102,7 @@
   text-align: center;
   color: #000000;"
                 >เปียโน</p>
+                <hr />
                 <p
                   style="font-family: Kanit;
   font-size: 14px;
@@ -163,6 +172,29 @@
               >ชั้น 1 ห้องรับแขก</p>
             </div>
           </div>
+          <div class="col-12 mt-4">
+            <div
+              class="col-10"
+              style="background-color: thistle;width: auto;
+      height: 163px;
+      border-radius: 11px;
+      box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.16);
+      background-color: #ffffff;margin: auto;"
+            >
+              <p
+                style="font-family: Kanit;
+          font-size: 20px;
+          font-weight: bold;
+          font-stretch: normal;
+          font-style: normal;
+          line-height: 1.5;
+          letter-spacing: normal;
+          text-align: center;
+          color: #000000;
+          padding-top: 13px;"
+              >ตำแหน่งของคุณ</p>
+            </div>
+          </div>
 
           <br />
           <div class="col-12">
@@ -214,7 +246,7 @@
   height: 12px;
   border: solid 1px #707070;
   border-radius: 7px;
-  background-color: #305a9a;
+  background-color: white;
 "
                   ></div>
                   <div
@@ -260,11 +292,7 @@
               box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.16);
               background-color: #305a9a; margin: auto;"
               >
-                <img
-                  src="https://sv1.picz.in.th/images/2019/12/21/iHMffS.png
-"
-                  style="width:30px;margin-top: 24px; margin-left: 24px;"
-                />
+                <i class="flaticon-photo-camera"></i>
               </div>
               <div class="col-4"></div>
             </div>
@@ -276,10 +304,7 @@
                           box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.16);
                           background-color: #305a9a;margin: auto;"
               >
-                <img
-                  src="https://sv1.picz.in.th/images/2019/12/21/iHMNGQ.png"
-                  style="width:30px;margin-top: 24px; margin-left: 24px;"
-                />
+                <i class="flaticon-unlink"></i>
               </div>
             </div>
 
@@ -390,17 +415,23 @@ export default {
     padding-right: 0px;
   }
 }
-
+.oval {
+  height: 50px;
+  width: 100px;
+  background-color: #555;
+  border-radius: 50%;
+}
 .col-12 {
   padding-left: 0px;
   padding-right: 0px;
 }
 .Rectangle-1 {
   width: auto;
-  height: 100px;
+  height: 130px;
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.13);
-  background-color: #ffffff;
+  background-color: #3e7a63;
   text-align: center;
+  border-radius: 0px 0px 150% 150%;
 }
 .Path-61 {
   margin-top: 30px;
@@ -408,7 +439,26 @@ export default {
 .Path-53 {
   width: auto;
   height: auto;
-  background-color: #c9def7;
+  background-color: #ffffff;
+}
+.vl {
+  // border-left: 4px solid #ffcc57;
+  // height: auto;
+  color: #ffcc57;
+}
+.dot {
+  // margin-top: -10px;
+  // height: 70px;
+  // width: 70px;
+  padding: 10px 20px;
+  background-color: white;
+  border-radius: 96%;
+  border-color: #3e7a63;
+  border-style: solid;
+  // box-shadow: 1px 2px green;
+  font-size: 40px;
+  color: #3e7a63;
+  // display: inline-block;
 }
 .Image-22 {
   width: 37px;

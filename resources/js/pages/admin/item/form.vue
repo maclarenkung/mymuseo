@@ -1,65 +1,193 @@
 <template>
   <div>
-    <div class="clearfix">
-      <router-link to="/admin/room/1" class="float-left">
-        <img src="/icon/left-arrow.png" width="40" style="margin-top:rem(10);" />
-      </router-link>
-      <h1 class="float-left ml-4">Create Item</h1>
-    </div>
-    <form @submit.prevent="submitForm" @keydown="form.onKeydown($event)">
-      <!-- Name -->
-      <div class="row">
-        <div class="form-group col-md-6">
-          <label class>Title</label>
-          <div class>
-            <input
-              v-model="form.name"
-              :class="{ 'is-invalid': form.errors.has('name') }"
-              class="form-control"
-              type="text"
-              name="name"
-            />
-            <has-error :form="form" field="name" />
-          </div>
-        </div>
+    <div class="dashh">
+      <div class="clearfix">
+        <router-link to="/admin/room/1" class="float-left">
+          <i class="flaticon-left-arrow"></i>
+        </router-link>
+        <h1 class="float-left ml-4">Create Item</h1>
       </div>
+      <form @submit.prevent="submitForm" @keydown="form.onKeydown($event)">
+        <!-- Name -->
+        <div class="row">
+          <div class="dropdown col-4">
+            <h4 style="color:#3631c4;">Floor</h4>
 
-      <div class="row">
-        <div class="form-group col-md-6">
-          <label class>Description</label>
-          <div class>
-            <textarea
-              v-model="form.description"
-              :class="{ 'is-invalid': form.errors.has('description') }"
-              class="form-control"
-              type="text"
-              name="description"
-            />
-            <has-error :form="form" field="description" />
+            <a
+              class="btn dropdown-toggle form-drop"
+              href="#"
+              role="button"
+              id="dropdownMenuLink"
+              data-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false"
+            >
+              <i class="flaticon-floor"></i> Floor
+            </a>
+
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+              <a class="dropdown-item" href="#">floor->name</a>
+              <a class="dropdown-item" href="#">+ เพิ่ม floor</a>
+            </div>
+          </div>
+          <div class="dropdown col-4">
+            <h4 style="color:#3631c4;">Room</h4>
+
+            <a
+              class="btn dropdown-toggle form-drop"
+              href="#"
+              role="button"
+              id="dropdownMenuLink"
+              data-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false"
+            >
+              <i class="flaticon-open-exit-door"></i> room
+            </a>
+
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+              <a class="dropdown-item" href="#">room->name</a>
+              <a class="dropdown-item" href="#">+ เพิ่ม room</a>
+            </div>
+          </div>
+          <div class="col-4"></div>
+          <br />
+          <div class="col-4 mt-4">
+            <i style="color:#3631c4;" class="flaticon-photo"></i>
+            <h4 style="color:#3631c4;">Image (จำนวนไม่เกิน 6)</h4>
+          </div>
+          <div class="col-4 mt-4">
+            <form>
+              <div class="custom-file">
+                <input type="file" class="custom-file-input" id="customFile" />
+                <label class="custom-file-label" for="customFile">
+                  <i class="flaticon-upload"></i> Upload image
+                </label>
+              </div>
+            </form>
+          </div>
+          <div class="col-4"></div>
+          <br />
+          <div class="col-4 mt-4">
+            <i style="color:#3631c4;" class="flaticon-placeholder"></i>
+            <h4 style="color:#3631c4;">Map (พร้อมระบุตำแหน่ง)</h4>
+          </div>
+          <div class="col-4 mt-4">
+            <form>
+              <div class="custom-file">
+                <input type="file" class="custom-file-input" id="customFile" />
+                <label class="custom-file-label" for="customFile">
+                  <i class="flaticon-upload"></i> Upload image
+                </label>
+              </div>
+            </form>
+          </div>
+          <div class="col-12 mt-5">
+            <ul class="nav nav-tabs" id="myTab" role="tablist">
+              <li class="nav-item">
+                <a
+                  class="nav-link active"
+                  id="home-tab"
+                  data-toggle="tab"
+                  href="#home"
+                  role="tab"
+                  aria-controls="home"
+                  aria-selected="true"
+                >TH</a>
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link"
+                  id="profile-tab"
+                  data-toggle="tab"
+                  href="#profile"
+                  role="tab"
+                  aria-controls="profile"
+                  aria-selected="false"
+                >ENG</a>
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link"
+                  id="contact-tab"
+                  data-toggle="tab"
+                  href="#contact"
+                  role="tab"
+                  aria-controls="contact"
+                  aria-selected="false"
+                >CH</a>
+              </li>
+            </ul>
+            <div class="tab-content" id="myTabContent">
+              <div
+                class="tab-pane fade show active"
+                id="home"
+                role="tabpanel"
+                aria-labelledby="home-tab"
+              >
+                <div class="row">
+                  <div class="form-group col-md-6">
+                    <label class>Title</label>
+                    <div class>
+                      <input
+                        v-model="form.name"
+                        :class="{ 'is-invalid': form.errors.has('name') }"
+                        class="form-control"
+                        type="text"
+                        name="name"
+                      />
+                      <has-error :form="form" field="name" />
+                    </div>
+                  </div>
+
+                  <div class="form-group col-md-6">
+                    <label class>Image</label>
+                    <div class>
+                      <input class="form-control" type="file" name="image" @change="setImg" />
+                      <has-error :form="form" field="image" />
+                    </div>
+                  </div>
+
+                  <div class="form-group col-md-6">
+                    <label class>Description</label>
+                    <div class>
+                      <textarea
+                        v-model="form.description"
+                        :class="{ 'is-invalid': form.errors.has('description') }"
+                        class="form-control"
+                        type="text"
+                        name="description"
+                      />
+                      <has-error :form="form" field="description" />
+                    </div>
+                  </div>
+                  <div class="form-group col-md-6">
+                    <label>Audio</label>
+                    <div class>
+                      <input class="form-control" type="file" name="image" @change="setFile" />
+                      <has-error :form="form" field="file" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="tab-pane fade"
+                id="profile"
+                role="tabpanel"
+                aria-labelledby="profile-tab"
+              >...</div>
+              <div
+                class="tab-pane fade"
+                id="contact"
+                role="tabpanel"
+                aria-labelledby="contact-tab"
+              >...</div>
+            </div>
           </div>
         </div>
-      </div>
 
-      <div class="row">
-        <div class="form-group col-md-3">
-          <label class>Image</label>
-          <div class>
-            <input class="form-control" type="file" name="image" @change="setImg" />
-            <has-error :form="form" field="image" />
-          </div>
-        </div>
-
-        <div class="form-group col-md-3">
-          <label>Audio</label>
-          <div class>
-            <input class="form-control" type="file" name="image" @change="setFile" />
-            <has-error :form="form" field="file" />
-          </div>
-        </div>
-      </div>
-
-      <!-- description -->
-      <!-- <div class="form-group row">
+        <!-- description -->
+        <!-- <div class="form-group row">
         <label class="col-md-3 col-form-label text-md-right">description</label>
         <div class="col-md-7">
           <textarea
@@ -71,20 +199,21 @@
           />
           <has-error :form="form" field="description" />
         </div>
-      </div>-->
+        </div>-->
 
-      <div class="form-group row">
-        <div class="col-md-7 offset-md-5 d-flex">
-          <!-- Submit Button -->
-          <v-button
-            :loading="form.busy"
-            id="createbtn"
-            style="width:130px;"
-            class="text-white colorr"
-          >{{ id ? "update" : "save" }}</v-button>
+        <div class="form-group row">
+          <div class="col-md-7 offset-md-5 d-flex">
+            <!-- Submit Button -->
+            <v-button
+              :loading="form.busy"
+              id="createbtn"
+              style="width:130px;"
+              class="text-white colorr"
+            >{{ id ? "update" : "save" }}</v-button>
+          </div>
         </div>
-      </div>
-    </form>
+      </form>
+    </div>
   </div>
 </template>
 
@@ -183,8 +312,16 @@ export default {
 </script>
 
 <style scoped>
+body {
+  font-family: "Mitr", sans-serif !important;
+}
 .colorr {
   background: #305a9a;
+}
+.form-drop {
+  border-radius: 10px;
+  border-color: aqua;
+  width: 100%;
 }
 input,
 textarea {
@@ -195,5 +332,15 @@ textarea {
 }
 label {
   color: #305a9a;
+}
+.dashh {
+  padding: 50px 40px;
+  background-color: white;
+  border-radius: 30px;
+  box-shadow: 3px 5px 5px;
+  color: #7070707a;
+}
+.clearfix {
+  color: #3631c4;
 }
 </style>
