@@ -1,6 +1,6 @@
     /*
     Flaticon icon font: Flaticon
-    Creation date: 12/01/2020 10:48
+    Creation date: 18/01/2020 09:10
     */
 
     @font-face {
@@ -78,6 +78,7 @@
 .flaticon-lock:before { content: "\f126"; }
 .flaticon-key:before { content: "\f127"; }
 .flaticon-wheel:before { content: "\f128"; }
+.flaticon-line:before { content: "\f129"; }
     
     $font-Flaticon-login: "\f100";
     $font-Flaticon-add-user: "\f101";
@@ -120,3 +121,4 @@
     $font-Flaticon-lock: "\f126";
     $font-Flaticon-key: "\f127";
     $font-Flaticon-wheel: "\f128";
+    $font-Flaticon-line: "\f129";

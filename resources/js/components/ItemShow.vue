@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="col-12" style="background-color: white;">
+    <div class="col-12" style="background-color: #F4F2F2;">
       <div class="Rectangle-1">
         <h4 class="pt-5" style="color:white;">พิพิธภัณฑ์ บ้านบางกอก</h4>
       </div>
@@ -24,7 +24,7 @@
             <div class="col-4"></div>
           </div>
         </div>-->
-        <div class="col-12 justify-content-md-center">
+        <div class="col-12 justify-content-md-center" style="background-color: #F4F2F2;">
           <!-- <div class="col-3 justify-content-md-center" style="margin: auto;"> -->
           <!-- <div class="speaker">
               <div class="Rectangle-6">
@@ -76,7 +76,7 @@
           </div>
           <div class="col-12 text-center mt-5">
             <div class="col-4 offset-4">
-              <i class="flaticon-speaker dot"></i>
+              <i class="flaticon-speaker dot2"></i>
             </div>
           </div>
 
@@ -283,79 +283,65 @@
           </div>
 
           <br />
-          <div class="row">
-            <div class="col-4" style="margin: auto;">
-              <div
-                style="width: 80px;
-              height: 80px;
+          <div class="row mt-5 mb-4">
+            <div class="col-4 text-center" style="margin: auto;">
+              <div class>
+                <i
+                  class="flaticon-photo-camera"
+                  style="width: 100%;
+              padding: 20px 30px;
+              font-size: 40px;
+              color: #3E7A63;
               border-radius: 50%;
               box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.16);
-              background-color: #305a9a; margin: auto;"
-              >
-                <i class="flaticon-photo-camera"></i>
+              background-color: white; "
+                ></i>
               </div>
               <div class="col-4"></div>
             </div>
             <div class="col-4" style="margin: auto;">
-              <div
-                style="width: 80px;
-                          height: 80px;
-                          border-radius: 50%;
-                          box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.16);
-                          background-color: #305a9a;margin: auto;"
-              >
-                <i class="flaticon-unlink"></i>
+              <div>
+                <i
+                  class="flaticon-unlink"
+                  style="width: 100%;
+              padding: 20px 30px;
+              font-size: 40px;
+              color: #3E7A63;
+              border-radius: 50%;
+              box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.16);
+              background-color: white; "
+                ></i>
               </div>
             </div>
 
-            <div class="col-6">
+            <div class="col-6 pt-4">
               <div class="text-2">
-                <p style="text-align: center;">สแกนภาพถัดไป</p>
+                <p style="text-align: center; color:#3E7A63;">สแกนภาพถัดไป</p>
               </div>
             </div>
-            <div class="col-6">
+            <div class="col-6 pt-4">
               <div class="text-2">
-                <p style="text-align: center;">แชร์</p>
+                <p style="text-align: center; color: #3E7A63;">แชร์</p>
               </div>
             </div>
           </div>
         </div>
-        <footer class="Rectangle-3">
+        <div class="Rectangle-3">
           <div class="col-12">
             <div class="row">
-              <div class="col-4"></div>
-              <div class="col-4">
-                <p class="Contact-us">Contact us</p>
-              </div>
-              <div class="col-4"></div>
               <div class="col-3"></div>
-              <div class="col-6" style="margin-top:20px;">
-                <img
-                  src="https://sv1.picz.in.th/images/2019/12/21/iHIQsE.png"
-                  style="
-  width: 44px;
-  height: 44px;
-  object-fit: contain;
-"
-                />
-                <img
-                  src="https://sv1.picz.in.th/images/2019/12/21/iHI59V.png"
-                  style="
-  width: 44px;
-  height: 44px;
-  margin-left: 15px;
-  object-fit: contain;
-"
-                />
-                <img
-                  src="https://sv1.picz.in.th/images/2019/12/21/iHIEjQ.png"
-                  style="
-  width: 44px;
-  height: 44px;
-  margin-left: 15px;
-  object-fit: contain;
-"
-                />
+              <div class="col-6">
+                <h3 class="Contact-us">พิพิธภัณฑ์ บ้านบางกอก</h3>
+              </div>
+              <div class="col-3"></div>
+              <div class="col-3"></div>
+              <div
+                class="col-6 text-center"
+                style="margin-top:20px; font-size:30px; color:#3E7A63;"
+              >
+                <i class="flaticon-facebook"></i>
+                <i class="flaticon-line"></i>
+                <i class="flaticon-call-answer"></i>
               </div>
               <div class="col-3"></div>
               <div class="col-12">
@@ -378,18 +364,20 @@
               </div>
             </div>
           </div>
-        </footer>
+        </div>
       </div>
     </div>
-    <img :src="item.image_url" width="200" />
-    <h2>{{ item.name }}</h2>
-    <hr />
-    <audio controls v-if="item.sound" ref="player">
-      <source :src="item.sound.file_url" type="audio/mpeg" />Your browser does not support the audio element.
-    </audio>
-    <!-- <pre>
+    <div class="con">
+      <img :src="item.image_url" width="200" />
+      <h2>{{ item.name }}</h2>
+      <hr />
+      <audio controls v-if="item.sound" ref="player">
+        <source :src="item.sound.file_url" type="audio/mpeg" />Your browser does not support the audio element.
+      </audio>
+      <!-- <pre>
     {{ item }}
-    </pre>-->
+      </pre>-->
+    </div>
   </div>
 </template>
 
@@ -413,6 +401,12 @@ export default {
   .container {
     padding-left: 0px;
     padding-right: 0px;
+  }
+  footer {
+    display: none;
+  }
+  .con {
+    display: none;
   }
 }
 .oval {
@@ -446,7 +440,7 @@ export default {
   // height: auto;
   color: #ffcc57;
 }
-.dot {
+.dot2 {
   // margin-top: -10px;
   // height: 70px;
   // width: 70px;
@@ -564,18 +558,18 @@ export default {
 .Rectangle-3 {
   width: auto;
   height: 170px;
-  background-color: #305a9a;
+  background-color: white;
 }
 .Contact-us {
-  margin-top: 23px;
-  font-family: Kanit;
-  font-size: 16px;
+  // margin-top: 23px;
+  // font-family: Kanit;
+  font-size: 20px;
   font-weight: normal;
   font-stretch: normal;
   font-style: normal;
   line-height: 1.5;
   letter-spacing: normal;
   text-align: center;
-  color: #ffffff;
+  color: #3e7a63;
 }
 </style>
