@@ -1,18 +1,18 @@
 <template>
   <div class="main-layout">
-    <navbar v-if="user" />
+    <navbar />
 
     <div>
       <child />
     </div>
     <footer>
       <hr style="background-color: #3E7A63" />
-      <div class="container ">
+      <div class="container">
         <div class="row">
           <div class="col-6">
             <img
               src="https://sv1.picz.in.th/images/2020/01/08/RhJSDt.png"
-              alt=""
+              alt
               class="logo logo-mind"
             />
           </div>

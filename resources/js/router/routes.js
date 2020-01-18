@@ -115,15 +115,16 @@ export default [
         component: page("admin/item/index.vue")
       },
       {
-        path: "item/:id",
-        name: "admin.item.show",
-        component: page("admin/item/show.vue")
-      },
-      {
         path: "item/create",
         name: "admin.item.create",
         component: page("admin/item/form.vue")
       },
+      {
+        path: "item/:id",
+        name: "admin.item.show",
+        component: page("admin/item/show.vue")
+      },
+
       {
         path: "item/:id/edit",
         name: "admin.item.edit",

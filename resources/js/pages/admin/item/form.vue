@@ -7,10 +7,29 @@
         </router-link>
         <h1 class="float-left ml-4">Create Item</h1>
       </div>
+      <div></div>
       <form @submit.prevent="submitForm" @keydown="form.onKeydown($event)">
         <!-- Name -->
         <div class="row">
-          <div class="dropdown col-4">
+          <select v-model="floor_active" @change="loadRoom()">
+            <option
+              :value="floor.id"
+              v-for="(floor, index) in floors"
+              :key="index"
+              >{{ floor.name }}</option
+            >
+          </select>
+          <select v-model="form.room_id" required>
+            <option value>please select</option>
+            <option
+              :value="room.id"
+              v-for="(room, index) in rooms"
+              :key="index"
+              >{{ room.name }}</option
+            >
+          </select>
+
+          <!-- <div class="dropdown col-4">
             <h4 style="color:#3631c4;">Floor</h4>
 
             <a
@@ -29,7 +48,7 @@
               <a class="dropdown-item" href="#">floor->name</a>
               <a class="dropdown-item" href="#">+ เพิ่ม floor</a>
             </div>
-          </div>
+          </div>-->
           <div class="dropdown col-4">
             <h4 style="color:#3631c4;">Room</h4>
 
@@ -83,6 +102,74 @@
             </form>
           </div>
           <div class="col-12 mt-5">
+            <b-card no-body>
+              <b-tabs pills card>
+                <b-tab
+                  :title="lang.name"
+                  :active="lang.code == 'th'"
+                  v-for="lang in langConfigs"
+                  :key="lang.code"
+                  ><b-card-text>
+                    <div class="row">
+                      <div class="form-group col-md-6">
+                        <label class>Title</label>
+                        <div class>
+                          <input
+                            v-model="form[lang.code].name"
+                            :class="{ 'is-invalid': form.errors.has('name') }"
+                            class="form-control"
+                            type="text"
+                            name="name"
+                          />
+                          <has-error :form="form" field="name" />
+                        </div>
+                      </div>
+
+                      <div class="form-group col-md-6">
+                        <label class>Image</label>
+                        <div class>
+                          <input
+                            class="form-control"
+                            type="file"
+                            name="image"
+                            @change="setImg"
+                          />
+                          <has-error :form="form" field="image" />
+                        </div>
+                      </div>
+
+                      <div class="form-group col-md-6">
+                        <label class>Description</label>
+                        <div class>
+                          <textarea
+                            v-model="form.description"
+                            :class="{
+                              'is-invalid': form.errors.has('description')
+                            }"
+                            class="form-control"
+                            type="text"
+                            name="description"
+                          />
+                          <has-error :form="form" field="description" />
+                        </div>
+                      </div>
+                      <div class="form-group col-md-6">
+                        <label>Audio</label>
+                        <div class>
+                          <input
+                            class="form-control"
+                            type="file"
+                            name="image"
+                            @change="setFile"
+                          />
+                          <has-error :form="form" field="file" />
+                        </div>
+                      </div>
+                    </div> </b-card-text
+                ></b-tab>
+              </b-tabs>
+            </b-card>
+
             <ul class="nav nav-tabs" id="myTab" role="tablist">
               <li class="nav-item">
                 <a
@@ -93,7 +180,8 @@
                   role="tab"
                   aria-controls="home"
                   aria-selected="true"
-                >TH</a>
+                  >TH</a
+                >
               </li>
               <li class="nav-item">
                 <a
@@ -104,7 +192,8 @@
                   role="tab"
                   aria-controls="profile"
                   aria-selected="false"
-                >ENG</a>
+                  >ENG</a
+                >
               </li>
               <li class="nav-item">
                 <a
@@ -115,7 +204,8 @@
                   role="tab"
                   aria-controls="contact"
                   aria-selected="false"
-                >CH</a>
+                  >CH</a
+                >
               </li>
             </ul>
             <div class="tab-content" id="myTabContent">
@@ -124,64 +214,7 @@
                 id="home"
                 role="tabpanel"
                 aria-labelledby="home-tab"
-              >
-                <div class="row">
-                  <div class="form-group col-md-6">
-                    <label class>Title</label>
-                    <div class>
-                      <input
-                        v-model="form.name"
-                        :class="{ 'is-invalid': form.errors.has('name') }"
-                        class="form-control"
-                        type="text"
-                        name="name"
-                      />
-                      <has-error :form="form" field="name" />
-                    </div>
-                  </div>
-
-                  <div class="form-group col-md-6">
-                    <label class>Image</label>
-                    <div class>
-                      <input class="form-control" type="file" name="image" @change="setImg" />
-                      <has-error :form="form" field="image" />
-                    </div>
-                  </div>
-
-                  <div class="form-group col-md-6">
-                    <label class>Description</label>
-                    <div class>
-                      <textarea
-                        v-model="form.description"
-                        :class="{ 'is-invalid': form.errors.has('description') }"
-                        class="form-control"
-                        type="text"
-                        name="description"
-                      />
-                      <has-error :form="form" field="description" />
-                    </div>
-                  </div>
-                  <div class="form-group col-md-6">
-                    <label>Audio</label>
-                    <div class>
-                      <input class="form-control" type="file" name="image" @change="setFile" />
-                      <has-error :form="form" field="file" />
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div
-                class="tab-pane fade"
-                id="profile"
-                role="tabpanel"
-                aria-labelledby="profile-tab"
-              >...</div>
-              <div
-                class="tab-pane fade"
-                id="contact"
-                role="tabpanel"
-                aria-labelledby="contact-tab"
-              >...</div>
+              ></div>
             </div>
           </div>
         </div>
@@ -209,7 +242,8 @@
               id="createbtn"
               style="width:130px;"
               class="text-white colorr"
-            >{{ id ? "update" : "save" }}</v-button>
+              >{{ id ? "update" : "save" }}</v-button
+            >
           </div>
         </div>
       </form>
@@ -224,21 +258,41 @@ import { mapActions, mapGetters } from "vuex";
 export default {
   data: () => ({
     form: new Form({
-      room_id: "",
-      name: "",
-      description: "",
-      image_url: "",
-      file_url: ""
+      all: {},
+      th: {
+        room_id: "",
+        name: "",
+        description: "",
+        image_url: "",
+        file_url: ""
+      },
+      en: {
+        room_id: "",
+        name: "",
+        description: "",
+        image_url: "",
+        file_url: ""
+      },
+      cn: {
+        room_id: "",
+        name: "",
+        description: "",
+        image_url: "",
+        file_url: ""
+      }
     }),
+    floor_active: 1,
     image: "",
     file: ""
   }),
   computed: {
-    room_id() {
-      return parseInt(this.$route.query.room_id);
-    },
+    // room_id() {
+    //   return parseInt(this.$route.query.room_id);
+    // },
     ...mapGetters({
-      show: "item/show"
+      show: "item/show",
+      floors: "floor/items",
+      rooms: "room/items"
     }),
     id() {
       return parseInt(this.$route.params.id);
@@ -269,7 +323,7 @@ export default {
         path: "items"
       });
 
-      this.form.room_id = this.room_id;
+      this.form.room_id;
 
       const { data } = await this.form.post("/api/items");
 
@@ -279,6 +333,10 @@ export default {
           params: { id: this.room_id }
         });
       }
+    },
+    loadRoom() {
+      this.form.room_id = "";
+      this.fetchRoom(this.floor_active);
     },
     async update() {
       if (this.image) {
@@ -297,16 +355,21 @@ export default {
       }
     },
     ...mapActions({
-      fetch: "item/show"
+      fetch: "item/show",
+      fetchFloors: "floor/fetch",
+      fetchRoom: "room/fetch"
     })
   },
   async created() {
+    console.log(this.id);
     if (this.id) {
       await this.fetch(this.id);
       this.form.keys().forEach(key => {
         this.form[key] = this.show[key];
       });
     }
+    this.fetchFloors();
+    this.fetchRoom(this.floor_active);
   }
 };
 </script>

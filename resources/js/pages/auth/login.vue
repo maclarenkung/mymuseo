@@ -21,13 +21,13 @@
                 <i class="icon flaticon-login"></i>
                 <h1 style="color: #3631c4;">LOGIN</h1>
 
-                <span style="color:#C5C5CB">Don’t have account ? </span>
+                <span style="color:#C5C5CB">Don’t have account ?</span>
 
-                <router-link to="/register"><span>Sign Up</span></router-link>
+                <router-link to="/register">
+                  <span>Sign Up</span>
+                </router-link>
 
-                <hr
-                  style="height:1px; border-color:#1EC1B5; background-color:#1EC1B5"
-                />
+                <hr style="height:1px; border-color:#1EC1B5; background-color:#1EC1B5" />
                 <form @submit.prevent="login" @keydown="form.onKeydown($event)">
                   <!-- Email -->
                   <div class="form-group">
@@ -61,9 +61,11 @@
 
                   <div class="form-group mt-5">
                     <!-- Submit Button -->
-                    <v-button :loading="form.busy" id="input2">{{
+                    <v-button :loading="form.busy" id="input2">
+                      {{
                       $t("LOGIN")
-                    }}</v-button>
+                      }}
+                    </v-button>
 
                     <!-- GitHub Login Button -->
                     <login-with-github />
@@ -95,8 +97,8 @@ export default {
 
   data: () => ({
     form: new Form({
-      email: "",
-      password: ""
+      email: "customer@mymuse.com",
+      password: "123456"
     }),
     remember: false
   }),

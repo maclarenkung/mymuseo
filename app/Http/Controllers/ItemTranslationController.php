@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Room;
+use App\ItemTranslation;
 use Illuminate\Http\Request;
 
-class RoomController extends Controller
+class ItemTranslationController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,7 @@ class RoomController extends Controller
      */
     public function index()
     {
-        $room = Room::where('floor_id', request()->floor_id)->get();
-        return $room;
+        //
     }
 
     /**
@@ -42,22 +41,21 @@ class RoomController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Room  $room
+     * @param  \App\ItemTranslation  $itemTranslation
      * @return \Illuminate\Http\Response
      */
-    public function show(Room $room)
+    public function show(ItemTranslation $itemTranslation)
     {
-        $room->items;
-        return $room;
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Room  $room
+     * @param  \App\ItemTranslation  $itemTranslation
      * @return \Illuminate\Http\Response
      */
-    public function edit(Room $room)
+    public function edit(ItemTranslation $itemTranslation)
     {
         //
     }
@@ -66,10 +64,10 @@ class RoomController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Room  $room
+     * @param  \App\ItemTranslation  $itemTranslation
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Room $room)
+    public function update(Request $request, ItemTranslation $itemTranslation)
     {
         //
     }
@@ -77,10 +75,10 @@ class RoomController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Room  $room
+     * @param  \App\ItemTranslation  $itemTranslation
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Room $room)
+    public function destroy(ItemTranslation $itemTranslation)
     {
         //
     }

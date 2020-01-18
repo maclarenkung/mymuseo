@@ -9,7 +9,17 @@ export default {
       create: {
         name: "",
         to: ""
-      }
+      },
+      langConfigs: [
+        {
+          name: "ภาษาไทย",
+          code: "th"
+        },
+        {
+          name: "ภาษาอังกฤษ",
+          code: "en"
+        }
+      ]
     };
   },
   computed: {

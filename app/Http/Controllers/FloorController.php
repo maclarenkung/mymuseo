@@ -13,7 +13,9 @@ class FloorController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index(Request $request)
-    { }
+    {
+        return Floor::get();
+    }
 
     /**
      * Show the form for creating a new resource.
