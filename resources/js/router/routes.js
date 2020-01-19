@@ -80,6 +80,11 @@ export default [
         component: page("admin/pay/confirm.vue")
       },
       {
+        path: "museums/create",
+        name: "admin.museums.create",
+        component: page("admin/museum/form.vue")
+      },
+      {
         path: "museums",
         name: "admin.museums",
         component: page("admin/museum/index.vue")

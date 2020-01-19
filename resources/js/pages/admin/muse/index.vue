@@ -1,6 +1,14 @@
 <template>
   <div>
     <div class="col-12">
+      <!-- <div>
+        <b-form-select
+          v-model="selected"
+          :options="options"
+          style="border-style: none;"
+          class="text-center"
+        ></b-form-select>
+      </div> -->
       <div class="dropdown text-center" style="color:#4A4A4A">
         <button
           class="btn  dropdown-toggle text-center"
@@ -240,7 +248,18 @@
 </template>
 
 <script>
-export default {};
+export default {
+  data() {
+    return {
+      selected: null,
+      options: [
+        { value: null, text: "Please select an option" },
+        { value: "museum1", text: "พิพิธภัณฑ์ ไปรษณีย์ สามเสน" },
+        { value: "add museum", text: "+ เพิ่มพิพิธภัณฑ์" }
+      ]
+    };
+  }
+};
 </script>
 
 <style>
