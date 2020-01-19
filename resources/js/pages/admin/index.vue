@@ -135,7 +135,7 @@
 
     <div class="content">
       <div class="col-md-10 offset-2">
-        <div class="container mt-5" style="background-color:#F9F9F9">
+        <div class="container mt-5">
           <router-view />
         </div>
       </div>
