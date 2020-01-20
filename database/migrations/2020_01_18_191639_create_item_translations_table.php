@@ -30,7 +30,7 @@ class CreateItemTranslationsTable extends Migration
 
             $table->string('name');
             $table->text('description');
-            $table->string('audio_url');
+            $table->string('audio_url')->nullable();
             $table->timestamps();
         });
     }

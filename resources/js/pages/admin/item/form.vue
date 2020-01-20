@@ -7,7 +7,8 @@
         </router-link>
         <h1 class="float-left ml-4">Create Item</h1>
       </div>
-      <div>{{ form }}</div>
+      <pre>{{ form }}</pre>
+
       <form @submit.prevent="submitForm" @keydown="form.onKeydown($event)">
         <!-- Name -->
         <div class="row">
@@ -19,7 +20,7 @@
               >{{ floor.name }}</option
             >
           </select>
-          <select v-model="form.room_id" required>
+          <select v-model="form.all.room_id" required>
             <option value>please select</option>
             <option
               :value="room.id"
@@ -28,6 +29,36 @@
               >{{ room.name }}</option
             >
           </select>
+
+          <div class="form-group">
+            <label class>Image</label>
+            <div class>
+              <input
+                class="form-control"
+                type="file"
+                name="image"
+                @change="setImg"
+              />
+              <has-error :form="form" field="image" />
+            </div>
+          </div>
+
+          <div class="row">
+            <div
+              class="col-md-3"
+              v-for="(img, index) in form.all.image_url"
+              :key="index"
+            >
+              <div class="card">
+                <div class="card-body">
+                  <img :src="img" width="100%" />
+                </div>
+                <div class="card-footer">
+                  <button @click="removeImg(index)" type="button">ลบ</button>
+                </div>
+              </div>
+            </div>
+          </div>
 
           <!-- <div class="dropdown col-4">
             <h4 style="color:#3631c4;">Floor</h4>
@@ -126,23 +157,10 @@
                       </div>
 
                       <div class="form-group col-md-6">
-                        <label class>Image</label>
-                        <div class>
-                          <input
-                            class="form-control"
-                            type="file"
-                            name="image"
-                            @change="setImg"
-                          />
-                          <has-error :form="form" field="image" />
-                        </div>
-                      </div>
-
-                      <div class="form-group col-md-6">
                         <label class>Description</label>
                         <div class>
                           <textarea
-                            v-model="form.description"
+                            v-model="form[lang.code].description"
                             :class="{
                               'is-invalid': form.errors.has('description')
                             }"
@@ -170,7 +188,7 @@
               </b-tabs>
             </b-card>
 
-            <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <!-- <ul class="nav nav-tabs" id="myTab" role="tablist">
               <li class="nav-item">
                 <a
                   class="nav-link active"
@@ -215,7 +233,7 @@
                 role="tabpanel"
                 aria-labelledby="home-tab"
               ></div>
-            </div>
+            </div> -->
           </div>
         </div>
 
@@ -258,23 +276,23 @@ import { mapActions, mapGetters } from "vuex";
 export default {
   data: () => ({
     form: new Form({
-      all: {},
+      all: {
+        room_id: 1,
+        image_url: []
+      },
       th: {
-        room_id: "",
         name: "",
         description: "",
         image_url: "",
         file_url: ""
       },
       en: {
-        room_id: "",
         name: "",
         description: "",
         image_url: "",
         file_url: ""
       },
       cn: {
-        room_id: "",
         name: "",
         description: "",
         image_url: "",
@@ -299,8 +317,17 @@ export default {
     }
   },
   methods: {
-    setImg(e) {
+    async setImg(e) {
+      if (this.form.all.image_url.length >= 6) {
+        alert("พ่อง");
+        return false;
+      }
       this.image = e.target.files[0];
+      let img = await this.upImg({
+        image: this.image,
+        path: "items"
+      });
+      this.form.all.image_url.push(img);
     },
     setFile(e) {
       this.file = e.target.files[0];
@@ -313,30 +340,28 @@ export default {
       }
     },
     async save() {
-      this.form.image_url = await this.upImg({
-        image: this.image,
-        path: "items"
-      });
-
-      this.form.file_url = await this.uploadFile({
-        file: this.file,
-        path: "items"
-      });
+      // this.form.file_url = await this.uploadFile({
+      //   file: this.file,
+      //   path: "items"
+      // });
 
       this.form.room_id;
 
       const { data } = await this.form.post("/api/items");
 
-      if (data) {
-        this.$router.push({
-          name: "admin.room.show",
-          params: { id: this.room_id }
-        });
-      }
+      // if (data) {
+      //   this.$router.push({
+      //     name: "admin.room.show",
+      //     params: { id: this.room_id }
+      //   });
+      // }
     },
     loadRoom() {
       this.form.room_id = "";
       this.fetchRoom(this.floor_active);
+    },
+    removeImg(index) {
+      this.$delete(this.form.all.image_url, index);
     },
     async update() {
       if (this.image) {

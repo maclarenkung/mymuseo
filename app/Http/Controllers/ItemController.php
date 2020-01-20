@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Item;
+use App\ItemTranslation;
+use App\ItemImage;
+
 use App\SoundLang;
 
 use Illuminate\Http\Request;
@@ -42,6 +45,36 @@ class ItemController extends Controller
     public function store(Request $request)
     {
 
+
+        $item = Item::create([
+            // "image_url" => $request->all['image_url'],
+            "room_id" => $request->all['room_id']
+        ]);
+
+        foreach ($request->only(['th', 'en', 'cn']) as $key => $value) {
+            $lang_id = getLangSlugIdByCode($key);
+            ItemTranslation::create([
+                "lang_id" =>  $lang_id,
+                "item_id" => $item->id,
+                "name" => $value['name'],
+                "description" => $value['description']
+            ]);
+        }
+
+        foreach ($request->all['image_url'] as $url) {
+            ItemImage::create([
+                "item_id" => $item->id,
+                "image_url" => $url
+            ]);
+        }
+
+
+        return $item;
+
+
+
+
+
         $item = Item::create($request->all());
         $soundLang = SoundLang::create([
             "model" =>  "App\Item",
@@ -60,7 +93,7 @@ class ItemController extends Controller
      */
     public function show(Item $item)
     {
-        $item->sound;
+        // $item->sound;
         return $item;
     }
 
