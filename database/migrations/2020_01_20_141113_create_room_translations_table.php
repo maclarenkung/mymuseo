@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateItemTranslationsTable extends Migration
+class CreateRoomTranslationsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,24 +13,24 @@ class CreateItemTranslationsTable extends Migration
      */
     public function up()
     {
-        Schema::create('item_translations', function (Blueprint $table) {
+        Schema::create('room_translations', function (Blueprint $table) {
             $table->bigInteger('lang_id')->unsigned();
             $table->foreign('lang_id')
                 ->references('id')
                 ->on('langs')
                 ->onDelete('cascade');
 
-            $table->bigInteger('item_id')->unsigned();
+            $table->bigInteger('room_id')->unsigned();
 
 
-            $table->foreign('item_id')
+            $table->foreign('room_id')
                 ->references('id')
-                ->on('items')
+                ->on('rooms')
                 ->onDelete('cascade');
 
             $table->string('name');
             $table->text('description');
-            $table->string('audio_url');
+            $table->text('audio_url');
             $table->timestamps();
         });
     }
@@ -42,6 +42,6 @@ class CreateItemTranslationsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('item_translations');
+        Schema::dropIfExists('room_translations');
     }
 }

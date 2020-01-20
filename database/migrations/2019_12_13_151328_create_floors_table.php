@@ -15,7 +15,7 @@ class CreateFloorsTable extends Migration
     {
         Schema::create('floors', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('name');
+
             $table->bigInteger('museum_id')->unsigned();
 
             $table->foreign('museum_id')
@@ -23,8 +23,9 @@ class CreateFloorsTable extends Migration
                 ->on('museums')
                 ->onDelete('cascade');
 
-            $table->text('description');
+
             $table->string('image_url');
+            $table->string('map_image_url');
 
             $table->timestamps();
         });

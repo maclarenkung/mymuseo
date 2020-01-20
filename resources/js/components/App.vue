@@ -1,8 +1,8 @@
 <template>
   <div id="app">
     <!-- <script src="https://use.fontawesome.com/a7f7734e77.js"></script> -->
-    <link href="https://fonts.googleapis.com/css?family=Mitr&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" type="text/css" href="../font/flaticon.css" />
+    <!-- <link href="https://fonts.googleapis.com/css?family=Mitr&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="../font/flaticon.css" /> -->
     <loading ref="loading" />
 
     <transition name="page" mode="out-in">

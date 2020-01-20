@@ -1,5 +1,8 @@
 <template>
   <div v-if="show">
+    <!-- <pre>
+          {{ show }}
+    </pre> -->
     <div class="col-12">
       <div class="dropdown text-center" style="color:#4A4A4A">
         <button
@@ -55,7 +58,7 @@
                     params: { id: item.id },
                     query: { room_id: show.id }
                   }"
-                  >{{ item.name }}</router-link
+                  >{{ item.translation.name }}</router-link
                 >
               </td>
               <td class="text-center">
@@ -68,7 +71,7 @@
                   <el-button type="warning" round>Edit</el-button>
                 </router-link>
               </td>
-              <td>{{ item.created_at }}</td>
+              <td>{{ item.translation.created_at }}</td>
             </tr>
           </tbody>
         </table>

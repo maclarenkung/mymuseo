@@ -1,76 +1,95 @@
 <template>
   <div>
-    <div class="dashh" v-if="user.role == 2">
+    <div class="dashh">
       <div class="clearfix">
         <router-link to="/admin/room/1" class="float-left">
           <i class="flaticon-left-arrow"></i>
         </router-link>
-        <h1 class="float-left ml-4">Create Item</h1>
+        <h1 class="float-left ml-4" style="color:#3631C4 ;">Create Museum</h1>
       </div>
-      <div></div>
-      <form @submit.prevent="submitForm" @keydown="form.onKeydown($event)">
-        <!-- Name -->
+      <hr />
+      <div class="col-12 " style="color: #3631C4;">
         <div class="row">
-          <select v-model="floor_active" @change="loadRoom()">
-            <option
-              :value="floor.id"
-              v-for="(floor, index) in floors"
-              :key="index"
-              >{{ floor.name }}</option
-            >
-          </select>
-          <select v-model="form.room_id" required>
-            <option value>please select</option>
-            <option
-              :value="room.id"
-              v-for="(room, index) in rooms"
-              :key="index"
-              >{{ room.name }}</option
-            >
-          </select>
-
-          <!-- <div class="dropdown col-4">
-            <h4 style="color:#3631c4;">Floor</h4>
-
-            <a
-              class="btn dropdown-toggle form-drop"
-              href="#"
-              role="button"
-              id="dropdownMenuLink"
-              data-toggle="dropdown"
-              aria-haspopup="true"
-              aria-expanded="false"
-            >
-              <i class="flaticon-floor"></i> Floor
-            </a>
-
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-              <a class="dropdown-item" href="#">floor->name</a>
-              <a class="dropdown-item" href="#">+ เพิ่ม floor</a>
-            </div>
-          </div>-->
-          <div class="dropdown col-4">
-            <h4 style="color:#3631c4;">Room</h4>
-
-            <a
-              class="btn dropdown-toggle form-drop"
-              href="#"
-              role="button"
-              id="dropdownMenuLink"
-              data-toggle="dropdown"
-              aria-haspopup="true"
-              aria-expanded="false"
-            >
-              <i class="flaticon-open-exit-door"></i> room
-            </a>
-
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-              <a class="dropdown-item" href="#">room->name</a>
-              <a class="dropdown-item" href="#">+ เพิ่ม room</a>
+          <div class="col-6">
+            <label for=""> <i class="flaticon-user"></i> Name (TH)</label>
+            <br />
+            <input type="text" class="create-form" />
+          </div>
+          <div class="col-6">
+            <label for=""> <i class="flaticon-user"></i> Name (EN)</label>
+            <br />
+            <input type="text" class="create-form" />
+          </div>
+          <div class="col-12">
+            <label for="">
+              <i class="flaticon-edit-button"></i> Description</label
+            ><br />
+            <textarea name="" id="" cols="80" rows="10" width="100%"></textarea>
+          </div>
+          <div class="col-6">
+            <label for=""> <i class="flaticon-user"></i> Google Map Link</label>
+            <br />
+            <input type="text" class="create-form" />
+          </div>
+          <div class="col-6">
+            <label for=""> <i class="flaticon-user"></i> Website</label>
+            <br />
+            <input type="text" class="create-form" />
+          </div>
+          <div class="col-6">
+            <label for=""> <i class="flaticon-user"></i> Time</label>
+            <br />
+            <div class="row">
+              <div class="col-5">
+                <input type="time" class="create-form" />
+              </div>
+              <div class="col-1">to</div>
+              <div class="col-5">
+                <input type="time" class="create-form" />
+              </div>
             </div>
           </div>
-          <div class="col-4"></div>
-          <br />
+          <div class="col-6">
+            <form action="">
+              <label for="">Day</label><br />
+              <input type="checkbox" name="vehicle1" value="sun" /> Sun
+              <input type="checkbox" name="vehicle1" value="mon" /> Mon
+              <input type="checkbox" name="vehicle1" value="tue" /> Tue
+              <input type="checkbox" name="vehicle1" value="wed" /> Wed
+              <br />
+              <input type="checkbox" name="vehicle1" value="thur" /> Thur
+              <input type="checkbox" name="vehicle1" value="fri" /> Fri
+              <input type="checkbox" name="vehicle1" value="sat" /> Sat
+            </form>
+          </div>
+          <div class="col-6">
+            <label for=""> <i class="flaticon-user"></i> Phone number</label>
+            <br />
+            <input type="text" class="create-form" />
+          </div>
+          <div class="col-6">
+            <label for=""> <i class="flaticon-user"></i> E-mail</label>
+            <br />
+            <input type="text" class="create-form" />
+          </div>
+          <div class="col-6">
+            <label for=""> <i class="flaticon-user"></i> Facebook</label>
+            <br />
+            <input type="text" class="create-form" />
+          </div>
+          <div class="col-6">
+            <label for=""> <i class="flaticon-user"></i> Instagram</label>
+            <br />
+            <input type="text" class="create-form" />
+          </div>
+          <div class="col-6">
+            <label for=""> <i class="flaticon-user"></i> Category</label>
+            <br />
+            <!-- <input type="text" class="create-form" /> -->
+          </div>
+          <div class="col-6">
+            <label for="">Language</label>
+          </div>
           <div class="col-4 mt-4">
             <i style="color:#3631c4;" class="flaticon-photo"></i>
             <h4 style="color:#3631c4;">Image (จำนวนไม่เกิน 6)</h4>
@@ -85,168 +104,12 @@
               </div>
             </form>
           </div>
-          <div class="col-4"></div>
-          <br />
-          <div class="col-4 mt-4">
-            <i style="color:#3631c4;" class="flaticon-placeholder"></i>
-            <h4 style="color:#3631c4;">Map (พร้อมระบุตำแหน่ง)</h4>
-          </div>
-          <div class="col-4 mt-4">
-            <form>
-              <div class="custom-file">
-                <input type="file" class="custom-file-input" id="customFile" />
-                <label class="custom-file-label" for="customFile">
-                  <i class="flaticon-upload"></i> Upload image
-                </label>
-              </div>
-            </form>
-          </div>
-          <div class="col-12 mt-5">
-            <b-card no-body>
-              <b-tabs pills card>
-                <b-tab
-                  :title="lang.name"
-                  :active="lang.code == 'th'"
-                  v-for="lang in langConfigs"
-                  :key="lang.code"
-                  ><b-card-text>
-                    <div class="row">
-                      <div class="form-group col-md-6">
-                        <label class>Title</label>
-                        <div class>
-                          <input
-                            v-model="form[lang.code].name"
-                            :class="{ 'is-invalid': form.errors.has('name') }"
-                            class="form-control"
-                            type="text"
-                            name="name"
-                          />
-                          <has-error :form="form" field="name" />
-                        </div>
-                      </div>
-
-                      <div class="form-group col-md-6">
-                        <label class>Image</label>
-                        <div class>
-                          <input
-                            class="form-control"
-                            type="file"
-                            name="image"
-                            @change="setImg"
-                          />
-                          <has-error :form="form" field="image" />
-                        </div>
-                      </div>
-
-                      <div class="form-group col-md-6">
-                        <label class>Description</label>
-                        <div class>
-                          <textarea
-                            v-model="form.description"
-                            :class="{
-                              'is-invalid': form.errors.has('description')
-                            }"
-                            class="form-control"
-                            type="text"
-                            name="description"
-                          />
-                          <has-error :form="form" field="description" />
-                        </div>
-                      </div>
-                      <div class="form-group col-md-6">
-                        <label>Audio</label>
-                        <div class>
-                          <input
-                            class="form-control"
-                            type="file"
-                            name="image"
-                            @change="setFile"
-                          />
-                          <has-error :form="form" field="file" />
-                        </div>
-                      </div>
-                    </div> </b-card-text
-                ></b-tab>
-              </b-tabs>
-            </b-card>
-
-            <ul class="nav nav-tabs" id="myTab" role="tablist">
-              <li class="nav-item">
-                <a
-                  class="nav-link active"
-                  id="home-tab"
-                  data-toggle="tab"
-                  href="#home"
-                  role="tab"
-                  aria-controls="home"
-                  aria-selected="true"
-                  >TH</a
-                >
-              </li>
-              <li class="nav-item">
-                <a
-                  class="nav-link"
-                  id="profile-tab"
-                  data-toggle="tab"
-                  href="#profile"
-                  role="tab"
-                  aria-controls="profile"
-                  aria-selected="false"
-                  >ENG</a
-                >
-              </li>
-              <li class="nav-item">
-                <a
-                  class="nav-link"
-                  id="contact-tab"
-                  data-toggle="tab"
-                  href="#contact"
-                  role="tab"
-                  aria-controls="contact"
-                  aria-selected="false"
-                  >CH</a
-                >
-              </li>
-            </ul>
-            <div class="tab-content" id="myTabContent">
-              <div
-                class="tab-pane fade show active"
-                id="home"
-                role="tabpanel"
-                aria-labelledby="home-tab"
-              ></div>
-            </div>
+          <div class="col-12 text-center mt-5">
+            <button>CANCEL</button>
+            <button>CREATE</button>
           </div>
         </div>
-
-        <!-- description -->
-        <!-- <div class="form-group row">
-        <label class="col-md-3 col-form-label text-md-right">description</label>
-        <div class="col-md-7">
-          <textarea
-            v-model="form.description"
-            :class="{ 'is-invalid': form.errors.has('description') }"
-            class="form-control"
-            type="text"
-            name="description"
-          />
-          <has-error :form="form" field="description" />
-        </div>
-        </div>-->
-
-        <div class="form-group row">
-          <div class="col-md-7 offset-md-5 d-flex">
-            <!-- Submit Button -->
-            <v-button
-              :loading="form.busy"
-              id="createbtn"
-              style="width:130px;"
-              class="text-white colorr"
-              >{{ id ? "update" : "save" }}</v-button
-            >
-          </div>
-        </div>
-      </form>
+      </div>
     </div>
   </div>
 </template>
@@ -378,24 +241,6 @@ export default {
 body {
   font-family: "Mitr", sans-serif !important;
 }
-.colorr {
-  background: #305a9a;
-}
-.form-drop {
-  border-radius: 10px;
-  border-color: aqua;
-  width: 100%;
-}
-input,
-textarea {
-  border-color: #305a9a;
-}
-textarea {
-  min-height: 350px;
-}
-label {
-  color: #305a9a;
-}
 .dashh {
   padding: 50px 40px;
   background-color: white;
@@ -403,7 +248,144 @@ label {
   box-shadow: 3px 5px 5px;
   color: #7070707a;
 }
-.clearfix {
-  color: #3631c4;
+.create-form {
+  width: 80%;
+}
+/* .col-12 {
+      padding-left: 0px;
+      padding-right: 0px;
+    } */
+.Rectangle-1 {
+  width: auto;
+  height: 100px;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.13);
+  background-color: #ffffff;
+  text-align: center;
+}
+.Path-61 {
+  margin-top: 30px;
+}
+.Path-53 {
+  width: auto;
+  height: auto;
+  background-color: #c9def7;
+}
+.Image-22 {
+  width: 37px;
+  height: 37px;
+  object-fit: contain;
+  margin-top: 30px;
+}
+.lang {
+  text-align: center;
+}
+.speaker {
+  text-align: center;
+  margin-top: 20px;
+}
+.Rectangle-6 {
+  width: 80px;
+  height: 80px;
+  border-radius: 40px;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.16);
+  background-color: #305a9a;
+}
+.text-1 {
+  width: 130px;
+  height: 24px;
+  font-family: Prompt;
+  font-size: 16px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.5;
+  letter-spacing: normal;
+  margin-top: 10px;
+  color: #000000;
+}
+.Image-42 img {
+  border-radius: 5px;
+  width: 100%;
+}
+.Image-36 {
+  width: 74px;
+  height: 55px;
+  object-fit: contain;
+}
+.Image-36 img {
+  width: 100%;
+  border-radius: 5px;
+}
+.sm-img {
+  margin-left: 13px;
+}
+.sm-img2 {
+  margin-left: 32px;
+  margin-top: 20px;
+}
+.Rectangle-9 {
+  width: 314px;
+  height: 263px;
+  border-radius: 11px;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.16);
+  background-color: #ffffff;
+  margin-top: 30px;
+  margin-left: 30px;
+}
+.Rectangle-68 {
+  width: 314px;
+  height: 163px;
+  border-radius: 11px;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.16);
+  background-color: #ffffff;
+  margin-top: 20px;
+  margin-left: 30px;
+}
+.Rectangle-69 {
+  width: 314px;
+  height: 317px;
+  border-radius: 11px;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.16);
+  background-color: #ffffff;
+  margin-top: 20px;
+  margin-left: 30px;
+}
+.Rectangle-7 {
+  width: 80px;
+  height: 80px;
+  border-radius: 40px;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.16);
+  background-color: #305a9a;
+  margin-top: 50px;
+  margin-left: 71px;
+}
+.text-2 {
+  font-family: Kanit;
+  font-size: 16px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.5;
+  letter-spacing: normal;
+  text-align: center;
+  color: #305a9a;
+  margin-top: 15px;
+}
+.Rectangle-3 {
+  width: auto;
+  height: 170px;
+  background-color: #305a9a;
+}
+.Contact-us {
+  margin-top: 23px;
+  font-family: Kanit;
+  font-size: 16px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.5;
+  letter-spacing: normal;
+  text-align: center;
+  color: #ffffff;
 }
 </style>

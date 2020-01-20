@@ -18,6 +18,10 @@ export default {
         {
           name: "ภาษาอังกฤษ",
           code: "en"
+        },
+        {
+          name: "ภาษาจีน",
+          code: "cn"
         }
       ]
     };

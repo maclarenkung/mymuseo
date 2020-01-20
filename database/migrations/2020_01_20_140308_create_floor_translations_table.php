@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateRoomsTable extends Migration
+class CreateFloorTranslationsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,12 @@ class CreateRoomsTable extends Migration
      */
     public function up()
     {
-        Schema::create('rooms', function (Blueprint $table) {
-            $table->bigIncrements('id');
+        Schema::create('floor_translations', function (Blueprint $table) {
+            $table->bigInteger('lang_id')->unsigned();
+            $table->foreign('lang_id')
+                ->references('id')
+                ->on('langs')
+                ->onDelete('cascade');
 
             $table->bigInteger('floor_id')->unsigned();
 
@@ -24,9 +28,9 @@ class CreateRoomsTable extends Migration
                 ->on('floors')
                 ->onDelete('cascade');
 
-
-            $table->string('map_image_url');
-            $table->string('image_url');
+            $table->string('name');
+            $table->text('description');
+            $table->text('audio_url');
             $table->timestamps();
         });
     }
@@ -38,6 +42,6 @@ class CreateRoomsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('rooms');
+        Schema::dropIfExists('floor_translations');
     }
 }

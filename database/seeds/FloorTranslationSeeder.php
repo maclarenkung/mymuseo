@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class ItemTranslationSeeder extends Seeder
+class FloorTranslationSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -11,28 +11,27 @@ class ItemTranslationSeeder extends Seeder
      */
     public function run()
     {
-        //
-        DB::table('item_translations')->insert([
+        DB::table('floor_translations')->insert([
             [
-                "item_id" => 1,
-                "name" => "แจกัน",
+                "floor_id" => 1,
+                "name" => "ชั้น 1",
                 "lang_id" => 1,
+
                 "description" => "Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim mollitia aut magni adipisci, ratione repellat accusamus nisi est aliquid dicta possimus quidem et quibusdam consectetur tempora vero hic maxime fuga?",
-                "audio_url" => "wwwww",
             ],
             [
-                "item_id" => 1,
-                "name" => "แจกัน (en)",
-                "lang_id" => 2,
+                "floor_id" => 1,
+                "name" => "ชั้น 2",
+                "lang_id" => 1,
+
                 "description" => "Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim mollitia aut magni adipisci, ratione repellat accusamus nisi est aliquid dicta possimus quidem et quibusdam consectetur tempora vero hic maxime fuga?",
-                "audio_url" => "wwwww",
             ],
             [
-                "item_id" => 1,
-                "name" => "แจกัน (cn)",
-                "lang_id" => 3,
+                "floor_id" => 1,
+                "name" => "ชั้น 3",
+                "lang_id" => 1,
+
                 "description" => "Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim mollitia aut magni adipisci, ratione repellat accusamus nisi est aliquid dicta possimus quidem et quibusdam consectetur tempora vero hic maxime fuga?",
-                "audio_url" => "wwwww",
             ]
         ]);
     }

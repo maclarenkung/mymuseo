@@ -6,6 +6,7 @@
 
     <hr />-->
     <div class="col-12">
+      <!-- {{ show }} -->
       <div class="dropdown text-center" style="color:#4A4A4A">
         <button
           class="btn  dropdown-toggle text-center"
@@ -42,7 +43,7 @@
               <span class="head-muse">/ {{ show.name }}</span>
 
               <span class="head-muse" style="color:#3641FB">
-                / {{ show.name }}</span
+                / {{ show.translation.name }}</span
               >
             </div>
             <div class="col-6">
@@ -58,11 +59,11 @@
         <tbody>
           <tr>
             <td class="label">Title</td>
-            <td class="text">{{ show.name }}</td>
+            <td class="text">{{ show.translation.name }}</td>
           </tr>
           <tr>
             <td class="label">Description</td>
-            <td class="text">{{ show.description }}</td>
+            <td class="text">{{ show.translation.description }}</td>
           </tr>
           <tr>
             <td class="label">Image</td>

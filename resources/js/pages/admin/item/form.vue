@@ -7,7 +7,7 @@
         </router-link>
         <h1 class="float-left ml-4">Create Item</h1>
       </div>
-      <div></div>
+      <div>{{ form }}</div>
       <form @submit.prevent="submitForm" @keydown="form.onKeydown($event)">
         <!-- Name -->
         <div class="row">
