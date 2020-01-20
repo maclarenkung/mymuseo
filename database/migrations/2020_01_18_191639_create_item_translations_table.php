@@ -14,7 +14,12 @@ class CreateItemTranslationsTable extends Migration
     public function up()
     {
         Schema::create('item_translations', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->bigInteger('lang_id')->unsigned();
+            $table->foreign('lang_id')
+                ->references('id')
+                ->on('langs')
+                ->onDelete('cascade');
+
             $table->bigInteger('item_id')->unsigned();
 
 
