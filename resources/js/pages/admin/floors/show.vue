@@ -1,6 +1,6 @@
 <template>
   <div v-if="show">
-    <!-- <h2>{{ show.name }}</h2> -->
+    <pre>{{ show }}</pre>
     <div class="col-12">
       <div class="dropdown text-center" style="color:#4A4A4A">
         <button
@@ -31,7 +31,7 @@
     </div>
     <div class="col-12">
       <span class="head-muse">พิพิธภัณฑ์ชาวบางกอก</span>
-      <span class="head-muse">/ {{ show.name }}</span>
+      <span class="head-muse">/ {{ show.translation.name }}</span>
 
       <span class="head-muse" style="color:#3641FB"> / Room</span>
     </div>
@@ -80,7 +80,7 @@ import { mapActions, mapGetters } from "vuex";
 export default {
   computed: {
     ...mapGetters({
-      show: "floor/show"
+      show: "room/show"
     }),
     id() {
       return parseInt(this.$route.params.id);
@@ -88,15 +88,15 @@ export default {
   },
   methods: {
     ...mapActions({
-      fetch: "floor/show",
-      del: "floor/del"
+      fetch: "room/show",
+      del: "room/del"
     })
   },
   created() {
     this.fetch(this.id);
   },
   mounted() {
-    this.create.name = "floor";
+    this.create.name = "room";
   }
 };
 </script>

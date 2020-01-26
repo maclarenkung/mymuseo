@@ -14,8 +14,10 @@ class RoomController extends Controller
      */
     public function index()
     {
-        $room = Room::where('floor_id', request()->floor_id)->get();
-        return $room;
+        $rooms = Room::get();
+        foreach ($rooms as $room) {
+        }
+        return $rooms;
     }
 
     /**
@@ -47,7 +49,7 @@ class RoomController extends Controller
      */
     public function show(Room $room)
     {
-        $room->items;
+        // $room->items;
         return $room;
     }
 

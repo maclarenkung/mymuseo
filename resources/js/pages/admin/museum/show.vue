@@ -1,5 +1,6 @@
 <template>
   <div>
+    <!-- <pre>{{ show }}</pre> -->
     <!-- <h2>{{ show.name }}</h2> -->
     <!-- <hr /> -->
     <!-- <a :href="show.address_url" target="_blank" rel="noopener noreferrer">Google Map</a> -->
@@ -133,7 +134,7 @@
                     params: { id: floor.id }
                   }"
                 >
-                  <p>{{ floor.name }}</p>
+                  <p>{{ floor.translation.name }}</p>
                 </router-link>
               </td>
               <td class="text-center">

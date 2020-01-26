@@ -3,6 +3,7 @@
     <!-- <pre>
           {{ show }}
     </pre> -->
+
     <div class="col-12">
       <div class="dropdown text-center" style="color:#4A4A4A">
         <button
@@ -35,7 +36,7 @@
       <span class="head-muse">พิพิธภัณฑ์ชาวบางกอก</span>
       <span class="head-muse">/ ชั้น 1</span>
 
-      <span class="head-muse"> / {{ show.name }}</span>
+      <!-- <span class="head-muse"> / {{ show.name }}</span> -->
       <span class="head-muse" style="color:#3641FB"> / Item</span>
     </div>
     <br />
@@ -71,7 +72,7 @@
                   <el-button type="warning" round>Edit</el-button>
                 </router-link>
               </td>
-              <td>{{ item.translation.created_at }}</td>
+              <td></td>
             </tr>
           </tbody>
         </table>

@@ -7,29 +7,46 @@
         </router-link>
         <h1 class="float-left ml-4">Create Item</h1>
       </div>
-      <pre>{{ form }}</pre>
+      <!-- <pre>{{ form }}</pre> -->
+      <!-- <pre>{{ item }}</pre> -->
 
-      <form @submit.prevent="submitForm" @keydown="form.onKeydown($event)">
+      <form
+        @submit.prevent="submitForm"
+        @keydown="form.onKeydown($event)"
+        class="mt-5"
+      >
         <!-- Name -->
         <div class="row">
-          <select v-model="floor_active" @change="loadRoom()">
-            <option
-              :value="floor.id"
-              v-for="(floor, index) in floors"
-              :key="index"
-              >{{ floor.name }}</option
+          <div class="col-4">
+            <label for="">Floor</label><br />
+            <select
+              v-model="floor_active"
+              @change="loadRoom()"
+              style="width: 100%"
             >
-          </select>
-          <select v-model="form.all.room_id" required>
-            <option value>please select</option>
-            <option
-              :value="room.id"
-              v-for="(room, index) in rooms"
-              :key="index"
-              >{{ room.name }}</option
-            >
-          </select>
+              <option value>please select</option>
+              <option
+                :value="floor.id"
+                v-for="(floor, index) in floors"
+                :key="index"
+                >{{ floor.translation.name }}</option
+              >
+            </select>
+          </div>
+          <div class="col-4">
+            <label for="">Room</label><br />
+            <select v-model="form.all.room_id" required style="width: 100%">
+              <option value>please select</option>
+              <option
+                :value="room.id"
+                v-for="(room, index) in rooms"
+                :key="index"
+                >{{ room.translation.name }}</option
+              >
+            </select>
+          </div>
 
+          <!--
           <div class="form-group">
             <label class>Image</label>
             <div class>
@@ -41,24 +58,7 @@
               />
               <has-error :form="form" field="image" />
             </div>
-          </div>
-
-          <div class="row">
-            <div
-              class="col-md-3"
-              v-for="(img, index) in form.all.image_url"
-              :key="index"
-            >
-              <div class="card">
-                <div class="card-body">
-                  <img :src="img" width="100%" />
-                </div>
-                <div class="card-footer">
-                  <button @click="removeImg(index)" type="button">ลบ</button>
-                </div>
-              </div>
-            </div>
-          </div>
+          </div> -->
 
           <!-- <div class="dropdown col-4">
             <h4 style="color:#3631c4;">Floor</h4>
@@ -80,43 +80,49 @@
               <a class="dropdown-item" href="#">+ เพิ่ม floor</a>
             </div>
           </div>-->
-          <div class="dropdown col-4">
-            <h4 style="color:#3631c4;">Room</h4>
-
-            <a
-              class="btn dropdown-toggle form-drop"
-              href="#"
-              role="button"
-              id="dropdownMenuLink"
-              data-toggle="dropdown"
-              aria-haspopup="true"
-              aria-expanded="false"
-            >
-              <i class="flaticon-open-exit-door"></i> room
-            </a>
-
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-              <a class="dropdown-item" href="#">room->name</a>
-              <a class="dropdown-item" href="#">+ เพิ่ม room</a>
-            </div>
-          </div>
-          <div class="col-4"></div>
+          <div class="col-12"></div>
           <br />
           <div class="col-4 mt-4">
             <i style="color:#3631c4;" class="flaticon-photo"></i>
             <h4 style="color:#3631c4;">Image (จำนวนไม่เกิน 6)</h4>
           </div>
+
           <div class="col-4 mt-4">
             <form>
               <div class="custom-file">
-                <input type="file" class="custom-file-input" id="customFile" />
+                <input
+                  type="file"
+                  class="custom-file-input"
+                  id="customFile"
+                  name="image"
+                  @change="setImg"
+                />
+                <has-error :form="form" field="image" />
                 <label class="custom-file-label" for="customFile">
-                  <i class="flaticon-upload"></i> Upload image
+                  <i class="flaticon-upload"></i> Upload Image
                 </label>
               </div>
             </form>
           </div>
           <div class="col-4"></div>
+          <div class="col-12">
+            <div class="row">
+              <div
+                class="col-md-4"
+                v-for="(img, index) in form.all.image_url"
+                :key="index"
+              >
+                <div class="card">
+                  <div class="card-body">
+                    <img :src="img" width="100%" />
+                  </div>
+                  <div class="card-footer">
+                    <button @click="removeImg(index)" type="button">ลบ</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
           <br />
           <div class="col-4 mt-4">
             <i style="color:#3631c4;" class="flaticon-placeholder"></i>
@@ -127,7 +133,7 @@
               <div class="custom-file">
                 <input type="file" class="custom-file-input" id="customFile" />
                 <label class="custom-file-label" for="customFile">
-                  <i class="flaticon-upload"></i> Upload image
+                  <i class="flaticon-upload"></i> Upload Map
                 </label>
               </div>
             </form>
@@ -155,7 +161,18 @@
                           <has-error :form="form" field="name" />
                         </div>
                       </div>
-
+                      <div class="form-group col-md-6">
+                        <label>Audio</label>
+                        <div class>
+                          <input
+                            class="form-control"
+                            type="file"
+                            name="image"
+                            @change="setFile"
+                          />
+                          <has-error :form="form" field="file" />
+                        </div>
+                      </div>
                       <div class="form-group col-md-6">
                         <label class>Description</label>
                         <div class>
@@ -169,18 +186,6 @@
                             name="description"
                           />
                           <has-error :form="form" field="description" />
-                        </div>
-                      </div>
-                      <div class="form-group col-md-6">
-                        <label>Audio</label>
-                        <div class>
-                          <input
-                            class="form-control"
-                            type="file"
-                            name="image"
-                            @change="setFile"
-                          />
-                          <has-error :form="form" field="file" />
                         </div>
                       </div>
                     </div> </b-card-text
@@ -253,14 +258,14 @@
         </div>-->
 
         <div class="form-group row">
-          <div class="col-md-7 offset-md-5 d-flex">
+          <div class="col-md-7 offset-md-5 d-flex mt-5">
             <!-- Submit Button -->
             <v-button
               :loading="form.busy"
-              id="createbtn"
+              id="createbtn2"
               style="width:130px;"
               class="text-white colorr"
-              >{{ id ? "update" : "save" }}</v-button
+              >{{ id ? "UPDATE" : "CREATE" }}</v-button
             >
           </div>
         </div>
@@ -319,7 +324,7 @@ export default {
   methods: {
     async setImg(e) {
       if (this.form.all.image_url.length >= 6) {
-        alert("พ่อง");
+        alert("จำนวนไฟล์เกิน");
         return false;
       }
       this.image = e.target.files[0];
@@ -430,5 +435,13 @@ label {
 }
 .clearfix {
   color: #3631c4;
+}
+#createbtn2 {
+  padding-bottom: 46px;
+  border-radius: 10px;
+  border-color: #ff6464;
+  height: 40px;
+  background-color: #ff6464;
+  font-size: 24px;
 }
 </style>

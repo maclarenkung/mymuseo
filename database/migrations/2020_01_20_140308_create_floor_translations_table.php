@@ -30,7 +30,7 @@ class CreateFloorTranslationsTable extends Migration
 
             $table->string('name');
             $table->text('description');
-            $table->text('audio_url');
+            $table->text('audio_url')->nullable();
             $table->timestamps();
         });
     }
