@@ -23,7 +23,7 @@ class MuseumSeeder extends Seeder
                 "facebook" => "admin@muse.com",
                 "instagram" => "kk",
                 "language" => "ds",
-                "expried_date" => "ss"
+
             ],
             [
                 "name" => "พิพิธภัณฑ์ ไปรษณีย์ สามเสนใน",
@@ -36,7 +36,7 @@ class MuseumSeeder extends Seeder
                 "facebook" => "admin@muse.com",
                 "instagram" => "kk",
                 "language" => "ds",
-                "expried_date" => "ss"
+
             ],
             [
                 "name" => "ท้องฟ้าจำลองกรุงเทพ ",
@@ -49,7 +49,7 @@ class MuseumSeeder extends Seeder
                 "facebook" => "admin@muse.com",
                 "instagram" => "kk",
                 "language" => "ds",
-                "expried_date" => "ss"
+
             ],
             [
                 "name" => "พิพิธภัณฑ์ศิลปะ อาร์ท อิน พาราไดซ์",
@@ -62,7 +62,7 @@ class MuseumSeeder extends Seeder
                 "facebook" => "admin@muse.com",
                 "instagram" => "kk",
                 "language" => "ds",
-                "expried_date" => "ss"
+
             ]
         ]);
     }

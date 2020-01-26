@@ -6,7 +6,7 @@
     <!-- <a :href="show.address_url" target="_blank" rel="noopener noreferrer">Google Map</a> -->
     <div class="col-12">
       <div class="dropdown text-center" style="color:#4A4A4A">
-        <button
+        <!-- <button
           class="btn  dropdown-toggle text-center"
           type="button"
           id="dropdownMenuButton"
@@ -20,26 +20,27 @@
         <button class="setting">
           <i class="flaticon-wheel"></i>
           setting
-        </button>
+        </button>-->
+
+        <select name id>
+          <option v-for="museum in user.museums" :key="museum.id">{{museum}}</option>
+        </select>
         <p>(Bangkok Museum)</p>
-        <div
-          class="dropdown-menu text-center"
-          aria-labelledby="dropdownMenuButton"
-        >
+        <div class="dropdown-menu text-center" aria-labelledby="dropdownMenuButton">
           <a class="dropdown-item text-center" href="#" style="font-size:25px;">
-            <i class="flaticon-add"></i> เพิ่มพิพิธภัณฑ์</a
-          >
+            <i class="flaticon-add"></i> เพิ่มพิพิธภัณฑ์
+          </a>
         </div>
       </div>
     </div>
     <div class="col-12">
       <span class="head-muse">{{ show.name }}</span>
 
-      <span class="head-muse" style="color:#3641FB"> / Floor</span>
+      <span class="head-muse" style="color:#3641FB">/ Floor</span>
     </div>
     <br />
     <div class="col-12">
-      <div class="card  table-flo">
+      <div class="card table-flo">
         <!-- <div class="clearfix">
         <router-link to="/admin/museums" class="float-left">
           <img
@@ -52,7 +53,7 @@
       <hr />
       <div>
         <button id="createbtn" style="width:200px;">Create</button>
-        <hr /> -->
+        <hr />-->
         <!-- <div class="row"> -->
         <!-- <div class="col-md-8">
             <table class="mm-table">
@@ -105,16 +106,16 @@
                 </tr>
               </tbody>
             </table>
-          </div> -->
+        </div>-->
         <!-- <div class="col-md-4">
             <img :src="show.image_url" class="w-50" />
-          </div> -->
+        </div>-->
         <!-- <div class="col-12 mt-2 clearfix">
             <div class="float-right">
               <el-button type="danger" round>Reject</el-button>
               <el-button type="success" round>Approve</el-button>
             </div>
-          </div> -->
+        </div>-->
         <!-- </div> -->
         <!-- </div> -->
         <table>
@@ -125,7 +126,7 @@
               <td class="text-center">Create At</td>
             </tr>
           </thead>
-          <tbody class="mm-tbody ">
+          <tbody class="mm-tbody">
             <tr v-for="floor in show.floors" :key="floor.id">
               <td>
                 <router-link
@@ -154,10 +155,7 @@
             </tr>
           </tbody>
         </table>
-        <div
-          class="col-12 text-center"
-          style="margin-top:70px; margin-bottom:40px;"
-        >
+        <div class="col-12 text-center" style="margin-top:70px; margin-bottom:40px;">
           <button class="add-floor">
             <i class="flaticon-add"></i> ADD FLOOR
           </button>

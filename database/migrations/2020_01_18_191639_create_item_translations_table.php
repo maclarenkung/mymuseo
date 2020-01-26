@@ -21,8 +21,6 @@ class CreateItemTranslationsTable extends Migration
                 ->onDelete('cascade');
 
             $table->bigInteger('item_id')->unsigned();
-
-
             $table->foreign('item_id')
                 ->references('id')
                 ->on('items')

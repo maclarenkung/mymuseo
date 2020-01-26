@@ -103,6 +103,8 @@ class User extends Authenticatable implements JWTSubject //, MustVerifyEmail
         return $this->belongsToMany('App\Museum', 'museum_users', 'user_id', 'museum_id');
     }
 
+
+
     /**
      * @return array
      */

@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Http\Request;
-
+use App\MuseumPackage;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -17,7 +17,13 @@ Route::group(['middleware' => 'auth:api'], function () {
     Route::post('logout', 'Auth\LoginController@logout');
 
     Route::get('/user', function (Request $request) {
-        return $request->user();
+        $user = $request->user();
+        foreach ($user->museums as $museum) {
+            $myPackage = MuseumPackage::where('museum_id', $museum->id)->orderBy('expiry_date', 'desc')->first();
+            $museum->museum_package = $myPackage;
+            $museum->museum_package->package;
+        }
+        return  $user;
     });
 
     Route::patch('settings/profile', 'Settings\ProfileController@update');

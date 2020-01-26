@@ -2,33 +2,28 @@
   <div v-if="show">
     <!-- <pre>
           {{ show }}
-    </pre> -->
+    </pre>-->
 
     <div class="col-12">
       <div class="dropdown text-center" style="color:#4A4A4A">
         <button
-          class="btn  dropdown-toggle text-center"
+          class="btn dropdown-toggle text-center"
           type="button"
           id="dropdownMenuButton"
           data-toggle="dropdown"
           aria-haspopup="true"
           aria-expanded="false"
           style="font-size:30px; color:#4A4A4A"
-        >
-          พิพิธภัณฑ์ ชาวบางกอก
-        </button>
+        >พิพิธภัณฑ์ ชาวบางกอก</button>
         <button class="setting">
           <i class="flaticon-wheel"></i>
           setting
         </button>
         <p>(Bangkok Museum)</p>
-        <div
-          class="dropdown-menu text-center"
-          aria-labelledby="dropdownMenuButton"
-        >
+        <div class="dropdown-menu text-center" aria-labelledby="dropdownMenuButton">
           <a class="dropdown-item text-center" href="#" style="font-size:25px;">
-            <i class="flaticon-add"></i> เพิ่มพิพิธภัณฑ์</a
-          >
+            <i class="flaticon-add"></i> เพิ่มพิพิธภัณฑ์
+          </a>
         </div>
       </div>
     </div>
@@ -37,11 +32,11 @@
       <span class="head-muse">/ ชั้น 1</span>
 
       <!-- <span class="head-muse"> / {{ show.name }}</span> -->
-      <span class="head-muse" style="color:#3641FB"> / Item</span>
+      <span class="head-muse" style="color:#3641FB">/ Item</span>
     </div>
     <br />
     <div class="col-12">
-      <div class="card  table-room">
+      <div class="card table-room">
         <table>
           <thead class="mm-thead">
             <tr>
@@ -50,46 +45,41 @@
               <td class="text-center">Create At</td>
             </tr>
           </thead>
-          <tbody class="mm-tbody ">
-            <tr v-for="item in show.items" :key="item.id">
+          <tbody class="mm-tbody">
+            <tr v-for="item in show" :key="item.id">
               <td>
                 <router-link
                   :to="{
                     name: 'admin.item.show',
                     params: { id: item.id },
-                    query: { room_id: show.id }
                   }"
-                  >{{ item.translation.name }}</router-link
-                >
+                >{{ item.translation.name }}</router-link>
               </td>
               <td class="text-center">
                 <router-link
                   :to="{
                     name: 'admin.item.edit',
-                    params: { id: show.id }
+                    params: { id: item.id }
                   }"
                 >
                   <el-button type="warning" round>Edit</el-button>
                 </router-link>
               </td>
-              <td></td>
+              <td>{{item.translation.created_at}}</td>
             </tr>
           </tbody>
         </table>
-        <div
-          class="col-12 text-center"
-          style="margin-top:70px; margin-bottom:40px;"
-        >
-          <router-link
+        <div class="col-12 text-center" style="margin-top:70px; margin-bottom:40px;">
+          <!-- <router-link
             :to="{
               name: 'admin.item.create',
-              query: { room_id: show.id }
+              query: { room_id: item.id }
             }"
           >
             <button class="add-room">
               <i class="flaticon-add"></i> ADD ITEM
             </button>
-          </router-link>
+          </router-link>-->
         </div>
       </div>
     </div>
@@ -101,20 +91,18 @@ import { mapActions, mapGetters } from "vuex";
 export default {
   computed: {
     ...mapGetters({
-      show: "room/show"
-    }),
-    id() {
-      return parseInt(this.$route.params.id);
-    }
+      show: "item/items"
+    })
   },
   methods: {
     ...mapActions({
-      fetch: "room/show",
-      del: "room/del"
+      fetch: "item/fetch",
+      del: "item/del"
     })
   },
   created() {
-    this.fetch(this.id);
+    this.fetch();
+    console.log(this.show);
   }
 };
 </script>

@@ -110,7 +110,7 @@ export default [
         component: page("admin/room/index.vue")
       },
       {
-        path: "room/:id",
+        path: "items",
         name: "admin.room.show",
         component: page("admin/room/show.vue")
       },

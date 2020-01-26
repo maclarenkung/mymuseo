@@ -25,7 +25,11 @@ class CreateMuseumsTable extends Migration
             $table->string('facebook');
             $table->string('instagram');
             $table->string('language');
-            $table->string('expried_date');
+            $table->string('time_open')->nullable();
+            $table->string('time_close')->nullable();
+            $table->string('day_start')->nullable();
+            $table->string('day_end')->nullable();
+
             $table->timestamps();
         });
     }

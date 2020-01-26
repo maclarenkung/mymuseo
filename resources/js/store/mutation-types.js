@@ -13,6 +13,8 @@ export const FETCH_MUSEUM = "FETCH_MUSEUM";
 export const FETCH_MUSEUM_SHOW = "FETCH_MUSEUM_SHOW";
 export const FETCH_FLOOR_SHOW = "FETCH_FLOOR_SHOW";
 export const FETCH_ROOM_SHOW = "FETCH_ROOM_SHOW";
+export const FETCH_ITEM = "FETCH_ITEM";
+
 export const FETCH_ITEM_SHOW = "FETCH_ITEM_SHOW";
 
 export const FETCH_FLOOR = "FETCH_FLOOR";

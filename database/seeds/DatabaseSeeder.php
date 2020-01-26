@@ -3,6 +3,7 @@
 use App\Lang;
 use App\Museum;
 use App\MuseumLang;
+use App\MuseumPackage;
 use App\MuseumUser;
 use Illuminate\Database\Seeder;
 
@@ -30,6 +31,8 @@ class DatabaseSeeder extends Seeder
                 ItemTranslationSeeder::class,
                 FloorTranslationSeeder::class,
                 RoomTranslationSeeder::class,
+                MuseumPackageSeeder::class,
+                PackageSeeder::class,
             ]
         );
     }
