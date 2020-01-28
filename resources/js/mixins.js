@@ -74,7 +74,8 @@ export default {
   },
   methods: {
     ...mapActions({
-      upImg: "upload/uploadImage"
+      upImg: "upload/uploadImage",
+      fetchUser: "auth/fetchUser"
     }),
     async uploadFile(set) {
       console.log("uploadfile start");
