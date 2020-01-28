@@ -70,16 +70,13 @@
           </tbody>
         </table>
         <div class="col-12 text-center" style="margin-top:70px; margin-bottom:40px;">
-          <!-- <router-link
-            :to="{
+          <router-link :to="{
               name: 'admin.item.create',
-              query: { room_id: item.id }
-            }"
-          >
+            }">
             <button class="add-room">
               <i class="flaticon-add"></i> ADD ITEM
             </button>
-          </router-link>-->
+          </router-link>
         </div>
       </div>
     </div>

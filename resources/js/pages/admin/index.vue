@@ -52,12 +52,12 @@
               </router-link>
             </li>
 
-            <li class="nav-item">
+            <!-- <li class="nav-item">
               <router-link to="/admin/floors/1" class="nav-link">
                 <img :src="'/icon/door.png'" alt width="24" />
                 Room
               </router-link>
-            </li>
+            </li>-->
 
             <li class="nav-item">
               <router-link to="/admin/items" class="nav-link">

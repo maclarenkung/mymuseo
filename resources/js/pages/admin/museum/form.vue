@@ -1,5 +1,6 @@
 <template>
   <div>
+    <pre>{{ show }}</pre>
     <div class="dashh">
       <div class="clearfix">
         <router-link to="/admin/room/1" class="float-left">
@@ -8,108 +9,185 @@
         <h1 class="float-left ml-4" style="color:#3631C4 ;">Create Museum</h1>
       </div>
       <hr />
-      <div class="col-12 " style="color: #3631C4;">
-        <div class="row">
-          <div class="col-6">
-            <label for=""> <i class="flaticon-user"></i> Name (TH)</label>
-            <br />
-            <input type="text" class="create-form" />
-          </div>
-          <div class="col-6">
-            <label for=""> <i class="flaticon-user"></i> Name (EN)</label>
-            <br />
-            <input type="text" class="create-form" />
-          </div>
-          <div class="col-12">
-            <label for="">
-              <i class="flaticon-edit-button"></i> Description</label
-            ><br />
-            <textarea name="" id="" cols="80" rows="10" width="100%"></textarea>
-          </div>
-          <div class="col-6">
-            <label for=""> <i class="flaticon-user"></i> Google Map Link</label>
-            <br />
-            <input type="text" class="create-form" />
-          </div>
-          <div class="col-6">
-            <label for=""> <i class="flaticon-user"></i> Website</label>
-            <br />
-            <input type="text" class="create-form" />
-          </div>
-          <div class="col-6">
-            <label for=""> <i class="flaticon-user"></i> Time</label>
-            <br />
-            <div class="row">
-              <div class="col-5">
-                <input type="time" class="create-form" />
-              </div>
-              <div class="col-1">to</div>
-              <div class="col-5">
-                <input type="time" class="create-form" />
+      <form
+        @submit.prevent="submitForm"
+        @keydown="form.onKeydown($event)"
+        class="mt-5"
+      >
+        <div class="col-12" style="color: #3631C4;">
+          <div class="row">
+            <div class="col-6">
+              <label for> <i class="flaticon-user"></i> Name (TH) </label>
+              <br />
+              <input type="text" class="create-form" v-model="form.name" />
+            </div>
+            <div class="col-6">
+              <label for> <i class="flaticon-user"></i> Name (EN) </label>
+              <br />
+              <input type="text" class="create-form" v-model="form.name_en" />
+            </div>
+            <div class="col-12">
+              <label for>
+                <i class="flaticon-edit-button"></i> Description
+              </label>
+              <br />
+              <textarea
+                name
+                id
+                cols="80"
+                rows="10"
+                width="100%"
+                v-model="form.description"
+              ></textarea>
+            </div>
+            <div class="col-6">
+              <label for>
+                <i class="flaticon-placeholder"></i> Google Map Link
+              </label>
+              <br />
+              <input
+                type="text"
+                class="create-form"
+                v-model="form.address_url"
+              />
+            </div>
+            <div class="col-6">
+              <label for> <i class="flaticon-unlink"></i> Website </label>
+              <br />
+              <input
+                type="text"
+                class="create-form"
+                v-model="form.website_url"
+              />
+            </div>
+            <div class="col-6">
+              <label for>
+                <i class="flaticon-clock-circular-outline"></i> Time
+              </label>
+              <br />
+              <div class="row">
+                <div class="col-5">
+                  <input
+                    type="time"
+                    class="create-form"
+                    v-model="form.time_open"
+                  />
+                </div>
+                <div class="col-1">to</div>
+                <div class="col-5">
+                  <input
+                    type="time"
+                    class="create-form"
+                    v-model="form.time_close"
+                  />
+                </div>
               </div>
             </div>
-          </div>
-          <div class="col-6">
-            <form action="">
-              <label for="">Day</label><br />
-              <input type="checkbox" name="vehicle1" value="sun" /> Sun
-              <input type="checkbox" name="vehicle1" value="mon" /> Mon
-              <input type="checkbox" name="vehicle1" value="tue" /> Tue
-              <input type="checkbox" name="vehicle1" value="wed" /> Wed
+            <div class="col-6">
+              <form action>
+                <label for>Day</label>
+                <br />
+                <input
+                  type="text"
+                  class="create-form"
+                  v-model="form.day_open"
+                />
+              </form>
+            </div>
+            <div class="col-6">
+              <label for>
+                <i class="flaticon-call-answer"></i> Phone number
+              </label>
               <br />
-              <input type="checkbox" name="vehicle1" value="thur" /> Thur
-              <input type="checkbox" name="vehicle1" value="fri" /> Fri
-              <input type="checkbox" name="vehicle1" value="sat" /> Sat
-            </form>
-          </div>
-          <div class="col-6">
-            <label for=""> <i class="flaticon-user"></i> Phone number</label>
-            <br />
-            <input type="text" class="create-form" />
-          </div>
-          <div class="col-6">
-            <label for=""> <i class="flaticon-user"></i> E-mail</label>
-            <br />
-            <input type="text" class="create-form" />
-          </div>
-          <div class="col-6">
-            <label for=""> <i class="flaticon-user"></i> Facebook</label>
-            <br />
-            <input type="text" class="create-form" />
-          </div>
-          <div class="col-6">
-            <label for=""> <i class="flaticon-user"></i> Instagram</label>
-            <br />
-            <input type="text" class="create-form" />
-          </div>
-          <div class="col-6">
-            <label for=""> <i class="flaticon-user"></i> Category</label>
-            <br />
-            <!-- <input type="text" class="create-form" /> -->
-          </div>
-          <div class="col-6">
-            <label for="">Language</label>
-          </div>
-          <div class="col-4 mt-4">
-            <i style="color:#3631c4;" class="flaticon-photo"></i>
-            <h4 style="color:#3631c4;">Image (จำนวนไม่เกิน 6)</h4>
-          </div>
-          <div class="col-4 mt-4">
-            <form>
-              <div class="custom-file">
-                <input type="file" class="custom-file-input" id="customFile" />
-                <label class="custom-file-label" for="customFile">
-                  <i class="flaticon-upload"></i> Upload image
-                </label>
+              <input
+                type="text"
+                class="create-form"
+                v-model="form.phonenumber"
+              />
+            </div>
+            <div class="col-6">
+              <label for> <i class="flaticon-envelope"></i> E-mail </label>
+              <br />
+              <input type="text" class="create-form" v-model="form.email" />
+            </div>
+            <div class="col-6">
+              <label for> <i class="flaticon-facebook"></i> Facebook </label>
+              <br />
+              <input type="text" class="create-form" v-model="form.facebook" />
+            </div>
+            <div class="col-6">
+              <label for>
+                <i class="flaticon-instagram-logo"></i> Instagram
+              </label>
+              <br />
+              <input type="text" class="create-form" v-model="form.instagram" />
+            </div>
+            <div class="col-6">
+              <label for> <i class="flaticon-list"></i> Category </label>
+              <br />
+              <!-- <input type="text" class="create-form" /> -->
+              <div>
+                <b-tabs content-class="mt-3">
+                  <b-tab title="ประจำ" active>
+                    <p>ประจำ</p>
+                  </b-tab>
+                  <b-tab title="หมุนเวียน">
+                    <div>
+                      <p>เริ่ม</p>
+                      <b-form-input
+                        v-model="form.day_start"
+                        type="date"
+                      ></b-form-input>
+                      <p>ถึง</p>
+                      <b-form-input
+                        v-model="form.day_end"
+                        type="date"
+                      ></b-form-input>
+                    </div>
+                  </b-tab>
+                </b-tabs>
               </div>
-            </form>
-          </div>
-          <div class="col-12 text-center mt-5">
-            <button>CANCEL</button>
-            <button>CREATE</button>
+            </div>
+            <div class="col-4">
+              <label for>package (เริ่มนับตั้งแต่วันสร้าง)</label>
+              <br />
+              <select v-model="form.package_id" required style="width: 100%">
+                <option
+                  v-for="(packagex, index) in packagexs"
+                  :key="index"
+                  :value="packagex.id"
+                  >{{ packagex.name }}</option
+                >
+              </select>
+            </div>
+            <div class="col-4 mt-4">
+              <i style="color:#3631c4;" class="flaticon-photo"></i>
+              <h4 style="color:#3631c4;">Image (จำนวนไม่เกิน 6)</h4>
+            </div>
+            <div class="col-4 mt-4">
+              <form>
+                <div class="custom-file">
+                  <input
+                    type="file"
+                    class="custom-file-input"
+                    id="customFile"
+                    name="image"
+                    @change="setImg()"
+                  />
+                  <has-error :form="form" field="image" />
+                  <label class="custom-file-label" for="customFile">
+                    <i class="flaticon-upload"></i> Upload Image
+                  </label>
+                </div>
+              </form>
+            </div>
+            <div class="col-12 text-center mt-5">
+              <button>CANCEL</button>
+              <button>CREATE</button>
+            </div>
           </div>
         </div>
-      </div>
+      </form>
     </div>
   </div>
 </template>
@@ -121,41 +199,32 @@ import { mapActions, mapGetters } from "vuex";
 export default {
   data: () => ({
     form: new Form({
-      all: {},
-      th: {
-        room_id: "",
-        name: "",
-        description: "",
-        image_url: "",
-        file_url: ""
-      },
-      en: {
-        room_id: "",
-        name: "",
-        description: "",
-        image_url: "",
-        file_url: ""
-      },
-      cn: {
-        room_id: "",
-        name: "",
-        description: "",
-        image_url: "",
-        file_url: ""
-      }
+      package_id: 1,
+      name: "",
+      name_en: "",
+      description: "",
+      address_url: "",
+      website_url: "",
+      time_open: "",
+      time_close: "",
+      day_open: "",
+      phonenumber: "",
+      email: "",
+      facebook: "",
+      instagram: "",
+      day_start: "",
+      day_end: "",
+      image_url: "https://image.freepik.com/free-photo/_34998-128.jpg"
     }),
-    floor_active: 1,
-    image: "",
-    file: ""
+    image: ""
   }),
+
   computed: {
     // room_id() {
     //   return parseInt(this.$route.query.room_id);
     // },
     ...mapGetters({
-      show: "item/show",
-      floors: "floor/items",
-      rooms: "room/items"
+      packagexs: "package/packages"
     }),
     id() {
       return parseInt(this.$route.params.id);
@@ -176,25 +245,18 @@ export default {
       }
     },
     async save() {
-      this.form.image_url = await this.upImg({
-        image: this.image,
-        path: "items"
-      });
-
-      this.form.file_url = await this.uploadFile({
-        file: this.file,
-        path: "items"
-      });
+      // this.form.image_url = await this.upImg({
+      //   image: this.image,
+      //   path: "items"
+      // });
 
       this.form.room_id;
 
-      const { data } = await this.form.post("/api/items");
+      const { data } = await this.form.post("/api/museums");
 
       if (data) {
-        this.$router.push({
-          name: "admin.room.show",
-          params: { id: this.room_id }
-        });
+        this.fetchUser();
+        this.$router.push("/admin/customer");
       }
     },
     loadRoom() {
@@ -218,21 +280,11 @@ export default {
       }
     },
     ...mapActions({
-      fetch: "item/show",
-      fetchFloors: "floor/fetch",
-      fetchRoom: "room/fetch"
+      fecthPackage: "package/fetch"
     })
   },
   async created() {
-    console.log(this.id);
-    if (this.id) {
-      await this.fetch(this.id);
-      this.form.keys().forEach(key => {
-        this.form[key] = this.show[key];
-      });
-    }
-    this.fetchFloors();
-    this.fetchRoom(this.floor_active);
+    this.fecthPackage();
   }
 };
 </script>

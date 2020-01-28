@@ -23,7 +23,7 @@
         </button>-->
 
         <select name id>
-          <option v-for="museum in user.museums" :key="museum.id">{{museum}}</option>
+          <option v-for="museum in user.museums" :key="museum.id">{{museum.name}}</option>
         </select>
         <p>(Bangkok Museum)</p>
         <div class="dropdown-menu text-center" aria-labelledby="dropdownMenuButton">
