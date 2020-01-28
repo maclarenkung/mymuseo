@@ -13,11 +13,11 @@ $config = [
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
   <title>{{ config('app.name') }}</title>
-
+  <link rel="stylesheet" type="text/css" href="/font/flaticon.css" />
 
   <link rel="stylesheet" href="{{ mix('dist/css/app.css') }}">
   <link href="https://fonts.googleapis.com/css?family=Mitr&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" type="text/css" href="../font/flaticon.css" />
+
 </head>
 <body>
   <div id="app"></div>
