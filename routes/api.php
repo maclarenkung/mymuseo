@@ -18,11 +18,27 @@ Route::group(['middleware' => 'auth:api'], function () {
 
     Route::get('/user', function (Request $request) {
         $user = $request->user();
+
         foreach ($user->museums as $museum) {
+            $count = 0;
             $myPackage = MuseumPackage::where('museum_id', $museum->id)->orderBy('expiry_date', 'desc')->first();
             $museum->museum_package = $myPackage;
             $museum->museum_package->package;
+
+            foreach ($museum->floors as $floor) {
+                foreach ($floor->rooms as $room) {
+                    $count += count($room->items);
+                }
+            }
+
+
+            $museum->museum_package->item_count = $count;
+
+            unset($museum->floors);
         }
+        $user->museum_active = isset($user->museums[0]) ?  $user->museums[0]->id : 0;
+
+
         return  $user;
     });
 
@@ -33,6 +49,8 @@ Route::group(['middleware' => 'auth:api'], function () {
     Route::resource('floors', 'FloorController');
     Route::resource('rooms', 'RoomController');
     Route::resource('items', 'ItemController');
+
+    Route::resource('packages', 'PackageController');
 
     Route::resource('customer/museums', 'CustomerMuseumController');
 });
