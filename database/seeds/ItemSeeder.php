@@ -89,6 +89,31 @@ class ItemSeeder extends Seeder
                     ]
                 ]
 
+            ],
+            [
+                "room_id" => 1,
+                "image_url" => "xxxhttps://picsum.photos/200/300",
+                "lang" => [
+                    [
+                        "name" => "แจกัน th",
+                        "lang_id" => 1,
+                        "description" => "Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim mollitia aut magni adipisci, ratione repellat accusamus nisi est aliquid dicta possimus quidem et quibusdam consectetur tempora vero hic maxime fuga?",
+                        "audio_url" => "wwwww"
+                    ],
+                    [
+                        "name" => "แจกัน en",
+                        "lang_id" => 2,
+                        "description" => "Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim mollitia aut magni adipisci, ratione repellat accusamus nisi est aliquid dicta possimus quidem et quibusdam consectetur tempora vero hic maxime fuga?",
+                        "audio_url" => "wwwww"
+                    ],
+                    [
+                        "name" => "แจกันxxxx cn",
+                        "lang_id" => 3,
+                        "description" => "Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim mollitia aut magni adipisci, ratione repellat accusamus nisi est aliquid dicta possimus quidem et quibusdam consectetur tempora vero hic maxime fuga?",
+                        "audio_url" => "wwwww"
+                    ]
+                ]
+
             ]
         ];
 
