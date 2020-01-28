@@ -16,6 +16,7 @@ class CreateMuseumsTable extends Migration
         Schema::create('museums', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
+            $table->string('name_en')->nullable();
             $table->string('address_url');
             $table->string('phonenumber');
             $table->string('email');
@@ -24,7 +25,8 @@ class CreateMuseumsTable extends Migration
             $table->text('description');
             $table->string('facebook');
             $table->string('instagram');
-            $table->string('language');
+
+            $table->string('day_open')->nullable();
             $table->string('time_open')->nullable();
             $table->string('time_close')->nullable();
             $table->string('day_start')->nullable();
