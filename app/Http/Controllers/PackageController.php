@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Package;
 use Illuminate\Http\Request;
 
+
 class PackageController extends Controller
 {
     /**
@@ -14,7 +15,12 @@ class PackageController extends Controller
      */
     public function index()
     {
-        //
+        $packages = Package::get();
+        foreach ($packages as $package) {
+            // $item->room->floor->museum;
+
+        }
+        return $packages;
     }
 
     /**

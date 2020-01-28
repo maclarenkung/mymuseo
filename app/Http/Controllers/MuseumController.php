@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Museum;
+use App\MuseumPackage;
+use App\MuseumUser;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
 
 class MuseumController extends Controller
 {
@@ -40,7 +43,18 @@ class MuseumController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $user = request()->user();
+        $museum = Museum::create($request->all());
+        $museumPackage = MuseumPackage::create([
+            "museum_id" => $museum->id,
+            "package_id" => $request->package_id,
+            "expiry_date" => Carbon::now()->addMonths(1),
+        ]);
+        $museumUser = MuseumUser::create([
+            "user_id" => $user->id,
+            "museum_id" => $museum->id,
+        ]);
+        return $museum;
     }
 
     /**
