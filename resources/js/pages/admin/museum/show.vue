@@ -140,7 +140,14 @@
                 </router-link>
               </td>
               <td class="text-center">
-                <el-button type="warning" round>Edit</el-button>
+                <router-link
+                  :to="{
+                    name: 'admin.floor.edit',
+                    params: { id: floor.id }
+                  }"
+                >
+                  <el-button type="warning" round>Edit</el-button>
+                </router-link>
               </td>
               <td class="text-center">
                 <router-link

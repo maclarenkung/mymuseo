@@ -1,5 +1,7 @@
 <template>
   <div>
+    <pre>{{item}}</pre>
+
     <div class="col-12" style="background-color: #F4F2F2;">
       <div class="Rectangle-1">
         <h4 class="pt-5" style="color:white;">พิพิธภัณฑ์ บ้านบางกอก</h4>
@@ -101,7 +103,7 @@
   letter-spacing: normal;
   text-align: center;
   color: #000000;"
-                >เปียโน</p>
+                >{{item.translation.name}}</p>
                 <hr />
                 <p
                   style="font-family: Kanit;
@@ -114,12 +116,7 @@
   text-align: left;
   color: #000000;
 "
-                >
-                  เปียโนคู่ใจของคุณแม่ท่านอาจารย์ โดยจะเป็น
-                  เปียโนงาช้างซึ่งคนในสมัยก่อนมีความเชื่อว่า
-                  หากใครที่เจ็บไข้ได้ป่วยก็ให้มานั่งเล่นเปียโนที่ทำแป้นกดจากงาช้างแบบนี้
-                  เพราะงาช้างจะสามารถช่วยดูดพิษไข้ออกไปได้
-                </p>
+                >{{item.translation.description}}</p>
               </div>
             </div>
           </div>
@@ -289,7 +286,7 @@
                 <i
                   class="flaticon-photo-camera"
                   style="width: 100%;
-              padding: 20px 30px;
+              padding: 26px 30px;
               font-size: 40px;
               color: #3E7A63;
               border-radius: 50%;
@@ -304,7 +301,7 @@
                 <i
                   class="flaticon-unlink"
                   style="width: 100%;
-              padding: 20px 30px;
+              padding: 26px 30px;
               font-size: 40px;
               color: #3E7A63;
               border-radius: 50%;
@@ -383,7 +380,7 @@
 
 <script>
 export default {
-  props: ["item"],
+  props: ["item", "floor"],
   mounted: function() {
     this.$watch("item.sound.file_url", () => {
       this.$refs.player.load();
@@ -444,7 +441,7 @@ export default {
   // margin-top: -10px;
   // height: 70px;
   // width: 70px;
-  padding: 10px 20px;
+  padding: 16px 20px;
   background-color: white;
   border-radius: 96%;
   border-color: #3e7a63;

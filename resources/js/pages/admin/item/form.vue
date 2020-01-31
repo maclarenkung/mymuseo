@@ -2,20 +2,24 @@
   <div>
     <div class="dashh">
       <div class="clearfix">
-        <router-link to="/admin/room/1" class="float-left">
-          <i class="flaticon-left-arrow"></i>
+        <router-link to="/admin/items" class="float-left">
+          <i class="flaticon-left-arrow" style="font-size: 25px; cursor: pointer; color:#ffcc57;"></i>
         </router-link>
-        <h1 class="float-left ml-4">Create Item</h1>
+        <span class="float-left ml-4" style="font-size:25px;">{{ id ? "Edit Item" : "Create Item" }}</span>
       </div>
       <!-- <pre>{{ form }}</pre> -->
+      <!-- <pre>{{ show }}</pre> -->
 
       <form @submit.prevent="submitForm" @keydown="form.onKeydown($event)" class="mt-5">
         <!-- Name -->
         <div class="row">
           <div class="col-4">
-            <label for>Floor</label>
+            <span class="flaticon-floor" style="font-size:20px; color:#3631c4">
+              <!-- <h4>asdasd</h4> -->
+              Floor
+            </span>
             <br />
-            <select v-model="floor_active" @change="loadRoom()" style="width: 100%">
+            <select v-model="floor_active" @change="loadRoom()" style="width: 100%; color:#3631c4;">
               <option value>please select</option>
               <option
                 :value="floor.id"
@@ -25,7 +29,10 @@
             </select>
           </div>
           <div class="col-4">
-            <label for>Room</label>
+            <span class="flaticon-open-exit-door" style="font-size:20px; color:#3631c4">
+              <!-- <h4>asdasd</h4> -->
+              Room
+            </span>
             <br />
             <select v-model="form.all.room_id" required style="width: 100%">
               <option value>please select</option>
@@ -40,8 +47,10 @@
           <div class="col-12"></div>
           <br />
           <div class="col-4 mt-4">
-            <i style="color:#3631c4;" class="flaticon-photo"></i>
-            <h4 style="color:#3631c4;">Image (จำนวนไม่เกิน 6)</h4>
+            <span style="color:#3631c4; font-size:20px;" class="flaticon-photo">
+              <!-- <h4 style="color:#3631c4;"></h4> -->
+              Image (จำนวนไม่เกิน 6)
+            </span>
           </div>
 
           <div class="col-4 mt-4">
@@ -78,8 +87,10 @@
           </div>
           <br />
           <div class="col-4 mt-4">
-            <i style="color:#3631c4;" class="flaticon-placeholder"></i>
-            <h4 style="color:#3631c4;">Map (พร้อมระบุตำแหน่ง)</h4>
+            <span style="color:#3631c4; font-size:20px;" class="flaticon-placeholder">
+              <!-- <h4 style="color:#3631c4;"></h4> -->
+              Map (พร้อมระบุตำแหน่ง)
+            </span>
           </div>
           <div class="col-4 mt-4">
             <form>
@@ -324,6 +335,17 @@ label {
 .clearfix {
   color: #3631c4;
 }
+.nav-pills .nav-link.active {
+  background-color: #ffcc57 !important;
+  opacity: 100% !important;
+}
+/* .card-header {
+  background-color: white !important;
+} */
+.card {
+  border: none;
+  border-radius: 20px;
+}
 #createbtn2 {
   padding-bottom: 46px;
   border-radius: 10px;
@@ -331,5 +353,19 @@ label {
   height: 40px;
   background-color: #ff6464;
   font-size: 24px;
+}
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: Kanit !important;
+}
+label[data-v-74ec3927] {
+  color: #3631c4;
+}
+input[data-v-74ec3927],
+textarea[data-v-74ec3927] {
+  border-color: aqua;
 }
 </style>

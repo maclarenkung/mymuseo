@@ -18,12 +18,12 @@ class LangSeeder extends Seeder
 
             ],
             [
-                "name" => "english",
+                "name" => "English",
                 "slug" => "EN",
 
             ],
             [
-                "name" => "Chinese",
+                "name" => "中文",
                 "slug" => "CN",
 
             ]

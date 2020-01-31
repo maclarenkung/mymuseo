@@ -5,27 +5,6 @@
     </pre>-->
 
     <div class="col-12">
-      <!-- <div class="dropdown text-center" style="color:#4A4A4A">
-        <button
-          class="btn dropdown-toggle text-center"
-          type="button"
-          id="dropdownMenuButton"
-          data-toggle="dropdown"
-          aria-haspopup="true"
-          aria-expanded="false"
-          style="font-size:30px; color:#4A4A4A"
-        >พิพิธภัณฑ์ ชาวบางกอก</button>
-        <button class="setting">
-          <i class="flaticon-wheel"></i>
-          setting
-        </button>
-        <p>(Bangkok Museum)</p>
-        <div class="dropdown-menu text-center" aria-labelledby="dropdownMenuButton">
-          <a class="dropdown-item text-center" href="#" style="font-size:25px;">
-            <i class="flaticon-add"></i> เพิ่มพิพิธภัณฑ์
-          </a>
-        </div>
-      </div>-->
       <div class="col-12"></div>
     </div>
     <div class="col-12">

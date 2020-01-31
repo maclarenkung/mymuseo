@@ -2,22 +2,24 @@
   <div>
     <div class="dashh">
       <div class="clearfix">
-        <router-link to="/admin/room/1" class="float-left">
-          <i class="flaticon-left-arrow"></i>
+        <router-link to="/admin/museums/1" class="float-left">
+          <i class="flaticon-left-arrow" style="font-size:25px; color:#ffcc57;"></i>
         </router-link>
-        <h1 class="float-left ml-4">Create Item</h1>
+        <span class="ml-4" style="font-size:25px;">{{ id ? "Edit Floor" : "Create Floor" }}</span>
       </div>
       <!-- <pre>{{ form }}</pre> -->
       <!-- <pre>{{ floors }}</pre> -->
 
-      <form @submit.prevent="submitForm" @keydown="form.onKeydown($event)" class="mt-5">
+      <form @submit.prevent="submitForm" @keydown="form.onKeydown($event)" class="mt-3">
         <!-- Name -->
         <div class="row">
           <div class="col-12"></div>
           <br />
           <div class="col-4 mt-4">
-            <i style="color:#3631c4;" class="flaticon-photo"></i>
-            <h4 style="color:#3631c4;">Image (จำนวนไม่เกิน 6)</h4>
+            <span style="color:#3631c4; font-size:20px;" class="flaticon-photo">
+              <!-- <h4 style="color:#3631c4;"></h4> -->
+              Image (จำนวนไม่เกิน 6)
+            </span>
           </div>
 
           <div class="col-4 mt-4">
@@ -55,8 +57,10 @@
           </div>
           <br />
           <div class="col-4 mt-4">
-            <i style="color:#3631c4;" class="flaticon-placeholder"></i>
-            <h4 style="color:#3631c4;">Map (พร้อมระบุตำแหน่ง)</h4>
+            <span style="color:#3631c4; font-size:20px;" class="flaticon-placeholder">
+              <!-- <h4 style="color:#3631c4;"></h4> -->
+              Map (พร้อมระบุตำแหน่ง)
+            </span>
           </div>
           <div class="col-4 mt-4">
             <form>
@@ -308,5 +312,12 @@ label {
   height: 40px;
   background-color: #ff6464;
   font-size: 24px;
+}
+label[data-v-7be66d13] {
+  color: #3631c4;
+}
+input[data-v-7be66d13],
+textarea[data-v-7be66d13] {
+  border-color: aqua;
 }
 </style>

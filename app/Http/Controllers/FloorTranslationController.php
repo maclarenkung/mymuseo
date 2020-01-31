@@ -14,7 +14,10 @@ class FloorTranslationController extends Controller
      */
     public function index()
     {
-        //
+        $floorstrans =  FloorTranslation::get();
+        foreach ($floorstrans as $floorstran) {
+        }
+        return $floorstrans;
     }
 
     /**
@@ -46,7 +49,7 @@ class FloorTranslationController extends Controller
      */
     public function show(FloorTranslation $floorTranslation)
     {
-        //
+        return $floorTranslation;
     }
 
     /**

@@ -109,7 +109,11 @@ export default [
         name: "admin.floors.show",
         component: page("admin/floors/show.vue")
       },
-
+      {
+        path: "floor/:id/edit",
+        name: "admin.floor.edit",
+        component: page("admin/floors/form.vue")
+      },
       {
         path: "room",
         name: "admin.room",
@@ -125,7 +129,11 @@ export default [
         name: "admin.room.show_room",
         component: page("admin/room/show_room.vue")
       },
-
+      {
+        path: "room/:id/edit",
+        name: "admin.room.edit",
+        component: page("admin/room/form.vue")
+      },
       {
         path: "items",
         name: "admin.room.show",

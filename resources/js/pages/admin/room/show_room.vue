@@ -1,3 +1,3 @@
 <template>
-  <div>fsldkvcsldkm</div>
+  <div></div>
 </template>

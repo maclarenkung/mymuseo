@@ -23,11 +23,18 @@
             <tr v-for="room in show.rooms" :key="room.id">
               <td>
                 <router-link
-                  :to="{ name: 'admin.room.show_room', params: { id: room.id } }"
+                  :to="{ name: 'admin.room.show', params: { id: room.id } }"
                 >{{ room.translation.name }}</router-link>
               </td>
               <td class="text-center">
-                <el-button type="warning" round>Edit</el-button>
+                <router-link
+                  :to="{
+                    name: 'admin.room.edit',
+                    params: { id: room.id }
+                  }"
+                >
+                  <el-button type="warning" round>Edit</el-button>
+                </router-link>
               </td>
               <td>15/11/62</td>
             </tr>
@@ -49,6 +56,9 @@
 <script>
 import { mapActions, mapGetters } from "vuex";
 export default {
+  components: {
+    ItemShow
+  },
   computed: {
     ...mapGetters({
       show: "floor/show"

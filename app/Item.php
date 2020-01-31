@@ -30,6 +30,7 @@ class Item extends Model
 
     public function getTranslationAttribute()
     {
+        // $trans = ItemTranslation::where('item_id', $this->id)->where('lang_id',  getLangSlugId())->secound();
         $trans = ItemTranslation::where('item_id', $this->id)->where('lang_id',  getLangSlugId())->first();
         return $trans;
     }

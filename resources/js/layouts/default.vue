@@ -132,4 +132,18 @@ footer {
   margin-top: 25px;
   color: #3e7a63;
 }
+.nav-pills .nav-link.active {
+  background-color: #ffcc57 !important;
+  opacity: 100% !important;
+}
+.card-header {
+  background-color: white !important;
+}
+.card {
+  border: none !important;
+  border-radius: 20px !important;
+}
+.nav-link {
+  color: black;
+}
 </style>

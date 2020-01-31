@@ -16,11 +16,11 @@ export default {
           code: "th"
         },
         {
-          name: "ภาษาอังกฤษ",
+          name: "English",
           code: "en"
         },
         {
-          name: "ภาษาจีน",
+          name: "中文",
           code: "cn"
         }
       ]
