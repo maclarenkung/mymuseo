@@ -5,27 +5,8 @@
     <a :href="`/item/${show.id}`" target="_blank" class="btn btn-primary">Open</a>
 
     <hr />-->
-    <div class="col-12">
-      <!-- {{ show }} -->
-      <!-- <div class="dropdown text-center" style="color:#4A4A4A">
-        <button
-          class="btn dropdown-toggle text-center"
-          type="button"
-          id="dropdownMenuButton"
-          data-toggle="dropdown"
-          aria-haspopup="true"
-          aria-expanded="false"
-          style="font-size:30px; color:#4A4A4A"
-        >พิพิธภัณฑ์ ชาวบางกอก</button>
-
-        <p>(Bangkok Museum)</p>
-        <div class="dropdown-menu text-center" aria-labelledby="dropdownMenuButton">
-          <a class="dropdown-item text-center" href="#" style="font-size:25px;">
-            <i class="flaticon-add"></i> เพิ่มพิพิธภัณฑ์
-          </a>
-        </div>
-      </div>-->
-    </div>
+    <!-- <pre>{{show}}</pre> -->
+    <div class="col-12"></div>
     <div class="card p-4">
       <div class="clearfix">
         <router-link to="/admin/museums" class="float-left">
@@ -35,7 +16,7 @@
           <div class="row">
             <div class="col-6">
               <span class="head-muse">พิพิธภัณฑ์ชาวบางกอก</span>
-              <span class="head-muse">/ {{ show.name }}</span>
+              <!-- <span class="head-muse">/ {{ show.name }}</span> -->
 
               <span class="head-muse" style="color:#3641FB">/ {{ show.translation.name }}</span>
             </div>
@@ -51,6 +32,12 @@
       <table class="mm-table">
         <tbody>
           <tr>
+            <td class="label">Image</td>
+            <td class="text">
+              <img :src="show.image_url" height="120" width="300" />
+            </td>
+          </tr>
+          <tr>
             <td class="label">Title</td>
             <td class="text">{{ show.translation.name }}</td>
           </tr>
@@ -58,12 +45,7 @@
             <td class="label">Description</td>
             <td class="text">{{ show.translation.description }}</td>
           </tr>
-          <tr>
-            <td class="label">Image</td>
-            <td class="text">
-              <img :src="show.image_url" height="120" width="300" />
-            </td>
-          </tr>
+
           <tr>
             <td class="label">Audio</td>
             <td class="text">

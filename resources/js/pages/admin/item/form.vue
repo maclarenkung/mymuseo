@@ -8,7 +8,6 @@
         <h1 class="float-left ml-4">Create Item</h1>
       </div>
       <!-- <pre>{{ form }}</pre> -->
-      <!-- <pre>{{ item }}</pre> -->
 
       <form @submit.prevent="submitForm" @keydown="form.onKeydown($event)" class="mt-5">
         <!-- Name -->

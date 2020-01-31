@@ -22,7 +22,7 @@
 
           <div class="col-4 mt-4">
             <form>
-              <input type="text" value="1" v-model="form.museum_id" />
+              <!-- <input type="text" value="1" v-model="form.museum_id" /> -->
               <div class="custom-file">
                 <input
                   type="file"

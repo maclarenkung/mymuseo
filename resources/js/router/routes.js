@@ -121,6 +121,12 @@ export default [
         component: page("admin/room/form.vue")
       },
       {
+        path: "room/:id",
+        name: "admin.room.show_room",
+        component: page("admin/room/show_room.vue")
+      },
+
+      {
         path: "items",
         name: "admin.room.show",
         component: page("admin/room/show.vue")

@@ -23,7 +23,7 @@
             <tr v-for="room in show.rooms" :key="room.id">
               <td>
                 <router-link
-                  :to="{ name: 'admin.room.show', params: { id: room.id } }"
+                  :to="{ name: 'admin.room.show_room', params: { id: room.id } }"
                 >{{ room.translation.name }}</router-link>
               </td>
               <td class="text-center">
