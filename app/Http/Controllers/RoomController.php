@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Room;
+use App\RoomImage;
+use App\RoomTranslation;
 use Illuminate\Http\Request;
+use App\SoundLang;
 
 class RoomController extends Controller
 {
@@ -38,7 +41,43 @@ class RoomController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $room = Room::create([
+            // "image_url" => $request->all['image_url'],
+            "museum_id" => $request->all['museum_id']
+        ]);
+
+        foreach ($request->only(['th', 'en', 'cn']) as $key => $value) {
+            $lang_id = getLangSlugIdByCode($key);
+            RoomTranslation::create([
+                "lang_id" =>  $lang_id,
+                "room_id" => $room->id,
+                "name" => $value['name'],
+                "description" => $value['description']
+            ]);
+        }
+
+        foreach ($request->all['image_url'] as $url) {
+            RoomImage::create([
+                "room_id" => $room->id,
+                "image_url" => $url
+            ]);
+        }
+
+
+        return $room;
+
+
+
+
+
+        $floor = Room::create($request->all());
+        $soundLang = SoundLang::create([
+            "model" =>  "App\Floor",
+            "relation_id" => $floor->id,
+            "lang_id" => 1,
+            "file_url" => $request->file_url
+        ]);
+        return $floor;
     }
 
     /**

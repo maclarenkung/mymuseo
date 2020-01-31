@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Floor;
+use App\FloorImage;
 use App\FloorTranslation;
 use App\SoundLang;
 
@@ -41,38 +42,43 @@ class FloorController extends Controller
      */
     public function store(Request $request)
     {
-        // $floor = Floor::create([
-        //     // "image_url" => $request->all['image_url'],
-        //     "museum_id" => $request->all['museum_id']
-        // ]);
+        $floor = Floor::create([
+            // "image_url" => $request->all['image_url'],
+            "museum_id" => $request->all['museum_id']
+        ]);
 
-        // foreach ($request->only(['th', 'en', 'cn']) as $key => $value) {
-        //     $lang_id = getLangSlugIdByCode($key);
-        //     FloorTranslation::create([
-        //         "lang_id" =>  $lang_id,
-        //         "item_id" => $floor->id,
-        //         "name" => $value['name'],
-        //         "description" => $value['description']
-        //     ]);
-        // }
+        foreach ($request->only(['th', 'en', 'cn']) as $key => $value) {
+            $lang_id = getLangSlugIdByCode($key);
+            FloorTranslation::create([
+                "lang_id" =>  $lang_id,
+                "floor_id" => $floor->id,
+                "name" => $value['name'],
+                "description" => $value['description']
+            ]);
+        }
 
-        // foreach ($request->all['image_url'] as $url) {
-        //     Image::create([
-        //         "item_id" => $item->id,
-        //         "image_url" => $url
-        //     ]);
-        // }
+        foreach ($request->all['image_url'] as $url) {
+            FloorImage::create([
+                "floor_id" => $floor->id,
+                "image_url" => $url
+            ]);
+        }
 
 
-        // return $floor;
-        // $floor = Floor::create($request->all());
-        // $soundLang = SoundLang::create([
-        //     "model" =>  "App\Floor",
-        //     "relation_id" => $floor->id,
-        //     "lang_id" => 1,
-        //     "file_url" => $request->file_url
-        // ]);
-        // return $floor;
+        return $floor;
+
+
+
+
+
+        $floor = Floor::create($request->all());
+        $soundLang = SoundLang::create([
+            "model" =>  "App\Floor",
+            "relation_id" => $floor->id,
+            "lang_id" => 1,
+            "file_url" => $request->file_url
+        ]);
+        return $floor;
     }
 
     /**
@@ -83,7 +89,7 @@ class FloorController extends Controller
      */
     public function show(Floor $floor)
     {
-        // $floor->rooms;
+        $floor->rooms;
         return $floor;
     }
 
