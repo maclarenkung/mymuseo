@@ -43,7 +43,7 @@ class RoomController extends Controller
     {
         $room = Room::create([
             // "image_url" => $request->all['image_url'],
-            "museum_id" => $request->all['museum_id']
+            "floor_id" => $request->all['floor_id']
         ]);
 
         foreach ($request->only(['th', 'en', 'cn']) as $key => $value) {

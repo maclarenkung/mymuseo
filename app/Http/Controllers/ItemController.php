@@ -93,7 +93,7 @@ class ItemController extends Controller
      */
     public function show(Item $item)
     {
-        // $item->sound;
+        $item->item_images;
         return $item;
     }
 
