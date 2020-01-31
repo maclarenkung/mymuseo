@@ -311,6 +311,6 @@ h2,
 h3,
 h4,
 h5 {
-  font-family: Kanit !important;
+  font-family: mitr !important;
 }
 </style>

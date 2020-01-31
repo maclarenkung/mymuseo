@@ -19,7 +19,8 @@
                 v-for="museum in user.museums"
                 :key="museum.id"
                 :value="museum.id"
-              >{{ museum.name }}</option>
+                >{{ museum.name }}</option
+              >
             </select>
 
             <!-- <button @click="fetchUser()">refresh</button> -->
@@ -28,8 +29,15 @@
               setting
             </button>
 
-            <div class="dropdown-menu text-center" aria-labelledby="dropdownMenuButton">
-              <a class="dropdown-item text-center" href="#" style="font-size:25px;">
+            <div
+              class="dropdown-menu text-center"
+              aria-labelledby="dropdownMenuButton"
+            >
+              <a
+                class="dropdown-item text-center"
+                href="#"
+                style="font-size:25px;"
+              >
                 <i class="flaticon-add"></i> เพิ่มพิพิธภัณฑ์
               </a>
             </div>
@@ -42,7 +50,9 @@
           <div class="row">
             <div class="col-6">
               <span style="font-size: 35px; color:#4A4A4A">Your package :</span>
-              <span style="color: #3e7a63; font-size:35px;">{{ museumFilter.package.name }}</span>
+              <span style="color: #3e7a63; font-size:35px;">{{
+                museumFilter.package.name
+              }}</span>
               <br />
               <br />
               <span style="color: #4A4A4A; font-size:24px;">Package :</span>
@@ -52,7 +62,9 @@
               <div class="row">
                 <div class="col-8">
                   <p style="color: #4A4A4A; font-size:24px;">Expired date</p>
-                  <span style="color: #FF6464; font-size:35px;">{{ museumFilter.expiry_date }}</span>
+                  <span style="color: #FF6464; font-size:35px;">{{
+                    museumFilter.expiry_date
+                  }}</span>
                 </div>
                 <div class="col-4" style="margin-top:30px">
                   <button class="upgrade">upgrade</button>
@@ -65,11 +77,16 @@
             <div class="col-4">
               <div class="row">
                 <div class="col-6 text-right">
-                  <i class="flaticon-edit-button" style="font-size: 50px; color: #3e7a63"></i>
+                  <i
+                    class="flaticon-edit-button"
+                    style="font-size: 50px; color: #3e7a63"
+                  ></i>
                 </div>
                 <div class="col-6">
                   <h4 class="h8">Content</h4>
-                  <p style="color: #3e7a63;">{{ museumFilter.package.item_max }} items</p>
+                  <p style="color: #3e7a63;">
+                    {{ museumFilter.package.item_max }} items
+                  </p>
                   <!-- <i class="vl"></i> -->
                 </div>
               </div>
@@ -77,11 +94,16 @@
             <div class="col-4">
               <div class="row">
                 <div class="col-6 text-right">
-                  <i class="flaticon-qr-code" style="font-size: 50px; color: #3e7a63;"></i>
+                  <i
+                    class="flaticon-qr-code"
+                    style="font-size: 50px; color: #3e7a63;"
+                  ></i>
                 </div>
                 <div class="col-6">
                   <h4 class="h8">Qr-code</h4>
-                  <p style="color: #3e7a63;">{{ museumFilter.package.qrcode }}</p>
+                  <p style="color: #3e7a63;">
+                    {{ museumFilter.package.qrcode }}
+                  </p>
                   <!-- <i class="vl"></i> -->
                 </div>
               </div>
@@ -89,7 +111,10 @@
             <div class="col-4">
               <div class="row">
                 <div class="col-6 text-right">
-                  <i class="flaticon-photo" style="font-size: 50px; color: #3e7a63;"></i>
+                  <i
+                    class="flaticon-photo"
+                    style="font-size: 50px; color: #3e7a63;"
+                  ></i>
                 </div>
                 <div class="col-6">
                   <h4 class="h8">Item</h4>
@@ -177,6 +202,7 @@
               ></vue-funnel-graph>
             </div>
           </div>
+          <canvas id="my-chart"></canvas>
         </div>
       </div>
     </div>
@@ -296,7 +322,6 @@
 
 <script>
 import { VueFunnelGraph } from "vue-funnel-graph-js";
-
 export default {
   components: {
     VueFunnelGraph

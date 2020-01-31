@@ -62,7 +62,7 @@
             </div>
           </div>
           <div class="col-12 mt-4">
-            <div class="col-4 offset-4">
+            <div class="col-5 offset-4">
               <div class="row">
                 <h4>TH</h4>
                 <div class="pl-1 pr-1 vl">
@@ -94,7 +94,7 @@
               <div>
                 <p
                   class="pt-4"
-                  style="font-family: Kanit;
+                  style="font-family: mitr;
   font-size: 17px;
   font-weight: 600;
   font-stretch: normal;
@@ -106,7 +106,7 @@
                 >{{item.translation.name}}</p>
                 <hr />
                 <p
-                  style="font-family: Kanit;
+                  style="font-family: mitr;
   font-size: 14px;
   font-weight: normal;
   font-stretch: normal;
@@ -132,7 +132,7 @@
       background-color: #ffffff;margin: auto;"
             >
               <p
-                style="font-family: Kanit;
+                style="font-family: mitr;
           font-size: 20px;
           font-weight: bold;
           font-stretch: normal;
@@ -145,7 +145,7 @@
               >ตำแหน่งของคุณ</p>
               <hr />
               <p
-                style="font-family: Prompt;
+                style="font-family: mitr;
   font-size: 20px;
   font-weight: 500;
   font-stretch: normal;
@@ -156,7 +156,7 @@
   color: #000000;"
               >พิพิธภัณฑ์ ชาวบางกอก</p>
               <p
-                style="font-family: Prompt;
+                style="font-family: mitr;
   font-size: 20px;
   font-weight: 500;
   font-stretch: normal;
@@ -179,7 +179,7 @@
       background-color: #ffffff;margin: auto;"
             >
               <p
-                style="font-family: Kanit;
+                style="font-family: mitr;
           font-size: 20px;
           font-weight: bold;
           font-stretch: normal;
@@ -203,7 +203,7 @@
       background-color: #ffffff;margin: auto;"
             >
               <p
-                style="font-family: Kanit;
+                style="font-family: mitr;
                   font-size: 20px;
                   font-weight: bold;
                   font-stretch: normal;
@@ -298,16 +298,20 @@
             </div>
             <div class="col-4" style="margin: auto;">
               <div>
-                <i
-                  class="flaticon-unlink"
-                  style="width: 100%;
+                <a
+                  href="https://www.facebook.com/sharer/sharer.php?kid_directed_site=0&u=https%3A%2F%2Fth.wikipedia.org%2Fwiki%2F%25E0%25B9%2581%25E0%25B8%2581%25E0%25B9%2589%25E0%25B8%25A7&display=popup&ref=plugin&src=share_button"
+                >
+                  <i
+                    class="flaticon-unlink"
+                    style="width: 100%;
               padding: 26px 30px;
               font-size: 40px;
               color: #3E7A63;
               border-radius: 50%;
               box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.16);
               background-color: white; "
-                ></i>
+                  ></i>
+                </a>
               </div>
             </div>
 
@@ -316,6 +320,7 @@
                 <p style="text-align: center; color:#3E7A63;">สแกนภาพถัดไป</p>
               </div>
             </div>
+
             <div class="col-6 pt-4">
               <div class="text-2">
                 <p style="text-align: center; color: #3E7A63;">แชร์</p>
@@ -345,7 +350,7 @@
                 <p
                   style="
 
-  font-family: Kanit;
+  font-family: mitr;
   font-size: 12px;
   font-weight: normal;
   font-stretch: normal;
@@ -541,7 +546,7 @@ export default {
   margin-left: 71px;
 }
 .text-2 {
-  font-family: Kanit;
+  font-family: mitr;
   font-size: 16px;
   font-weight: normal;
   font-stretch: normal;
@@ -559,7 +564,7 @@ export default {
 }
 .Contact-us {
   // margin-top: 23px;
-  // font-family: Kanit;
+  // font-family: ;
   font-size: 20px;
   font-weight: normal;
   font-stretch: normal;

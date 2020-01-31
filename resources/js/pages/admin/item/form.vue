@@ -359,7 +359,7 @@ h2,
 h3,
 h4,
 h5 {
-  font-family: Kanit !important;
+  font-family: mitr !important;
 }
 label[data-v-74ec3927] {
   color: #3631c4;

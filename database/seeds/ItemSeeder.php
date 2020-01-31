@@ -22,7 +22,7 @@ class ItemSeeder extends Seeder
                         "name" => "แจกัน th",
                         "lang_id" => 1,
                         "description" => "Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim mollitia aut magni adipisci, ratione repellat accusamus nisi est aliquid dicta possimus quidem et quibusdam consectetur tempora vero hic maxime fuga?",
-                        "audio_url" => "wwwww"
+                        "audio_url" => "1578458137Beeper_Emergency_Call"
                     ],
                     [
                         "name" => "แจกัน en",

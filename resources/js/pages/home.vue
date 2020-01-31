@@ -1,5 +1,5 @@
 <template>
-  <div class="home-page">
+  <div class="home-page" style="font-family: mitr;">
     <div class="headtag">
       <div class="container">
         <!-- <card :title="$t('home')">
@@ -251,6 +251,9 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
+body {
+  font-family: mitr !important;
+}
 .feedback {
   background-color: #3e7a63;
   color: white;

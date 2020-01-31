@@ -4,30 +4,25 @@
     <div class="dashh">
       <div class="clearfix">
         <router-link to="/admin/customer" class="float-left">
-          <i
-            class="flaticon-left-arrow"
-            style="font-size: 35px; color:#FFCC57;"
-          ></i>
+          <i class="flaticon-left-arrow" style="font-size: 35px; color:#FFCC57;"></i>
         </router-link>
-        <p class="float-left ml-4" style="color:black; font-size:35px;">
-          Create Museum
-        </p>
+        <p class="float-left ml-4" style="color:black; font-size:35px;">Create Museum</p>
       </div>
       <hr />
-      <form
-        @submit.prevent="submitForm"
-        @keydown="form.onKeydown($event)"
-        class="mt-5"
-      >
+      <form @submit.prevent="submitForm" @keydown="form.onKeydown($event)" class="mt-5">
         <div class="col-12" style="color: #3631C4;">
           <div class="row">
             <div class="col-6">
-              <label for> <i class="flaticon-user"></i> Name (TH) </label>
+              <label for>
+                <i class="flaticon-user"></i> Name (TH)
+              </label>
               <br />
               <input type="text" class="create-form" v-model="form.name" />
             </div>
             <div class="col-6">
-              <label for> <i class="flaticon-user"></i> Name (EN) </label>
+              <label for>
+                <i class="flaticon-user"></i> Name (EN)
+              </label>
               <br />
               <input type="text" class="create-form" v-model="form.name_en" />
             </div>
@@ -50,20 +45,14 @@
                 <i class="flaticon-placeholder"></i> Google Map Link
               </label>
               <br />
-              <input
-                type="text"
-                class="create-form"
-                v-model="form.address_url"
-              />
+              <input type="text" class="create-form" v-model="form.address_url" />
             </div>
             <div class="col-6 mt-4">
-              <label for> <i class="flaticon-unlink"></i> Website </label>
+              <label for>
+                <i class="flaticon-unlink"></i> Website
+              </label>
               <br />
-              <input
-                type="text"
-                class="create-form"
-                v-model="form.website_url"
-              />
+              <input type="text" class="create-form" v-model="form.website_url" />
             </div>
             <div class="col-6 mt-4">
               <label for>
@@ -72,31 +61,21 @@
               <br />
               <div class="row">
                 <div class="col-5">
-                  <input
-                    type="time"
-                    class="create-form"
-                    v-model="form.time_open"
-                  />
+                  <input type="time" class="create-form" v-model="form.time_open" />
                 </div>
                 <div class="col-1">to</div>
                 <div class="col-5">
-                  <input
-                    type="time"
-                    class="create-form"
-                    v-model="form.time_close"
-                  />
+                  <input type="time" class="create-form" v-model="form.time_close" />
                 </div>
               </div>
             </div>
             <div class="col-6 mt-4">
               <form action>
-                <label for> <i class="flaticon-calendar"></i> Day </label>
+                <label for>
+                  <i class="flaticon-calendar"></i> Day
+                </label>
                 <br />
-                <input
-                  type="text"
-                  class="create-form"
-                  v-model="form.day_open"
-                />
+                <input type="text" class="create-form" v-model="form.day_open" />
               </form>
             </div>
             <div class="col-6 mt-4">
@@ -104,19 +83,19 @@
                 <i class="flaticon-call-answer"></i> Phone number
               </label>
               <br />
-              <input
-                type="text"
-                class="create-form"
-                v-model="form.phonenumber"
-              />
+              <input type="text" class="create-form" v-model="form.phonenumber" />
             </div>
             <div class="col-6 mt-4">
-              <label for> <i class="flaticon-envelope"></i> E-mail </label>
+              <label for>
+                <i class="flaticon-envelope"></i> E-mail
+              </label>
               <br />
               <input type="text" class="create-form" v-model="form.email" />
             </div>
             <div class="col-6 mt-4">
-              <label for> <i class="flaticon-facebook"></i> Facebook </label>
+              <label for>
+                <i class="flaticon-facebook"></i> Facebook
+              </label>
               <br />
               <input type="text" class="create-form" v-model="form.facebook" />
             </div>
@@ -128,7 +107,9 @@
               <input type="text" class="create-form" v-model="form.instagram" />
             </div>
             <div class="col-6 mt-4">
-              <label for> <i class="flaticon-list"></i> Category </label>
+              <label for>
+                <i class="flaticon-list"></i> Category
+              </label>
               <br />
               <!-- <input type="text" class="create-form" /> -->
               <div>
@@ -139,15 +120,9 @@
                   <b-tab title="หมุนเวียน">
                     <div>
                       <p>เริ่ม</p>
-                      <b-form-input
-                        v-model="form.day_start"
-                        type="date"
-                      ></b-form-input>
+                      <b-form-input v-model="form.day_start" type="date"></b-form-input>
                       <p>ถึง</p>
-                      <b-form-input
-                        v-model="form.day_end"
-                        type="date"
-                      ></b-form-input>
+                      <b-form-input v-model="form.day_end" type="date"></b-form-input>
                     </div>
                   </b-tab>
                 </b-tabs>
@@ -168,8 +143,7 @@
                   v-for="(packagex, index) in packagexs"
                   :key="index"
                   :value="packagex.id"
-                  >{{ packagex.name }}</option
-                >
+                >{{ packagex.name }}</option>
               </select>
             </div>
             <div class="col-4 mt-4">
@@ -211,7 +185,7 @@
                     </div>
                   </div>
                 </div>
-              </div> -->
+              </div>-->
             </div>
             <div class="col-4 mt-5"></div>
             <div class="col-12 text-center mt-5">
@@ -451,7 +425,7 @@ body {
   margin-left: 71px;
 }
 .text-2 {
-  font-family: Kanit;
+  font-family: mitr;
   font-size: 16px;
   font-weight: normal;
   font-stretch: normal;
@@ -469,7 +443,7 @@ body {
 }
 .Contact-us {
   margin-top: 23px;
-  font-family: Kanit;
+  font-family: mitr;
   font-size: 16px;
   font-weight: normal;
   font-stretch: normal;
