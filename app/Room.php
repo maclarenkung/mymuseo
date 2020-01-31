@@ -15,6 +15,7 @@ class Room extends Model
     {
         return $this->hasMany('App\Item');
     }
+    protected $fillable =  ['floor_id', 'image_url'];
     protected $appends =  ['translation'];
     public function getTranslationAttribute()
     {
