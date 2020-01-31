@@ -33,6 +33,7 @@ class DatabaseSeeder extends Seeder
                 RoomTranslationSeeder::class,
                 MuseumPackageSeeder::class,
                 PackageSeeder::class,
+                MuseumImageSeeder::class,
             ]
         );
     }

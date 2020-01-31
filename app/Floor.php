@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use App\FloorTranslation;
 
+
 class Floor extends Model
 {
     public function museum()
@@ -16,6 +17,8 @@ class Floor extends Model
     {
         return $this->hasMany('App\Room');
     }
+    protected $fillable =  ['museum_id', 'image_url'];
+
     protected $appends =  ['translation'];
     public function getTranslationAttribute()
     {

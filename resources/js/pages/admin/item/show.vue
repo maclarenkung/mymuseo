@@ -7,29 +7,24 @@
     <hr />-->
     <div class="col-12">
       <!-- {{ show }} -->
-      <div class="dropdown text-center" style="color:#4A4A4A">
+      <!-- <div class="dropdown text-center" style="color:#4A4A4A">
         <button
-          class="btn  dropdown-toggle text-center"
+          class="btn dropdown-toggle text-center"
           type="button"
           id="dropdownMenuButton"
           data-toggle="dropdown"
           aria-haspopup="true"
           aria-expanded="false"
           style="font-size:30px; color:#4A4A4A"
-        >
-          พิพิธภัณฑ์ ชาวบางกอก
-        </button>
+        >พิพิธภัณฑ์ ชาวบางกอก</button>
 
         <p>(Bangkok Museum)</p>
-        <div
-          class="dropdown-menu text-center"
-          aria-labelledby="dropdownMenuButton"
-        >
+        <div class="dropdown-menu text-center" aria-labelledby="dropdownMenuButton">
           <a class="dropdown-item text-center" href="#" style="font-size:25px;">
-            <i class="flaticon-add"></i> เพิ่มพิพิธภัณฑ์</a
-          >
+            <i class="flaticon-add"></i> เพิ่มพิพิธภัณฑ์
+          </a>
         </div>
-      </div>
+      </div>-->
     </div>
     <div class="card p-4">
       <div class="clearfix">
@@ -42,12 +37,10 @@
               <span class="head-muse">พิพิธภัณฑ์ชาวบางกอก</span>
               <span class="head-muse">/ {{ show.name }}</span>
 
-              <span class="head-muse" style="color:#3641FB">
-                / {{ show.translation.name }}</span
-              >
+              <span class="head-muse" style="color:#3641FB">/ {{ show.translation.name }}</span>
             </div>
             <div class="col-6">
-              <div class=" setting">
+              <div class="setting">
                 <i class="flaticon-edit-button"></i> Edit
               </div>
             </div>
@@ -75,8 +68,7 @@
             <td class="label">Audio</td>
             <td class="text">
               <audio controls v-if="show.sound" ref="player">
-                <source :src="show.sound.file_url" type="audio/mpeg" />
-                Your browser does not support the audio element.
+                <source :src="show.sound.file_url" type="audio/mpeg" />Your browser does not support the audio element.
               </audio>
             </td>
           </tr>
@@ -85,11 +77,7 @@
             <td class="text">
               <div class="clearfix">
                 <div class="float-left">
-                  <img
-                    :src="show.qrcode_url"
-                    width="120"
-                    style="border:5px soild #305a9a;"
-                  />
+                  <img :src="show.qrcode_url" width="120" style="border:5px soild #305a9a;" />
                 </div>
                 <div class="float-left pl-2">
                   <a
@@ -97,16 +85,10 @@
                     target="_blank"
                     class="btn btn-primary"
                     download
-                    >Save as</a
-                  >
+                  >Save as</a>
                   <br />
 
-                  <button
-                    class="btn btn-primary mt-3"
-                    @click="printimage(show.qrcode_url)"
-                  >
-                    Print
-                  </button>
+                  <button class="btn btn-primary mt-3" @click="printimage(show.qrcode_url)">Print</button>
                 </div>
               </div>
             </td>
@@ -115,12 +97,10 @@
       </table>
     </div>
     <hr />
-    <router-link
-      :to="{
+    <router-link :to="{
         name: 'admin.item.edit',
         params: { id: show.id }
-      }"
-    >
+      }">
       <button class="btn btn-warning">edit</button>
     </router-link>
     <a href></a>

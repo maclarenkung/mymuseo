@@ -27,7 +27,7 @@ export const mutations = {
 export const actions = {
   async fetch({ commit }) {
     try {
-      const { data } = await axios.get(`/api/floors/`);
+      const { data } = await axios.get(`/api/floors`);
 
       commit(types.FETCH_FLOOR, data);
     } catch (e) {

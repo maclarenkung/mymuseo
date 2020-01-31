@@ -8,36 +8,11 @@
         <h1 class="float-left ml-4">Create Item</h1>
       </div>
       <!-- <pre>{{ form }}</pre> -->
-      <!-- <pre>{{ item }}</pre> -->
+      <!-- <pre>{{ floors }}</pre> -->
 
       <form @submit.prevent="submitForm" @keydown="form.onKeydown($event)" class="mt-5">
         <!-- Name -->
         <div class="row">
-          <div class="col-4">
-            <label for>Floor</label>
-            <br />
-            <select v-model="floor_active" @change="loadRoom()" style="width: 100%">
-              <option value>please select</option>
-              <option
-                :value="floor.id"
-                v-for="(floor, index) in floors"
-                :key="index"
-              >{{ floor.translation.name }}</option>
-            </select>
-          </div>
-          <div class="col-4">
-            <label for>Room</label>
-            <br />
-            <select v-model="form.all.room_id" required style="width: 100%">
-              <option value>please select</option>
-              <option
-                :value="room.id"
-                v-for="(room, index) in rooms"
-                :key="index"
-              >{{ room.translation.name }}</option>
-            </select>
-          </div>
-
           <div class="col-12"></div>
           <br />
           <div class="col-4 mt-4">
@@ -47,6 +22,7 @@
 
           <div class="col-4 mt-4">
             <form>
+              <input type="text" value="1" v-model="form.museum_id" />
               <div class="custom-file">
                 <input
                   type="file"
@@ -170,7 +146,7 @@ export default {
   data: () => ({
     form: new Form({
       all: {
-        room_id: 1,
+        museum_id: 1,
         image_url: []
       },
       th: {
@@ -192,7 +168,7 @@ export default {
         file_url: ""
       }
     }),
-    floor_active: 1,
+    // floor_active: 1,
     image: "",
     file: ""
   }),
@@ -238,9 +214,9 @@ export default {
       //   path: "items"
       // });
 
-      this.form.room_id;
+      this.form.museum_id;
 
-      const { data } = await this.form.post("/api/items");
+      const { data } = await this.form.post("/api/floors");
 
       // if (data) {
       //   this.$router.push({
@@ -277,18 +253,18 @@ export default {
       fetchFloors: "floor/fetch",
       fetchRoom: "room/fetch"
     })
+  },
+  async created() {
+    console.log(this.id);
+    if (this.id) {
+      await this.fetch(this.id);
+      this.form.keys().forEach(key => {
+        this.form[key] = this.show[key];
+      });
+    }
+    this.fetchFloors();
+    this.fetchRoom(this.floor_active);
   }
-  // async created() {
-  //   console.log(this.id);
-  //   if (this.id) {
-  //     await this.fetch(this.id);
-  //     this.form.keys().forEach(key => {
-  //       this.form[key] = this.show[key];
-  //     });
-  //   }
-  //   this.fetchFloors();
-  //   this.fetchRoom(this.floor_active);
-  // }
 };
 </script>
 

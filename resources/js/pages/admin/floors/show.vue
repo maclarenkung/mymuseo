@@ -1,43 +1,16 @@
 <template>
   <div v-if="show">
-    <pre>{{ show }}</pre>
-    <div class="col-12">
-      <div class="dropdown text-center" style="color:#4A4A4A">
-        <button
-          class="btn  dropdown-toggle text-center"
-          type="button"
-          id="dropdownMenuButton"
-          data-toggle="dropdown"
-          aria-haspopup="true"
-          aria-expanded="false"
-          style="font-size:30px; color:#4A4A4A"
-        >
-          พิพิธภัณฑ์ ชาวบางกอก
-        </button>
-        <button class="setting">
-          <i class="flaticon-wheel"></i>
-          setting
-        </button>
-        <p>(Bangkok Museum)</p>
-        <div
-          class="dropdown-menu text-center"
-          aria-labelledby="dropdownMenuButton"
-        >
-          <a class="dropdown-item text-center" href="#" style="font-size:25px;">
-            <i class="flaticon-add"></i> เพิ่มพิพิธภัณฑ์</a
-          >
-        </div>
-      </div>
-    </div>
+    <!-- <pre>{{ show }}</pre> -->
+    <div class="col-12"></div>
     <div class="col-12">
       <span class="head-muse">พิพิธภัณฑ์ชาวบางกอก</span>
-      <span class="head-muse">/ {{ show.translation.name }}</span>
+      <!-- <span class="head-muse"></span> -->
 
-      <span class="head-muse" style="color:#3641FB"> / Room</span>
+      <span class="head-muse" style="color:#3641FB">/ Room</span>
     </div>
     <br />
     <div class="col-12">
-      <div class="card  table-room">
+      <div class="card table-room">
         <table>
           <thead class="mm-thead">
             <tr>
@@ -46,13 +19,12 @@
               <td class="text-center">Create At</td>
             </tr>
           </thead>
-          <tbody class="mm-tbody ">
+          <tbody class="mm-tbody">
             <tr v-for="room in show.rooms" :key="room.id">
               <td>
                 <router-link
                   :to="{ name: 'admin.room.show', params: { id: room.id } }"
-                  >{{ room.name }}</router-link
-                >
+                >{{ room.translation.name }}</router-link>
               </td>
               <td class="text-center">
                 <el-button type="warning" round>Edit</el-button>
@@ -61,13 +33,12 @@
             </tr>
           </tbody>
         </table>
-        <div
-          class="col-12 text-center"
-          style="margin-top:70px; margin-bottom:40px;"
-        >
-          <button class="add-room">
-            <i class="flaticon-add"></i> ADD ROOM
-          </button>
+        <div class="col-12 text-center" style="margin-top:70px; margin-bottom:40px;">
+          <router-link :to="{name: 'admin.room.create'}">
+            <button class="add-room">
+              <i class="flaticon-add"></i> ADD ROOM
+            </button>
+          </router-link>
         </div>
       </div>
     </div>
@@ -80,7 +51,7 @@ import { mapActions, mapGetters } from "vuex";
 export default {
   computed: {
     ...mapGetters({
-      show: "room/show"
+      show: "floor/show"
     }),
     id() {
       return parseInt(this.$route.params.id);
@@ -88,8 +59,8 @@ export default {
   },
   methods: {
     ...mapActions({
-      fetch: "room/show",
-      del: "room/del"
+      fetch: "floor/show",
+      del: "floor/del"
     })
   },
   created() {

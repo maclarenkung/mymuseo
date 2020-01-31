@@ -100,14 +100,25 @@ export default [
         component: page("admin/floors/index.vue")
       },
       {
+        path: "floors/create",
+        name: "admin.floors.create",
+        component: page("admin/floors/form.vue")
+      },
+      {
         path: "floors/:id",
         name: "admin.floors.show",
         component: page("admin/floors/show.vue")
       },
+
       {
         path: "room",
         name: "admin.room",
         component: page("admin/room/index.vue")
+      },
+      {
+        path: "room/create",
+        name: "admin.room.create",
+        component: page("admin/room/form.vue")
       },
       {
         path: "items",
@@ -170,6 +181,11 @@ export default [
         path: "room/:id",
         name: "admin.room.show",
         component: page("admin/room/show.vue")
+      },
+      {
+        path: "room/:id",
+        name: "admin.room.create",
+        component: page("admin/room/form.vue")
       },
       {
         path: "item",

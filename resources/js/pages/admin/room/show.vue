@@ -5,7 +5,7 @@
     </pre>-->
 
     <div class="col-12">
-      <div class="dropdown text-center" style="color:#4A4A4A">
+      <!-- <div class="dropdown text-center" style="color:#4A4A4A">
         <button
           class="btn dropdown-toggle text-center"
           type="button"
@@ -25,11 +25,12 @@
             <i class="flaticon-add"></i> เพิ่มพิพิธภัณฑ์
           </a>
         </div>
-      </div>
+      </div>-->
+      <div class="col-12"></div>
     </div>
     <div class="col-12">
       <span class="head-muse">พิพิธภัณฑ์ชาวบางกอก</span>
-      <span class="head-muse">/ ชั้น 1</span>
+      <!-- <span class="head-muse">/ ชั้น 1</span> -->
 
       <!-- <span class="head-muse"> / {{ show.name }}</span> -->
       <span class="head-muse" style="color:#3641FB">/ Item</span>

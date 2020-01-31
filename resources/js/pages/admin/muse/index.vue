@@ -11,33 +11,28 @@
         ></b-form-select>
         </div>-->
         <!-- <pre>{{ museumFilter }}</pre> -->
-        <div class="text-center">
-          <select v-model="museum_active">
-            <option
-              v-for="museum in user.museums"
-              :key="museum.id"
-              :value="museum.id"
-              >{{ museum.name }}</option
-            >
-          </select>
 
-          <button @click="fetchUser()">refresh</button>
-          <button class="setting">
-            <i class="flaticon-wheel"></i>
-            setting
-          </button>
-          <!-- <p>{{}}</p> -->
-          <div
-            class="dropdown-menu text-center"
-            aria-labelledby="dropdownMenuButton"
-          >
-            <a
-              class="dropdown-item text-center"
-              href="#"
-              style="font-size:25px;"
-            >
-              <i class="flaticon-add"></i> เพิ่มพิพิธภัณฑ์
-            </a>
+        <div class="col-12">
+          <div class="text-center">
+            <select v-model="museum_active">
+              <option
+                v-for="museum in user.museums"
+                :key="museum.id"
+                :value="museum.id"
+              >{{ museum.name }}</option>
+            </select>
+
+            <!-- <button @click="fetchUser()">refresh</button> -->
+            <button class="setting">
+              <i class="flaticon-wheel"></i>
+              setting
+            </button>
+
+            <div class="dropdown-menu text-center" aria-labelledby="dropdownMenuButton">
+              <a class="dropdown-item text-center" href="#" style="font-size:25px;">
+                <i class="flaticon-add"></i> เพิ่มพิพิธภัณฑ์
+              </a>
+            </div>
           </div>
         </div>
       </div>
@@ -47,9 +42,7 @@
           <div class="row">
             <div class="col-6">
               <span style="font-size: 35px; color:#4A4A4A">Your package :</span>
-              <span style="color: #3e7a63; font-size:35px;">{{
-                museumFilter.package.name
-              }}</span>
+              <span style="color: #3e7a63; font-size:35px;">{{ museumFilter.package.name }}</span>
               <br />
               <br />
               <span style="color: #4A4A4A; font-size:24px;">Package :</span>
@@ -59,9 +52,7 @@
               <div class="row">
                 <div class="col-8">
                   <p style="color: #4A4A4A; font-size:24px;">Expired date</p>
-                  <span style="color: #FF6464; font-size:35px;">{{
-                    museumFilter.expiry_date
-                  }}</span>
+                  <span style="color: #FF6464; font-size:35px;">{{ museumFilter.expiry_date }}</span>
                 </div>
                 <div class="col-4" style="margin-top:30px">
                   <button class="upgrade">upgrade</button>
@@ -74,16 +65,11 @@
             <div class="col-4">
               <div class="row">
                 <div class="col-6 text-right">
-                  <i
-                    class="flaticon-edit-button"
-                    style="font-size: 50px; color: #3e7a63"
-                  ></i>
+                  <i class="flaticon-edit-button" style="font-size: 50px; color: #3e7a63"></i>
                 </div>
                 <div class="col-6">
                   <h4 class="h8">Content</h4>
-                  <p style="color: #3e7a63;">
-                    {{ museumFilter.package.item_max }} items
-                  </p>
+                  <p style="color: #3e7a63;">{{ museumFilter.package.item_max }} items</p>
                   <!-- <i class="vl"></i> -->
                 </div>
               </div>
@@ -91,16 +77,11 @@
             <div class="col-4">
               <div class="row">
                 <div class="col-6 text-right">
-                  <i
-                    class="flaticon-qr-code"
-                    style="font-size: 50px; color: #3e7a63;"
-                  ></i>
+                  <i class="flaticon-qr-code" style="font-size: 50px; color: #3e7a63;"></i>
                 </div>
                 <div class="col-6">
                   <h4 class="h8">Qr-code</h4>
-                  <p style="color: #3e7a63;">
-                    {{ museumFilter.package.qrcode }}
-                  </p>
+                  <p style="color: #3e7a63;">{{ museumFilter.package.qrcode }}</p>
                   <!-- <i class="vl"></i> -->
                 </div>
               </div>
@@ -108,10 +89,7 @@
             <div class="col-4">
               <div class="row">
                 <div class="col-6 text-right">
-                  <i
-                    class="flaticon-photo"
-                    style="font-size: 50px; color: #3e7a63;"
-                  ></i>
+                  <i class="flaticon-photo" style="font-size: 50px; color: #3e7a63;"></i>
                 </div>
                 <div class="col-6">
                   <h4 class="h8">Item</h4>
@@ -129,7 +107,7 @@
       <div class="col-12">
         <div class="row mt-5">
           <div class="col-4">
-            <div class="col-10 tab">
+            <div class="col-12 tab">
               <div class="icon-1 text-center">
                 <i class="flaticon-user"></i>
               </div>
@@ -139,7 +117,7 @@
             </div>
           </div>
           <div class="col-4">
-            <div class="col-10 tab">
+            <div class="col-12 tab">
               <div class="icon-2 text-center">
                 <i class="flaticon-team"></i>
               </div>
@@ -149,7 +127,7 @@
             </div>
           </div>
           <div class="col-4">
-            <div class="col-10 tab">
+            <div class="col-12 tab">
               <div class="icon-3 text-center">
                 <i class="flaticon-qr-code"></i>
               </div>
@@ -159,7 +137,7 @@
             </div>
           </div>
           <div class="col-4 mt-5">
-            <div class="col-10 tab">
+            <div class="col-12 tab">
               <div class="icon-4 text-center">
                 <i class="flaticon-witness"></i>
               </div>
@@ -168,7 +146,7 @@
             </div>
           </div>
           <div class="col-4 mt-5">
-            <div class="col-10 tab">
+            <div class="col-12 tab">
               <!-- <vue-funnel-graph
                 :width="width"
                 :height="height"
@@ -180,11 +158,11 @@
                 :gradient-direction="gradientDirection"
                 :animated="true"
                 :display-percentage="true"
-              ></vue-funnel-graph> -->
+              ></vue-funnel-graph>-->
             </div>
           </div>
           <div class="col-12 mt-5">
-            <div class="col-10">
+            <div class="col-12">
               <vue-funnel-graph
                 :width="width"
                 :height="height"
@@ -203,10 +181,25 @@
       </div>
     </div>
     <div v-else>
-      User No museum
-      <router-link to="/admin/museums/create">
-        <button>Create</button>
-      </router-link>
+      <div class="col-12" style="height: 800px">
+        <div class="row" style="margin-top:150px">
+          <div class="col-4"></div>
+          <div class="col text-center">
+            <router-link to="/admin/museums/create">
+              <button class="btn-create">
+                <i class="flaticon-add"></i> CREATE
+              </button>
+            </router-link>
+
+            <p class="mt-3" style="color:#A8A9B7;">
+              กดปุ่ม
+              <a href="/admin/museums/create" style="color:#ff6e6e">Create</a>
+              เพื่อเริ่มสร้างพิพิธภัณฑ์ใหม่ของคุณ
+            </p>
+          </div>
+          <div class="col-4"></div>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -437,5 +430,13 @@ export default {
 .svg-funnel-js .svg-funnel-js__labels .svg-funnel-js__label .label__value {
   color: #3631c4;
   font-weight: 800;
+}
+.btn-create {
+  padding: 15px 15px;
+  width: 80%;
+  color: white;
+  background-color: #ff6e6e;
+  border-radius: 10px;
+  font-size: 25px;
 }
 </style>

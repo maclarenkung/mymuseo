@@ -22,7 +22,7 @@
           setting
         </button>-->
 
-        <select name id>
+        <!-- <select name id>
           <option v-for="museum in user.museums" :key="museum.id">{{museum.name}}</option>
         </select>
         <p>(Bangkok Museum)</p>
@@ -30,7 +30,7 @@
           <a class="dropdown-item text-center" href="#" style="font-size:25px;">
             <i class="flaticon-add"></i> เพิ่มพิพิธภัณฑ์
           </a>
-        </div>
+        </div>-->
       </div>
     </div>
     <div class="col-12">
@@ -126,6 +126,7 @@
               <td class="text-center">Create At</td>
             </tr>
           </thead>
+          <br />
           <tbody class="mm-tbody">
             <tr v-for="floor in show.floors" :key="floor.id">
               <td>
@@ -155,10 +156,15 @@
             </tr>
           </tbody>
         </table>
+
         <div class="col-12 text-center" style="margin-top:70px; margin-bottom:40px;">
-          <button class="add-floor">
-            <i class="flaticon-add"></i> ADD FLOOR
-          </button>
+          <router-link :to="{
+              name: 'admin.floors.create'
+            }">
+            <button class="add-floor">
+              <i class="flaticon-add"></i> ADD FLOOR
+            </button>
+          </router-link>
         </div>
       </div>
     </div>
@@ -200,6 +206,12 @@ export default {
   right: 0;
   position: absolute;
   background-color: #3631c4;
+  color: whitesmoke;
+  padding: 10px 15px;
+  border-radius: 10px;
+}
+.add-floor {
+  background-color: #ff6e6e;
   color: whitesmoke;
   padding: 10px 15px;
   border-radius: 10px;

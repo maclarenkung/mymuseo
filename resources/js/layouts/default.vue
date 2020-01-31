@@ -1,11 +1,11 @@
 <template>
-  <div class="main-layout">
+  <div class="main-layout" style="    background-color: #F9F9F9;">
     <navbar />
 
     <div>
       <child />
     </div>
-    <footer>
+    <footer style="background-color:white;">
       <hr style="background-color: #3E7A63" />
       <div class="container">
         <div class="row">

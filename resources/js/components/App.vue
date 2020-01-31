@@ -13,7 +13,10 @@
 
 <script>
 import Loading from "./Loading";
+import Vue from "vue";
+import vSelect from "vue-select";
 
+Vue.component("v-select", vSelect);
 // Load layout components dynamically.
 const requireContext = require.context("~/layouts", false, /.*\.vue$/);
 

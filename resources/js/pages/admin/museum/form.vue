@@ -1,12 +1,17 @@
 <template>
   <div>
-    <pre>{{ show }}</pre>
+    <!-- <pre>{{ show }}</pre> -->
     <div class="dashh">
       <div class="clearfix">
-        <router-link to="/admin/room/1" class="float-left">
-          <i class="flaticon-left-arrow"></i>
+        <router-link to="/admin/customer" class="float-left">
+          <i
+            class="flaticon-left-arrow"
+            style="font-size: 35px; color:#FFCC57;"
+          ></i>
         </router-link>
-        <h1 class="float-left ml-4" style="color:#3631C4 ;">Create Museum</h1>
+        <p class="float-left ml-4" style="color:black; font-size:35px;">
+          Create Museum
+        </p>
       </div>
       <hr />
       <form
@@ -26,21 +31,21 @@
               <br />
               <input type="text" class="create-form" v-model="form.name_en" />
             </div>
-            <div class="col-12">
+            <div class="col-12 mt-4">
               <label for>
                 <i class="flaticon-edit-button"></i> Description
               </label>
               <br />
+              <!-- <textarea name id cols="80" rows="10" width="100%" ></textarea> -->
               <textarea
-                name
-                id
-                cols="80"
-                rows="10"
-                width="100%"
+                class
+                style="width:90%; border-radius: 10px; border-color: #1fe2d4;"
+                id="exampleFormControlTextarea1"
                 v-model="form.description"
+                rows="10"
               ></textarea>
             </div>
-            <div class="col-6">
+            <div class="col-6 mt-4">
               <label for>
                 <i class="flaticon-placeholder"></i> Google Map Link
               </label>
@@ -51,7 +56,7 @@
                 v-model="form.address_url"
               />
             </div>
-            <div class="col-6">
+            <div class="col-6 mt-4">
               <label for> <i class="flaticon-unlink"></i> Website </label>
               <br />
               <input
@@ -60,7 +65,7 @@
                 v-model="form.website_url"
               />
             </div>
-            <div class="col-6">
+            <div class="col-6 mt-4">
               <label for>
                 <i class="flaticon-clock-circular-outline"></i> Time
               </label>
@@ -83,9 +88,9 @@
                 </div>
               </div>
             </div>
-            <div class="col-6">
+            <div class="col-6 mt-4">
               <form action>
-                <label for>Day</label>
+                <label for> <i class="flaticon-calendar"></i> Day </label>
                 <br />
                 <input
                   type="text"
@@ -94,7 +99,7 @@
                 />
               </form>
             </div>
-            <div class="col-6">
+            <div class="col-6 mt-4">
               <label for>
                 <i class="flaticon-call-answer"></i> Phone number
               </label>
@@ -105,24 +110,24 @@
                 v-model="form.phonenumber"
               />
             </div>
-            <div class="col-6">
+            <div class="col-6 mt-4">
               <label for> <i class="flaticon-envelope"></i> E-mail </label>
               <br />
               <input type="text" class="create-form" v-model="form.email" />
             </div>
-            <div class="col-6">
+            <div class="col-6 mt-4">
               <label for> <i class="flaticon-facebook"></i> Facebook </label>
               <br />
               <input type="text" class="create-form" v-model="form.facebook" />
             </div>
-            <div class="col-6">
+            <div class="col-6 mt-4">
               <label for>
                 <i class="flaticon-instagram-logo"></i> Instagram
               </label>
               <br />
               <input type="text" class="create-form" v-model="form.instagram" />
             </div>
-            <div class="col-6">
+            <div class="col-6 mt-4">
               <label for> <i class="flaticon-list"></i> Category </label>
               <br />
               <!-- <input type="text" class="create-form" /> -->
@@ -148,10 +153,17 @@
                 </b-tabs>
               </div>
             </div>
-            <div class="col-4">
-              <label for>package (เริ่มนับตั้งแต่วันสร้าง)</label>
+            <div class="col-6 mt-4">
+              <label for>
+                <i class="flaticon-dashboard"></i> Package
+                (เริ่มนับตั้งแต่วันสร้าง)
+              </label>
               <br />
-              <select v-model="form.package_id" required style="width: 100%">
+              <select
+                v-model="form.package_id"
+                required
+                style="width: 80%; border-color:#1fe2d4; background-color: white;"
+              >
                 <option
                   v-for="(packagex, index) in packagexs"
                   :key="index"
@@ -161,29 +173,52 @@
               </select>
             </div>
             <div class="col-4 mt-4">
-              <i style="color:#3631c4;" class="flaticon-photo"></i>
-              <h4 style="color:#3631c4;">Image (จำนวนไม่เกิน 6)</h4>
-            </div>
-            <div class="col-4 mt-4">
-              <form>
-                <div class="custom-file">
-                  <input
-                    type="file"
-                    class="custom-file-input"
-                    id="customFile"
-                    name="image"
-                    @change="setImg()"
-                  />
-                  <has-error :form="form" field="image" />
-                  <label class="custom-file-label" for="customFile">
-                    <i class="flaticon-upload"></i> Upload Image
-                  </label>
+              <label style="color:#3631c4;">
+                <i style="color:#3631c4;" class="flaticon-photo"></i> Image
+                (จำนวนไม่เกิน 6)
+              </label>
+
+              <div class="custom-file mt-3">
+                <input
+                  type="file"
+                  class="custom-file-input"
+                  id="customFile"
+                  name="image"
+                  @change="setImg()"
+                />
+                <has-error :form="form" field="image" />
+                <label class="custom-file-label" for="customFile">
+                  <i class="flaticon-upload"></i> Upload Image
+                </label>
+              </div>
+
+              <!-- <div class="col-12">
+                <div class="row">
+                  <div
+                    class="col-md-4"
+                    v-for="(img, index) in form.image_url"
+                    :key="index"
+                  >
+                    <div class="card">
+                      <div class="card-body">
+                        <img :src="img" width="100%" />
+                      </div>
+                      <div class="card-footer">
+                        <button @click="removeImg(index)" type="button">
+                          ลบ
+                        </button>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-              </form>
+              </div> -->
             </div>
+            <div class="col-4 mt-5"></div>
             <div class="col-12 text-center mt-5">
-              <button>CANCEL</button>
-              <button>CREATE</button>
+              <router-link to="/admin/customer" class>
+                <button class="btn-create3">CANCEL</button>
+              </router-link>
+              <button class="btn-create2">CREATE</button>
             </div>
           </div>
         </div>
@@ -302,6 +337,10 @@ body {
 }
 .create-form {
   width: 80%;
+  border-color: #1fe2d4;
+  border-style: solid;
+  border-radius: 6px;
+  border-width: thin;
 }
 /* .col-12 {
       padding-left: 0px;
@@ -439,5 +478,25 @@ body {
   letter-spacing: normal;
   text-align: center;
   color: #ffffff;
+}
+.btn-create2 {
+  padding: 10px 50px;
+
+  color: white;
+  background-color: #ff6e6e;
+  border-radius: 10px;
+  font-size: 15px;
+}
+.btn-create3 {
+  padding: 10px 50px;
+
+  color: #ffce57;
+  background-color: white;
+  border-color: #ffce57;
+  border-radius: 10px;
+  font-size: 15px;
+}
+label {
+  font-size: 18px;
 }
 </style>

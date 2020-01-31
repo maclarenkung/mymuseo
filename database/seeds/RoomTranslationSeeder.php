@@ -20,6 +20,27 @@ class RoomTranslationSeeder extends Seeder
                 "description" => "Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim mollitia aut magni adipisci, ratione repellat accusamus nisi est aliquid dicta possimus quidem et quibusdam consectetur tempora vero hic maxime fuga?",
             ],
             [
+                "room_id" => 1,
+                "name" => "ห้องอาหาร",
+                "lang_id" => 1,
+
+                "description" => "Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim mollitia aut magni adipisci, ratione repellat accusamus nisi est aliquid dicta possimus quidem et quibusdam consectetur tempora vero hic maxime fuga?",
+            ],
+            [
+                "room_id" => 1,
+                "name" => "ห้องนั่งเล่น",
+                "lang_id" => 1,
+
+                "description" => "Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim mollitia aut magni adipisci, ratione repellat accusamus nisi est aliquid dicta possimus quidem et quibusdam consectetur tempora vero hic maxime fuga?",
+            ],
+            [
+                "room_id" => 2,
+                "name" => "โถงกลาง",
+                "lang_id" => 1,
+
+                "description" => "Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim mollitia aut magni adipisci, ratione repellat accusamus nisi est aliquid dicta possimus quidem et quibusdam consectetur tempora vero hic maxime fuga?",
+            ],
+            [
                 "room_id" => 2,
                 "name" => "ห้องอาหาร",
                 "lang_id" => 1,
@@ -28,27 +49,13 @@ class RoomTranslationSeeder extends Seeder
             ],
             [
                 "room_id" => 3,
-                "name" => "ห้องนั่งเล่น",
+                "name" => "สวนหลังบ้าน",
                 "lang_id" => 1,
 
                 "description" => "Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim mollitia aut magni adipisci, ratione repellat accusamus nisi est aliquid dicta possimus quidem et quibusdam consectetur tempora vero hic maxime fuga?",
             ],
             [
-                "room_id" => 4,
-                "name" => "โถงกลาง",
-                "lang_id" => 1,
-
-                "description" => "Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim mollitia aut magni adipisci, ratione repellat accusamus nisi est aliquid dicta possimus quidem et quibusdam consectetur tempora vero hic maxime fuga?",
-            ],
-            [
-                "room_id" => 5,
-                "name" => "ห้องอาหาร",
-                "lang_id" => 1,
-
-                "description" => "Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim mollitia aut magni adipisci, ratione repellat accusamus nisi est aliquid dicta possimus quidem et quibusdam consectetur tempora vero hic maxime fuga?",
-            ],
-            [
-                "room_id" => 6,
+                "room_id" => 3,
                 "name" => "สวนหลังบ้าน",
                 "lang_id" => 1,
 
