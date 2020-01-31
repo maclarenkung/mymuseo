@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use App\ItemTranslation;
+use App\ItemImage;
 
 
 class Item extends Model
@@ -30,6 +31,11 @@ class Item extends Model
     public function getTranslationAttribute()
     {
         $trans = ItemTranslation::where('item_id', $this->id)->where('lang_id',  getLangSlugId())->first();
+        return $trans;
+    }
+    public function getImageAttribute()
+    {
+        $trans = ItemImage::where('item_id', $this->id);
         return $trans;
     }
 }
