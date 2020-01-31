@@ -56,9 +56,9 @@
 <script>
 import { mapActions, mapGetters } from "vuex";
 export default {
-  components: {
-    ItemShow
-  },
+  // components: {
+  //   ItemShow
+  // },
   computed: {
     ...mapGetters({
       show: "floor/show"
