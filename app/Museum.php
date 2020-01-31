@@ -11,6 +11,10 @@ class Museum extends Model
     {
         return $this->hasMany('App\Floor');
     }
+    public function museum_images()
+    {
+        return $this->hasMany('App\MuseumImage');
+    }
     // public function sound()
     // {
     //     return $this->hasOne('App\SoundLang', 'relation_id', 'id')->whereModel('App\Museum');
