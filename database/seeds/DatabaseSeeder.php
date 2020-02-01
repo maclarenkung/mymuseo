@@ -34,6 +34,7 @@ class DatabaseSeeder extends Seeder
                 MuseumPackageSeeder::class,
                 PackageSeeder::class,
                 MuseumImageSeeder::class,
+                ItemImageSeeder::class,
             ]
         );
     }

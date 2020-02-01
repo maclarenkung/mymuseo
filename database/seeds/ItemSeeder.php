@@ -19,22 +19,25 @@ class ItemSeeder extends Seeder
                 "image_url" => "https://picsum.photos/200/300",
                 "lang" => [
                     [
-                        "name" => "แจกัน th",
+                        "name" => "ตู้",
                         "lang_id" => 1,
-                        "description" => "Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim mollitia aut magni adipisci, ratione repellat accusamus nisi est aliquid dicta possimus quidem et quibusdam consectetur tempora vero hic maxime fuga?",
-                        "audio_url" => "1578458137Beeper_Emergency_Call"
+                        "description" => "ตู้ทรงสี่เหลี่ยมมี 4 ขา ด้านหน้ามีบานประตูกระจก 2 บาน เคยเป็นตู้เก็บของและเอกสารสำคัญของคุณแม่",
+                        "audio_url" => "/uploads/files/1580541575Beeper_Emergency_Call.mp3
+"
                     ],
                     [
-                        "name" => "แจกัน en",
+                        "name" => "Cupboard",
                         "lang_id" => 2,
-                        "description" => "Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim mollitia aut magni adipisci, ratione repellat accusamus nisi est aliquid dicta possimus quidem et quibusdam consectetur tempora vero hic maxime fuga?",
-                        "audio_url" => "wwwww"
+                        "description" => "The square cabinet has 4 legs. The front has 2 glass doors. Used to be a locker and important documents for mother",
+                        "audio_url" => "/uploads/files/1580541575Beeper_Emergency_Call.mp3
+"
                     ],
                     [
-                        "name" => "แจกัน cn",
+                        "name" => "內閣",
                         "lang_id" => 3,
-                        "description" => "Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim mollitia aut magni adipisci, ratione repellat accusamus nisi est aliquid dicta possimus quidem et quibusdam consectetur tempora vero hic maxime fuga?",
-                        "audio_url" => "wwwww"
+                        "description" => "方形櫃子有4個支腿，前部有2個玻璃門，曾經是儲物櫃和重要的母親文件。",
+                        "audio_url" => "/uploads/files/1580541575Beeper_Emergency_Call.mp3
+"
                     ]
                 ]
 
@@ -45,19 +48,44 @@ class ItemSeeder extends Seeder
                 "image_url" => "https://picsum.photos/200/300",
                 "lang" => [
                     [
-                        "name" => "แจกัน th",
+                        "name" => "เปียโน",
+                        "lang_id" => 1,
+                        "description" => "เปียโนคู่ใจของคุณแม่ท่านอาจารย์ โดยจะเป็นเปียโนงาช้างซึ่งคนในสมัยก่อนมีความเชื่อว่า หากใครที่เจ็บไข้ได้ป่วยก็ให้มานั่งเล่นเปียโนที่ทำแป้นกดจากงาช้างแบบนี้ เพราะงาช้างจะสามารถช่วยดูดพิษไข้ออกไปได้ ",
+                        "audio_url" => "wwwww"
+                    ],
+                    [
+                        "name" => "piano",
+                        "lang_id" => 2,
+                        "description" => "Reliant Piano of Mother, Master It will be ivory piano which people in the olden days believed that If anyone is sick, come to sit in the piano made of ivory like this. Because ivory can help to suck out fever poisoning",
+                        "audio_url" => "wwwww"
+                    ],
+                    [
+                        "name" => "鋼琴",
+                        "lang_id" => 3,
+                        "description" => "母親的可靠鋼琴，大師人們會相信這將是像牙鋼琴如果有人生病，可以坐在像牙製成的鋼琴上。因為像牙可以幫助吸出發燒中毒",
+                        "audio_url" => "wwwww"
+                    ]
+                ]
+
+            ],
+            [
+                "room_id" => 1,
+                "image_url" => "xxxhttps://picsum.photos/200/300",
+                "lang" => [
+                    [
+                        "name" => "แจกัน",
                         "lang_id" => 1,
                         "description" => "Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim mollitia aut magni adipisci, ratione repellat accusamus nisi est aliquid dicta possimus quidem et quibusdam consectetur tempora vero hic maxime fuga?",
                         "audio_url" => "wwwww"
                     ],
                     [
-                        "name" => "แจกัน en",
+                        "name" => "vase",
                         "lang_id" => 2,
                         "description" => "Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim mollitia aut magni adipisci, ratione repellat accusamus nisi est aliquid dicta possimus quidem et quibusdam consectetur tempora vero hic maxime fuga?",
                         "audio_url" => "wwwww"
                     ],
                     [
-                        "name" => "แจกัน cn",
+                        "name" => "花瓶",
                         "lang_id" => 3,
                         "description" => "Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim mollitia aut magni adipisci, ratione repellat accusamus nisi est aliquid dicta possimus quidem et quibusdam consectetur tempora vero hic maxime fuga?",
                         "audio_url" => "wwwww"
@@ -70,46 +98,21 @@ class ItemSeeder extends Seeder
                 "image_url" => "xxxhttps://picsum.photos/200/300",
                 "lang" => [
                     [
-                        "name" => "แจกัน th",
+                        "name" => "เปียโน",
                         "lang_id" => 1,
-                        "description" => "Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim mollitia aut magni adipisci, ratione repellat accusamus nisi est aliquid dicta possimus quidem et quibusdam consectetur tempora vero hic maxime fuga?",
+                        "description" => "เปียโนคู่ใจของคุณแม่ท่านอาจารย์ โดยจะเป็นเปียโนงาช้างซึ่งคนในสมัยก่อนมีความเชื่อว่า หากใครที่เจ็บไข้ได้ป่วยก็ให้มานั่งเล่นเปียโนที่ทำแป้นกดจากงาช้างแบบนี้ เพราะงาช้างจะสามารถช่วยดูดพิษไข้ออกไปได้ ",
                         "audio_url" => "wwwww"
                     ],
                     [
-                        "name" => "แจกัน en",
+                        "name" => "piano",
                         "lang_id" => 2,
-                        "description" => "Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim mollitia aut magni adipisci, ratione repellat accusamus nisi est aliquid dicta possimus quidem et quibusdam consectetur tempora vero hic maxime fuga?",
+                        "description" => "Reliant Piano of Mother, Master It will be ivory piano which people in the olden days believed that If anyone is sick, come to sit in the piano made of ivory like this. Because ivory can help to suck out fever poisoning",
                         "audio_url" => "wwwww"
                     ],
                     [
-                        "name" => "แจกันxxxx cn",
+                        "name" => "鋼琴",
                         "lang_id" => 3,
-                        "description" => "Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim mollitia aut magni adipisci, ratione repellat accusamus nisi est aliquid dicta possimus quidem et quibusdam consectetur tempora vero hic maxime fuga?",
-                        "audio_url" => "wwwww"
-                    ]
-                ]
-
-            ],
-            [
-                "room_id" => 1,
-                "image_url" => "xxxhttps://picsum.photos/200/300",
-                "lang" => [
-                    [
-                        "name" => "แจกัน th",
-                        "lang_id" => 1,
-                        "description" => "Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim mollitia aut magni adipisci, ratione repellat accusamus nisi est aliquid dicta possimus quidem et quibusdam consectetur tempora vero hic maxime fuga?",
-                        "audio_url" => "wwwww"
-                    ],
-                    [
-                        "name" => "แจกัน en",
-                        "lang_id" => 2,
-                        "description" => "Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim mollitia aut magni adipisci, ratione repellat accusamus nisi est aliquid dicta possimus quidem et quibusdam consectetur tempora vero hic maxime fuga?",
-                        "audio_url" => "wwwww"
-                    ],
-                    [
-                        "name" => "แจกันxxxx cn",
-                        "lang_id" => 3,
-                        "description" => "Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim mollitia aut magni adipisci, ratione repellat accusamus nisi est aliquid dicta possimus quidem et quibusdam consectetur tempora vero hic maxime fuga?",
+                        "description" => "母親的可靠鋼琴，大師人們會相信這將是像牙鋼琴如果有人生病，可以坐在像牙製成的鋼琴上。因為像牙可以幫助吸出發燒中毒",
                         "audio_url" => "wwwww"
                     ]
                 ]

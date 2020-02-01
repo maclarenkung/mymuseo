@@ -5,7 +5,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use App\ItemTranslation;
 use App\ItemImage;
-
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Item extends Model
 {
@@ -34,9 +34,13 @@ class Item extends Model
         $trans = ItemTranslation::where('item_id', $this->id)->where('lang_id',  getLangSlugId())->first();
         return $trans;
     }
-    public function getImageAttribute()
+    // public function getImageAttribute()
+    // {
+    //     $trans = ItemImage::where('item_id', $this->id);
+    //     return $trans;
+    // }
+    public function images()
     {
-        $trans = ItemImage::where('item_id', $this->id);
-        return $trans;
+        return $this->HasMany('App\ItemImage');
     }
 }
