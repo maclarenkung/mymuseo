@@ -95,6 +95,11 @@ export default [
         component: page("admin/museum/show.vue")
       },
       {
+        path: "museum/:id/edit",
+        name: "admin.museum.edit",
+        component: page("admin/museum/form.vue")
+      },
+      {
         path: "floors",
         name: "admin.floors",
         component: page("admin/floors/index.vue")
@@ -126,19 +131,19 @@ export default [
       },
       {
         path: "room/:id",
-        name: "admin.room.show_room",
-        component: page("admin/room/show_room.vue")
+        name: "admin.room.show",
+        component: page("admin/room/show.vue")
       },
       {
         path: "room/:id/edit",
         name: "admin.room.edit",
         component: page("admin/room/form.vue")
       },
-      {
-        path: "items",
-        name: "admin.room.show",
-        component: page("admin/room/show.vue")
-      },
+      // {
+      //   path: "items",
+      //   name: "admin.room.show",
+      //   component: page("admin/room/show.vue")
+      // },
       {
         path: "item",
         name: "admin.item",

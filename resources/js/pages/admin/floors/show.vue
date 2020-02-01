@@ -1,7 +1,13 @@
 <template>
   <div v-if="show">
     <!-- <pre>{{ show }}</pre> -->
-    <div class="col-12"></div>
+    <!-- <div class="col-12 text-center">
+      <select v-model="active">
+        <option v-for="floor in floors" :key="floor.id" :value="floor.id">{{
+          floor.name
+        }}</option>
+      </select>
+    </div> -->
     <div class="col-12">
       <span class="head-muse">พิพิธภัณฑ์ชาวบางกอก</span>
       <!-- <span class="head-muse"></span> -->
@@ -24,7 +30,8 @@
               <td>
                 <router-link
                   :to="{ name: 'admin.room.show', params: { id: room.id } }"
-                >{{ room.translation.name }}</router-link>
+                  >{{ room.translation.name }}</router-link
+                >
               </td>
               <td class="text-center">
                 <router-link
@@ -40,8 +47,11 @@
             </tr>
           </tbody>
         </table>
-        <div class="col-12 text-center" style="margin-top:70px; margin-bottom:40px;">
-          <router-link :to="{name: 'admin.room.create'}">
+        <div
+          class="col-12 text-center"
+          style="margin-top:70px; margin-bottom:40px;"
+        >
+          <router-link :to="{ name: 'admin.room.create' }">
             <button class="add-room">
               <i class="flaticon-add"></i> ADD ROOM
             </button>

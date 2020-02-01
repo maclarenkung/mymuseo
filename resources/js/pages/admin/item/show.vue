@@ -5,7 +5,7 @@
     <a :href="`/item/${show.id}`" target="_blank" class="btn btn-primary">Open</a>
 
     <hr />-->
-    <!-- <pre>{{show}}</pre> -->
+    <pre>{{ show }}</pre>
     <div class="col-12"></div>
     <div class="card p-4">
       <div class="clearfix">
@@ -25,7 +25,9 @@
               <span class="head-muse">พิพิธภัณฑ์ชาวบางกอก</span>
               <!-- <span class="head-muse">/ {{ show.name }}</span> -->
 
-              <span class="head-muse" style="color:#3641FB">/ {{ show.translation.name }}</span>
+              <span class="head-muse" style="color:#3641FB"
+                >/ {{ show.translation.name }}</span
+              >
             </div>
             <div class="col-6">
               <div class="row">
@@ -34,9 +36,9 @@
                   <div class="setting">
                     <router-link
                       :to="{
-        name: 'admin.item.edit',
-        params: { id: show.id }
-      }"
+                        name: 'admin.item.edit',
+                        params: { id: show.id }
+                      }"
                     >
                       <span class="flaticon-edit-button">Edit</span>
                     </router-link>
@@ -58,7 +60,10 @@
           <div class="col-12">
             <br />
             <div class="col-4 mt-4">
-              <span style="color:#3631c4; font-size:27px;" class="flaticon-photo">
+              <span
+                style="color:#3631c4; font-size:27px;"
+                class="flaticon-photo"
+              >
                 <!-- <h4 style="color:#3631c4;"></h4> -->
                 Image
               </span>
@@ -69,7 +74,7 @@
               <div class="col-12">
                 <div class="row">
                   <div class="col-md-4">
-                    <img :src="show.image_url" />
+                    <img :src="show.translation.image_url" />
                   </div>
                 </div>
               </div>
@@ -77,7 +82,10 @@
           </div>
           <br />
           <div class="col-4 mt-4">
-            <span style="color:#3631c4; font-size:27px;" class="flaticon-placeholder">
+            <span
+              style="color:#3631c4; font-size:27px;"
+              class="flaticon-placeholder"
+            >
               <!-- <h4 style="color:#3631c4;"></h4> -->
               Map (พร้อมระบุตำแหน่ง)
             </span>
@@ -95,7 +103,11 @@
           <div class="col-12 mt-5">
             <b-card no-body>
               <b-tabs pills card>
-                <b-tab :title="lang.name" v-for="lang in langConfigs" :key="lang.code">
+                <b-tab
+                  :title="lang.name"
+                  v-for="lang in langConfigs"
+                  :key="lang.code"
+                >
                   <b-card-text>
                     <div class="row">
                       <div class="form-group col-md-6">
@@ -117,7 +129,11 @@
                         <h3>Audio</h3>
                         <div class>
                           <audio controls v-if="show.sound" ref="player">
-                            <source :src="show.sound.file_url" type="audio/mpeg" />Your browser does not support the audio element.
+                            <source
+                              :src="show.sound.file_url"
+                              type="audio/mpeg"
+                            />
+                            Your browser does not support the audio element.
                           </audio>
                         </div>
                       </div>
@@ -147,13 +163,16 @@
                                 target="_blank"
                                 class="btn btn-primary"
                                 download
-                              >Save as</a>
+                                >Save as</a
+                              >
                               <br />
 
                               <button
                                 class="btn btn-primary mt-3"
                                 @click="printimage(show.qrcode_url)"
-                              >Print</button>
+                              >
+                                Print
+                              </button>
                             </div>
                           </div>
                         </div>

@@ -1,28 +1,33 @@
 <template>
   <div>
-    <!-- <pre>{{ show }}</pre> -->
+    <pre>{{ show }}</pre>
     <div class="dashh">
       <div class="clearfix">
         <router-link to="/admin/customer" class="float-left">
-          <i class="flaticon-left-arrow" style="font-size: 35px; color:#FFCC57;"></i>
+          <i
+            class="flaticon-left-arrow"
+            style="font-size: 35px; color:#FFCC57;"
+          ></i>
         </router-link>
-        <p class="float-left ml-4" style="color:black; font-size:35px;">Create Museum</p>
+        <p class="float-left ml-4" style="color:black; font-size:35px;">
+          Create Museum
+        </p>
       </div>
       <hr />
-      <form @submit.prevent="submitForm" @keydown="form.onKeydown($event)" class="mt-5">
+      <form
+        @submit.prevent="submitForm"
+        @keydown="form.onKeydown($event)"
+        class="mt-5"
+      >
         <div class="col-12" style="color: #3631C4;">
           <div class="row">
             <div class="col-6">
-              <label for>
-                <i class="flaticon-user"></i> Name (TH)
-              </label>
+              <label for> <i class="flaticon-user"></i> Name (TH) </label>
               <br />
               <input type="text" class="create-form" v-model="form.name" />
             </div>
             <div class="col-6">
-              <label for>
-                <i class="flaticon-user"></i> Name (EN)
-              </label>
+              <label for> <i class="flaticon-user"></i> Name (EN) </label>
               <br />
               <input type="text" class="create-form" v-model="form.name_en" />
             </div>
@@ -45,14 +50,20 @@
                 <i class="flaticon-placeholder"></i> Google Map Link
               </label>
               <br />
-              <input type="text" class="create-form" v-model="form.address_url" />
+              <input
+                type="text"
+                class="create-form"
+                v-model="form.address_url"
+              />
             </div>
             <div class="col-6 mt-4">
-              <label for>
-                <i class="flaticon-unlink"></i> Website
-              </label>
+              <label for> <i class="flaticon-unlink"></i> Website </label>
               <br />
-              <input type="text" class="create-form" v-model="form.website_url" />
+              <input
+                type="text"
+                class="create-form"
+                v-model="form.website_url"
+              />
             </div>
             <div class="col-6 mt-4">
               <label for>
@@ -61,21 +72,31 @@
               <br />
               <div class="row">
                 <div class="col-5">
-                  <input type="time" class="create-form" v-model="form.time_open" />
+                  <input
+                    type="time"
+                    class="create-form"
+                    v-model="form.time_open"
+                  />
                 </div>
                 <div class="col-1">to</div>
                 <div class="col-5">
-                  <input type="time" class="create-form" v-model="form.time_close" />
+                  <input
+                    type="time"
+                    class="create-form"
+                    v-model="form.time_close"
+                  />
                 </div>
               </div>
             </div>
             <div class="col-6 mt-4">
               <form action>
-                <label for>
-                  <i class="flaticon-calendar"></i> Day
-                </label>
+                <label for> <i class="flaticon-calendar"></i> Day </label>
                 <br />
-                <input type="text" class="create-form" v-model="form.day_open" />
+                <input
+                  type="text"
+                  class="create-form"
+                  v-model="form.day_open"
+                />
               </form>
             </div>
             <div class="col-6 mt-4">
@@ -83,19 +104,19 @@
                 <i class="flaticon-call-answer"></i> Phone number
               </label>
               <br />
-              <input type="text" class="create-form" v-model="form.phonenumber" />
+              <input
+                type="text"
+                class="create-form"
+                v-model="form.phonenumber"
+              />
             </div>
             <div class="col-6 mt-4">
-              <label for>
-                <i class="flaticon-envelope"></i> E-mail
-              </label>
+              <label for> <i class="flaticon-envelope"></i> E-mail </label>
               <br />
               <input type="text" class="create-form" v-model="form.email" />
             </div>
             <div class="col-6 mt-4">
-              <label for>
-                <i class="flaticon-facebook"></i> Facebook
-              </label>
+              <label for> <i class="flaticon-facebook"></i> Facebook </label>
               <br />
               <input type="text" class="create-form" v-model="form.facebook" />
             </div>
@@ -107,9 +128,7 @@
               <input type="text" class="create-form" v-model="form.instagram" />
             </div>
             <div class="col-6 mt-4">
-              <label for>
-                <i class="flaticon-list"></i> Category
-              </label>
+              <label for> <i class="flaticon-list"></i> Category </label>
               <br />
               <!-- <input type="text" class="create-form" /> -->
               <div>
@@ -120,9 +139,15 @@
                   <b-tab title="หมุนเวียน">
                     <div>
                       <p>เริ่ม</p>
-                      <b-form-input v-model="form.day_start" type="date"></b-form-input>
+                      <b-form-input
+                        v-model="form.day_start"
+                        type="date"
+                      ></b-form-input>
                       <p>ถึง</p>
-                      <b-form-input v-model="form.day_end" type="date"></b-form-input>
+                      <b-form-input
+                        v-model="form.day_end"
+                        type="date"
+                      ></b-form-input>
                     </div>
                   </b-tab>
                 </b-tabs>
@@ -143,7 +168,8 @@
                   v-for="(packagex, index) in packagexs"
                   :key="index"
                   :value="packagex.id"
-                >{{ packagex.name }}</option>
+                  >{{ packagex.name }}</option
+                >
               </select>
             </div>
             <div class="col-4 mt-4">
@@ -185,7 +211,7 @@
                     </div>
                   </div>
                 </div>
-              </div>-->
+              </div> -->
             </div>
             <div class="col-4 mt-5"></div>
             <div class="col-12 text-center mt-5">
@@ -209,20 +235,22 @@ export default {
   data: () => ({
     form: new Form({
       package_id: 1,
-      name: "",
-      name_en: "",
-      description: "",
-      address_url: "",
-      website_url: "",
-      time_open: "",
-      time_close: "",
-      day_open: "",
-      phonenumber: "",
-      email: "",
-      facebook: "",
-      instagram: "",
-      day_start: "",
-      day_end: "",
+      name: "พิพิธภัณฑ์ชาวบางกอก",
+      name_en: "ิbangkok museum",
+      description:
+        "พิพิธภัณฑ์ชาวบางกอก หรือ พิพิธภัณฑ์ท้องถิ่นกรุงเทพมหานคร เขตบางรัก กรุงเทพมหานคร เป็นหนึ่งใน 27 พิพิธภัณฑ์กรุงเทพมหานคร ตั้งอยู่ที่บ้านเลขที่ 273 ซอยเจริญกรุง 43 ถนนเจริญกรุง เขตบางรัก กรุงเทพมหานคร 10500 เป็นพิพิธภัณฑ์ท้องถิ่นที่ก่อตั้งโดยเอกชน โดยเจ้าของบ้านมีวัตถุประสงค์ที่จะมอบบ้านของตนให้เป็นพิพิธภัณฑ์เพื่อให้เยาวชนได้ศึกษา และต่อมาได้โอนกรรมสิทธิ์ให้กรุงเทพมหานครดูแล เมื่อ 1 ตุลาคม พ.ศ. 2547 ทำเลที่ตั้งเป็นย่านพักอาศัยของชุมชนชาวบางรัก ซึ่งในอดีตเป็นย่านตากอากาศ ชุมชนนานาชาติ และทำเลธุรกิจที่สำคัญมาตั้งแต่ปลายสมัยอยุธยา เนื้อหาในการจัดแสดงจึงแสดงให้เห็นถึงประวัติความเป็นมาของชีวิตชาวบางกอก (กรุงเทพฯ ในยุคก่อน) ",
+      address_url: "https://goo.gl/maps/bT5CCt7eRSDVJRJFA",
+      website_url:
+        "http://www.bangkok.go.th/bangrak/page/sub/2948/%E0%B8%9E%E0%B8%B4%E0%B8%9E%E0%B8%B4%E0%B8%98%E0%B8%A0%E0%B8%B1%E0%B8%93%E0%B8%91%E0%B9%8C%E0%B8%8A%E0%B8%B2%E0%B8%A7%E0%B8%9A%E0%B8%B2%E0%B8%87%E0%B8%81%E0%B8%AD%E0%B8%81-BKK-Museum",
+      time_open: "09:00",
+      time_close: "16:00",
+      day_open: "เสาร์-อาทิตย์ , อังคาร-ศุกร์",
+      phonenumber: "02 233 7027",
+      email: "-",
+      facebook: "https://www.facebook.com/BkkMuseum",
+      instagram: "-",
+      day_start: "-",
+      day_end: "-",
       image_url: "https://image.freepik.com/free-photo/_34998-128.jpg"
     }),
     image: ""

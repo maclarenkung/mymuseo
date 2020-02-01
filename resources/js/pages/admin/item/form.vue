@@ -3,14 +3,23 @@
     <div class="dashh">
       <div class="clearfix">
         <router-link to="/admin/items" class="float-left">
-          <i class="flaticon-left-arrow" style="font-size: 25px; cursor: pointer; color:#ffcc57;"></i>
+          <i
+            class="flaticon-left-arrow"
+            style="font-size: 25px; cursor: pointer; color:#ffcc57;"
+          ></i>
         </router-link>
-        <span class="float-left ml-4" style="font-size:25px;">{{ id ? "Edit Item" : "Create Item" }}</span>
+        <span class="float-left ml-4" style="font-size:25px;">{{
+          id ? "Edit Item" : "Create Item"
+        }}</span>
       </div>
       <!-- <pre>{{ form }}</pre> -->
       <!-- <pre>{{ show }}</pre> -->
 
-      <form @submit.prevent="submitForm" @keydown="form.onKeydown($event)" class="mt-5">
+      <form
+        @submit.prevent="submitForm"
+        @keydown="form.onKeydown($event)"
+        class="mt-5"
+      >
         <!-- Name -->
         <div class="row">
           <div class="col-4">
@@ -19,28 +28,34 @@
               Floor
             </span>
             <br />
-            <select v-model="floor_active" @change="loadRoom()" style="width: 100%; color:#3631c4;">
+            <select
+              v-model="floor_active"
+              @change="loadRoom()"
+              style="width: 100%; color:#3631c4;"
+            >
               <option value>please select</option>
               <option
                 :value="floor.id"
                 v-for="(floor, index) in floors"
                 :key="index"
-              >{{ floor.translation.name }}</option>
+                >{{ floor.translation.name }}</option
+              >
             </select>
           </div>
           <div class="col-4">
-            <span class="flaticon-open-exit-door" style="font-size:20px; color:#3631c4">
+            <span
+              class="flaticon-open-exit-door"
+              style="font-size:20px; color:#3631c4"
+            >
               <!-- <h4>asdasd</h4> -->
               Room
             </span>
             <br />
             <select v-model="form.all.room_id" required style="width: 100%">
-              <option value>please select</option>
-              <option
-                :value="room.id"
-                v-for="(room, index) in rooms"
-                :key="index"
-              >{{ room.translation.name }}</option>
+              <option value="1">please select</option>
+              <option :value="1" v-for="(room, index) in rooms" :key="index">{{
+                room.translation.name
+              }}</option>
             </select>
           </div>
 
@@ -73,7 +88,11 @@
           <div class="col-4"></div>
           <div class="col-12">
             <div class="row">
-              <div class="col-md-4" v-for="(img, index) in form.all.image_url" :key="index">
+              <div
+                class="col-md-4"
+                v-for="(img, index) in form.all.image_url"
+                :key="index"
+              >
                 <div class="card">
                   <div class="card-body">
                     <img :src="img" width="100%" />
@@ -87,7 +106,10 @@
           </div>
           <br />
           <div class="col-4 mt-4">
-            <span style="color:#3631c4; font-size:20px;" class="flaticon-placeholder">
+            <span
+              style="color:#3631c4; font-size:20px;"
+              class="flaticon-placeholder"
+            >
               <!-- <h4 style="color:#3631c4;"></h4> -->
               Map (พร้อมระบุตำแหน่ง)
             </span>
@@ -129,7 +151,12 @@
                       <div class="form-group col-md-6">
                         <label>Audio</label>
                         <div class>
-                          <input class="form-control" type="file" name="image" @change="setFile" />
+                          <input
+                            class="form-control"
+                            type="file"
+                            name="image"
+                            @change="setFile"
+                          />
                           <has-error :form="form" field="file" />
                         </div>
                       </div>
@@ -164,7 +191,8 @@
               id="createbtn2"
               style="width:130px;"
               class="text-white colorr"
-            >{{ id ? "UPDATE" : "CREATE" }}</v-button>
+              >{{ id ? "UPDATE" : "CREATE" }}</v-button
+            >
           </div>
         </div>
       </form>

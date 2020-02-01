@@ -1,8 +1,6 @@
 <template>
   <div v-if="show">
-    <!-- <pre>
-          {{ show }}
-    </pre>-->
+    <!-- <pre>{{ show }} </pre> -->
 
     <div class="col-12">
       <div class="col-12"></div>
@@ -26,14 +24,15 @@
             </tr>
           </thead>
           <tbody class="mm-tbody">
-            <tr v-for="item in show" :key="item.id">
+            <tr v-for="item in show" :key="id">
               <td>
                 <router-link
                   :to="{
                     name: 'admin.item.show',
-                    params: { id: item.id },
+                    params: { id: item.id }
                   }"
-                >{{ item.translation.name }}</router-link>
+                  >{{ item.translation.name }}</router-link
+                >
               </td>
               <td class="text-center">
                 <router-link
@@ -45,14 +44,19 @@
                   <el-button type="warning" round>Edit</el-button>
                 </router-link>
               </td>
-              <td>{{item.translation.created_at}}</td>
+              <td>{{ item.translation.created_at }}</td>
             </tr>
           </tbody>
         </table>
-        <div class="col-12 text-center" style="margin-top:70px; margin-bottom:40px;">
-          <router-link :to="{
-              name: 'admin.item.create',
-            }">
+        <div
+          class="col-12 text-center"
+          style="margin-top:70px; margin-bottom:40px;"
+        >
+          <router-link
+            :to="{
+              name: 'admin.item.create'
+            }"
+          >
             <button class="add-room">
               <i class="flaticon-add"></i> ADD ITEM
             </button>

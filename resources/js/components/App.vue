@@ -15,6 +15,9 @@
 import Loading from "./Loading";
 import Vue from "vue";
 import vSelect from "vue-select";
+import VueApexCharts from "vue-apexcharts";
+
+Vue.use(VueApexCharts);
 
 Vue.component("v-select", vSelect);
 // Load layout components dynamically.

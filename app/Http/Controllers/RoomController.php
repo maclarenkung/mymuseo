@@ -7,6 +7,8 @@ use App\RoomImage;
 use App\RoomTranslation;
 use Illuminate\Http\Request;
 use App\SoundLang;
+use App\MuseumUser;
+use App\Floor;
 
 class RoomController extends Controller
 {
@@ -17,7 +19,13 @@ class RoomController extends Controller
      */
     public function index()
     {
-        $rooms = Room::get();
+        $user = request()->user();
+        $museumuser = MuseumUser::where('user_id', $user->id)->get()->pluck('museum_id');
+        // return $museumuser;
+        $floors =  Floor::whereIn('museum_id', $museumuser)->get()->pluck('translation.floor_id');
+        // return $floors;
+
+        $rooms = Room::whereIn('floor_id', $floors)->get();
         foreach ($rooms as $room) {
         }
         return $rooms;
@@ -88,7 +96,7 @@ class RoomController extends Controller
      */
     public function show(Room $room)
     {
-        // $room->items;
+        $room->items;
         return $room;
     }
 

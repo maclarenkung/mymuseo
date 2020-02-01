@@ -13,6 +13,11 @@
         <!-- <pre>{{ museumFilter }}</pre> -->
 
         <div class="col-12">
+          <router-link to="/admin/museums/create">
+            <button class="setting2">
+              <i class="flaticon-add"></i> CREATE MUSEUM
+            </button>
+          </router-link>
           <div class="text-center">
             <select v-model="museum_active">
               <option
@@ -24,23 +29,14 @@
             </select>
 
             <!-- <button @click="fetchUser()">refresh</button> -->
-            <button class="setting">
-              <i class="flaticon-wheel"></i>
-              setting
-            </button>
-
-            <div
-              class="dropdown-menu text-center"
-              aria-labelledby="dropdownMenuButton"
+            <router-link
+              :to="{ name: 'admin.museum.edit', params: { id: museum_active } }"
             >
-              <a
-                class="dropdown-item text-center"
-                href="#"
-                style="font-size:25px;"
-              >
-                <i class="flaticon-add"></i> เพิ่มพิพิธภัณฑ์
-              </a>
-            </div>
+              <button class="setting">
+                <i class="flaticon-wheel"></i>
+                setting
+              </button>
+            </router-link>
           </div>
         </div>
       </div>
@@ -50,9 +46,9 @@
           <div class="row">
             <div class="col-6">
               <span style="font-size: 35px; color:#4A4A4A">Your package :</span>
-              <span style="color: #3e7a63; font-size:35px;">{{
-                museumFilter.package.name
-              }}</span>
+              <span style="color: #3e7a63; font-size:35px;">
+                {{ museumFilter.package.name }}
+              </span>
               <br />
               <br />
               <span style="color: #4A4A4A; font-size:24px;">Package :</span>
@@ -62,12 +58,12 @@
               <div class="row">
                 <div class="col-8">
                   <p style="color: #4A4A4A; font-size:24px;">Expired date</p>
-                  <span style="color: #FF6464; font-size:35px;">{{
-                    museumFilter.expiry_date
-                  }}</span>
+                  <span style="color: #FF6464; font-size:35px;">
+                    {{ museumFilter.expiry_date }}
+                  </span>
                 </div>
                 <div class="col-4" style="margin-top:30px">
-                  <button class="upgrade">upgrade</button>
+                  <button class="upgrade">Extend Package</button>
                 </div>
               </div>
             </div>
@@ -172,21 +168,15 @@
           </div>
           <div class="col-4 mt-5">
             <div class="col-12 tab">
-              <!-- <vue-funnel-graph
-                :width="width"
-                :height="height"
-                :labels="labels"
-                :values="values"
-                :colors="colors"
-                :sub-labels="subLabels"
-                :direction="direction"
-                :gradient-direction="gradientDirection"
-                :animated="true"
-                :display-percentage="true"
-              ></vue-funnel-graph>-->
+              <apexcharts
+                width="300"
+                type="bar"
+                :options="chartOptions"
+                :series="series"
+              ></apexcharts>
             </div>
           </div>
-          <div class="col-12 mt-5">
+          <!-- <div class="col-12 mt-5">
             <div class="col-12">
               <vue-funnel-graph
                 :width="width"
@@ -201,8 +191,8 @@
                 :display-percentage="true"
               ></vue-funnel-graph>
             </div>
-          </div>
-          <canvas id="my-chart"></canvas>
+          </div>-->
+          <!-- <canvas id="my-chart"></canvas> -->
         </div>
       </div>
     </div>
@@ -322,40 +312,59 @@
 
 <script>
 import { VueFunnelGraph } from "vue-funnel-graph-js";
+import VueApexCharts from "vue-apexcharts";
 export default {
   components: {
-    VueFunnelGraph
+    VueFunnelGraph,
+    apexcharts: VueApexCharts
   },
   data() {
     return {
-      labels: ["ยอดผู้เข้าชมรายวัน", "Add To Cart", "Buy"],
-      subLabels: ["Direct", "Social Media", "Ads"],
-      values: [
-        // with the given Labels and SubLabels here's what the values represent:
-        //
-        // Direct, Social, Ads
-        //    |      |     |
-        //    v      v     v
-        [3000, 2500, 6500], // Segments of "Impressions" from top to bottom
-        [3000, 1700, 1000], // Segments of "Add To Cart"
-        [600, 200, 130] // Segments of "Buy"
-      ],
-      colors: [
-        ["#3e7a63", "#3e7a63"], // color set for "Impressions" segment
-        ["#ffcc57", "#ffcc57"], // color set for "Add To Cart" segment
-        ["#3631c4", "#3631c4"] // color set for "Buy" segment
-      ],
-      direction: "horizontal",
-      gradientDirection: "horizontal",
-      height: 300,
-      width: 800,
-      selected: null,
       museum_active: 1,
-      options: [
-        { value: null, text: "Please select an option" },
-        { value: "museum1", text: "พิพิธภัณฑ์ ไปรษณีย์ สามเสน" },
-        { value: "add museum", text: "+ เพิ่มพิพิธภัณฑ์" }
+
+      chartOptions: {
+        chart: {
+          id: "vuechart-example"
+        },
+        xaxis: {
+          categories: [1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998]
+        }
+      },
+      series: [
+        {
+          name: "series-1",
+          data: [30, 40, 45, 50, 49, 60, 70, 91]
+        }
       ]
+
+      //   labels: ["ยอดผู้เข้าชมรายวัน", "Add To Cart", "Buy"],
+      //   subLabels: ["Direct", "Social Media", "Ads"],
+      //   values: [
+      //     // with the given Labels and SubLabels here's what the values represent:
+      //     //
+      //     // Direct, Social, Ads
+      //     //    |      |     |
+      //     //    v      v     v
+      //     [3000, 2500, 6500], // Segments of "Impressions" from top to bottom
+      //     [3000, 1700, 1000], // Segments of "Add To Cart"
+      //     [600, 200, 130] // Segments of "Buy"
+      //   ],
+      //   colors: [
+      //     ["#3e7a63", "#3e7a63"], // color set for "Impressions" segment
+      //     ["#ffcc57", "#ffcc57"], // color set for "Add To Cart" segment
+      //     ["#3631c4", "#3631c4"] // color set for "Buy" segment
+      //   ],
+      //   direction: "horizontal",
+      //   gradientDirection: "horizontal",
+      //   height: 300,
+      //   width: 800,
+      //   selected: null,
+
+      //   options: [
+      //     { value: null, text: "Please select an option" },
+      //     { value: "museum1", text: "พิพิธภัณฑ์ ไปรษณีย์ สามเสน" },
+      //     { value: "add museum", text: "+ เพิ่มพิพิธภัณฑ์" }
+      //   ]
     };
   },
   computed: {
@@ -364,7 +373,8 @@ export default {
       return res.museum_package;
     }
   },
-  created() {
+  async created() {
+    await this.fetchUser();
     this.museum_active = this.user.museum_active;
   }
 };
@@ -463,5 +473,13 @@ export default {
   background-color: #ff6e6e;
   border-radius: 10px;
   font-size: 25px;
+}
+.setting2 {
+  left: 0;
+  position: absolute;
+  background-color: #ff6e6e;
+  color: whitesmoke;
+  padding: 10px 15px;
+  border-radius: 10px;
 }
 </style>

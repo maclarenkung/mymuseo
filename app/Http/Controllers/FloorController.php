@@ -6,8 +6,9 @@ use App\Floor;
 use App\FloorImage;
 use App\FloorTranslation;
 use App\SoundLang;
-
+use App\User;
 use Illuminate\Http\Request;
+use App\MuseumUser;
 
 class FloorController extends Controller
 {
@@ -18,9 +19,13 @@ class FloorController extends Controller
      */
     public function index()
     {
-        $floors =  Floor::get();
+        $user = request()->user();
+        $museumuser = MuseumUser::where('user_id', $user->id)->get()->pluck('museum_id');
+        // return $museumuser;
+        $floors =  Floor::whereIn('museum_id', $museumuser)->get();
         foreach ($floors as $floor) {
         }
+
         return $floors;
     }
 
