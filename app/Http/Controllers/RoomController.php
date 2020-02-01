@@ -17,15 +17,15 @@ class RoomController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $user = request()->user();
-        $museumuser = MuseumUser::where('user_id', $user->id)->get()->pluck('museum_id');
-        // return $museumuser;
-        $floors =  Floor::whereIn('museum_id', $museumuser)->get()->pluck('translation.floor_id');
-        // return $floors;
+        // $user = request()->user();
+        // $museumuser = MuseumUser::where('user_id', $user->id)->get()->pluck('museum_id');
+        // // return $museumuser;
+        // $floors =  Floor::whereIn('museum_id', $museumuser)->get()->pluck('translation.floor_id');
+        // // return $floors;
 
-        $rooms = Room::whereIn('floor_id', $floors)->get();
+        $rooms = Room::where('floor_id', $request->floor_id)->get();
         foreach ($rooms as $room) {
         }
         return $rooms;

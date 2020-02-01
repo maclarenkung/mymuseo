@@ -57,6 +57,7 @@ class ItemController extends Controller
                 "lang_id" =>  $lang_id,
                 "item_id" => $item->id,
                 "name" => $value['name'],
+                "audio_url" => $value['file_url'],
                 "description" => $value['description']
             ]);
         }
@@ -93,7 +94,7 @@ class ItemController extends Controller
      */
     public function show(Item $item)
     {
-        $item->item_images;
+        $item->images;
         return $item;
     }
 
