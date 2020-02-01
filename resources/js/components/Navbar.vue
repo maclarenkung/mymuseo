@@ -22,11 +22,15 @@
         <span class="navbar-toggler-icon" />
       </button>
 
-      <div id="navbarToggler" class="collapse navbar-collapse" style="flex-grow: 0; ;">
+      <div
+        id="navbarToggler"
+        class="collapse navbar-collapse"
+        style="flex-grow: 0; ;"
+      >
         <ul class="navbar-nav">
           <!-- <locale-dropdown /> -->
           <li class="nav-item">
-            <a class="nav-link" href="/" style="color:#3E7A63">Home</a>
+            <a class="nav-link" href="/home" style="color:#3E7A63">Home</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#" style="color:#3E7A63">About</a>
@@ -47,11 +51,17 @@
               aria-haspopup="true"
               aria-expanded="false"
             >
-              <img :src="user.photo_url" class="rounded-circle profile-photo mr-1" />
+              <img
+                :src="user.photo_url"
+                class="rounded-circle profile-photo mr-1"
+              />
               {{ user.name }}
             </a>
             <div class="dropdown-menu">
-              <router-link :to="{ name: 'settings.profile' }" class="dropdown-item pl-3">
+              <router-link
+                :to="{ name: 'settings.profile' }"
+                class="dropdown-item pl-3"
+              >
                 <fa icon="cog" fixed-width />
                 {{ $t("settings") }}
               </router-link>
@@ -70,14 +80,16 @@
                 :to="{ name: 'login' }"
                 class="nav-link"
                 active-class="active"
-              >{{ $t("login") }}</router-link>
+                >{{ $t("login") }}</router-link
+              >
             </li>
             <li class="nav-item">
               <router-link
                 :to="{ name: 'register' }"
                 class="nav-link"
                 active-class="active"
-              >{{ $t("register") }}</router-link>
+                >{{ $t("register") }}</router-link
+              >
             </li>
           </template>
         </ul>

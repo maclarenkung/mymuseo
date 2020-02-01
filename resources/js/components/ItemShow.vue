@@ -1,6 +1,6 @@
 <template>
   <div>
-    <pre>{{item}}</pre>
+    <!-- <pre>{{ item }}</pre> -->
 
     <div class="col-12" style="background-color: #F4F2F2;">
       <div class="Rectangle-1">
@@ -26,7 +26,10 @@
             <div class="col-4"></div>
           </div>
         </div>-->
-        <div class="col-12 justify-content-md-center" style="background-color: #F4F2F2;">
+        <div
+          class="col-12 justify-content-md-center"
+          style="background-color: #F4F2F2;"
+        >
           <!-- <div class="col-3 justify-content-md-center" style="margin: auto;"> -->
           <!-- <div class="speaker">
               <div class="Rectangle-6">
@@ -43,20 +46,19 @@
 
           <div class="col-12 mt-4">
             <div class="Image-42 col-10" style="width: 100%;margin: auto;">
-              <img src="https://sv1.picz.in.th/images/2019/12/21/iHeynR.jpg" />
+              <img :src="item.images[0].image_url" />
             </div>
           </div>
           <div class="col-12">
             <div class="sm-img2">
               <div class="row">
-                <div class="Image-36 sm-img col-3">
-                  <img src="https://sv1.picz.in.th/images/2019/12/21/iHmA0R.jpg" alt />
-                </div>
-                <div class="Image-36 sm-img col-3">
-                  <img src="https://sv1.picz.in.th/images/2019/12/21/iHmA0R.jpg" alt />
-                </div>
-                <div class="Image-36 sm-img col-3">
-                  <img src="https://sv1.picz.in.th/images/2019/12/21/iHmA0R.jpg" alt />
+                <div
+                  class="Image-36 sm-img col-3"
+                  v-for="(image, index) in item.images"
+                  :key="image.id"
+                  v-if="index > 0"
+                >
+                  <img :src="image.image_url" alt width="100%" height="50" />
                 </div>
               </div>
             </div>
@@ -64,21 +66,21 @@
           <div class="col-12 mt-4">
             <div class="col-5 offset-4">
               <div class="row">
-                <h4>TH</h4>
+                <a href="?lang=th"><h4>TH</h4></a>
                 <div class="pl-1 pr-1 vl">
                   <h4>|</h4>
                 </div>
-                <h4>ENG</h4>
+                <a href="?lang=en"><h4>ENG</h4></a>
                 <div class="pl-1 pr-1 vl">
                   <h4>|</h4>
                 </div>
-                <h4>CN</h4>
+                <a href="?lang=cn"><h4>CN</h4></a>
               </div>
             </div>
           </div>
           <div class="col-12 text-center mt-5">
             <div class="col-4 offset-4">
-              <i class="flaticon-speaker dot2"></i>
+              <i class="flaticon-speaker dot2" @click="playAudio()"></i>
             </div>
           </div>
 
@@ -103,7 +105,9 @@
   letter-spacing: normal;
   text-align: center;
   color: #000000;"
-                >{{item.translation.name}}</p>
+                >
+                  {{ item.translation.name }}
+                </p>
                 <hr />
                 <p
                   style="font-family: mitr;
@@ -116,7 +120,9 @@
   text-align: left;
   color: #000000;
 "
-                >{{item.translation.description}}</p>
+                >
+                  {{ item.translation.description }}
+                </p>
               </div>
             </div>
           </div>
@@ -142,7 +148,9 @@
           text-align: center;
           color: #000000;
           padding-top: 13px;"
-              >ตำแหน่งของคุณ</p>
+              >
+                ตำแหน่งของคุณ
+              </p>
               <hr />
               <p
                 style="font-family: mitr;
@@ -154,7 +162,9 @@
   letter-spacing: normal;
   text-align: center;
   color: #000000;"
-              >พิพิธภัณฑ์ ชาวบางกอก</p>
+              >
+                พิพิธภัณฑ์ ชาวบางกอก
+              </p>
               <p
                 style="font-family: mitr;
   font-size: 20px;
@@ -166,7 +176,9 @@
   text-align: center;
   color: #000000;
 "
-              >ชั้น 1 ห้องรับแขก</p>
+              >
+                ชั้น 1 ห้องรับแขก
+              </p>
             </div>
           </div>
           <div class="col-12 mt-4">
@@ -189,7 +201,9 @@
           text-align: center;
           color: #000000;
           padding-top: 13px;"
-              >ตำแหน่งของคุณ</p>
+              >
+                ตำแหน่งของคุณ
+              </p>
             </div>
           </div>
 
@@ -213,7 +227,9 @@
                   text-align: center;
                   color: #000000;
                   padding-top: 13px;"
-              >ห้องถัดไป</p>
+              >
+                ห้องถัดไป
+              </p>
               <hr />
               <div class="col-12">
                 <img
@@ -232,7 +248,9 @@
               letter-spacing: normal;
               text-align: center;
               color: #000000;"
-              >ชั้น 1 ห้องอาหาร</p>
+              >
+                ชั้น 1 ห้องอาหาร
+              </p>
               <br />
 
               <div class="col-4" style="margin: auto;">
@@ -362,7 +380,9 @@
       margin-top: 9px;
 
 "
-                >mindmuse.com All right resered</p>
+                >
+                  mindmuse.com All right resered
+                </p>
               </div>
             </div>
           </div>
@@ -374,7 +394,8 @@
       <h2>{{ item.name }}</h2>
       <hr />
       <audio controls v-if="item.sound" ref="player">
-        <source :src="item.sound.file_url" type="audio/mpeg" />Your browser does not support the audio element.
+        <source :src="item.sound.file_url" type="audio/mpeg" />
+        Your browser does not support the audio element.
       </audio>
       <!-- <pre>
     {{ item }}
@@ -390,10 +411,15 @@ export default {
     this.$watch("item.sound.file_url", () => {
       this.$refs.player.load();
     });
+  },
+  methods: {
+    playAudio() {
+      var a = new Audio(this.item.translation.audio_url);
+      a.play();
+    }
   }
 };
 </script>
-
 
 <style lang="scss">
 @media screen and (max-width: 600px) {
