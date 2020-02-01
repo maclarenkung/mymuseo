@@ -15,7 +15,12 @@ class CreateFloorImagesTable extends Migration
     {
         Schema::create('floor_images', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->bigInteger('floor_id');
+            $table->bigInteger('floor_id')->unsigned();
+            $table->foreign('floor_id')
+                ->references('id')
+                ->on('floors')
+                ->onDelete('cascade');
+
             $table->string('image_url')->nullable();
             $table->timestamps();
         });

@@ -15,7 +15,11 @@ class CreateMuseumPackagesTable extends Migration
     {
         Schema::create('museum_packages', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->bigInteger('museum_id');
+            $table->bigInteger('museum_id')->unsigned();
+            $table->foreign('museum_id')
+                ->references('id')
+                ->on('museums')
+                ->onDelete('cascade');
             $table->bigInteger('package_id');
             $table->timestamp('expiry_date')->nullable();
             $table->timestamps();

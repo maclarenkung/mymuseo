@@ -15,7 +15,12 @@ class CreateItemImagesTable extends Migration
     {
         Schema::create('item_images', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->bigInteger('item_id');
+            $table->bigInteger('item_id')->unsigned();
+
+            $table->foreign('item_id')
+                ->references('id')
+                ->on('items')
+                ->onDelete('cascade');
             $table->string('image_url');
             $table->timestamps();
         });
