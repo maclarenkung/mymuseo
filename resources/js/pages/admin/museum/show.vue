@@ -22,15 +22,17 @@
           setting
         </button>-->
 
-        <select v-model="active">
-          <option
-            v-for="museum in user.museums"
-            :key="museum.id"
-            :value="museum.id"
-            >{{ museum.name }}</option
-          >
-        </select>
-        <p>(Bangkok Museum)</p>
+        <div class="col-4 m-auto">
+          <select v-model="active" class="form-control">
+            <option
+              v-for="museum in user.museums"
+              :key="museum.id"
+              :value="museum.id"
+              >{{ museum.name }}</option
+            >
+          </select>
+          <p>(Bangkok Museum)</p>
+        </div>
       </div>
     </div>
     <div class="col-12">
@@ -172,5 +174,9 @@ export default {
   color: whitesmoke;
   padding: 10px 15px;
   border-radius: 10px;
+}
+.el-button.is-round {
+  border-radius: 9px !important;
+  padding: 12px 35px !important;
 }
 </style>

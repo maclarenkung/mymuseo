@@ -1,6 +1,20 @@
 <template>
   <div>
+    <!-- <pre>{{ form }}</pre> -->
     <div class="dashh">
+      <!-- <div class="col-12 text-center">
+        <div class="col-4 m-auto">
+          <select v-model="museum_active" class="form-control">
+            <option
+              class="form-control"
+              v-for="museum in user.museums"
+              :key="museum.id"
+              :value="museum.id"
+              >{{ museum.name }}</option
+            >
+          </select>
+        </div>
+      </div> -->
       <div class="clearfix">
         <router-link to="/admin/items" class="float-left">
           <i
@@ -31,12 +45,13 @@
             <select
               v-model="floor_active"
               @change="loadRoom()"
+              class="form-control"
               style="width: 100%; color:#3631c4;"
             >
               <option value>please select</option>
               <option
                 :value="floor.id"
-                v-for="(floor, index) in floors"
+                v-for="(floor, index) in filterFloor(floors)"
                 :key="index"
                 >{{ floor.translation.name }}</option
               >
@@ -51,7 +66,12 @@
               Room
             </span>
             <br />
-            <select v-model="form.all.room_id" required style="width: 100%">
+            <select
+              v-model="form.all.room_id"
+              required
+              style="width: 100%"
+              class="form-control"
+            >
               <option value="1">please select</option>
               <option :value="1" v-for="(room, index) in rooms" :key="index">{{
                 room.translation.name
@@ -155,7 +175,7 @@
                             class="form-control"
                             type="file"
                             name="image"
-                            @change="setFile"
+                            @change="uploadAudio($event, lang.code)"
                           />
                           <has-error :form="form" field="file" />
                         </div>
@@ -208,28 +228,32 @@ export default {
   data: () => ({
     form: new Form({
       all: {
-        room_id: 1,
+        room_id: "",
         image_url: []
       },
       th: {
-        name: "",
-        description: "",
+        name: "ตู้",
+        description:
+          "ตู้ทรงสี่เหลี่ยมมี 4 ขา ด้านหน้ามีบานประตูกระจก 2 บาน เคยเป็นตู้เก็บของและเอกสารสำคัญของคุณแม่",
         image_url: "",
         file_url: ""
       },
       en: {
-        name: "",
-        description: "",
+        name: "Cupboard",
+        description:
+          "The square cabinet has 4 legs. The front has 2 glass doors. Used to be a locker and important documents for mother",
         image_url: "",
         file_url: ""
       },
       cn: {
-        name: "",
-        description: "",
+        name: "內閣",
+        description:
+          "方形櫃子有4個支腿，前部有2個玻璃門，曾經是儲物櫃和重要的母親文件。",
         image_url: "",
         file_url: ""
       }
     }),
+    museum_active: "",
     floor_active: 1,
     image: "",
     file: ""
@@ -248,6 +272,11 @@ export default {
     }
   },
   methods: {
+    filterFloor(array, museum_active) {
+      console.log(array);
+
+      return array.filter(el => el.museum_id == this.museum_active);
+    },
     async setImg(e) {
       if (this.form.all.image_url.length >= 6) {
         alert("จำนวนไฟล์เกิน");
@@ -262,6 +291,15 @@ export default {
     },
     setFile(e) {
       this.file = e.target.files[0];
+    },
+    async uploadAudio(e, lang) {
+      console.log("event", e);
+      console.log("lang", lang);
+
+      this.form[lang].file_url = await this.uploadFile({
+        file: e.target.files[0],
+        path: "items"
+      });
     },
     submitForm() {
       if (this.id) {
@@ -288,6 +326,7 @@ export default {
       // }
     },
     loadRoom() {
+      console.log("sss");
       this.form.room_id = "";
       this.fetchRoom(this.floor_active);
     },
@@ -315,18 +354,19 @@ export default {
       fetchFloors: "floor/fetch",
       fetchRoom: "room/fetch"
     })
+  },
+  async created() {
+    console.log(this.id);
+    if (this.id) {
+      await this.fetch(this.id);
+      this.form.keys().forEach(key => {
+        this.form[key] = this.show[key];
+      });
+    }
+    this.fetchFloors();
+    this.fetchRoom(this.floor_active);
+    this.museum_active = this.user.museum_active;
   }
-  // async created() {
-  //   console.log(this.id);
-  //   if (this.id) {
-  //     await this.fetch(this.id);
-  //     this.form.keys().forEach(key => {
-  //       this.form[key] = this.show[key];
-  //     });
-  //   }
-  //   this.fetchFloors();
-  //   this.fetchRoom(this.floor_active);
-  // }
 };
 </script>
 

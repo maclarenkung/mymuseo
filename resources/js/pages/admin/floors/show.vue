@@ -116,4 +116,8 @@ export default {
   padding: 10px 15px;
   border-radius: 10px;
 }
+.el-button.is-round {
+  border-radius: 9px !important;
+  padding: 12px 35px !important;
+}
 </style>

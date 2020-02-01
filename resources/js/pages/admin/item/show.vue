@@ -5,7 +5,7 @@
     <a :href="`/item/${show.id}`" target="_blank" class="btn btn-primary">Open</a>
 
     <hr />-->
-    <pre>{{ show }}</pre>
+    <!-- <pre>{{ show }}</pre> -->
     <div class="col-12"></div>
     <div class="card p-4">
       <div class="clearfix">
@@ -68,17 +68,23 @@
                 Image
               </span>
             </div>
-
-            <div class="col-4 mt-4">
+            <div class=" col-12">
+              <div class="row">
+                <div class="col-4" v-for="image in show.images" :key="image.id">
+                  <img :src="image.image_url" alt width="100%" height="" />
+                </div>
+              </div>
+            </div>
+            <!-- <div class="col-4 mt-4">
               <div class="col-4"></div>
               <div class="col-12">
                 <div class="row">
                   <div class="col-md-4">
-                    <img :src="show.translation.image_url" />
+                    <img :src="show.images.image_url" />
                   </div>
                 </div>
               </div>
-            </div>
+            </div> -->
           </div>
           <br />
           <div class="col-4 mt-4">
@@ -102,7 +108,7 @@
           </div>-->
           <div class="col-12 mt-5">
             <b-card no-body>
-              <b-tabs pills card>
+              <b-tabs pills card v-model="tabIndex">
                 <b-tab
                   :title="lang.name"
                   v-for="lang in langConfigs"
@@ -128,9 +134,9 @@
                       <div class="form-group col-md-6">
                         <h3>Audio</h3>
                         <div class>
-                          <audio controls v-if="show.sound" ref="player">
+                          <audio controls v-if="show.translation" ref="player">
                             <source
-                              :src="show.sound.file_url"
+                              :src="show.translation.audio_url"
                               type="audio/mpeg"
                             />
                             Your browser does not support the audio element.
@@ -243,8 +249,25 @@
 import { mapActions, mapGetters } from "vuex";
 import ItemShow from "~/components/ItemShow";
 export default {
+  data() {
+    return {
+      tabIndex: 0
+    };
+  },
   components: {
     ItemShow
+  },
+  watch: {
+    tabIndex() {
+      let ti = this.tabIndex;
+      if (ti == 2) {
+        this.fetch({ id: this.id, lang: "cn" });
+      } else if (ti == 1) {
+        this.fetch({ id: this.id, lang: "en" });
+      } else {
+        this.fetch({ id: this.id, lang: "th" });
+      }
+    }
   },
   computed: {
     ...mapGetters({
@@ -273,10 +296,14 @@ export default {
       var W = window.open(URL);
 
       W.window.print();
+    },
+    tabChange(e) {
+      console.log(e);
     }
   },
   created() {
-    this.fetch(this.id);
+    console.log("12e21");
+    this.fetch({ id: this.id, lang: "th" });
   }
 };
 </script>
