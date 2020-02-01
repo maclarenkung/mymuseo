@@ -139,11 +139,11 @@ export default [
         name: "admin.room.edit",
         component: page("admin/room/form.vue")
       },
-      // {
-      //   path: "items",
-      //   name: "admin.room.show",
-      //   component: page("admin/room/show.vue")
-      // },
+      {
+        path: "items",
+        name: "admin.room.show",
+        component: page("admin/room/show.vue")
+      },
       {
         path: "item",
         name: "admin.item",

@@ -35,9 +35,9 @@ export const actions = {
       console.log(e);
     }
   },
-  async show({ commit }, id) {
+  async show({ commit }, { id, lang }) {
     try {
-      const { data } = await axios.get(`/api/items/${id}`);
+      const { data } = await axios.get(`/api/items/${id}?lang=${lang}`);
 
       commit(types.FETCH_ITEM_SHOW, data);
     } catch (e) {

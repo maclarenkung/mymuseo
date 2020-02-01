@@ -17,6 +17,9 @@ export default {
     }),
     id() {
       return parseInt(this.$route.params.id);
+    },
+    langSlug() {
+      return this.$route.query.lang ? this.$route.query.lang : "th";
     }
   },
   methods: {
@@ -26,7 +29,7 @@ export default {
     })
   },
   created() {
-    this.fetch(this.id);
+    this.fetch({ id: this.id, lang: this.langSlug });
   }
 };
 </script>
