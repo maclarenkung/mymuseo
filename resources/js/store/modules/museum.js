@@ -1,8 +1,11 @@
 import axios from "axios";
+import Cookies from "js-cookie";
+
 import * as types from "../mutation-types";
 
 // state
 export const state = {
+  museum_active: Cookies.get("museum_active") || 0,
   museums: null,
   show: null
 };
@@ -10,11 +13,15 @@ export const state = {
 // getters
 export const getters = {
   museums: state => state.museums,
+  museum_active: state => state.museum_active,
   show: state => state.show
 };
 
 // mutations
 export const mutations = {
+  [types.SET_MUSEUM_ACTIVE](state, { museum_active }) {
+    state.museum_active = museum_active;
+  },
   [types.FETCH_MUSEUM](state, data) {
     state.museums = data;
   },
@@ -25,6 +32,13 @@ export const mutations = {
 
 // actions
 export const actions = {
+  setMuseumActive({ commit }, active) {
+    let museum_active = active;
+    commit(types.SET_MUSEUM_ACTIVE, { museum_active });
+    console.log("kuay");
+
+    Cookies.set("museum_active", museum_active, { expires: 365 });
+  },
   async fetch({ commit }) {
     try {
       const { data } = await axios.get("/api/museums");

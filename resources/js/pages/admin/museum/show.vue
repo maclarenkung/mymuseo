@@ -1,5 +1,6 @@
 <template>
   <div>
+    {{ museum_active}}
     <!-- <pre>{{ show }}</pre> -->
     <!-- <h2>{{ show.name }}</h2> -->
     <!-- <hr /> -->
@@ -22,17 +23,16 @@
           setting
         </button>-->
 
-        <div class="col-4 m-auto">
+        <!-- <div class="col-4 m-auto">
           <select v-model="active" class="form-control">
             <option
               v-for="museum in user.museums"
               :key="museum.id"
               :value="museum.id"
-              >{{ museum.name }}</option
-            >
+            >{{ museum.name }}</option>
           </select>
           <p>(Bangkok Museum)</p>
-        </div>
+        </div>-->
       </div>
     </div>
     <div class="col-12">
@@ -53,10 +53,7 @@
           </thead>
           <br />
           <tbody class="mm-tbody">
-            <tr
-              v-for="floor in filterFloor(show, user.museum_active)"
-              :key="floor.id"
-            >
+            <tr v-for="floor in filterFloor(show, museum_active)" :key="floor.id">
               <td>
                 <router-link
                   :to="{
@@ -92,15 +89,10 @@
           </tbody>
         </table>
 
-        <div
-          class="col-12 text-center"
-          style="margin-top:70px; margin-bottom:40px;"
-        >
-          <router-link
-            :to="{
+        <div class="col-12 text-center" style="margin-top:70px; margin-bottom:40px;">
+          <router-link :to="{
               name: 'admin.floors.create'
-            }"
-          >
+            }">
             <button class="add-floor">
               <i class="flaticon-add"></i> ADD FLOOR
             </button>
@@ -121,7 +113,8 @@ export default {
   },
   computed: {
     ...mapGetters({
-      show: "floor/items"
+      show: "floor/items",
+      museum_active: "museum/museum_active"
     }),
 
     id() {
@@ -133,7 +126,7 @@ export default {
       console.log(array);
       console.log(this.active);
 
-      return array.filter(el => el.museum_id == this.active);
+      return array.filter(el => el.museum_id == this.museum_active);
     },
     ...mapActions({
       fetch: "floor/fetch",

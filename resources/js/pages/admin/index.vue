@@ -38,18 +38,67 @@
             <li>
               <b>Museum</b>
             </li>
-
+            <!-- <li class="active">
+              <a
+                href="#homeSubmenu"
+                data-toggle="collapse"
+                aria-expanded="false"
+                class="dropdown-toggle"
+              >Home</a>
+              <ul class="collapse list-unstyled" id="homeSubmenu">
+                <li>
+                  <a href="#">Home 1</a>
+                </li>
+                <li>
+                  <a href="#">Home 2</a>
+                </li>
+                <li>
+                  <a href="#">Home 3</a>
+                </li>
+              </ul>
+            </li>-->
+            <li class="nav-item">
+              <FilterMuseum />
+            </li>
             <li class="nav-item">
               <router-link :to="{ name: 'admin.muse.dashboard' }" class="nav-link">
                 <img :src="'/icon/Home.png'" alt width="24" />
                 Home
               </router-link>
             </li>
-            <li class="nav-item">
+            <li class="nav-item active">
               <router-link to="/admin/museums/1" class="nav-link">
-                <img :src="'/icon/stairs.png'" alt width="24" />
-                Floor
+                <img :src="'/icon/stairs.png'" alt width="24" /> Floor
+                <span
+                  href="#homeSubmenu"
+                  data-toggle="collapse"
+                  aria-expanded="false"
+                  class="dropdown-toggle"
+                ></span>
               </router-link>
+              <ul
+                class="collapse list-unstyled"
+                id="homeSubmenu"
+                v-for="floor in filterFloor(show)"
+                :key="floor.id"
+              >
+                <li>
+                  <router-link
+                    :to="{
+                    name: 'admin.floors.show',
+                    params: { id: floor.id }
+                  }"
+                  >
+                    <p>{{ floor.translation.name }}</p>
+                  </router-link>
+                </li>
+                <!-- <li>
+                  <a href="#">ชั้น 2</a>
+                </li>
+                <li>
+                  <a href="#">ชั้น 3</a>
+                </li>-->
+              </ul>
             </li>
 
             <!-- <li class="nav-item">
@@ -157,9 +206,13 @@
 </template>
 
 <script>
+import { mapActions, mapGetters } from "vuex";
+import FilterMuseum from "~/components/FilterMuseum";
 export default {
   middleware: "auth",
-
+  components: {
+    FilterMuseum
+  },
   computed: {
     tabs() {
       return [
@@ -168,23 +221,34 @@ export default {
           name: "Museum",
           route: "admin.museums"
         }
-        // {
-        //   icon: "exhibition.svg",
-        //   name: "Floor",
-        //   route: "admin.floors"
-        // },
-        // {
-        //   icon: "exhibition.svg",
-        //   name: "Room",
-        //   route: "admin.room"
-        // },
-        // {
-        //   icon: "exhibition.svg",
-        //   name: "Item",
-        //   route: "admin.item"
-        // }
       ];
     }
+  },
+  computed: {
+    ...mapGetters({
+      show: "floor/items",
+      museum_active: "museum/museum_active"
+    }),
+
+    id() {
+      return parseInt(this.$route.params.id);
+    }
+  },
+  methods: {
+    filterFloor(array) {
+      console.log(array);
+      console.log(this.active);
+
+      return array.filter(el => el.museum_id == this.museum_active);
+    },
+    ...mapActions({
+      fetch: "floor/fetch",
+      // del: "museum/del"
+      setMuseumActive: "museum/setMuseumActive"
+    })
+  },
+  created() {
+    this.fetch();
   }
 };
 </script>

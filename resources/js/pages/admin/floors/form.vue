@@ -3,23 +3,18 @@
     <div class="dashh">
       <div class="clearfix">
         <router-link to="/admin/museums/1" class="float-left">
-          <i
-            class="flaticon-left-arrow"
-            style="font-size:25px; color:#ffcc57;"
-          ></i>
+          <i class="flaticon-left-arrow" style="font-size:25px; color:#ffcc57;"></i>
         </router-link>
-        <span class="ml-4" style="font-size:25px;">{{
+        <span class="ml-4" style="font-size:25px;">
+          {{
           id ? "Edit Floor" : "Create Floor"
-        }}</span>
+          }}
+        </span>
       </div>
       <!-- <pre>{{ form }}</pre> -->
       <!-- <pre>{{ user }}</pre> -->
 
-      <form
-        @submit.prevent="submitForm"
-        @keydown="form.onKeydown($event)"
-        class="mt-3"
-      >
+      <form @submit.prevent="submitForm" @keydown="form.onKeydown($event)" class="mt-3">
         <!-- Name -->
         <div class="row">
           <div class="col-12">
@@ -35,8 +30,7 @@
                   :value="museum.id"
                   v-for="(museum, index) in user.museums"
                   :key="index"
-                  >{{ museum.name }}</option
-                >
+                >{{ museum.name }}</option>
               </select>
             </div>
           </div>
@@ -69,11 +63,7 @@
           <div class="col-4"></div>
           <div class="col-12">
             <div class="row">
-              <div
-                class="col-md-4"
-                v-for="(img, index) in form.all.image_url"
-                :key="index"
-              >
+              <div class="col-md-4" v-for="(img, index) in form.all.image_url" :key="index">
                 <div class="card">
                   <div class="card-body">
                     <img :src="img" width="100%" />
@@ -87,10 +77,7 @@
           </div>
           <br />
           <div class="col-4 mt-4">
-            <span
-              style="color:#3631c4; font-size:20px;"
-              class="flaticon-placeholder"
-            >
+            <span style="color:#3631c4; font-size:20px;" class="flaticon-placeholder">
               <!-- <h4 style="color:#3631c4;"></h4> -->
               Map (พร้อมระบุตำแหน่ง)
             </span>
@@ -103,6 +90,7 @@
                   <i class="flaticon-upload"></i> Upload Map
                 </label>
               </div>
+              <!-- <canvas id="Canvas" width="700" height="700"></canvas> -->
             </form>
           </div>
           <div class="col-12 mt-5">
@@ -132,12 +120,7 @@
                       <div class="form-group col-md-6">
                         <label>Audio</label>
                         <div class>
-                          <input
-                            class="form-control"
-                            type="file"
-                            name="image"
-                            @change="setFile"
-                          />
+                          <input class="form-control" type="file" name="image" @change="setFile" />
                           <has-error :form="form" field="file" />
                         </div>
                       </div>
@@ -172,14 +155,14 @@
               id="createbtn2"
               style="width:130px;"
               class="text-white colorr"
-              >{{ id ? "UPDATE" : "CREATE" }}</v-button
-            >
+            >{{ id ? "UPDATE" : "CREATE" }}</v-button>
           </div>
         </div>
       </form>
     </div>
   </div>
 </template>
+
 
 <script>
 import Form from "vform";

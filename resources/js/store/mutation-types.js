@@ -21,3 +21,4 @@ export const FETCH_FLOOR = "FETCH_FLOOR";
 export const FETCH_ROOM = "FETCH_ROOM";
 
 export const FETCH_PACKAGE = "FETCH_PACKAGE";
+export const SET_MUSEUM_ACTIVE = "SET_MUSEUM_ACTIVE";
