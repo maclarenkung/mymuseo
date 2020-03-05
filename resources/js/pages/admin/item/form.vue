@@ -14,26 +14,21 @@
             >
           </select>
         </div>
-      </div> -->
+      </div>-->
       <div class="clearfix">
         <router-link to="/admin/items" class="float-left">
-          <i
-            class="flaticon-left-arrow"
-            style="font-size: 25px; cursor: pointer; color:#ffcc57;"
-          ></i>
+          <i class="flaticon-left-arrow" style="font-size: 25px; cursor: pointer; color:#ffcc57;"></i>
         </router-link>
-        <span class="float-left ml-4" style="font-size:25px;">{{
+        <span class="float-left ml-4" style="font-size:25px;">
+          {{
           id ? "Edit Item" : "Create Item"
-        }}</span>
+          }}
+        </span>
       </div>
       <!-- <pre>{{ form }}</pre> -->
       <!-- <pre>{{ show }}</pre> -->
 
-      <form
-        @submit.prevent="submitForm"
-        @keydown="form.onKeydown($event)"
-        class="mt-5"
-      >
+      <form @submit.prevent="submitForm" @keydown="form.onKeydown($event)" class="mt-5">
         <!-- Name -->
         <div class="row">
           <div class="col-4">
@@ -53,29 +48,22 @@
                 :value="floor.id"
                 v-for="(floor, index) in filterFloor(floors)"
                 :key="index"
-                >{{ floor.translation.name }}</option
-              >
+              >{{ floor.translation.name }}</option>
             </select>
           </div>
           <div class="col-4">
-            <span
-              class="flaticon-open-exit-door"
-              style="font-size:20px; color:#3631c4"
-            >
+            <span class="flaticon-open-exit-door" style="font-size:20px; color:#3631c4">
               <!-- <h4>asdasd</h4> -->
               Room
             </span>
             <br />
-            <select
-              v-model="form.all.room_id"
-              required
-              style="width: 100%"
-              class="form-control"
-            >
+            <select v-model="form.all.room_id" required style="width: 100%" class="form-control">
               <option value="1">please select</option>
-              <option :value="1" v-for="(room, index) in rooms" :key="index">{{
+              <option :value="1" v-for="(room, index) in rooms" :key="index">
+                {{
                 room.translation.name
-              }}</option>
+                }}
+              </option>
             </select>
           </div>
 
@@ -108,11 +96,7 @@
           <div class="col-4"></div>
           <div class="col-12">
             <div class="row">
-              <div
-                class="col-md-4"
-                v-for="(img, index) in form.all.image_url"
-                :key="index"
-              >
+              <div class="col-md-4" v-for="(img, index) in form.all.image_url" :key="index">
                 <div class="card">
                   <div class="card-body">
                     <img :src="img" width="100%" />
@@ -126,10 +110,7 @@
           </div>
           <br />
           <div class="col-4 mt-4">
-            <span
-              style="color:#3631c4; font-size:20px;"
-              class="flaticon-placeholder"
-            >
+            <span style="color:#3631c4; font-size:20px;" class="flaticon-placeholder">
               <!-- <h4 style="color:#3631c4;"></h4> -->
               Map (พร้อมระบุตำแหน่ง)
             </span>
@@ -143,6 +124,20 @@
                 </label>
               </div>
             </form>
+          </div>
+          <div class="col-12">
+            <div class="row">
+              <div class="col-md-4" v-for="(img, index) in form.all.image_url" :key="index">
+                <div class="card">
+                  <div class="card-body">
+                    <img :src="img" width="100%" />
+                  </div>
+                  <div class="card-footer">
+                    <button @click="removeImg(index)" type="button">ลบ</button>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
           <div class="col-12 mt-5">
             <b-card no-body>
@@ -211,8 +206,7 @@
               id="createbtn2"
               style="width:130px;"
               class="text-white colorr"
-              >{{ id ? "UPDATE" : "CREATE" }}</v-button
-            >
+            >{{ id ? "UPDATE" : "CREATE" }}</v-button>
           </div>
         </div>
       </form>
