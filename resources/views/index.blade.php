@@ -17,6 +17,7 @@ $config = [
 
   <link rel="stylesheet" href="{{ mix('dist/css/app.css') }}">
   <link href="https://fonts.googleapis.com/css?family=Mitr&display=swap" rel="stylesheet" />
+  <script src="https://kit.fontawesome.com/8f9e6c018f.js" crossorigin="anonymous"></script>
 
 </head>
 <body>

@@ -1,6 +1,6 @@
 <template>
   <div>
-    {{ museum_active}}
+    <!-- {{ museum_active}} -->
     <!-- <pre>{{ show }}</pre> -->
     <!-- <h2>{{ show.name }}</h2> -->
     <!-- <hr /> -->

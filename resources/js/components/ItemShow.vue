@@ -1,13 +1,8 @@
 <template>
   <div>
-    {{ fixFocus }}
+    <!-- {{ fixFocus }} -->
     <!-- <pre>{{ item }}</pre> -->
-    <focus-point v-model="item.focus">
-      <template slot="pin">
-        ICON
-      </template>
-      <img :src="item.room.floor.museum.locate_image_url" width="100%" />
-    </focus-point>
+
     <div class="col-12" style="background-color: #F4F2F2;">
       <div class="Rectangle-1">
         <h4 class="pt-5" style="color:white;">พิพิธภัณฑ์ บ้านบางกอก</h4>
@@ -32,10 +27,7 @@
             <div class="col-4"></div>
           </div>
         </div>-->
-        <div
-          class="col-12 justify-content-md-center"
-          style="background-color: #F4F2F2;"
-        >
+        <div class="col-12 justify-content-md-center" style="background-color: #F4F2F2;">
           <!-- <div class="col-3 justify-content-md-center" style="margin: auto;"> -->
           <!-- <div class="speaker">
               <div class="Rectangle-6">
@@ -72,15 +64,21 @@
           <div class="col-12 mt-4">
             <div class="col-5 offset-4">
               <div class="row">
-                <a href="?lang=th"><h4>TH</h4></a>
+                <a href="?lang=th">
+                  <h4>TH</h4>
+                </a>
                 <div class="pl-1 pr-1 vl">
                   <h4>|</h4>
                 </div>
-                <a href="?lang=en"><h4>ENG</h4></a>
+                <a href="?lang=en">
+                  <h4>ENG</h4>
+                </a>
                 <div class="pl-1 pr-1 vl">
                   <h4>|</h4>
                 </div>
-                <a href="?lang=cn"><h4>CN</h4></a>
+                <a href="?lang=cn">
+                  <h4>CN</h4>
+                </a>
               </div>
             </div>
           </div>
@@ -111,9 +109,7 @@
   letter-spacing: normal;
   text-align: center;
   color: #000000;"
-                >
-                  {{ item.translation.name }}
-                </p>
+                >{{ item.translation.name }}</p>
                 <hr />
                 <p
                   style="font-family: mitr;
@@ -126,9 +122,7 @@
   text-align: left;
   color: #000000;
 "
-                >
-                  {{ item.translation.description }}
-                </p>
+                >{{ item.translation.description }}</p>
               </div>
             </div>
           </div>
@@ -138,10 +132,11 @@
             <div
               class="col-10"
               style="background-color: thistle;width: auto;
-      height: 163px;
+      height: auto;
       border-radius: 11px;
       box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.16);
-      background-color: #ffffff;margin: auto;"
+      background-color: #ffffff;margin: auto;
+      padding-bottom: 10px;"
             >
               <p
                 style="font-family: mitr;
@@ -154,9 +149,11 @@
           text-align: center;
           color: #000000;
           padding-top: 13px;"
-              >
-                ตำแหน่งของคุณ
-              </p>
+              >ตำแหน่งของคุณ</p>
+              <focus-point v-model="item.focus">
+                <template slot="pin">ICON</template>
+                <img :src="item.room.floor.museum.locate_image_url" width="100%" />
+              </focus-point>
               <hr />
               <p
                 style="font-family: mitr;
@@ -168,9 +165,7 @@
   letter-spacing: normal;
   text-align: center;
   color: #000000;"
-              >
-                พิพิธภัณฑ์ ชาวบางกอก
-              </p>
+              >พิพิธภัณฑ์ ชาวบางกอก</p>
               <p
                 style="font-family: mitr;
   font-size: 20px;
@@ -182,12 +177,10 @@
   text-align: center;
   color: #000000;
 "
-              >
-                ชั้น 1 ห้องรับแขก
-              </p>
+              >ชั้น 1 ห้องรับแขก</p>
             </div>
           </div>
-          <div class="col-12 mt-4">
+          <!-- <div class="col-12 mt-4">
             <div
               class="col-10"
               style="background-color: thistle;width: auto;
@@ -195,23 +188,8 @@
       border-radius: 11px;
       box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.16);
       background-color: #ffffff;margin: auto;"
-            >
-              <p
-                style="font-family: mitr;
-          font-size: 20px;
-          font-weight: bold;
-          font-stretch: normal;
-          font-style: normal;
-          line-height: 1.5;
-          letter-spacing: normal;
-          text-align: center;
-          color: #000000;
-          padding-top: 13px;"
-              >
-                ตำแหน่งของคุณ
-              </p>
-            </div>
-          </div>
+            ></div>
+          </div>-->
 
           <br />
           <div class="col-12">
@@ -233,9 +211,7 @@
                   text-align: center;
                   color: #000000;
                   padding-top: 13px;"
-              >
-                ห้องถัดไป
-              </p>
+              >ห้องถัดไป</p>
               <hr />
               <div class="col-12">
                 <img
@@ -254,9 +230,7 @@
               letter-spacing: normal;
               text-align: center;
               color: #000000;"
-              >
-                ชั้น 1 ห้องอาหาร
-              </p>
+              >ชั้น 1 ห้องอาหาร</p>
               <br />
 
               <div class="col-4" style="margin: auto;">
@@ -386,9 +360,7 @@
       margin-top: 9px;
 
 "
-                >
-                  mindmuse.com All right resered
-                </p>
+                >mindmuse.com All right resered</p>
               </div>
             </div>
           </div>
@@ -400,8 +372,7 @@
       <h2>{{ item.name }}</h2>
       <hr />
       <audio controls v-if="item.sound" ref="player">
-        <source :src="item.sound.file_url" type="audio/mpeg" />
-        Your browser does not support the audio element.
+        <source :src="item.sound.file_url" type="audio/mpeg" />Your browser does not support the audio element.
       </audio>
       <!-- <pre>
     {{ item }}
