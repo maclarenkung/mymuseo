@@ -164,6 +164,11 @@ export default [
         path: "item/:id/edit",
         name: "admin.item.edit",
         component: page("admin/item/form.vue")
+      },
+      {
+        path: "pay/:id/success",
+        name: "admin.pay.success",
+        component: page("admin/pay/success.vue")
       }
     ]
   },

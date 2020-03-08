@@ -229,7 +229,7 @@
             </div>
             <div class="col-4 mt-5"></div>
             <div class="col-12 text-center mt-5">
-              <router-link to="/admin/customer" class>
+              <router-link to="/admin/pay/success" class>
                 <button class="btn-create3">CANCEL</button>
               </router-link>
               <button class="btn-create2">CREATE</button>
