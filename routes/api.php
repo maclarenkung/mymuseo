@@ -53,6 +53,7 @@ Route::group(['middleware' => 'auth:api'], function () {
     Route::resource('packages', 'PackageController');
 
     Route::resource('customer/museums', 'CustomerMuseumController');
+    Route::post('payment', 'OmiseController@payment');
 });
 
 Route::group(['middleware' => 'guest:api'], function () {

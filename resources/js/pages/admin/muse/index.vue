@@ -64,6 +64,7 @@
                 </div>
                 <div class="col-4" style="margin-top:30px">
                   <button class="upgrade">จ่ายเงิน</button>
+                  <paymentOmise :amount="1300000" :price_all="13000" />
                 </div>
               </div>
             </div>
@@ -313,10 +314,13 @@
 <script>
 import { VueFunnelGraph } from "vue-funnel-graph-js";
 import VueApexCharts from "vue-apexcharts";
+
+import paymentOmise from "../../../components/paymentOmise";
 export default {
   components: {
     VueFunnelGraph,
-    apexcharts: VueApexCharts
+    apexcharts: VueApexCharts,
+    paymentOmise
   },
   data() {
     return {
