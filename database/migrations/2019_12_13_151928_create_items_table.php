@@ -22,6 +22,9 @@ class CreateItemsTable extends Migration
                 ->references('id')
                 ->on('rooms')
                 ->onDelete('cascade');
+            $table->integer('locate_x')->nullable();
+            $table->integer('locate_y')->nullable();
+
 
             $table->string('image_url')->nullable();
             $table->timestamps();

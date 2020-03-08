@@ -15,8 +15,8 @@ class Item extends Model
         return $this->belongsTo('App\Room');
     }
 
-    protected $appends =  ['qrcode_url', 'translation'];
-    protected $fillable =  ['room_id', 'image_url'];
+    protected $appends =  ['qrcode_url', 'translation', 'focus'];
+    protected $fillable =  ['room_id', 'image_url', 'locate_x', 'locate_y'];
 
     public function getQrcodeUrlAttribute()
     {
@@ -42,5 +42,10 @@ class Item extends Model
     public function images()
     {
         return $this->HasMany('App\ItemImage');
+    }
+
+    public function getFocusAttribute()
+    {
+        return ['x' => $this->locate_x, 'y' => $this->locate_y];
     }
 }

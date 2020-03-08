@@ -1,7 +1,13 @@
 <template>
   <div>
+    {{ fixFocus }}
     <!-- <pre>{{ item }}</pre> -->
-
+    <focus-point v-model="item.focus">
+      <template slot="pin">
+        ICON
+      </template>
+      <img :src="item.room.floor.museum.locate_image_url" width="100%" />
+    </focus-point>
     <div class="col-12" style="background-color: #F4F2F2;">
       <div class="Rectangle-1">
         <h4 class="pt-5" style="color:white;">พิพิธภัณฑ์ บ้านบางกอก</h4>
@@ -405,7 +411,17 @@
 </template>
 
 <script>
+import FocusPoint from "vue-focuspoint-component";
+
 export default {
+  components: {
+    FocusPoint
+  },
+  data() {
+    return {
+      fixFocus: ""
+    };
+  },
   props: ["item", "floor"],
   mounted: function() {
     this.$watch("item.sound.file_url", () => {
@@ -417,6 +433,19 @@ export default {
       var a = new Audio(this.item.translation.audio_url);
       a.play();
     }
+  },
+  computed: {
+    comFocus() {
+      return this.item.focus;
+    }
+  },
+  watch: {
+    comFocus() {
+      this.item.focus = this.fixFocus;
+    }
+  },
+  created() {
+    this.fixFocus = this.item.focus;
   }
 };
 </script>
@@ -600,4 +629,15 @@ export default {
   text-align: center;
   color: #3e7a63;
 }
+</style>
+<style lang="scss">
+@import "./node_modules/vue-focuspoint-component/src/scss/focus-point";
+
+// overwrite variables from the simple theme
+// $focuspoint-background: blue;
+// $focuspoint-border: 3px solid white;
+// $focuspoint-radius: 2px;
+// find more variables in /src/scss/_focus-point-variables.scss
+
+@import "./node_modules/vue-focuspoint-component/src/scss/focus-point-theme";
 </style>

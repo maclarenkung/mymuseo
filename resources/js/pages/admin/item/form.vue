@@ -1,6 +1,14 @@
 <template>
   <div>
-    <!-- <pre>{{ form }}</pre> -->
+    <pre>{{ show }}</pre>
+    <focus-point v-model="focus">
+      <template slot="pin">
+        ICON
+      </template>
+      <img :src="filterMuse ? filterMuse.locate_image_url : ''" width="100%" />
+    </focus-point>
+    <div v-if="focus.x && focus.y">x: {{ focus.x }} | y: {{ focus.y }}</div>
+
     <div class="dashh">
       <!-- <div class="col-12 text-center">
         <div class="col-4 m-auto">
@@ -15,20 +23,33 @@
           </select>
         </div>
       </div>-->
+      <!-- <focus-point v-model="focus">
+        <img
+          :src="filterMuse ? filterMuse.locate_image_url : ''"
+          width="100%"
+        />
+      </focus-point>
+
+      <div v-if="focus.x && focus.y">x: {{ focus.x }} | y: {{ focus.y }}</div> -->
       <div class="clearfix">
         <router-link to="/admin/items" class="float-left">
-          <i class="flaticon-left-arrow" style="font-size: 25px; cursor: pointer; color:#ffcc57;"></i>
+          <i
+            class="flaticon-left-arrow"
+            style="font-size: 25px; cursor: pointer; color:#ffcc57;"
+          ></i>
         </router-link>
         <span class="float-left ml-4" style="font-size:25px;">
-          {{
-          id ? "Edit Item" : "Create Item"
-          }}
+          {{ id ? "Edit Item" : "Create Item" }}
         </span>
       </div>
       <!-- <pre>{{ form }}</pre> -->
       <!-- <pre>{{ show }}</pre> -->
 
-      <form @submit.prevent="submitForm" @keydown="form.onKeydown($event)" class="mt-5">
+      <form
+        @submit.prevent="submitForm"
+        @keydown="form.onKeydown($event)"
+        class="mt-5"
+      >
         <!-- Name -->
         <div class="row">
           <div class="col-4">
@@ -48,21 +69,28 @@
                 :value="floor.id"
                 v-for="(floor, index) in filterFloor(floors)"
                 :key="index"
-              >{{ floor.translation.name }}</option>
+                >{{ floor.translation.name }}</option
+              >
             </select>
           </div>
           <div class="col-4">
-            <span class="flaticon-open-exit-door" style="font-size:20px; color:#3631c4">
+            <span
+              class="flaticon-open-exit-door"
+              style="font-size:20px; color:#3631c4"
+            >
               <!-- <h4>asdasd</h4> -->
               Room
             </span>
             <br />
-            <select v-model="form.all.room_id" required style="width: 100%" class="form-control">
+            <select
+              v-model="form.all.room_id"
+              required
+              style="width: 100%"
+              class="form-control"
+            >
               <option value="1">please select</option>
               <option :value="1" v-for="(room, index) in rooms" :key="index">
-                {{
-                room.translation.name
-                }}
+                {{ room.translation.name }}
               </option>
             </select>
           </div>
@@ -96,7 +124,11 @@
           <div class="col-4"></div>
           <div class="col-12">
             <div class="row">
-              <div class="col-md-4" v-for="(img, index) in form.all.image_url" :key="index">
+              <div
+                class="col-md-4"
+                v-for="(img, index) in form.all.image_url"
+                :key="index"
+              >
                 <div class="card">
                   <div class="card-body">
                     <img :src="img" width="100%" />
@@ -110,7 +142,10 @@
           </div>
           <br />
           <div class="col-4 mt-4">
-            <span style="color:#3631c4; font-size:20px;" class="flaticon-placeholder">
+            <span
+              style="color:#3631c4; font-size:20px;"
+              class="flaticon-placeholder"
+            >
               <!-- <h4 style="color:#3631c4;"></h4> -->
               Map (พร้อมระบุตำแหน่ง)
             </span>
@@ -127,7 +162,11 @@
           </div>
           <div class="col-12">
             <div class="row">
-              <div class="col-md-4" v-for="(img, index) in form.all.image_url" :key="index">
+              <div
+                class="col-md-4"
+                v-for="(img, index) in form.all.image_url"
+                :key="index"
+              >
                 <div class="card">
                   <div class="card-body">
                     <img :src="img" width="100%" />
@@ -206,7 +245,8 @@
               id="createbtn2"
               style="width:130px;"
               class="text-white colorr"
-            >{{ id ? "UPDATE" : "CREATE" }}</v-button>
+              >{{ id ? "UPDATE" : "CREATE" }}</v-button
+            >
           </div>
         </div>
       </form>
@@ -217,12 +257,19 @@
 <script>
 import Form from "vform";
 import { mapActions, mapGetters } from "vuex";
+import FocusPoint from "vue-focuspoint-component";
 
 export default {
+  components: {
+    FocusPoint
+  },
   data: () => ({
+    focus: "",
     form: new Form({
       all: {
         room_id: "",
+        locate_x: 0,
+        locate_y: 0,
         image_url: []
       },
       th: {
@@ -247,7 +294,6 @@ export default {
         file_url: ""
       }
     }),
-    museum_active: "",
     floor_active: 1,
     image: "",
     file: ""
@@ -259,12 +305,20 @@ export default {
     ...mapGetters({
       show: "item/show",
       floors: "floor/items",
-      rooms: "room/items"
+      rooms: "room/items",
+      museum_active: "museum/museum_active"
     }),
+
     id() {
       return parseInt(this.$route.params.id);
+    },
+    filterMuse() {
+      return this.user.museums.find(el => el.id == this.museum_active);
     }
   },
+  // components: {
+  //   FocusPoint
+  // },
   methods: {
     filterFloor(array, museum_active) {
       console.log(array);
@@ -310,6 +364,9 @@ export default {
 
       this.form.room_id;
 
+      this.form.all.locate_x = this.focus.x;
+      this.form.all.locate_y = this.focus.y;
+
       const { data } = await this.form.post("/api/items");
 
       // if (data) {
@@ -321,8 +378,8 @@ export default {
     },
     loadRoom() {
       console.log("sss");
-      this.form.room_id = "";
       this.fetchRoom(this.floor_active);
+      this.form.all.room_id = this.rooms[0].id;
     },
     removeImg(index) {
       this.$delete(this.form.all.image_url, index);
@@ -359,7 +416,7 @@ export default {
     }
     this.fetchFloors();
     this.fetchRoom(this.floor_active);
-    this.museum_active = this.user.museum_active;
+    // this.museum_active = this.user.museum_active;
   }
 };
 </script>
@@ -430,4 +487,15 @@ input[data-v-74ec3927],
 textarea[data-v-74ec3927] {
   border-color: aqua;
 }
+</style>
+<style lang="scss">
+@import "./node_modules/vue-focuspoint-component/src/scss/focus-point";
+
+// overwrite variables from the simple theme
+// $focuspoint-background: blue;
+// $focuspoint-border: 3px solid white;
+// $focuspoint-radius: 2px;
+// find more variables in /src/scss/_focus-point-variables.scss
+
+@import "./node_modules/vue-focuspoint-component/src/scss/focus-point-theme";
 </style>

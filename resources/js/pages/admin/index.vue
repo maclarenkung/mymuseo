@@ -2,7 +2,9 @@
   <div class>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
     <div class="sidenav">
-      <h3 style="color: white; margin-top:100px" class="text-center">MINDMUSE</h3>
+      <h3 style="color: white; margin-top:100px" class="text-center">
+        MINDMUSE
+      </h3>
 
       <h5 style="color:white;" class="text-center">Welcome</h5>
 
@@ -12,8 +14,14 @@
             class="w3-bar-item text-center"
             style="color:white!important;"
             v-if="user.role == 1"
-          >Museum Management</h5>
-          <ul class="nav flex-column nav-pills pt-2" id="ab" v-if="user.role == 1">
+          >
+            Museum Management
+          </h5>
+          <ul
+            class="nav flex-column nav-pills pt-2"
+            id="ab"
+            v-if="user.role == 1"
+          >
             <li v-for="tab in tabs" :key="tab.route" class="nav-item">
               <router-link :to="{ name: tab.route }" class="nav-link">
                 <img :src="'/icon/' + tab.icon" alt width="24" />
@@ -61,7 +69,10 @@
               <FilterMuseum />
             </li>
             <li class="nav-item">
-              <router-link :to="{ name: 'admin.muse.dashboard' }" class="nav-link">
+              <router-link
+                :to="{ name: 'admin.muse.dashboard' }"
+                class="nav-link"
+              >
                 <img :src="'/icon/Home.png'" alt width="24" />
                 Home
               </router-link>
@@ -85,9 +96,9 @@
                 <li>
                   <router-link
                     :to="{
-                    name: 'admin.floors.show',
-                    params: { id: floor.id }
-                  }"
+                      name: 'admin.floors.show',
+                      params: { id: floor.id }
+                    }"
                   >
                     <p>{{ floor.translation.name }}</p>
                   </router-link>
@@ -227,6 +238,7 @@ export default {
   computed: {
     ...mapGetters({
       show: "floor/items",
+
       museum_active: "museum/museum_active"
     }),
 

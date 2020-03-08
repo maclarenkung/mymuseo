@@ -184,11 +184,25 @@
                   class="custom-file-input"
                   id="customFile"
                   name="image"
-                  @change="setImg()"
+                  @change="setImg"
                 />
                 <has-error :form="form" field="image" />
                 <label class="custom-file-label" for="customFile">
                   <i class="flaticon-upload"></i> Upload Image
+                </label>
+              </div>
+
+              <div class="custom-file mt-3">
+                <input
+                  type="file"
+                  class="custom-file-input"
+                  id="customFile"
+                  name="image"
+                  @change="setImgLocate"
+                />
+                <has-error :form="form" field="image" />
+                <label class="custom-file-label" for="customFile">
+                  <i class="flaticon-upload"></i> Upload Locate Image
                 </label>
               </div>
 
@@ -251,9 +265,11 @@ export default {
       instagram: "-",
       day_start: "-",
       day_end: "-",
-      image_url: "https://image.freepik.com/free-photo/_34998-128.jpg"
+      image_url: "https://image.freepik.com/free-photo/_34998-128.jpg",
+      locate_image_url: "https://image.freepik.com/free-photo/_34998-128.jpg"
     }),
-    image: ""
+    image: "",
+    image_locate: ""
   }),
 
   computed: {
@@ -269,9 +285,17 @@ export default {
   },
   methods: {
     setImg(e) {
+      console.log(e);
       this.image = e.target.files[0];
     },
+    setImgLocate(e) {
+      console.log(e);
+
+      this.image_locate = e.target.files[0];
+    },
     setFile(e) {
+      console.log(e);
+
       this.file = e.target.files[0];
     },
     submitForm() {
@@ -286,6 +310,19 @@ export default {
       //   image: this.image,
       //   path: "items"
       // });
+
+      if (this.image) {
+        this.form.image_url = await this.upImg({
+          image: this.image,
+          path: "items"
+        });
+      }
+      if (this.image_locate) {
+        this.form.locate_image_url = await this.upImg({
+          image: this.image_locate,
+          path: "items"
+        });
+      }
 
       this.form.room_id;
 
@@ -304,6 +341,12 @@ export default {
       if (this.image) {
         this.form.image_url = await this.upImg({
           image: this.image,
+          path: "items"
+        });
+      }
+      if (this.image_locate) {
+        this.form.locate_image_url = await this.upImg({
+          image: this.image_locate,
           path: "items"
         });
       }

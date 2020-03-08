@@ -24,6 +24,7 @@ class CreateFloorsTable extends Migration
                 ->onDelete('cascade');
 
 
+
             $table->string('image_url')->nullable();
             $table->string('map_image_url')->nullable();
 

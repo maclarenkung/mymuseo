@@ -1,20 +1,31 @@
 <template>
   <div>
+    <focus-point v-model="focus">
+      <img :src="filterMuse ? filterMuse.locate_image_url : ''" width="100%" />
+    </focus-point>
+
+    <div v-if="focus.x && focus.y">x: {{ focus.x }} | y: {{ focus.y }}</div>
+
     <div class="dashh">
       <div class="clearfix">
         <router-link to="/admin/museums/1" class="float-left">
-          <i class="flaticon-left-arrow" style="font-size:25px; color:#ffcc57;"></i>
+          <i
+            class="flaticon-left-arrow"
+            style="font-size:25px; color:#ffcc57;"
+          ></i>
         </router-link>
         <span class="ml-4" style="font-size:25px;">
-          {{
-          id ? "Edit Floor" : "Create Floor"
-          }}
+          {{ id ? "Edit Floor" : "Create Floor" }}
         </span>
       </div>
       <!-- <pre>{{ form }}</pre> -->
       <!-- <pre>{{ user }}</pre> -->
 
-      <form @submit.prevent="submitForm" @keydown="form.onKeydown($event)" class="mt-3">
+      <form
+        @submit.prevent="submitForm"
+        @keydown="form.onKeydown($event)"
+        class="mt-3"
+      >
         <!-- Name -->
         <div class="row">
           <div class="col-12">
@@ -30,7 +41,8 @@
                   :value="museum.id"
                   v-for="(museum, index) in user.museums"
                   :key="index"
-                >{{ museum.name }}</option>
+                  >{{ museum.name }}</option
+                >
               </select>
             </div>
           </div>
@@ -63,7 +75,11 @@
           <div class="col-4"></div>
           <div class="col-12">
             <div class="row">
-              <div class="col-md-4" v-for="(img, index) in form.all.image_url" :key="index">
+              <div
+                class="col-md-4"
+                v-for="(img, index) in form.all.image_url"
+                :key="index"
+              >
                 <div class="card">
                   <div class="card-body">
                     <img :src="img" width="100%" />
@@ -77,7 +93,10 @@
           </div>
           <br />
           <div class="col-4 mt-4">
-            <span style="color:#3631c4; font-size:20px;" class="flaticon-placeholder">
+            <span
+              style="color:#3631c4; font-size:20px;"
+              class="flaticon-placeholder"
+            >
               <!-- <h4 style="color:#3631c4;"></h4> -->
               Map (พร้อมระบุตำแหน่ง)
             </span>
@@ -120,7 +139,12 @@
                       <div class="form-group col-md-6">
                         <label>Audio</label>
                         <div class>
-                          <input class="form-control" type="file" name="image" @change="setFile" />
+                          <input
+                            class="form-control"
+                            type="file"
+                            name="image"
+                            @change="setFile"
+                          />
                           <has-error :form="form" field="file" />
                         </div>
                       </div>
@@ -155,7 +179,8 @@
               id="createbtn2"
               style="width:130px;"
               class="text-white colorr"
-            >{{ id ? "UPDATE" : "CREATE" }}</v-button>
+              >{{ id ? "UPDATE" : "CREATE" }}</v-button
+            >
           </div>
         </div>
       </form>
@@ -163,16 +188,18 @@
   </div>
 </template>
 
-
 <script>
 import Form from "vform";
 import { mapActions, mapGetters } from "vuex";
 
 export default {
   data: () => ({
+    focus: "",
     form: new Form({
       all: {
         museum_id: "",
+        locate_x: 0,
+        locate_y: 0,
         image_url: []
       },
       th: {
@@ -212,7 +239,13 @@ export default {
     }),
     id() {
       return parseInt(this.$route.params.id);
+    },
+    filterMuse() {
+      return this.user.museums.find(el => el.id == this.form.all.museum_id);
     }
+  },
+  components: {
+    FocusPoint
   },
   methods: {
     async setImg(e) {
@@ -244,6 +277,9 @@ export default {
       // });
 
       this.form.museum_id;
+
+      this.form.all.locate_x = this.focus.x;
+      this.form.all.locate_y = this.focus.y;
 
       const { data } = await this.form.post("/api/floors");
 
@@ -345,4 +381,15 @@ input[data-v-7be66d13],
 textarea[data-v-7be66d13] {
   border-color: aqua;
 }
+</style>
+<style lang="scss">
+@import "./node_modules/vue-focuspoint-component/src/scss/focus-point";
+
+// overwrite variables from the simple theme
+$focuspoint-background: blue;
+$focuspoint-border: 3px solid white;
+$focuspoint-radius: 2px;
+// find more variables in /src/scss/_focus-point-variables.scss
+
+@import "./node_modules/vue-focuspoint-component/src/scss/focus-point-theme";
 </style>

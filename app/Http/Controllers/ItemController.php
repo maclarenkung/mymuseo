@@ -48,7 +48,9 @@ class ItemController extends Controller
 
         $item = Item::create([
             // "image_url" => $request->all['image_url'],
-            "room_id" => $request->all['room_id']
+            "room_id" => $request->all['room_id'],
+            "locate_x" => $request->all['locate_x'],
+            "locate_y" => $request->all['locate_y'],
         ]);
 
         foreach ($request->only(['th', 'en', 'cn']) as $key => $value) {
@@ -95,6 +97,7 @@ class ItemController extends Controller
     public function show(Item $item)
     {
         $item->images;
+        $item->room->floor->museum;
         return $item;
     }
 
