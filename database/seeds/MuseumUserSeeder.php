@@ -21,6 +21,10 @@ class MuseumUserSeeder extends Seeder
                 "user_id" => 2,
                 "museum_id" => 2,
             ],
+            [
+                "user_id" => 2,
+                "museum_id" => 3,
+            ],
         ]);
     }
 }

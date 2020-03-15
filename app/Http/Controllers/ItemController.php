@@ -7,6 +7,9 @@ use App\ItemTranslation;
 use App\ItemImage;
 
 use App\SoundLang;
+use App\MuseumUser;
+
+use App\ItemScan;
 
 use Illuminate\Http\Request;
 
@@ -17,13 +20,25 @@ class ItemController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function userScan(Request $request)
+    {
+        return ItemScan::create([
+            "ip" => $request->ip(),
+            "item_id" => $request->item_id
+        ]);
+    }
     public function index()
     {
-        $items = Item::get();
-        foreach ($items as $item) {
-            // $item->room->floor->museum;
 
-        }
+        $user = request()->user();
+
+        $user_museum = MuseumUser::where('user_id', $user->id)->get()->pluck('museum_id');
+
+        $items = Item::whereHas('room.floor.museum', function ($query) use ($user_museum) {
+            $query->whereIn('museum_id', $user_museum);
+        })->get();
+
         return $items;
     }
 

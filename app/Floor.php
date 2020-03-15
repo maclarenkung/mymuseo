@@ -8,6 +8,7 @@ use App\FloorTranslation;
 
 class Floor extends Model
 {
+
     public function museum()
     {
         return $this->belongsTo('App\Museum');
@@ -24,5 +25,17 @@ class Floor extends Model
     {
         $trans = FloorTranslation::where('floor_id', $this->id)->where('lang_id',  getLangSlugId())->first();
         return $trans;
+    }
+
+
+    public function transByLangId($lang_id)
+    {
+        $trans = FloorTranslation::where('floor_id', $this->id)->where('lang_id', $lang_id)->first();
+        return $trans;
+    }
+
+    public function image()
+    {
+        return $this->hasMany('App\FloorImage');
     }
 }

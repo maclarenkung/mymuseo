@@ -9,6 +9,7 @@ use App\SoundLang;
 use App\User;
 use Illuminate\Http\Request;
 use App\MuseumUser;
+use Illuminate\Support\Arr;
 
 class FloorController extends Controller
 {
@@ -23,12 +24,13 @@ class FloorController extends Controller
         $museumuser = MuseumUser::where('user_id', $user->id)->get()->pluck('museum_id');
         // return $museumuser;
         $floors =  Floor::whereIn('museum_id', $museumuser)->get();
+
         foreach ($floors as $floor) {
         }
 
         return $floors;
     }
-
+    // ->orderBy('id', 'desc')
     /**
      * Show the form for creating a new resource.
      *
@@ -96,6 +98,16 @@ class FloorController extends Controller
     public function show(Floor $floor)
     {
         $floor->rooms;
+
+        $floor->all = [
+            "museum_id" => $floor->museum_id,
+            "image_url" => Arr::pluck($floor->image, 'image_url')
+        ];
+
+        $floor->th = $floor->transByLangId(1);
+        $floor->en = $floor->transByLangId(2);
+        $floor->cn = $floor->transByLangId(3);
+
         return $floor;
     }
 
@@ -117,9 +129,35 @@ class FloorController extends Controller
      * @param  \App\Floor  $floor
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Floor $floor)
+    public function update(Request $request, $id)
     {
-        //
+
+
+        $floor = Floor::find($id);
+
+        FloorTranslation::where('floor_id', $floor->id)->delete();
+
+        foreach ($request->only(['th', 'en', 'cn']) as $key => $value) {
+            $lang_id = getLangSlugIdByCode($key);
+            FloorTranslation::create([
+                "lang_id" =>  $lang_id,
+                "floor_id" => $floor->id,
+                "name" => $value['name'],
+                "description" => $value['description']
+            ]);
+        }
+
+        FloorImage::where('floor_id', $floor->id)->delete();
+
+        foreach ($request->all['image_url'] as $url) {
+            FloorImage::create([
+                "floor_id" => $floor->id,
+                "image_url" => $url
+            ]);
+        }
+
+
+        return $floor;
     }
 
     /**

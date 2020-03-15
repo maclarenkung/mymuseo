@@ -25,9 +25,7 @@
               <span class="head-muse">พิพิธภัณฑ์ชาวบางกอก</span>
               <!-- <span class="head-muse">/ {{ show.name }}</span> -->
 
-              <span class="head-muse" style="color:#3641FB"
-                >/ {{ show.translation.name }}</span
-              >
+              <span class="head-muse" style="color:#3641FB">/ {{ show.translation.name }}</span>
             </div>
             <div class="col-6">
               <div class="row">
@@ -60,18 +58,15 @@
           <div class="col-12">
             <br />
             <div class="col-4 mt-4">
-              <span
-                style="color:#3631c4; font-size:27px;"
-                class="flaticon-photo"
-              >
+              <span style="color:#3631c4; font-size:27px;" class="flaticon-photo">
                 <!-- <h4 style="color:#3631c4;"></h4> -->
                 Image
               </span>
             </div>
-            <div class=" col-12">
+            <div class="col-12">
               <div class="row">
                 <div class="col-4" v-for="image in show.images" :key="image.id">
-                  <img :src="image.image_url" alt width="100%" height="" />
+                  <img :src="image.image_url" alt width="100%" height />
                 </div>
               </div>
             </div>
@@ -84,18 +79,16 @@
                   </div>
                 </div>
               </div>
-            </div> -->
+            </div>-->
           </div>
           <br />
           <div class="col-4 mt-4">
-            <span
-              style="color:#3631c4; font-size:27px;"
-              class="flaticon-placeholder"
-            >
+            <span style="color:#3631c4; font-size:27px;" class="flaticon-placeholder">
               <!-- <h4 style="color:#3631c4;"></h4> -->
               Map (พร้อมระบุตำแหน่ง)
             </span>
           </div>
+
           <!-- <div class="col-4 mt-4">
             <form>
               <div class="custom-file">
@@ -109,11 +102,7 @@
           <div class="col-12 mt-5">
             <b-card no-body>
               <b-tabs pills card v-model="tabIndex">
-                <b-tab
-                  :title="lang.name"
-                  v-for="lang in langConfigs"
-                  :key="lang.code"
-                >
+                <b-tab :title="lang.name" v-for="lang in langConfigs" :key="lang.code">
                   <b-card-text>
                     <div class="row">
                       <div class="form-group col-md-6">
@@ -135,11 +124,7 @@
                         <h3>Audio</h3>
                         <div class>
                           <audio controls v-if="show.translation" ref="player">
-                            <source
-                              :src="show.translation.audio_url"
-                              type="audio/mpeg"
-                            />
-                            Your browser does not support the audio element.
+                            <source :src="show.translation.audio_url" type="audio/mpeg" />Your browser does not support the audio element.
                           </audio>
                         </div>
                       </div>
@@ -169,16 +154,13 @@
                                 target="_blank"
                                 class="btn btn-primary"
                                 download
-                                >Save as</a
-                              >
+                              >Save as</a>
                               <br />
 
                               <button
                                 class="btn btn-primary mt-3"
                                 @click="printimage(show.qrcode_url)"
-                              >
-                                Print
-                              </button>
+                              >Print</button>
                             </div>
                           </div>
                         </div>

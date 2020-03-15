@@ -26,13 +26,8 @@
                     <span>SIGN IN</span>
                   </a>
                 </router-link>
-                <hr
-                  style="height:1px; border-color:#1EC1B5; background-color:#1EC1B5"
-                />
-                <form
-                  @submit.prevent="register"
-                  @keydown="form.onKeydown($event)"
-                >
+                <hr style="height:1px; border-color:#1EC1B5; background-color:#1EC1B5" />
+                <form @submit.prevent="register" @keydown="form.onKeydown($event)">
                   <!-- Name -->
                   <div class="form-group">
                     <input
@@ -97,9 +92,11 @@
 
                   <div class="form-group">
                     <!-- Submit Button -->
-                    <v-button :loading="form.busy" id="input2">{{
+                    <v-button :loading="form.busy" id="input2">
+                      {{
                       $t("register")
-                    }}</v-button>
+                      }}
+                    </v-button>
 
                     <!-- GitHub Register Button -->
                     <login-with-github />
@@ -131,10 +128,10 @@ export default {
 
   data: () => ({
     form: new Form({
-      name: "",
-      email: "",
-      password: "",
-      password_confirmation: ""
+      name: "test1",
+      email: "test@gmail.com",
+      password: "123456",
+      password_confirmation: "123456"
     }),
     mustVerifyEmail: false
   }),

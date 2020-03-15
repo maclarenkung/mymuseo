@@ -36,7 +36,35 @@ class FloorSeeder extends Seeder
 
                 "created_at" => "2019-12-25"
 
-            ]
+            ],
+            [
+
+                "museum_id" => 2,
+                "image_url" => "https://picsum.photos/200/300",
+                "map_image_url" => "https://picsum.photos/200/300",
+
+                "created_at" => "2019-12-25"
+            ],
+            [
+
+                "museum_id" => 2,
+                "image_url" => "https://picsum.photos/200/300",
+                "map_image_url" => "https://picsum.photos/200/300",
+
+                "created_at" => "2019-12-25"
+
+            ],
+            [
+
+                "museum_id" => 3,
+                "image_url" => "https://picsum.photos/200/300",
+                "map_image_url" => "https://picsum.photos/200/300",
+
+                "created_at" => "2019-12-25"
+
+            ],
+
+
 
 
         ]);

@@ -26,7 +26,7 @@ class DatabaseSeeder extends Seeder
                 RoomSeeder::class,
                 RoomImageSeeder::class,
                 ItemSeeder::class,
-                // SoundLangSeeder::class,
+
                 MuseumUserSeeder::class,
                 ItemTranslationSeeder::class,
                 FloorTranslationSeeder::class,
@@ -35,6 +35,16 @@ class DatabaseSeeder extends Seeder
                 PackageSeeder::class,
                 MuseumImageSeeder::class,
                 ItemImageSeeder::class,
+
+                // SoundLangSeeder::class,
+            ],
+            [
+                // UserSeeder::class,
+
+                // LangSeeder::class,
+
+                // PackageSeeder::class,
+
             ]
         );
     }

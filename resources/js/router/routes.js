@@ -197,6 +197,11 @@ export default [
         component: page("admin/floors/show.vue")
       },
       {
+        path: "floor/create",
+        name: "admin.floors.create",
+        component: page("admin/floors/form.vue")
+      },
+      {
         path: "room",
         name: "admin.room",
         component: page("admin/room/index.vue")

@@ -3,24 +3,19 @@
     <div class="dashh">
       <div class="clearfix">
         <router-link to="/admin/floors/1" class="float-left">
-          <i
-            class="flaticon-left-arrow"
-            style="font-size:25px; color:#ffcc57;"
-          ></i>
+          <i class="flaticon-left-arrow" style="font-size:25px; color:#ffcc57;"></i>
         </router-link>
-        <span class="float-left ml-4" style="font-size:25px;">{{
+        <span class="float-left ml-4" style="font-size:25px;">
+          {{
           id ? "Edit Room" : "Create Room"
-        }}</span>
+          }}
+        </span>
       </div>
       <!-- <pre>{{ form }}</pre> -->
       <!-- <pre>{{ floors }}</pre> -->
       <!-- <pre>{{ showfloors }}</pre> -->
 
-      <form
-        @submit.prevent="submitForm"
-        @keydown="form.onKeydown($event)"
-        class="mt-3"
-      >
+      <form @submit.prevent="submitForm" @keydown="form.onKeydown($event)" class="mt-3">
         <!-- Name -->
         <div class="row">
           <div class="col-12">
@@ -36,8 +31,7 @@
                   :value="floor.id"
                   v-for="(floor, index) in floors"
                   :key="index"
-                  >{{ floor.translation.name }}</option
-                >
+                >{{ floor.translation.name }}</option>
               </select>
             </div>
           </div>
@@ -70,11 +64,7 @@
           <div class="col-4"></div>
           <div class="col-12">
             <div class="row">
-              <div
-                class="col-md-4"
-                v-for="(img, index) in form.all.image_url"
-                :key="index"
-              >
+              <div class="col-md-4" v-for="(img, index) in form.all.image_url" :key="index">
                 <div class="card">
                   <div class="card-body">
                     <img :src="img" width="100%" />
@@ -87,7 +77,7 @@
             </div>
           </div>
           <br />
-          <div class="col-4 mt-4">
+          <!-- <div class="col-4 mt-4">
             <i style="color:#3631c4;" class="flaticon-placeholder"></i>
             <span style="color:#3631c4; font-size:20px;"
               >Map (พร้อมระบุตำแหน่ง)</span
@@ -102,7 +92,7 @@
                 </label>
               </div>
             </form>
-          </div>
+          </div>-->
           <div class="col-12 mt-5">
             <b-card no-body>
               <b-tabs pills card>
@@ -130,12 +120,7 @@
                       <div class="form-group col-md-6">
                         <label>Audio</label>
                         <div class>
-                          <input
-                            class="form-control"
-                            type="file"
-                            name="image"
-                            @change="setFile"
-                          />
+                          <input class="form-control" type="file" name="image" @change="setFile" />
                           <has-error :form="form" field="file" />
                         </div>
                       </div>
@@ -170,8 +155,7 @@
               id="createbtn2"
               style="width:130px;"
               class="text-white colorr"
-              >{{ id ? "UPDATE" : "CREATE" }}</v-button
-            >
+            >{{ id ? "UPDATE" : "CREATE" }}</v-button>
           </div>
         </div>
       </form>

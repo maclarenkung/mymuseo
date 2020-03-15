@@ -8,6 +8,7 @@
 </template>
 <script>
 import { mapActions, mapGetters } from "vuex";
+import _ from "lodash";
 export default {
   middleware: "auth",
   data() {
@@ -34,7 +35,7 @@ export default {
       console.log(array);
       console.log(this.active);
 
-      return array.filter(el => el.museum_id == this.active);
+      return _.filter(array, el => el.museum_id == this.active);
     },
     ...mapActions({
       fetch: "floor/fetch",

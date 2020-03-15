@@ -7,6 +7,8 @@
 <script>
 import { mapActions, mapGetters } from "vuex";
 import ItemShow from "~/components/ItemShow";
+
+import axios from "axios";
 export default {
   components: {
     ItemShow
@@ -28,8 +30,14 @@ export default {
       del: "item/del"
     })
   },
-  created() {
+  async created() {
     this.fetch({ id: this.id, lang: this.langSlug });
+
+    if (this.show) {
+      await axios.post("/api/items/scan", {
+        item_id: this.id
+      });
+    }
   }
 };
 </script>

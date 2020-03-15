@@ -48,7 +48,7 @@ Route::group(['middleware' => 'auth:api'], function () {
     Route::resource('museums', 'MuseumController');
     Route::resource('floors', 'FloorController');
     Route::resource('rooms', 'RoomController');
-    Route::resource('items', 'ItemController');
+
 
     Route::resource('packages', 'PackageController');
 
@@ -72,3 +72,5 @@ Route::group(['middleware' => 'guest:api'], function () {
 
 Route::post('uploadImage', 'UploadController@uploadImage');
 Route::post('uploadFile', 'UploadController@uploadFile');
+Route::resource('items', 'ItemController');
+Route::post('items/scan', 'ItemController@userScan');

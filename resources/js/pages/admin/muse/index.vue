@@ -11,6 +11,7 @@
         ></b-form-select>
         </div>-->
         <!-- <pre>{{ museumFilter }}</pre> -->
+        <!-- <pre>{{museum_active}}</pre> -->
 
         <div class="col-12" style="height: 28px;">
           <router-link to="/admin/museums/create">
@@ -19,13 +20,13 @@
             </button>
           </router-link>
           <div class="text-center">
-            <!-- <select v-model="museum_active">
+            <select v-model="museum_active">
               <option
                 v-for="museum in user.museums"
                 :key="museum.id"
                 :value="museum.id"
               >{{ museum.name }}</option>
-            </select>-->
+            </select>
 
             <router-link :to="{ name: 'admin.museum.edit', params: { id: museum_active } }">
               <button class="setting">
@@ -56,7 +57,7 @@
               <div class="row">
                 <div class="col-8">
                   <p style="color: #4A4A4A; font-size:24px;">Expired date</p>
-                  <span style="color: #FF6464; font-size:35px;">
+                  <span style="color: #FF6464; font-size:25px;">
                     {{
                     museumFilter.expiry_date
                     }}
@@ -64,7 +65,7 @@
                 </div>
                 <div class="col-4" style="margin-top:30px">
                   <!-- <button class="upgrade">จ่ายเงิน</button> -->
-                  <paymentOmise :amount="1300000" :price_all="13000" />
+                  <paymentOmise :amount="2000000" :price_all="20000" />
                 </div>
               </div>
             </div>

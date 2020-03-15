@@ -31,8 +31,7 @@
                     name: 'admin.item.show',
                     params: { id: item.id }
                   }"
-                  >{{ item.translation.name }}</router-link
-                >
+                >{{ item.translation.name }}</router-link>
               </td>
               <td class="text-center">
                 <router-link
@@ -48,15 +47,10 @@
             </tr>
           </tbody>
         </table>
-        <div
-          class="col-12 text-center"
-          style="margin-top:70px; margin-bottom:40px;"
-        >
-          <router-link
-            :to="{
+        <div class="col-12 text-center" style="margin-top:70px; margin-bottom:40px;">
+          <router-link :to="{
               name: 'admin.item.create'
-            }"
-          >
+            }">
             <button class="add-room">
               <i class="flaticon-add"></i> ADD ITEM
             </button>

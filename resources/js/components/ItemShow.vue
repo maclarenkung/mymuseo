@@ -151,7 +151,9 @@
           padding-top: 13px;"
               >ตำแหน่งของคุณ</p>
               <focus-point v-model="item.focus">
-                <template slot="pin">ICON</template>
+                <template slot="pin">
+                  <i class="fas fa-map-marker-alt" style="color: #C70039; font-size:30px;"></i>
+                </template>
                 <img :src="item.room.floor.museum.locate_image_url" width="100%" />
               </focus-point>
               <hr />
@@ -610,5 +612,5 @@ export default {
 // $focuspoint-radius: 2px;
 // find more variables in /src/scss/_focus-point-variables.scss
 
-@import "./node_modules/vue-focuspoint-component/src/scss/focus-point-theme";
+// @import "./node_modules/vue-focuspoint-component/src/scss/focus-point-theme";
 </style>

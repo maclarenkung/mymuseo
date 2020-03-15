@@ -3,9 +3,7 @@
     <form id="checkoutForm" method="POST" @click.prevent="checkOut">
       <input type="hidden" name="omiseToken" />
       <input type="hidden" name="omiseSource" />
-      <button type="submit" id="checkoutButton" class="btn btn-primary">
-        ชำระเงิน
-      </button>
+      <button type="submit" id="checkoutButton" class="btn btn-primary">ชำระเงิน</button>
     </form>
   </div>
 </template>
@@ -51,7 +49,7 @@ export default {
                   title: "การชำระเงินสำเร็จ",
                   timer: 1500
                 }).then(result => {
-                  alert("เสร็จละ");
+                  alert("การชำระเงินสำเร็จ");
                 });
               }
             } else {

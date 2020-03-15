@@ -65,7 +65,7 @@
             <select v-model="form.all.room_id" required style="width: 100%" class="form-control">
               <option value="1">please select</option>
               <option
-                :value="1"
+                :value="room.id"
                 v-for="(room, index) in rooms"
                 :key="index"
               >{{ room.translation.name }}</option>
@@ -124,7 +124,7 @@
             <focus-point v-model="focus">
               <template slot="pin">
                 <!-- <img src="https://sv1.picz.in.th/images/2020/03/09/QdzRr1.png" alt width="10%" /> -->
-                <i class="fas fa-map-marker-alt" style="color: #C70039; font-size:20px;"></i>
+                <i class="fas fa-map-marker-alt" style="color: #C70039; font-size:30px;"></i>
               </template>
               <img :src="filterMuse ? filterMuse.locate_image_url : ''" width="100%" />
             </focus-point>

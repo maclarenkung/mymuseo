@@ -1,49 +1,27 @@
 <template>
   <div>
-    <focus-point v-model="focus">
+    <!-- <focus-point v-model="focus">
       <img :src="filterMuse ? filterMuse.locate_image_url : ''" width="100%" />
     </focus-point>
 
-    <div v-if="focus.x && focus.y">x: {{ focus.x }} | y: {{ focus.y }}</div>
+    <div v-if="focus.x && focus.y">x: {{ focus.x }} | y: {{ focus.y }}</div>-->
 
     <div class="dashh">
       <div class="clearfix">
         <router-link to="/admin/museums/1" class="float-left">
-          <i
-            class="flaticon-left-arrow"
-            style="font-size:25px; color:#ffcc57;"
-          ></i>
+          <i class="flaticon-left-arrow" style="font-size:25px; color:#ffcc57;"></i>
         </router-link>
-        <span class="ml-4" style="font-size:25px;">
-          {{ id ? "Edit Floor" : "Create Floor" }}
-        </span>
+        <span class="ml-4" style="font-size:25px;">{{ id ? "Edit Floor" : "Create Floor" }}</span>
       </div>
       <!-- <pre>{{ form }}</pre> -->
       <!-- <pre>{{ user }}</pre> -->
 
-      <form
-        @submit.prevent="submitForm"
-        @keydown="form.onKeydown($event)"
-        class="mt-3"
-      >
+      <form @submit.prevent="submitForm" @keydown="form.onKeydown($event)" class="mt-3">
         <!-- Name -->
         <div class="row">
           <div class="col-12">
             <div class="col-4">
               <span>Museum</span>
-              <select
-                v-model="form.all.museum_id"
-                @change="loadRoom()"
-                style="width: 100%; color:#3631c4;"
-              >
-                <!-- <option value>please select</option> -->
-                <option
-                  :value="museum.id"
-                  v-for="(museum, index) in user.museums"
-                  :key="index"
-                  >{{ museum.name }}</option
-                >
-              </select>
             </div>
           </div>
           <br />
@@ -75,11 +53,7 @@
           <div class="col-4"></div>
           <div class="col-12">
             <div class="row">
-              <div
-                class="col-md-4"
-                v-for="(img, index) in form.all.image_url"
-                :key="index"
-              >
+              <div class="col-md-4" v-for="(img, index) in form.all.image_url" :key="index">
                 <div class="card">
                   <div class="card-body">
                     <img :src="img" width="100%" />
@@ -92,12 +66,9 @@
             </div>
           </div>
           <br />
-          <div class="col-4 mt-4">
-            <span
-              style="color:#3631c4; font-size:20px;"
-              class="flaticon-placeholder"
-            >
-              <!-- <h4 style="color:#3631c4;"></h4> -->
+          <!-- <div class="col-4 mt-4">
+            <span style="color:#3631c4; font-size:20px;" class="flaticon-placeholder">
+
               Map (พร้อมระบุตำแหน่ง)
             </span>
           </div>
@@ -109,9 +80,9 @@
                   <i class="flaticon-upload"></i> Upload Map
                 </label>
               </div>
-              <!-- <canvas id="Canvas" width="700" height="700"></canvas> -->
+
             </form>
-          </div>
+          </div>-->
           <div class="col-12 mt-5">
             <b-card no-body>
               <b-tabs pills card>
@@ -139,12 +110,7 @@
                       <div class="form-group col-md-6">
                         <label>Audio</label>
                         <div class>
-                          <input
-                            class="form-control"
-                            type="file"
-                            name="image"
-                            @change="setFile"
-                          />
+                          <input class="form-control" type="file" name="image" @change="setFile" />
                           <has-error :form="form" field="file" />
                         </div>
                       </div>
@@ -179,8 +145,7 @@
               id="createbtn2"
               style="width:130px;"
               class="text-white colorr"
-              >{{ id ? "UPDATE" : "CREATE" }}</v-button
-            >
+            >{{ id ? "UPDATE" : "CREATE" }}</v-button>
           </div>
         </div>
       </form>
@@ -194,12 +159,12 @@ import { mapActions, mapGetters } from "vuex";
 
 export default {
   data: () => ({
-    focus: "",
+    // focus: "",
     form: new Form({
       all: {
         museum_id: "",
-        locate_x: 0,
-        locate_y: 0,
+        // locate_x: 0,
+        // locate_y: 0,
         image_url: []
       },
       th: {
@@ -207,21 +172,21 @@ export default {
         description:
           "อาคารหลังนี้ถูกสร้างขึ้นเมื่อปี พ.ศ. 2480 หรือเมื่อประมาณ 80 กว่าปีที่แล้ว โดยเป็นอาคารที่คุณแม่ของท่านอาจารย์วราพรได้สร้างขึ้นมาด้วยเงินจำนวน 2,400 บาท อาคารแห่งนี้จะเป็นอาคารที่ครอบครัวของท่านอาจารย์วราพรเคยอาศัยอยู่เมื่อในอดีต โดยคุณแม่ของท่านมีลูกทั้งหมด 5 คน เป็นผู้หญิงล้วน และท่านอาจารย์เป็นลูกคนที่ 4 ครับ ลักษณะของอาคารจะเป็นอาคารไม้สองชั้น หลังคาทรงปั้นหยา มุงด้วยกระเบื้องว่าวสีแดง ผนังอาคารสร้างด้วยไม้ทาสีเลียนแบบผนังก่ออิฐ และสถาปัตยกรรมหลายๆ อย่างจะได้รับอิทธิพลมาจากทางตะวันตกซึ่งกำลังเป็นที่นิยมในยุคนั้น",
 
-        file_url: ""
+        audio_url: ""
       },
       en: {
         name: "1st floor",
         description:
           "This building was built in 2480, or about 80 years ago. The building is the mother of Master Waraporn was built with funds of 2,400 baht this building is the building where the family of Master Waraporn had lived in the past. The mother of five children, all of whom are girls. The teacher and the child's fourth appearance of the building will be a two-story wooden building. Hip roof Roofed with tiles, red kites. Wall built of wood painted in imitation masonry. And multiple platforms Will be influenced by the West, which were popular in that era.",
 
-        file_url: ""
+        audio_url: ""
       },
       cn: {
         name: "地板层",
         description:
           "该建筑建于2480年，大约80年前。这是瓦拉波恩老师的母亲以2,400泰铢建造的建筑物，它将是瓦拉波恩老师的家人过去居住的建筑物  你妈妈有五个孩子，都是女人师父是第四个孩子，这座建筑有两层楼的木制建筑臀部屋顶茅草屋顶的红色风筝瓷砖建筑物的墙壁是用彩绘木材建造的，模仿了砖砌。还有很多建筑会受到那个时代流行的西方的影响",
 
-        file_url: ""
+        audio_url: ""
       }
     }),
     // floor_active: 1,
@@ -235,7 +200,9 @@ export default {
     ...mapGetters({
       show: "item/show",
       floors: "floor/items",
-      rooms: "room/items"
+      rooms: "room/items",
+      museum_active: "museum/museum_active",
+      floor_show: "floor/show"
     }),
     id() {
       return parseInt(this.$route.params.id);
@@ -245,7 +212,7 @@ export default {
     }
   },
   components: {
-    FocusPoint
+    // FocusPoint
   },
   methods: {
     async setImg(e) {
@@ -276,19 +243,19 @@ export default {
       //   path: "items"
       // });
 
-      this.form.museum_id;
+      this.form.all.museum_id = this.museum_active;
 
-      this.form.all.locate_x = this.focus.x;
-      this.form.all.locate_y = this.focus.y;
+      // this.form.all.locate_x = this.focus.x;
+      // this.form.all.locate_y = this.focus.y;
 
       const { data } = await this.form.post("/api/floors");
 
-      // if (data) {
-      //   this.$router.push({
-      //     name: "admin.room.show",
-      //     params: { id: this.room_id }
-      //   });
-      // }
+      if (data) {
+        this.$router.push({
+          name: "admin.museums.show",
+          params: { id: 1 }
+        });
+      }
     },
     loadRoom() {
       this.form.room_id = "";
@@ -304,27 +271,28 @@ export default {
           path: "items"
         });
       }
-      const { data } = await this.form.put(`/api/items/${this.id}`);
+      const { data } = await this.form.put(`/api/floors/${this.id}`);
 
       if (data) {
         this.$router.push({
-          name: "admin.item.show",
-          params: { id: this.show.id }
+          name: "admin.museums.show",
+          params: { id: 1 }
         });
       }
     },
     ...mapActions({
       fetch: "item/show",
       fetchFloors: "floor/fetch",
-      fetchRoom: "room/fetch"
+      fetchRoom: "room/fetch",
+      fetchFloorShow: "floor/show"
     })
   },
   async created() {
     console.log(this.id);
     if (this.id) {
-      await this.fetch(this.id);
+      await this.fetchFloorShow(this.id);
       this.form.keys().forEach(key => {
-        this.form[key] = this.show[key];
+        this.form[key] = this.floor_show[key];
       });
     }
     this.fetchFloors();

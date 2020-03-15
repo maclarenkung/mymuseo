@@ -35,7 +35,7 @@ export const actions = {
   setMuseumActive({ commit }, active) {
     let museum_active = active;
     commit(types.SET_MUSEUM_ACTIVE, { museum_active });
-    console.log("kuay");
+    console.log("change");
 
     Cookies.set("museum_active", museum_active, { expires: 365 });
   },
