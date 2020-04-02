@@ -271,7 +271,7 @@ export default {
 
       if (data) {
         this.$router.push({
-          name: "admin.item.show",
+          name: "admin.floors.show",
           params: { id: this.show.id }
         });
       }
