@@ -105,9 +105,6 @@ class ItemImageSeeder extends Seeder
                 "item_id" => 12,
                 "image_url" => "/uploads/images/items/img12.jpg"
             ],
-
-
-
             [
                 "item_id" => 13,
                 "image_url" => "/uploads/images/items/img16_1.jpg"
