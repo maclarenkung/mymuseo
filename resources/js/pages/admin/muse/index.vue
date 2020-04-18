@@ -25,10 +25,13 @@
                 v-for="museum in user.museums"
                 :key="museum.id"
                 :value="museum.id"
-              >{{ museum.name }}</option>
+                >{{ museum.name }}</option
+              >
             </select>
 
-            <router-link :to="{ name: 'admin.museum.edit', params: { id: museum_active } }">
+            <router-link
+              :to="{ name: 'admin.museum.edit', params: { id: museum_active } }"
+            >
               <button class="setting">
                 <i class="flaticon-wheel"></i>
                 setting
@@ -44,9 +47,7 @@
             <div class="col-6">
               <span style="font-size: 35px; color:#4A4A4A">Your package :</span>
               <span style="color: #3e7a63; font-size:35px;">
-                {{
-                museumFilter.package.name
-                }}
+                {{ museumFilter.package.name }}
               </span>
               <br />
               <br />
@@ -58,9 +59,7 @@
                 <div class="col-8">
                   <p style="color: #4A4A4A; font-size:24px;">Expired date</p>
                   <span style="color: #FF6464; font-size:25px;">
-                    {{
-                    museumFilter.expiry_date
-                    }}
+                    {{ museumFilter.expiry_date }}
                   </span>
                 </div>
                 <div class="col-4" style="margin-top:30px">
@@ -75,11 +74,16 @@
             <div class="col-4">
               <div class="row">
                 <div class="col-6 text-right">
-                  <i class="flaticon-edit-button" style="font-size: 50px; color: #3e7a63"></i>
+                  <i
+                    class="flaticon-edit-button"
+                    style="font-size: 50px; color: #3e7a63"
+                  ></i>
                 </div>
                 <div class="col-6">
                   <h4 class="h8">Content</h4>
-                  <p style="color: #3e7a63;">{{ museumFilter.package.item_max }} items</p>
+                  <p style="color: #3e7a63;">
+                    {{ museumFilter.package.item_max }} items
+                  </p>
                   <!-- <i class="vl"></i> -->
                 </div>
               </div>
@@ -87,11 +91,16 @@
             <div class="col-4">
               <div class="row">
                 <div class="col-6 text-right">
-                  <i class="flaticon-qr-code" style="font-size: 50px; color: #3e7a63;"></i>
+                  <i
+                    class="flaticon-qr-code"
+                    style="font-size: 50px; color: #3e7a63;"
+                  ></i>
                 </div>
                 <div class="col-6">
                   <h4 class="h8">Qr-code</h4>
-                  <p style="color: #3e7a63;">{{ museumFilter.package.qrcode }}</p>
+                  <p style="color: #3e7a63;">
+                    {{ museumFilter.package.qrcode }}
+                  </p>
                   <!-- <i class="vl"></i> -->
                 </div>
               </div>
@@ -99,7 +108,10 @@
             <div class="col-4">
               <div class="row">
                 <div class="col-6 text-right">
-                  <i class="flaticon-photo" style="font-size: 50px; color: #3e7a63;"></i>
+                  <i
+                    class="flaticon-photo"
+                    style="font-size: 50px; color: #3e7a63;"
+                  ></i>
                 </div>
                 <div class="col-6">
                   <h4 class="h8">Item</h4>
@@ -117,36 +129,67 @@
       <div class="col-12">
         <div class="row mt-5">
           <div class="col-4">
-            <div class="col-12 tab">
-              <div class="icon-1 text-center">
-                <i class="flaticon-user"></i>
-              </div>
+            <b-button
+              v-b-modal.modal-1
+              style="background-color:white; border-color:white;padding-top: 0; padding-right: 0; padding-left: 0;"
+              class="col-12 tab"
+            >
+              <div class="">
+                <div class="icon-1 text-center">
+                  <i class="flaticon-user"></i>
+                </div>
 
-              <p class="mt-4 h7">500</p>
-              <span class="h8">Visit today</span>
+                <p class="mt-4 h7">จำนวน</p>
+                <span class="h8">Scan Qr</span>
+              </div>
+            </b-button>
+            <div>
+              <b-modal id="modal-1" title="จำนวนคนที่ scan">
+                <p class="my-4">500 คน</p>
+              </b-modal>
             </div>
           </div>
           <div class="col-4">
-            <div class="col-12 tab">
-              <div class="icon-2 text-center">
-                <i class="flaticon-team"></i>
+            <b-button
+              v-b-modal.modal-2
+              style="background-color:white; border-color:white;padding-top: 0; padding-right: 0; padding-left: 0;"
+              class="col-12 tab"
+            >
+              <div class="">
+                <div class="icon-2 text-center">
+                  <i class="flaticon-team"></i>
+                </div>
+                <p class="mt-4 h7">ห้อง</p>
+                <span class="h8">Most People (300)</span>
               </div>
-
-              <p class="mt-4 h7">Saturday</p>
-              <span class="h8">Most People (300)</span>
+            </b-button>
+            <div>
+              <b-modal id="modal-2" title="ส่ง">
+                <p class="my-4">จำนวน</p>
+              </b-modal>
             </div>
           </div>
           <div class="col-4">
-            <div class="col-12 tab">
-              <div class="icon-3 text-center">
-                <i class="flaticon-qr-code"></i>
+            <b-button
+              v-b-modal.modal-_
+              style="background-color:white; border-color:white;padding-top: 0; padding-right: 0; padding-left: 0;"
+              class="col-12 tab"
+            >
+              <div class="">
+                <div class="icon-3 text-center">
+                  <i class="flaticon-qr-code"></i>
+                </div>
+                <p class="mt-4 h7">เปียโน</p>
+                <span class="h8">Most Scan (489)</span>
               </div>
-
-              <p class="mt-4 h7">เปียโน</p>
-              <span class="h8">Most Scan (489)</span>
+            </b-button>
+            <div>
+              <b-modal id="modal-_" title="ส่ง">
+                <p class="my-4">จำนวน</p>
+              </b-modal>
             </div>
           </div>
-          <div class="col-4 mt-5">
+          <!-- <div class="col-4 mt-5">
             <div class="col-12 tab">
               <div class="icon-4 text-center">
                 <i class="flaticon-witness"></i>
@@ -154,12 +197,21 @@
               <p class="mt-4 h7">ห้องรับแขก</p>
               <span class="h8">Most Visit (300)</span>
             </div>
-          </div>
-          <div class="col-4 mt-5">
+          </div> -->
+
+          <!-- graph -->
+          <!-- <div class="col-4 mt-5">
             <div class="col-12 tab">
-              <apexcharts width="300" type="bar" :options="chartOptions" :series="series"></apexcharts>
+              <apexcharts
+                width="300"
+                type="bar"
+                :options="chartOptions"
+                :series="series"
+              ></apexcharts>
             </div>
-          </div>
+          </div> -->
+          <!-- graph -->
+
           <!-- <div class="col-12 mt-5">
             <div class="col-12">
               <vue-funnel-graph
@@ -303,7 +355,7 @@ export default {
   components: {
     VueFunnelGraph,
     apexcharts: VueApexCharts,
-    paymentOmise
+    paymentOmise,
   },
   data() {
     return {
@@ -311,18 +363,18 @@ export default {
 
       chartOptions: {
         chart: {
-          id: "vuechart-example"
+          id: "vuechart-example",
         },
         xaxis: {
-          categories: [1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998]
-        }
+          categories: [1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998],
+        },
       },
       series: [
         {
           name: "series-1",
-          data: [30, 40, 45, 50, 49, 60, 70, 91]
-        }
-      ]
+          data: [30, 40, 45, 50, 49, 60, 70, 91],
+        },
+      ],
 
       //   labels: ["ยอดผู้เข้าชมรายวัน", "Add To Cart", "Buy"],
       //   subLabels: ["Direct", "Social Media", "Ads"],
@@ -356,14 +408,14 @@ export default {
   },
   computed: {
     museumFilter() {
-      let res = this.user.museums.find(el => el.id == this.museum_active);
+      let res = this.user.museums.find((el) => el.id == this.museum_active);
       return res.museum_package;
-    }
+    },
   },
   async created() {
     await this.fetchUser();
     this.museum_active = this.user.museum_active;
-  }
+  },
 };
 </script>
 
@@ -389,31 +441,31 @@ export default {
   height: 30px;
 }
 .icon-1 {
-  height: 60px;
-  width: 60px;
+  /* height: 30px; */
+  width: 100%;
   background-color: #ff6464;
-  border-radius: 50%;
+  /* border-radius: 50%; */
   color: white;
-  border-style: none;
-  font-size: 30px;
+  /* border-style: none; */
+  font-size: 36px;
 }
 .icon-2 {
-  height: 60px;
-  width: 60px;
+  /* height: 30px; */
+  width: 100%;
   background-color: #ffcc57;
-  border-radius: 50%;
+  /* border-radius: 50%; */
   color: white;
-  border-style: none;
-  font-size: 30px;
+  /* border-style: none; */
+  font-size: 36px;
 }
 .icon-3 {
-  height: 60px;
-  width: 60px;
+  /* height: 30px; */
+  width: 100%;
   background-color: #3e7a63;
-  border-radius: 50%;
+  /* border-radius: 50%; */
   color: white;
-  border-style: none;
-  font-size: 30px;
+  /* border-style: none; */
+  font-size: 36px;
 }
 .icon-4 {
   height: 60px;

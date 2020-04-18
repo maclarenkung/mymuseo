@@ -1,19 +1,33 @@
 <template>
   <div class>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
-    <div class="sidenav">
-      <h3 style="color: white; margin-top:100px" class="text-center">MINDMUSE</h3>
+    <div id="mySidenav" class="sidenav">
+      <h3 style="color: white; margin-top:70px" class="text-center">
+        MINDMUSE
+      </h3>
 
       <h5 style="color:white;" class="text-center">Welcome</h5>
 
-      <div class="manage">
-        <div class="w3-sidebar w3-bar-block">
+      <div class="manage" style="height:100%">
+        <div class="more">
+          <i class="fas fa-chevron-right"></i>
+        </div>
+        <div class="more2">
+          <i class="fas fa-chevron-right"></i>
+        </div>
+        <div class="">
           <h5
             class="w3-bar-item text-center"
             style="color:white!important;"
             v-if="user.role == 1"
-          >Museum Management</h5>
-          <ul class="nav flex-column nav-pills pt-2" id="ab" v-if="user.role == 1">
+          >
+            Museum Management
+          </h5>
+          <ul
+            class="nav flex-column nav-pills pt-2"
+            id="ab"
+            v-if="user.role == 1"
+          >
             <li v-for="tab in tabs" :key="tab.route" class="nav-item">
               <router-link :to="{ name: tab.route }" class="nav-link">
                 <img :src="'/icon/' + tab.icon" alt width="24" />
@@ -61,7 +75,10 @@
               <FilterMuseum />
             </li>
             <li class="nav-item">
-              <router-link :to="{ name: 'admin.muse.dashboard' }" class="nav-link">
+              <router-link
+                :to="{ name: 'admin.muse.dashboard' }"
+                class="nav-link"
+              >
                 <img :src="'/icon/Home.png'" alt width="24" />
                 Home
               </router-link>
@@ -86,7 +103,7 @@
                   <router-link
                     :to="{
                       name: 'admin.floors.show',
-                      params: { id: floor.id }
+                      params: { id: floor.id },
                     }"
                   >
                     <p>{{ floor.translation.name }}</p>
@@ -172,7 +189,7 @@
     </div>
 
     <div class="content">
-      <div class="col-md-10 offset-2">
+      <div class="col-md-12 ">
         <div class="container mt-5">
           <router-view />
         </div>
@@ -211,7 +228,7 @@ import FilterMuseum from "~/components/FilterMuseum";
 export default {
   middleware: "auth",
   components: {
-    FilterMuseum
+    FilterMuseum,
   },
   computed: {
     tabs() {
@@ -219,42 +236,98 @@ export default {
         {
           icon: "exhibition-w.png",
           name: "Museum",
-          route: "admin.museums"
-        }
+          route: "admin.museums",
+        },
       ];
-    }
+    },
   },
   computed: {
     ...mapGetters({
       show: "floor/items",
 
-      museum_active: "museum/museum_active"
+      museum_active: "museum/museum_active",
     }),
 
     id() {
       return parseInt(this.$route.params.id);
-    }
+    },
   },
   methods: {
     filterFloor(array) {
       console.log(array);
       console.log(this.active);
 
-      return array.filter(el => el.museum_id == this.museum_active);
+      return array.filter((el) => el.museum_id == this.museum_active);
     },
     ...mapActions({
       fetch: "floor/fetch",
       // del: "museum/del"
-      setMuseumActive: "museum/setMuseumActive"
-    })
+      setMuseumActive: "museum/setMuseumActive",
+    }),
   },
   created() {
     this.fetch();
-  }
+  },
 };
 </script>
 
 <style lang="scss">
+.more {
+  font-size: 50px;
+  position: absolute;
+  right: -53px;
+  top: 330px;
+  color: #3e7a63;
+  transition: 1s;
+}
+.more2 {
+  font-size: 50px;
+  position: absolute;
+  right: -35px;
+  top: 330px;
+  color: #3e7a639c;
+  transition: 1.5s;
+}
+.triangle {
+  width: 0;
+  height: 0;
+  border-left: 100px solid transparent;
+  border-right: 100px solid transparent;
+  border-bottom: 100px solid #aaa;
+}
+
+#mySidenav {
+  margin-top: -98px;
+  position: fixed;
+  left: -250px;
+  transition: 0.5s;
+  // padding: 15px;
+  width: 100%;
+  max-width: 270px;
+  text-decoration: none;
+  font-size: 20px;
+  color: white;
+  border-radius: 0 5px 5px 0;
+
+  height: 100%;
+  z-index: 1;
+  background-color: #3e7a63;
+  // padding-top: 20px;
+  border-radius: 0px 100px 0px 0px;
+}
+#mySidenav:hover {
+  left: 0;
+  .more,
+  .more2 {
+    transition: 1s;
+    opacity: 0;
+  }
+}
+#ab {
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
 .logo-mind {
   display: none;
 }
@@ -401,18 +474,6 @@ body {
     -ms-transform: translateX(50%);
     transform: translateX(50%);
   }
-}
-.sidenav {
-  height: 100%;
-  width: 250px;
-  position: fixed;
-  z-index: 1;
-  top: 0;
-  left: 0;
-  background-color: #3e7a63;
-  overflow-x: hidden;
-  padding-top: 20px;
-  border-radius: 0px 100px 0px 0px;
 }
 
 .sidenav a {
