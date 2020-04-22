@@ -17,7 +17,7 @@
                 <i class="flaticon-user"></i> Name (TH)
               </label>
               <br />
-              <input type="text" class="create-form" v-model="form.name" />
+              <input type="text" class="create-form" v-model="form.name" style="padding: 0 5px 5px"/>
             </div>
             <div class="col-6">
               <label for>
@@ -34,7 +34,7 @@
               <!-- <textarea name id cols="80" rows="10" width="100%" ></textarea> -->
               <textarea
                 class
-                style="width:90%; border-radius: 10px; border-color: #1fe2d4;"
+                style="width:90%; border-radius: 10px; border-color: grey; padding-left:10px; padding-right:10px;"
                 id="exampleFormControlTextarea1"
                 v-model="form.description"
                 rows="10"
@@ -129,7 +129,7 @@
               </div>
             </div>
             <div class="col-6 mt-4">
-              <label for>
+              <label >
                 <i class="flaticon-dashboard"></i>
                 Package
               </label>
@@ -137,7 +137,7 @@
               <select
                 v-model="form.package_id"
                 required
-                style="width: 80%; border-color:#1fe2d4; background-color: white;"
+                style="width: 80%; border-color:grey; background-color: white;"
               >
                 <option
                   v-for="(packagex, index) in packagexs"
@@ -396,10 +396,12 @@ body {
 }
 .create-form {
   width: 80%;
-  border-color: #1fe2d4;
+  border-color: grey;
   border-style: solid;
   border-radius: 6px;
   border-width: thin;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 /* .col-12 {
       padding-left: 0px;

@@ -173,6 +173,7 @@ export default {
   background-position: 0 50%;
   background-repeat: no-repeat;
   text-indent: 30px;
+  padding-left: 0px;
 }
 #input2 {
   background-color: #ff6464;

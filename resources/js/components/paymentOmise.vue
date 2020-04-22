@@ -3,7 +3,10 @@
     <form id="checkoutForm" method="POST" @click.prevent="checkOut">
       <input type="hidden" name="omiseToken" />
       <input type="hidden" name="omiseSource" />
-      <button type="submit" id="checkoutButton" class="btn btn-primary">ชำระเงิน</button>
+      <button type="submit" id="checkoutButton" class="btn btn-primary" style="background-color: rgb(0, 123, 255);;
+    color: whitesmoke;
+    padding: 10px 15px;
+    border-radius: 10px; width: 100%;"><i class="far fa-credit-card"></i> Payment</button>
     </form>
   </div>
 </template>
@@ -23,7 +26,7 @@ export default {
         amount: this.amount,
         currency: "THB",
         frameLabel: "MindMuse",
-        image: "https://sv1.picz.in.th/images/2020/01/08/RhJSDt.png",
+        image: "https://sv1.picz.in.th/images/2020/04/21/U1jqbV.png",
         defaultPaymentMethod: "credit_card",
         locale: "th",
         submitLabel: "ชำระเงิน",

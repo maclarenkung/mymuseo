@@ -14,94 +14,126 @@
         <!-- <pre>{{museum_active}}</pre> -->
 
         <div class="col-12" style="height: 28px;">
-          <router-link to="/admin/museums/create">
-            <button class="setting2">
-              <i class="flaticon-add"></i> CREATE MUSEUM
-            </button>
-          </router-link>
-          <div class="text-center">
-            <select v-model="museum_active">
-              <option
-                v-for="museum in user.museums"
-                :key="museum.id"
-                :value="museum.id"
-                >{{ museum.name }}</option
+          <div class="row">
+            <div class="col-4" >
+              <select
+                v-model="museum_active"
+                style="font-family: mitr;
+                      text-align: center;
+                      width: 330px;
+                      height: 50px;
+                      font-size: 25px;"
               >
-            </select>
-
-            <router-link
-              :to="{ name: 'admin.museum.edit', params: { id: museum_active } }"
-            >
-              <button class="setting">
-                <i class="flaticon-wheel"></i>
-                setting
-              </button>
-            </router-link>
+                <option
+                  v-for="museum in user.museums"
+                  :key="museum.id"
+                  :value="museum.id"
+                  >{{ museum.name }}</option
+                >
+              </select>
+            </div>
+            <div class="col-8">
+              <div class="row">
+                <div class="offset-3"></div>
+                <div class="col-3" style="float: right;">
+                  <router-link to="/admin/museums/create">
+                    <button class="setting2">
+                      <i class="flaticon-add"></i> Create
+                    </button>
+                  </router-link>
+                </div>
+                <div class="col-3" style="float: right;">
+                  <router-link
+                    :to="{
+                      name: 'admin.museum.edit',
+                      params: { id: museum_active },
+                    }"
+                  >
+                    <button class="setting">
+                      <i class="flaticon-wheel"></i>
+                      Setting
+                    </button>
+                  </router-link>
+                </div>
+                <div class="col-3" style="float: right;">
+                  <div >
+                    <!-- <button class="upgrade">จ่ายเงิน</button> -->
+                    <paymentOmise
+                      :amount="2000000"
+                      :price_all="20000"
+                      
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
 
       <div class="col-12 mt-5">
-        <div class="container mt-5 dashh">
+        <div class="container mt-5 dashh" style="">
           <div class="row">
-            <div class="col-6">
-              <span style="font-size: 35px; color:#4A4A4A">Your package :</span>
+            <div class="col-6" style="
+    line-height: 20px;">
+              <span style="font-size: 35px; color:#4A4A4A"
+                >Your Package :
+              </span>
               <span style="color: #3e7a63; font-size:35px;">
                 {{ museumFilter.package.name }}
               </span>
               <br />
               <br />
-              <span style="color: #4A4A4A; font-size:24px;">Package :</span>
+              <span style="color: #4A4A4A; font-size:24px;">Package : </span>
               <span style="color: #3e7a63; font-size:24px;">1 month</span>
             </div>
-            <div class="col-6 text-right">
+            <div class="col-6 text-right" style="
+    line-height: 27px;">
               <div class="row">
-                <div class="col-8">
-                  <p style="color: #4A4A4A; font-size:24px;">Expired date</p>
+                <div class="col-12">
+                  <p style="color: #4A4A4A; font-size:30px;">Expired date</p>
                   <span style="color: #FF6464; font-size:25px;">
-                    {{ museumFilter.expiry_date }}
+                   <strong> {{ museumFilter.expiry_date }}</strong>
                   </span>
-                </div>
-                <div class="col-4" style="margin-top:30px">
-                  <!-- <button class="upgrade">จ่ายเงิน</button> -->
-                  <paymentOmise :amount="2000000" :price_all="20000" />
                 </div>
               </div>
             </div>
           </div>
-          <hr class="dash-b" style="border-color: #1FE2D4;" />
+          <hr class="dash-b" style="border-color: grey; opacity: 60%;" />
           <div class="row">
             <div class="col-4">
               <div class="row">
-                <div class="col-6 text-right">
+                <div class="col-3 text-right">
                   <i
                     class="flaticon-edit-button"
-                    style="font-size: 50px; color: #3e7a63"
+                    style="font-size: 56px; color: #3e7a63"
                   ></i>
                 </div>
-                <div class="col-6">
-                  <h4 class="h8">Content</h4>
+                <div class="col-9 ">
+                  <h4 class="h8" style=" margin-top: 1rem !important;">
+                    Content
+                  </h4>
                   <p style="color: #3e7a63;">
-                    {{ museumFilter.package.item_max }} items
+                    <strong style="font-size: 18px">{{ museumFilter.package.item_max }}</strong> items
                   </p>
-                  <!-- <i class="vl"></i> -->
                 </div>
               </div>
             </div>
             <div class="col-4">
               <div class="row">
-                <div class="col-6 text-right">
+                <div class="col-5 text-right">
                   <i
                     class="flaticon-qr-code"
-                    style="font-size: 50px; color: #3e7a63;"
+                    style="font-size: 56px; color: #3e7a63;"
                   ></i>
                 </div>
-                <div class="col-6">
-                  <h4 class="h8">Qr-code</h4>
+                <div class="col-7">
+                  <h4 class="h8" style=" margin-top: 1rem !important;">
+                    Qr-code
+                  </h4>
                   <p style="color: #3e7a63;">
                     {{ museumFilter.package.qrcode }}
                   </p>
-                  <!-- <i class="vl"></i> -->
                 </div>
               </div>
             </div>
@@ -110,16 +142,15 @@
                 <div class="col-6 text-right">
                   <i
                     class="flaticon-photo"
-                    style="font-size: 50px; color: #3e7a63;"
+                    style="font-size: 56px; color: #3e7a63;"
                   ></i>
                 </div>
                 <div class="col-6">
-                  <h4 class="h8">Item</h4>
+                  <h4 class="h8" style=" margin-top: 1rem !important;">Item</h4>
                   <p style="color: #3e7a63;">
-                    {{ museumFilter.item_count }} /
-                    {{ museumFilter.package.item_max }} items
+                   <strong style="font-size:18px">{{ museumFilter.item_count }} /
+                    {{ museumFilter.package.item_max }}</strong> items
                   </p>
-                  <!-- <i class="vl"></i> -->
                 </div>
               </div>
             </div>
@@ -139,8 +170,8 @@
                   <i class="flaticon-user"></i>
                 </div>
 
-                <p class="mt-4 h7">จำนวน</p>
-                <span class="h8">Scan Qr</span>
+                <p class="mt-4 h7">จำนวน QR Scan ทั้งหมด</p>
+                <span class="h8">500 คน</span>
               </div>
             </b-button>
             <div>
@@ -159,13 +190,13 @@
                 <div class="icon-2 text-center">
                   <i class="flaticon-team"></i>
                 </div>
-                <p class="mt-4 h7">ห้อง</p>
-                <span class="h8">Most People (300)</span>
+                <p class="mt-4 h7">จำนวนห้องจัดแสดง</p>
+                <!-- <span class="h8">Room</span> -->
               </div>
             </b-button>
             <div>
-              <b-modal id="modal-2" title="ส่ง">
-                <p class="my-4">จำนวน</p>
+              <b-modal id="modal-2" title="จำนวนห้อง">
+                <p class="my-4">8 ห้อง</p>
               </b-modal>
             </div>
           </div>
@@ -179,13 +210,14 @@
                 <div class="icon-3 text-center">
                   <i class="flaticon-qr-code"></i>
                 </div>
-                <p class="mt-4 h7">เปียโน</p>
-                <span class="h8">Most Scan (489)</span>
+                <p class="mt-4 h7">จำนวน QR Scan ของจัดแสดง</p>
+                <!-- <span class="h8">Items</span> -->
               </div>
             </b-button>
             <div>
-              <b-modal id="modal-_" title="ส่ง">
-                <p class="my-4">จำนวน</p>
+              <b-modal id="modal-_" title="จำนวน scan">
+                <p class="my-4">ตู้</p>
+                <p class="my-4">400 ครั้ง</p>
               </b-modal>
             </div>
           </div>
@@ -477,26 +509,29 @@ export default {
   font-size: 30px;
 }
 .dashh {
+  margin-top: 5rem!important;
   padding: 50px 40px;
   background-color: white;
   border-radius: 30px;
-  box-shadow: 3px 5px 5px;
+  box-shadow: 3px 4px 18px;
   color: #7070707a;
 }
 .h7 {
   color: #4a4a4a;
-  font-size: 25px;
+  font-size: 18px;
 }
 .h8 {
+  font-family: mitr;
+  font-weight: 600;
   color: #4a4a4a;
 }
 .setting {
-  right: 0;
-  position: absolute;
+  
   background-color: #3631c4;
   color: whitesmoke;
   padding: 10px 15px;
   border-radius: 10px;
+  width: 100%;
 }
 .svg-funnel-js .svg-funnel-js__labels .svg-funnel-js__label .label__title {
   color: #3e7a63 !important;
@@ -515,11 +550,11 @@ export default {
   font-size: 25px;
 }
 .setting2 {
-  left: 0;
-  position: absolute;
+  
   background-color: #ff6e6e;
   color: whitesmoke;
   padding: 10px 15px;
   border-radius: 10px;
+  width: 100%;
 }
 </style>

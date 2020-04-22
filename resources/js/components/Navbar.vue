@@ -65,7 +65,7 @@
           </li>
           <!-- Guest -->
           <template v-else>
-            <li class="nav-item">
+            <li class="nav-item" style="width: 60px;">
               <router-link
                 :to="{ name: 'login' }"
                 class="nav-link"

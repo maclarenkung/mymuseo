@@ -297,7 +297,7 @@ export default {
 }
 
 #mySidenav {
-  margin-top: -98px;
+  top: 0;
   position: fixed;
   left: -250px;
   transition: 0.5s;
@@ -371,17 +371,9 @@ body {
   color: #305a9a;
   font-size: 10px;
 }
-
-/* Toggling the sidebar header content, hide the big heading [h3] and showing the small heading [strong] and vice versa*/
-// #sidebar .sidebar-header strong {
-//   display: none;
-// }
-// #sidebar.active .sidebar-header h3 {
-//   display: none;
-// }
-// #sidebar.active .sidebar-header strong {
-//   display: block;
-// }
+.content{
+  padding-bottom: 40px;
+}
 
 #sidebar ul li a {
   text-align: left;

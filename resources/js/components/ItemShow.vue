@@ -9,12 +9,7 @@
       <div class="container" style="overflow-x:scroll; ">
         <div class="slidex">
           <div class="row">
-            <div
-              class="Image-36 sm-img pl-5"
-              v-for="(image, index) in item.images"
-              :key="image.id"
-              v-if="index > 0"
-            >
+            <div class="Image-36 sm-img pl-2" v-for="image in item.images">
               <div class="pr-3">
                 <img
                   :src="image.image_url"
@@ -39,23 +34,39 @@
             <div class="col-4 offset-4">
               <i class="flaticon-speaker dot2" @click="playAudio()"></i>
             </div>
+            <p>สามารถฟังคำยายด้วยเสียงอิดอก</p>
           </div>
           <!-- <audio controls v-if="show.translation" ref="player">
                 <source :src="show.translation.audio_url" type="audio/mpeg" />
               </audio> -->
         </div>
       </div>
-      <div class="link-lang" style="font-size:20px; margin-top: 20px;">
+      <div class="link-lang" style="font-size:20px; ">
         <strong>
-          <a href="?lang=th">TH</a>
-          |
-          <a href="?lang=en">ENG</a>
-          |
-          <a href="?lang=cn">CN</a>
+          <button class=" pl-3 pr-3"  style="
+          font-size:20px;
+          color:white!important;
+          border-radius:7px;
+          border:2px solid #1c5925;
+      background-color:#1c5925;"><a href="?lang=th" style="color:white;">TH</a>
+          </button>
+          <button class="pl-3 pr-3" style="
+          font-size:20px;
+         border:2px solid #1c5925;
+      background-color:white; border-radius:7px;">
+            <a href="?lang=en">ENG</a>
+          </button>
+
+          <button class="pl-3 pr-3" style="
+          font-size:20px;
+         border:2px solid #1c5925;
+      background-color:white; border-radius:7px;">
+            <a href="?lang=cn">CN</a>
+          </button>
         </strong>
       </div>
       <div class="detail-content">
-        <div class="pl-4 pr-4 pt-4">
+        <div class="pl-4 pr-4 pt-4 text-center">
           <p>{{ item.translation.description }}</p>
         </div>
       </div>
@@ -92,7 +103,7 @@
           <div class="position">
             <b-carousel
               id="carousel-fade"
-              style="text-shadow: 0px 0px 2px #000"
+              style="text-shadow: 0px 0px 2px #000; font-size: 20px!important;"
               fade
               indicators
               img-width="1024"
@@ -100,35 +111,32 @@
             >
               <a href="">
                 <b-carousel-slide
-                  caption="First slide"
-                  img-src="https://picsum.photos/1024/480/?image=10"
+                  caption="ห้องรับแขก"
+                  img-src="../uploads/images/items/1587207979.jpg"
                 ></b-carousel-slide>
               </a>
               <a href="">
                 <b-carousel-slide
-                  caption="Second Slide"
-                  img-src="https://picsum.photos/1024/480/?image=12"
+                  caption="ห้องอาหาร"
+                  img-src="../uploads/images/items/1584439538.jpg"
                 ></b-carousel-slide>
               </a>
               <a href="">
                 <b-carousel-slide
-                  caption="Third Slide"
-                  img-src="https://picsum.photos/1024/480/?image=22"
+                  caption="ห้องนอนคุณยาย"
+                  img-src="../uploads/images/items/img12.jpg"
                 ></b-carousel-slide>
               </a>
             </b-carousel>
           </div>
         </b-container>
       </div>
-      <div class="detail-content3" >
+      <div class="detail-content3">
         <div class="Rectangle-3">
           <div class="col-12">
             <div class="row">
-              
-              <div class="col-12">
-                
-              </div>
-             
+              <div class="col-12"></div>
+
               <div class="col-3"></div>
               <div
                 class="col-6 text-center"
@@ -140,9 +148,7 @@
               </div>
               <div class="col-3"></div>
               <div class="col-12">
-               
-                  mindmuse.com All right resered
-             
+                mindmuse.com All right resered
               </div>
             </div>
           </div>
@@ -201,9 +207,10 @@ export default {
 </script>
 
 <style>
+@import url("https://fonts.googleapis.com/css2?family=Prompt&display=swap");
 body {
   background-color: #020024;
-  font-family: Prompt;
+  font-family: mitr !important;
 }
 
 @media screen and (max-width: 767px) {
@@ -218,6 +225,12 @@ body {
     display: none;
   }
 }
+
+.carousel-item img{
+    padding: 5px;
+  border: solid 2px #1c5925;
+  border-radius: 15px;
+}
 .head {
   position: relative;
   width: 100%;
@@ -226,8 +239,10 @@ body {
   background-color: #1c5925;
   background-image: url(/uploads/images/items/banner-1.jpg);
   background-size: contain;
+  font-family: mitr;
 }
 .top-bar {
+    
   position: absolute;
   left: 35px;
   right: 35px;
@@ -235,7 +250,7 @@ body {
   background-color: white;
   height: 50px;
   border-radius: 31px;
-  box-shadow: 0px 1px 2px #aba9a9;
+  box-shadow: 0px 0px 10px #649568;
 }
 .head-text-content {
   color: #1c5925;
@@ -246,6 +261,7 @@ body {
   left: 20px;
   right: 20px;
   top: 10px;
+  font-family: mitr;
 }
 .speaker {
   padding-top: 20px;
@@ -256,19 +272,21 @@ body {
   /* border-radius: 50%; */
   /* border: solid 1px #ccc; */
 }
-.content {
+/* .content {
   position: relative;
   padding-top: 80px;
-  /* height: 1300px; */
-}
+   height: 1300px; 
+}  */
 .img-content {
   height: 300px;
   overflow: hidden;
 }
 .slidex {
-  width: 1000px;
+  margin-left: 65px;
+  margin-top: 50px;
+  width: 1120px;
   max-width: 3200px;
-  padding-bottom: 45px;
+  padding-bottom: 30px;
   height: auto;
 }
 .item-pic {
@@ -277,9 +295,10 @@ body {
   border-radius: 15px;
 }
 .detail-content {
-  margin-top: 75px;
+  font-family: mitr;
+  margin-top: 85px;
   /* width: 97%; */
-  background-color: #ccc693;
+  background-color: #f9f7e9;
   height: auto;
   max-height: 500px;
   border-top-right-radius: 20px;
@@ -288,11 +307,12 @@ body {
   padding-bottom: 20px;
   margin-left: 20px;
   margin-right: 20px;
+  text-align: left;
 }
 .detail-content2 {
   margin-top: 20px;
   /* width: 97%; */
-  background-color: #ccc693;
+  background-color: #f9f7e9;
   height: auto;
   max-height: 500px;
   border-bottom-left-radius: 20px;
@@ -307,10 +327,13 @@ body {
   max-height: 6px;
   border-top-left-radius: 20px;
   border-bottom-left-radius: 20px;
-  margin-left: 20px;
-  margin-right: 20px;
+  border-bottom-right-radius: 20px;
+  margin-left: 50px;
+  margin-right: 50px;
+  /* margin-right: 20px; */
 }
 .link-lang {
+  font-family: mitr;
   position: absolute;
   /* padding-top: 80px; */
   width: 100%;
@@ -320,6 +343,7 @@ body {
   color: #1c5925;
 }
 .locate {
+  font-family: mitr;
   font-size: 20px;
   font-weight: bold;
   font-stretch: normal;
@@ -369,16 +393,19 @@ body {
 }
 .detail-sound2 {
   margin-top: 20px;
-  background-color: #ccc693;
+  background-color: #f9f7e9;
   height: auto;
   /* border-bottom-left-radius: 115px;
   border-bottom-right-radius: 115px; */
   margin-left: 20px;
   margin-right: 20px;
 }
-.detail-content3{
+.detail-content3 {
   padding-top: 30px;
   padding-bottom: 20px;
+}
+.carousel-caption h3 {
+  font-size: 20px !important;
 }
 /* .col-4x{
     width: 600px;

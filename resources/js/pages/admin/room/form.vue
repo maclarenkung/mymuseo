@@ -2,20 +2,30 @@
   <div>
     <div class="dashh">
       <div class="clearfix">
-        <router-link to="/admin/floors/1" class="float-left">
-          <i class="flaticon-left-arrow" style="font-size:25px; color:#ffcc57;"></i>
-        </router-link>
+        <!-- <router-link
+                  :to="{
+                    name: 'admin.floors.show',
+                    params: { id: this.id }
+                  }"
+                >
+          <i
+            class="flaticon-left-arrow"
+            style="font-size:25px; color:#ffcc57;"
+          ></i>
+        </router-link> -->
         <span class="float-left ml-4" style="font-size:25px;">
-          {{
-          id ? "Edit Room" : "Create Room"
-          }}
+          {{ id ? "Edit Room" : "Create Room" }}
         </span>
       </div>
       <!-- <pre>{{ form }}</pre> -->
       <!-- <pre>{{ floors }}</pre> -->
-      <!-- <pre>{{ showfloors }}</pre> -->
+      <!-- <pre>{{ show }}</pre> -->
 
-      <form @submit.prevent="submitForm" @keydown="form.onKeydown($event)" class="mt-3">
+      <form
+        @submit.prevent="submitForm"
+        @keydown="form.onKeydown($event)"
+        class="mt-3"
+      >
         <!-- Name -->
         <div class="row">
           <div class="col-12">
@@ -31,7 +41,8 @@
                   :value="floor.id"
                   v-for="(floor, index) in floors"
                   :key="index"
-                >{{ floor.translation.name }}</option>
+                  >{{ floor.translation.name }}</option
+                >
               </select>
             </div>
           </div>
@@ -64,7 +75,11 @@
           <div class="col-4"></div>
           <div class="col-12">
             <div class="row">
-              <div class="col-md-4" v-for="(img, index) in form.all.image_url" :key="index">
+              <div
+                class="col-md-4"
+                v-for="(img, index) in form.all.image_url"
+                :key="index"
+              >
                 <div class="card">
                   <div class="card-body">
                     <img :src="img" width="100%" />
@@ -120,7 +135,12 @@
                       <div class="form-group col-md-6">
                         <label>Audio</label>
                         <div class>
-                          <input class="form-control" type="file" name="image" @change="setFile" />
+                          <input
+                            class="form-control"
+                            type="file"
+                            name="image"
+                            @change="setFile"
+                          />
                           <has-error :form="form" field="file" />
                         </div>
                       </div>
@@ -130,7 +150,7 @@
                           <textarea
                             v-model="form[lang.code].description"
                             :class="{
-                              'is-invalid': form.errors.has('description')
+                              'is-invalid': form.errors.has('description'),
                             }"
                             class="form-control"
                             type="text"
@@ -155,7 +175,8 @@
               id="createbtn2"
               style="width:130px;"
               class="text-white colorr"
-            >{{ id ? "UPDATE" : "CREATE" }}</v-button>
+              >{{ id ? "UPDATE" : "CREATE" }}</v-button
+            >
           </div>
         </div>
       </form>
@@ -172,33 +193,33 @@ export default {
     form: new Form({
       all: {
         floor_id: "",
-        image_url: []
+        image_url: [],
       },
       th: {
-        name: "ห้องอาหาร",
+        name: "ห้องรับแขก",
         description:
           "อาคารหลังนี้ถูกสร้างขึ้นเมื่อปี พ.ศ. 2480 หรือเมื่อประมาณ 80 กว่าปีที่แล้ว โดยเป็นอาคารที่คุณแม่ของท่านอาจารย์วราพรได้สร้างขึ้นมาด้วยเงินจำนวน 2,400 บาท อาคารแห่งนี้จะเป็นอาคารที่ครอบครัวของท่านอาจารย์วราพรเคยอาศัยอยู่เมื่อในอดีต โดยคุณแม่ของท่านมีลูกทั้งหมด 5 คน เป็นผู้หญิงล้วน และท่านอาจารย์เป็นลูกคนที่ 4 ครับ ลักษณะของอาคารจะเป็นอาคารไม้สองชั้น หลังคาทรงปั้นหยา มุงด้วยกระเบื้องว่าวสีแดง ผนังอาคารสร้างด้วยไม้ทาสีเลียนแบบผนังก่ออิฐ และสถาปัตยกรรมหลายๆ อย่างจะได้รับอิทธิพลมาจากทางตะวันตกซึ่งกำลังเป็นที่นิยมในยุคนั้น",
 
-        file_url: ""
+        file_url: "",
       },
       en: {
-        name: "dining room",
+        name: "Living room",
         description:
           "This building was built in 2480, or about 80 years ago. The building is the mother of Master Waraporn was built with funds of 2,400 baht this building is the building where the family of Master Waraporn had lived in the past. The mother of five children, all of whom are girls. The teacher and the child's fourth appearance of the building will be a two-story wooden building. Hip roof Roofed with tiles, red kites. Wall built of wood painted in imitation masonry. And multiple platforms Will be influenced by the West, which were popular in that era.",
 
-        file_url: ""
+        file_url: "",
       },
       cn: {
-        name: "餐厅",
+        name: "客廳",
         description:
           "该建筑建于2480年，大约80年前。这是瓦拉波恩老师的母亲以2,400泰铢建造的建筑物，它将是瓦拉波恩老师的家人过去居住的建筑物  你妈妈有五个孩子，都是女人师父是第四个孩子，这座建筑有两层楼的木制建筑臀部屋顶茅草屋顶的红色风筝瓷砖建筑物的墙壁是用彩绘木材建造的，模仿了砖砌。还有很多建筑会受到那个时代流行的西方的影响",
 
-        file_url: ""
-      }
+        file_url: "",
+      },
     }),
     // floor_active: 1,
     image: "",
-    file: ""
+    file: "",
   }),
   computed: {
     // room_id() {
@@ -207,11 +228,11 @@ export default {
     ...mapGetters({
       show: "item/show",
       floors: "floor/items",
-      rooms: "room/items"
+      rooms: "room/items",
     }),
     id() {
       return parseInt(this.$route.params.id);
-    }
+    },
   },
   methods: {
     async setImg(e) {
@@ -222,7 +243,7 @@ export default {
       this.image = e.target.files[0];
       let img = await this.upImg({
         image: this.image,
-        path: "items"
+        path: "items",
       });
       this.form.all.image_url.push(img);
     },
@@ -245,11 +266,24 @@ export default {
       this.form.floor_id;
 
       const { data } = await this.form.post("/api/rooms");
+      if (data) {
+        this.$router.push({
+          name: "admin.room.show",
+          params: { id: await this.room_id },
+        });
+      }
 
       // if (data) {
       //   this.$router.push({
-      //     name: "admin.room.show",
-      //     params: { id: this.room_id }
+      //     name: "admin.floors.show",
+      //     params: { id:await this.floor_id }
+      //   });
+      // }
+
+      //  if (data) {
+      //   this.$router.push({
+      //     name: "admin.floors.show",
+      //     params: { id: await this.floors.id},
       //   });
       // }
     },
@@ -260,39 +294,24 @@ export default {
     removeImg(index) {
       this.$delete(this.form.all.image_url, index);
     },
-    async update() {
-      if (this.image) {
-        this.form.image_url = await this.upImg({
-          image: this.image,
-          path: "items"
-        });
-      }
-      const { data } = await this.form.put(`/api/items/${this.id}`);
-
-      if (data) {
-        this.$router.push({
-          name: "admin.floors.show",
-          params: { id: this.show.id }
-        });
-      }
-    },
+    async update() {},
     ...mapActions({
       fetch: "item/show",
       fetchFloors: "floor/fetch",
-      fetchRoom: "room/fetch"
-    })
+      fetchRoom: "room/fetch",
+    }),
   },
   async created() {
     console.log(this.id);
     if (this.id) {
       await this.fetch(this.id);
-      this.form.keys().forEach(key => {
+      this.form.keys().forEach((key) => {
         this.form[key] = this.show[key];
       });
     }
     this.fetchFloors();
     this.fetchRoom(this.floor_active);
-  }
+  },
 };
 </script>
 
