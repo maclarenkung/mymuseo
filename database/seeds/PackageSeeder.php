@@ -15,21 +15,21 @@ class PackageSeeder extends Seeder
         DB::table('packages')->insert([
             [
                 "name" => "small",
-                "price" => "20,000",
+                "price" => 20000,
                 "qrcode" => "unlimited",
                 "item_max" => "100",
 
             ],
             [
                 "name" => "medium",
-                "price" => "25,000",
+                "price" => 25000,
                 "qrcode" => "unlimited",
                 "item_max" => "200",
 
             ],
             [
                 "name" => "extra",
-                "price" => "30,000",
+                "price" => 30000,
                 "qrcode" => "unlimited",
                 "item_max" => "300",
 

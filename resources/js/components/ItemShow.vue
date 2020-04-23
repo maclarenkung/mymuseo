@@ -43,24 +43,14 @@
       </div>
       <div class="link-lang" style="font-size:20px; ">
         <strong>
-          <button class=" pl-3 pr-3"  style="
-          font-size:20px;
-          color:white!important;
-          border-radius:7px;
-          border:2px solid #1c5925;
-      background-color:#1c5925;"><a href="?lang=th" style="color:white;">TH</a>
+          <button class=" pl-3 pr-3" :class="local_lang == 'th' ? 'l_btn_active' : 'l_btn'" style="
+          "><a href="?lang=th">TH</a>
           </button>
-          <button class="pl-3 pr-3" style="
-          font-size:20px;
-         border:2px solid #1c5925;
-      background-color:white; border-radius:7px;">
+          <button class="pl-3 pr-3" :class="local_lang == 'en' ? 'l_btn_active' : 'l_btn'" >
             <a href="?lang=en">ENG</a>
           </button>
 
-          <button class="pl-3 pr-3" style="
-          font-size:20px;
-         border:2px solid #1c5925;
-      background-color:white; border-radius:7px;">
+          <button class="pl-3 pr-3" :class="local_lang == 'cn' ? 'l_btn_active' : 'l_btn'">
             <a href="?lang=cn">CN</a>
           </button>
         </strong>
@@ -74,21 +64,23 @@
         <div class="locate">
           <p>ตำแหน่งของคุณ</p>
         </div>
-        <focus-point v-model="item.focus">
+        <div class="container">
+        <focus-point v-model="item.focus" >
           <template slot="pin">
             <i
               class="fas fa-map-marker-alt"
-              style="color: #C70039; font-size:30px;"
+              style="color: #C70039; font-size:25spx;"
             ></i>
           </template>
-          <div class="container">
+          
             <img
-              :src="item.room.floor.museum.locate_image_url"
-              width="70%"
+              :src="item.room.floor.map_image_url"
+              width="100%"
               class="item-pic"
             />
-          </div>
+          
         </focus-point>
+        </div>
 
         <div class="locate2">
           <p class="head-locate">พิพิธภัณฑ์ ชาวบางกอก</p>
@@ -99,6 +91,8 @@
         <div class="locate3">
           <p>ห้องอื่นๆ</p>
         </div>
+
+        
         <b-container fluid="sm" style="    padding:0px 55px 55px;">
           <div class="position">
             <b-carousel
@@ -109,24 +103,13 @@
               img-width="1024"
               img-height="480"
             >
-              <a href="">
+              
                 <b-carousel-slide
-                  caption="ห้องรับแขก"
-                  img-src="../uploads/images/items/1587207979.jpg"
+                  :caption="room.translation.name"
+                  :img-src="room.image_url"
+                   v-for="room in item.room.floor.rooms" :key="room.id"
                 ></b-carousel-slide>
-              </a>
-              <a href="">
-                <b-carousel-slide
-                  caption="ห้องอาหาร"
-                  img-src="../uploads/images/items/1584439538.jpg"
-                ></b-carousel-slide>
-              </a>
-              <a href="">
-                <b-carousel-slide
-                  caption="ห้องนอนคุณยาย"
-                  img-src="../uploads/images/items/img12.jpg"
-                ></b-carousel-slide>
-              </a>
+        
             </b-carousel>
           </div>
         </b-container>
@@ -194,6 +177,9 @@ export default {
     comFocus() {
       return this.item.focus;
     },
+    local_lang(){
+      return this.$route.query.lang
+    }
   },
   watch: {
     comFocus() {
@@ -406,6 +392,26 @@ body {
 }
 .carousel-caption h3 {
   font-size: 20px !important;
+}
+.focus-point{
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+}
+.l_btn_active{
+  font-size:20px;
+          color:white!important;
+          border-radius:7px;
+          border:2px solid #1c5925;
+      background-color:#1c5925;
+}
+.l_btn{
+ font-size:20px;
+         border:2px solid #1c5925;
+      background-color:white; border-radius:7px;
+}
+.l_btn_active a {
+  color: #fff;;
 }
 /* .col-4x{
     width: 600px;

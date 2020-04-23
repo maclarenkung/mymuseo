@@ -8,10 +8,17 @@ class MuseumPackage extends Model
 {
     protected $fillable = ['package_id', 'museum_id', 'expiry_date'];
     protected $casts = [
-        'expiry_date'  => 'date:d - m - y',
+        'ex_text'  => 'date:d - m - y',
     ];
+    protected $appends = ['ex_text'];
+    
     public function package()
     {
         return $this->belongsTo('App\Package');
     }
+    
+    public function getExTextAttribute(){
+        return $this->expiry_date;
+    }
+
 }

@@ -48,7 +48,7 @@ class MuseumController extends Controller
         $museumPackage = MuseumPackage::create([
             "museum_id" => $museum->id,
             "package_id" => $request->package_id,
-            "expiry_date" => Carbon::now()->addMonths(1),
+            // "expiry_date" => Carbon::now()->addMonths(1),
         ]);
         $museumUser = MuseumUser::create([
             "user_id" => $user->id,

@@ -16,3 +16,5 @@ yarn-error.log
 phpunit.dusk.xml
 *.code-workspace
 /public/uploads
+
+Archive 2.zip

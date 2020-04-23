@@ -32,12 +32,12 @@ export default {
   },
   async created() {
     this.fetch({ id: this.id, lang: this.langSlug });
+    
 
-    if (this.show) {
       await axios.post("/api/items/scan", {
         item_id: this.id
       });
-    }
+    
   }
 };
 </script>

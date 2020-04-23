@@ -13,13 +13,13 @@
       <hr />
       <ScanQr />
         </card>-->
-        <a href="/admin/customer">
+        <!-- <a href="/admin/customer">
           <div id="mybutton">
             <button class="feedback">
               <h3>Admin</h3>
             </button>
           </div>
-        </a>
+        </a> -->
 
         <div class="col-12 header">
           <div class="col-4">
@@ -254,13 +254,14 @@ export default {
 body {
   font-family: mitr !important;
 }
-.feedback {
-  background-color: #3e7a63;
-  color: white;
-  padding: 10px 20px;
-  border-radius: 4px;
-  border-color: #3e7a63;
-}
+// .feedback {
+//   background-color: #3e7a63;
+//   color: white;
+//   // padding: 10px 20px;
+//   font-size: 20px;;
+//   border-radius: 4px;
+//   border-color: #3e7a63;
+// }
 
 #mybutton {
   position: fixed;

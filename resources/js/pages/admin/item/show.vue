@@ -89,16 +89,7 @@
             </span>
           </div>
 
-          <!-- <div class="col-4 mt-4">
-            <form>
-              <div class="custom-file">
-                <input type="file" class="custom-file-input" id="customFile" />
-                <label class="custom-file-label" for="customFile">
-                  <i class="flaticon-upload"></i> Upload Map
-                </label>
-              </div>
-            </form>
-          </div>-->
+         
           <div class="col-12 mt-5">
             <b-card no-body>
               <b-tabs pills card v-model="tabIndex">

@@ -52,7 +52,7 @@ class FloorController extends Controller
         $floor = Floor::create([
             // "image_url" => $request->all['image_url'],
             "museum_id" => $request->all['museum_id'],
-
+            "map_image_url" => $request->all['map_image_url']
         ]);
 
         foreach ($request->only(['th', 'en', 'cn']) as $key => $value) {

@@ -1,13 +1,12 @@
 <template>
   <div v-if="show">
     <!-- <pre>{{ show }} </pre> -->
-
     <div class="col-12">
       <div class="col-12"></div>
     </div>
     <div class="row">
       <div class="col-6">
-      <span class="head-muse">พิพิธภัณฑ์ชาวบางกอก</span>
+      <!-- <span class="head-muse">พิพิธภัณฑ์ชาวบางกอก</span> -->
       <!-- <span class="head-muse">/ ชั้น 1</span> -->
 
       <!-- <span class="head-muse"> / {{ show.name }}</span> -->
@@ -36,7 +35,7 @@
             </tr>
           </thead>
           <tbody class="mm-tbody">
-            <tr v-for="item in show" :key="id" style="border-top: 1px solid #cac6c6;">
+            <tr v-for="item in itemFilter" :key="id" style="border-top: 1px solid #cac6c6;">
               <td>
                 <router-link
                   :to="{
@@ -71,7 +70,10 @@ export default {
   computed: {
     ...mapGetters({
       show: "item/items"
-    })
+    }),
+    itemFilter(){
+      return this.show.filter(el => el.id == this.museum_active)
+    }
   },
   methods: {
     ...mapActions({

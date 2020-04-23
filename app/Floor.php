@@ -18,7 +18,7 @@ class Floor extends Model
     {
         return $this->hasMany('App\Room');
     }
-    protected $fillable =  ['museum_id', 'image_url'];
+    protected $fillable =  ['museum_id', 'image_url','map_image_url'];
 
     protected $appends =  ['translation'];
     public function getTranslationAttribute()

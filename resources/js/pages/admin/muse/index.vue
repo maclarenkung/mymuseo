@@ -59,9 +59,9 @@
                   <div >
                     <!-- <button class="upgrade">จ่ายเงิน</button> -->
                     <paymentOmise
-                      :amount="2000000"
-                      :price_all="20000"
-                      
+                      :amount="museumFilter.package.price + '00'"
+                      :price_all="museumFilter.package.price + '00'"
+                      :museum_id="museum_active"
                     />
                   </div>
                 </div>
@@ -93,7 +93,7 @@
                 <div class="col-12">
                   <p style="color: #4A4A4A; font-size:30px;">Expired date</p>
                   <span style="color: #FF6464; font-size:25px;">
-                   <strong> {{ museumFilter.expiry_date }}</strong>
+                   <strong> {{ museumFilter.ex_text ? museumFilter.ex_text : 'กรุณาจ่ายเงิน' }}</strong>
                   </span>
                 </div>
               </div>
@@ -171,7 +171,7 @@
                 </div>
 
                 <p class="mt-4 h7">จำนวน QR Scan ทั้งหมด</p>
-                <span class="h8">500 คน</span>
+                <span class="h8">{{museFilter.scan_count_human}} คน</span>
               </div>
             </b-button>
             <div>
@@ -191,12 +191,12 @@
                   <i class="flaticon-team"></i>
                 </div>
                 <p class="mt-4 h7">จำนวนห้องจัดแสดง</p>
-                <!-- <span class="h8">Room</span> -->
+                <span class="h8">{{museFilter.room_count}} ห้อง</span>
               </div>
             </b-button>
             <div>
               <b-modal id="modal-2" title="จำนวนห้อง">
-                <p class="my-4">8 ห้อง</p>
+                <span class="h8">{{museFilter.room_count}} ห้อง</span>
               </b-modal>
             </div>
           </div>
@@ -210,8 +210,10 @@
                 <div class="icon-3 text-center">
                   <i class="flaticon-qr-code"></i>
                 </div>
-                <p class="mt-4 h7">จำนวน QR Scan ของจัดแสดง</p>
-                <!-- <span class="h8">Items</span> -->
+                <p class="mt-4 h7">สแกน QR Scan มากที่สุดของจัดแสดง</p>
+                <span class="h8">{{museFilter.scan_count_max.item.translation.name}} <br>
+                {{museFilter.scan_count_max.count}}
+                </span>
               </div>
             </b-button>
             <div>
@@ -442,6 +444,10 @@ export default {
     museumFilter() {
       let res = this.user.museums.find((el) => el.id == this.museum_active);
       return res.museum_package;
+    },
+    museFilter() {
+      let res = this.user.museums.find((el) => el.id == this.museum_active);
+      return res;
     },
   },
   async created() {

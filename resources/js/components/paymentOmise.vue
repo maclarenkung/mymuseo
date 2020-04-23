@@ -16,7 +16,7 @@ import axios from "axios";
 import Swal from "sweetalert2";
 
 export default {
-  props: ["amount", "purchase_id", "form", "price_all"],
+  props: ["amount", "purchase_id", "form", "price_all","museum_id"],
   methods: {
     checkOut() {
       OmiseCard.configure({
@@ -38,6 +38,7 @@ export default {
             const { data } = await axios.post("/api/payment", {
               token: nonce,
               amount: this.amount,
+              museum_id:this.museum_id,
               purchase_id: this.purchase_id
             });
 
@@ -51,9 +52,11 @@ export default {
                   icon: "success",
                   title: "การชำระเงินสำเร็จ",
                   timer: 1500
-                }).then(result => {
-                  alert("การชำระเงินสำเร็จ");
+                }).then(async result => {
+                      await this.fetchUser();
                 });
+
+
               }
             } else {
               Swal.fire({

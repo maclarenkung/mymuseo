@@ -3,7 +3,7 @@
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
     <div id="mySidenav" class="sidenav">
       <h3 style="color: white; margin-top:70px" class="text-center">
-        MINDMUSE
+       <route-link to="/admin/customer">MINDMUSE</route-link> 
       </h3>
 
       <h5 style="color:white;" class="text-center">Welcome</h5>
@@ -109,21 +109,11 @@
                     <p>{{ floor.translation.name }}</p>
                   </router-link>
                 </li>
-                <!-- <li>
-                  <a href="#">ชั้น 2</a>
-                </li>
-                <li>
-                  <a href="#">ชั้น 3</a>
-                </li>-->
+               
               </ul>
             </li>
 
-            <!-- <li class="nav-item">
-              <router-link to="/admin/floors/1" class="nav-link">
-                <img :src="'/icon/door.png'" alt width="24" />
-                Room
-              </router-link>
-            </li>-->
+            
 
             <li class="nav-item">
               <router-link to="/admin/items" class="nav-link">
@@ -161,21 +151,7 @@
               </router-link>
             </li>
 
-            <!-- <hr />
-
-            <li>
-              <b>Payment</b>
-            </li>
-            <li class="nav-item">
-              <router-link to="/admin/howtopay" class="nav-link">
-                <img :src="'/icon/pay.png'" alt width="24" />
-                How to pay
-              </router-link>
-              <router-link to="/admin/payment" class="nav-link">
-                <img :src="'/icon/check.png'" alt width="24" />
-                Confirm
-              </router-link>
-            </li>-->
+          
           </ul>
         </div>
       </div>
@@ -195,28 +171,7 @@
         </div>
       </div>
     </div>
-    <!-- <div class="col-md-10 offset-2">
-      <div class="card">
-        <div class="w3 mt-3">
-          <div class="row"></div>
-
-          <div class="col-md-12" style="padding-left: 0px!important;">
-            <div class>
-              <transition name="fade" mode="out-in">
-                <div
-                  class="card p-3 ml-1"
-                  style="overflow-y:scroll;"
-                  :style="`height:750px`"
-                >
-
-                  <div></div>
-                </div>
-              </transition>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>-->
+    
   </div>
 
   <!-- </div> -->

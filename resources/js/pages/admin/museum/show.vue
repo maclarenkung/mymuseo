@@ -1,42 +1,18 @@
 <template>
   <div>
     <!-- {{ museum_active}} -->
-    <!-- <pre>{{ show }}</pre> -->
+   
+    <!-- {{floor.translation.name}} -->
     <!-- <h2>{{ show.name }}</h2> -->
     <!-- <hr /> -->
     <!-- <a :href="show.address_url" target="_blank" rel="noopener noreferrer">Google Map</a> -->
     <div class="col-12">
       <div class="dropdown text-center" style="color:#4A4A4A">
-        <!-- <button
-          class="btn  dropdown-toggle text-center"
-          type="button"
-          id="dropdownMenuButton"
-          data-toggle="dropdown"
-          aria-haspopup="true"
-          aria-expanded="false"
-          style="font-size:30px; color:#4A4A4A"
-        >
-          พิพิธภัณฑ์ ชาวบางกอก
-        </button>
-        <button class="setting">
-          <i class="flaticon-wheel"></i>
-          setting
-        </button>-->
-
-        <!-- <div class="col-4 m-auto">
-          <select v-model="active" class="form-control">
-            <option
-              v-for="museum in user.museums"
-              :key="museum.id"
-              :value="museum.id"
-            >{{ museum.name }}</option>
-          </select>
-          <p>(Bangkok Museum)</p>
-        </div>-->
+       
       </div>
     </div>
     <div class="col-12">
-      <span class="head-muse"></span>
+      
 
       <span class="head-muse" style="color:#3641FB">/ Floor</span>
     </div>
@@ -44,7 +20,7 @@
     <div class="col-12">
       <div class="card table-flo">
         <table>
-          <thead class="mm-thead">
+          <thead class="mm-thead"  style="font-size:20px; font-weight:600;">
             <tr>
               <td style="width:60%;">Name</td>
               <td class="text-center" style="width: 10%">Action</td>
@@ -53,7 +29,7 @@
           </thead>
           <br />
           <tbody class="mm-tbody">
-            <tr v-for="floor in filterFloor(show, museum_active)" :key="floor.id">
+            <tr v-for="floor in filterFloor(show, museum_active)" :key="floor.id" style="border-top: 1px solid #cac6c6;">
               <td>
                 <router-link
                   :to="{
@@ -71,7 +47,7 @@
                     params: { id: floor.id }
                   }"
                 >
-                  <el-button type="warning" round>Edit</el-button>
+                  <el-button type="warning" round><i class="fas fa-pencil-alt"></i> &nbsp;Edit</el-button>
                 </router-link>
               </td>
               <td class="text-center">

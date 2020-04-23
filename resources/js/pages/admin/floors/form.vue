@@ -5,7 +5,6 @@
     </focus-point>
 
     <div v-if="focus.x && focus.y">x: {{ focus.x }} | y: {{ focus.y }}</div>-->
-
     <div class="dashh">
       <div class="clearfix">
         <router-link to="/admin/museums/1" class="float-left">
@@ -66,23 +65,40 @@
             </div>
           </div>
           <br />
-          <!-- <div class="col-4 mt-4">
-            <span style="color:#3631c4; font-size:20px;" class="flaticon-placeholder">
-
-              Map (พร้อมระบุตำแหน่ง)
-            </span>
-          </div>
-          <div class="col-4 mt-4">
-            <form>
-              <div class="custom-file">
-                <input type="file" class="custom-file-input" id="customFile" />
+       <div class="col-6 mt-4">
+              <label style="color:#3631c4;">
+                <i style="color:#3631c4;" class="flaticon-photo"></i>
+                Map
+              </label>
+              <div class="custom-file mt-3">
+                <input
+                  type="file"
+                  class="custom-file-input"
+                  id="customFile"
+                  name="image_locate"
+                  @change="setImgLocate"
+                />
+                <has-error :form="form" field="image" />
                 <label class="custom-file-label" for="customFile">
-                  <i class="flaticon-upload"></i> Upload Map
+                  <i class="flaticon-upload"></i> Upload Locate Image
                 </label>
               </div>
-
-            </form>
-          </div>-->
+              <div class="col-12" v-if="form.all.map_image_url">
+                <div class="row">
+                  <div
+                    class="col-md-12"
+                
+                  >
+                    <div class="card">
+                      <div class="card-body">
+                        <img :src="form.all.map_image_url" width="100%" />
+                      </div>
+                     
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           <div class="col-12 mt-5">
             <b-card no-body>
               <b-tabs pills card>
@@ -165,7 +181,9 @@ export default {
         museum_id: "",
         // locate_x: 0,
         // locate_y: 0,
-        image_url: []
+        image_url: [],
+        image_locate: [],
+        map_image_url : ''
       },
       th: {
         name: "ชั้น 1",
@@ -215,6 +233,16 @@ export default {
     // FocusPoint
   },
   methods: {
+        async setImgLocate(e) {
+      // console.log(e);
+
+      this.image = e.target.files[0];
+      let img = await this.upImg({
+        image: this.image,
+        path: "items"
+      });
+      this.form.all.map_image_url = img
+    },
     async setImg(e) {
       if (this.form.all.image_url.length >= 6) {
         alert("จำนวนไฟล์เกิน");

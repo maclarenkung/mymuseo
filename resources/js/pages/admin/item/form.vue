@@ -1,7 +1,6 @@
 <template>
   <div>
     <!-- <pre>{{ show }}</pre> -->
-
     <div class="dashh">
       <!-- <div class="col-12 text-center">
         <div class="col-4 m-auto">
@@ -156,7 +155,7 @@
                 ></i>
               </template>
               <img
-                :src="filterMuse ? filterMuse.locate_image_url : ''"
+                :src="findFloor ? findFloor.map_image_url : ''"
                 width="100%"
               />
             </focus-point>
@@ -302,6 +301,9 @@ export default {
     filterMuse() {
       return this.user.museums.find((el) => el.id == this.museum_active);
     },
+    findFloor(){
+      return  this.floors.find(el=> el.id == this.floor_active)
+    }
   },
   // components: {
   //   FocusPoint

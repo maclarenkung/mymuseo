@@ -34,6 +34,9 @@
           <li class="nav-item">
             <a class="nav-link" href="#" style="color:#3E7A63">Service</a>
           </li>
+          <li class="nav-item">
+             <a class="nav-link" href="/admin/customer" style="color:#3E7A63">Admin</a>
+          </li>
         </ul>
 
         <ul class="navbar-nav ml-auto">

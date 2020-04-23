@@ -53,8 +53,14 @@ export default {
       return this.xs ? "" : "container";
     },
     ...mapGetters({
-      user: "auth/user"
-    })
+      user: "auth/user",
+      museum_active: "museum/museum_active"
+    }),
+    museum_active_name(){
+     let x = this.user.museums.find(el => el.id == +this.museum_active)
+     console.log('x',x);
+     return x.name ? x.name : '-'
+    }
   },
   mounted() {
     this.$nextTick(function() {

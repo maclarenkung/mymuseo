@@ -180,43 +180,7 @@
                 </div>
               </div>
             </div>
-            <div class="col-6 mt-4">
-              <label style="color:#3631c4;">
-                <i style="color:#3631c4;" class="flaticon-photo"></i>
-                Map
-              </label>
-              <div class="custom-file mt-3">
-                <input
-                  type="file"
-                  class="custom-file-input"
-                  id="customFile"
-                  name="image_locate"
-                  @change="setImgLocate"
-                />
-                <has-error :form="form" field="image" />
-                <label class="custom-file-label" for="customFile">
-                  <i class="flaticon-upload"></i> Upload Locate Image
-                </label>
-              </div>
-              <div class="col-12">
-                <div class="row">
-                  <div
-                    class="col-md-12"
-                    v-for="(imgl, index) in form.all.image_locate"
-                    :key="index"
-                  >
-                    <div class="card">
-                      <div class="card-body">
-                        <img :src="imgl" width="100%" />
-                      </div>
-                      <div class="card-footer">
-                        <button @click="removeImgl(index)" type="button">ลบ</button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+          
             <div class="col-4 mt-5"></div>
             <div class="col-12 text-center mt-5">
               <router-link to="/admin/pay/success" class>

@@ -58,6 +58,21 @@
                     <has-error :form="form" field="email" />
                   </div>
 
+                     <!-- Name -->
+                  <div class="form-group">
+                    <input
+                      placeholder="Name"
+                      id="input"
+                      v-model="form.tel"
+                      :class="{ 'is-invalid': form.errors.has('tel') }"
+                      class="form-control"
+                      type="text"
+                      name="tel"
+                      width="100%"
+                    />
+                    <has-error :form="form" field="tel" />
+                  </div>
+
                   <!-- Password -->
                   <div class="form-group">
                     <input
@@ -130,6 +145,7 @@ export default {
     form: new Form({
       name: "test1",
       email: "test@gmail.com",
+      tel:'0873562836',
       password: "123456",
       password_confirmation: "123456"
     }),

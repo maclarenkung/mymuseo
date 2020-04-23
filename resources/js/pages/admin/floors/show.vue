@@ -9,7 +9,7 @@
       </select>
     </div> -->
     <div class="col-12">
-      <span class="head-muse">พิพิธภัณฑ์ชาวบางกอก</span>
+      <!-- <span class="head-muse">พิพิธภัณฑ์ชาวบางกอก</span> -->
       <!-- <span class="head-muse"></span> -->
 
       <span class="head-muse" style="color:#3641FB">/ Room</span>
@@ -18,7 +18,7 @@
     <div class="col-12">
       <div class="card table-room">
         <table>
-          <thead class="mm-thead">
+          <thead class="mm-thead" style="font-size:20px; font-weight:600;">
             <tr>
               <td style="width:70%;">Name</td>
               <td class="text-center" style="width: 40%">Action</td>
@@ -26,7 +26,7 @@
             </tr>
           </thead>
           <tbody class="mm-tbody">
-            <tr v-for="room in show.rooms" :key="room.id">
+            <tr v-for="room in show.rooms" :key="room.id" style="border-top: 1px solid #cac6c6;">
               <td>
                 <router-link
                   :to="{ name: 'admin.room.show', params: { id: room.id } }"
@@ -43,7 +43,7 @@
                   <el-button type="warning" round>Edit</el-button>
                 </router-link>
               </td>
-              <td>15/11/62</td>
+              <td>{{room.translation.created_at}}</td>
             </tr>
           </tbody>
         </table>

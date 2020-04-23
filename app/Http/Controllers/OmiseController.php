@@ -4,8 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use OmiseCharge;
-
-
+use App\Museum;
+use App\MuseumPackage;
+use Carbon\Carbon;
 
 class OmiseController extends Controller
 {
@@ -20,7 +21,21 @@ class OmiseController extends Controller
             "card" => $request->token
         ]);
         $sms = new THSMS();
-        $sms->send('NOTICE', '0873562836', 'ขอบคุณ ที่ใช้บริการ พิพิธภัณฑ์ของคุณสามารถใช้งานได้แล้วตั้งแต่วันที่ 19/4/63 ถึง 19/5/63');
+
+        $user = $request->user();
+
+        $museum = Museum::find($request->museum_id);
+        
+        $museum_package = MuseumPackage::where('museum_id',$museum->id)->first();
+
+        
+        $museum_package->update([
+          "expiry_date" => Carbon::now()->addMonths(1),
+        ]);
+
+        if($user->tel){
+            $sms->send('NOTICE', $user->tel, 'ขอบคุณ ที่ใช้บริการ พิพิธภัณฑ์ของคุณสามารถใช้งานได้แล้วตั้งแต่วันที่ 19/4/63 ถึง 19/5/63');
+        }
 
         return "success";
     }

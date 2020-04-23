@@ -37,7 +37,9 @@ class ItemController extends Controller
 
         $items = Item::whereHas('room.floor.museum', function ($query) use ($user_museum) {
             $query->whereIn('museum_id', $user_museum);
-        })->get();
+        })->with('room.floor')->get();
+
+
 
         return $items;
     }
@@ -113,6 +115,7 @@ class ItemController extends Controller
     {
         $item->images;
         $item->room->floor->museum;
+        $item->room->floor->rooms;
         return $item;
     }
 
